@@ -56,7 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     : ""
                 }
               </div>
-              <p class="produto-preco">Preço: R$ ${produto.preco},00</p>
+              <p class="produto-preco">
+              Preço: ${
+                produto.preco !== undefined
+                  ? `R$ ${produto.preco},00`
+                  : `<br>de R$ ${produto.precoOuro},00 à R$ ${produto.precoPrata},00`
+              }
+              </p>
               <button class="btn-saiba-mais">+ Detalhes</button>
             </div>
           `
@@ -267,48 +273,83 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  function normalizeText(text) {
+  function padronizaTextoDaPesquisa(text) {
     return text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
+      ? text
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      : "";
+  }
+
+  function randomizarArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
 
   function atualizarDisplayDeProdutos() {
-    const query = normalizeText(pesquisaInput.value);
-    const selectedCategory = selectMenu.value;
+    const consultapesquisa = padronizaTextoDaPesquisa(pesquisaInput.value);
+    const categoriaSelecionada = selectMenu.value;
 
     let produtosFiltrados = produtos;
 
-    if (query) {
+    if (consultapesquisa) {
       produtosFiltrados = produtos.filter((produto) => {
-        // Normaliza o texto do produto
-        const titulo = normalizeText(produto.titulo);
-        const material = normalizeText(produto.material);
-        const descricao = normalizeText(produto.descricao);
-        const categoria = normalizeText(produto.categoria);
+        const titulo = padronizaTextoDaPesquisa(produto.titulo);
+        const material = padronizaTextoDaPesquisa(produto.material);
+        const descricao = padronizaTextoDaPesquisa(produto.descricao);
+        const categoria = padronizaTextoDaPesquisa(produto.categoria);
 
-        // Verifica se a query está contida em qualquer um dos atributos normalizados
+        // Verifica se a pesquisa está contida em qualquer um dos atributos normalizados
         return (
-          titulo.includes(query) ||
-          material.includes(query) ||
-          descricao.includes(query) ||
-          categoria.includes(query)
+          titulo.includes(consultapesquisa) ||
+          material.includes(consultapesquisa) ||
+          descricao.includes(consultapesquisa) ||
+          categoria.includes(consultapesquisa)
         );
       });
-    } else if (selectedCategory !== "todos") {
-      produtosFiltrados = produtos.filter(
-        (produto) => produto.categoria === selectedCategory
+      precoMenu.addEventListener("change", () => {
+        const odemDePrecoSelecionada = precoMenu.value;
+
+        if (odemDePrecoSelecionada === "menor-maior") {
+          produtosFiltrados.sort((a, b) => a.precoOculto - b.precoOculto);
+        } else if (odemDePrecoSelecionada === "maior-menor") {
+          produtosFiltrados.sort((a, b) => b.precoOculto - a.precoOculto);
+        }
+
+        mostrarProdutos(produtosFiltrados);
+      });
+    }
+
+    if (categoriaSelecionada !== "todos") {
+      produtosFiltrados = produtosFiltrados.filter(
+        (produto) => produto.categoria === categoriaSelecionada
       );
+      precoMenu.addEventListener("change", () => {
+        const odemDePrecoSelecionada = precoMenu.value;
+
+        if (odemDePrecoSelecionada === "menor-maior") {
+          produtosFiltrados.sort((a, b) => a.precoOculto - b.precoOculto);
+        } else if (odemDePrecoSelecionada === "maior-menor") {
+          produtosFiltrados.sort((a, b) => b.precoOculto - a.precoOculto);
+        }
+
+        mostrarProdutos(produtosFiltrados);
+      });
+    } else {
+      produtosFiltrados = randomizarArray(produtosFiltrados);
     }
 
     if (produtosFiltrados.length === 0) {
-      if (selectedCategory !== "todos" && !query) {
+      if (categoriaSelecionada !== "todos" && !consultapesquisa) {
         mensagemMenuProdutos.textContent =
           "Nenhum produto encontrado na categoria selecionada.";
         mensagemMenuProdutos.style.display = "block";
         mensagemBarraDePesquisa.style.display = "none";
-      } else if (query) {
+      } else if (consultapesquisa) {
         mensagemBarraDePesquisa.textContent =
           "Nenhum produto encontrado com a busca fornecida. Tente usar termos mais amplos.";
         mensagemBarraDePesquisa.style.display = "block";
@@ -337,6 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
         page += 1;
       }
     });
+    console.log(produtos);
   }
 
   selectMenu.addEventListener("change", () => {
@@ -351,14 +393,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   precoMenu.addEventListener("change", () => {
-    const selectedOrder = precoMenu.value;
+    const odemDePrecoSelecionada = precoMenu.value;
 
     let produtosFiltrados = produtos;
 
-    if (selectedOrder === "menor-maior") {
-      produtosFiltrados.sort((a, b) => a.preco - b.preco);
-    } else if (selectedOrder === "maior-menor") {
-      produtosFiltrados.sort((a, b) => b.preco - a.preco);
+    if (odemDePrecoSelecionada === "menor-maior") {
+      produtosFiltrados.sort((a, b) => a.precoOculto - b.precoOculto);
+    } else if (odemDePrecoSelecionada === "maior-menor") {
+      produtosFiltrados.sort((a, b) => b.precoOculto - a.precoOculto);
     }
 
     mostrarProdutos(produtosFiltrados);

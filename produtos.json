@@ -4,8 +4,8 @@
     "titulo": "Anel: Patins",
     "imagem": "https://i.postimg.cc/jSbTqS66/anel-ouro.jpg",
     "descricao": "Anel ajustável.",
-    "material": "Temos em prata 925 ou banhado a ouro 18k.",
-    "preco": 70,
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 60,
     "precoPrata": 70,
     "precoOuro": 60,
     "categoria": "Aneis",
@@ -27,7 +27,8 @@
     "titulo": "Conjunto com colar duplo: patinadora",
     "imagem": "https://i.postimg.cc/CKxS9CqB/conjunto-ouro-duplo-bailarina.jpg",
     "descricao": "Conjunto de brinco de tarraxa de patinadora com colar duplo de duas patinadoras.",
-    "material": "Temos em prata 925 ou banhado a ouro 18k.",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 190,
     "preco": 190,
     "categoria": "Conjuntos",
     "cores": [
@@ -51,7 +52,8 @@
     "id": "3",
     "titulo": "Conjunto patins: colar + brinco",
     "descricao": "Conjunto de patins coloridos resinados",
-    "material": "Banhado a ouro 18k.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 160,
     "preco": 160,
     "categoria": "Conjuntos",
     "cores": [
@@ -112,6 +114,7 @@
     "titulo": "Conjunto patins: colar + brinco",
     "descricao": "Conjunto de patins coloridos resinados",
     "material": "Prata 925",
+    "precoOculto": 180,
     "preco": 180,
     "categoria": "Conjuntos",
     "cores": [
@@ -186,6 +189,7 @@
     "titulo": "Boné: Patinadora",
     "descricao": "Boné brilhoso com detalhes bordados. Valor unitário",
     "material": "Temos prata e grafite",
+    "precoOculto": 70,
     "preco": 70,
     "categoria": "Diversos",
     "cores": [
@@ -197,7 +201,7 @@
       {
         "nome": "Grafite",
         "codigo": "#474A51",
-        "imagens": ["https://i.postimg.cc/15G3Tv4h/bone-grafite-1.jpg"]
+        "imagens": ["https://i.postimg.cc/WpQncf4v/1bone-grafite.jpg"]
       }
     ],
     "imagem": "https://i.postimg.cc/gjjpSKwR/Whats-App-Image-2024-08-19-at-15-31-35.jpg",
@@ -213,17 +217,19 @@
     "id": "6",
     "titulo": "Colar: Patinadora",
     "imagem": "https://i.postimg.cc/wTdXbDvL/colar-ouro-patinadora.jpg",
-    "material": "Banhado a ouro 18k.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 100,
     "preco": 100,
     "categoria": "Colares",
     "descricao": "Temos a bailarina em tamanho médio (R$ 90,00) e grande (R$ 100,00)."
   },
   {
     "id": "7",
-    "titulo": "Conjunto: Patins",
+    "titulo": "Conjunto: Patins 3D",
     "imagem": "https://i.postimg.cc/BQcTWtLy/conjunto-ouro-macico.jpg",
     "descricao": "Conjunto de brinco de argola e colar com pingente de patins maciço.",
-    "material": "Temos em prata 925 ou banhado a ouro 18k.",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 160,
     "preco": 160,
     "categoria": "Conjuntos",
     "cores": [
@@ -243,18 +249,19 @@
     "id": "8",
     "titulo": "Conjunto: Bielmann",
     "imagem": "https://i.postimg.cc/fRzxMZYb/conjunto-ouro-patinadora.jpg",
-    "descricao": "Conjunto de brinco de argola e colar com pingente de patinadora.",
-    "material": "Banhado a ouro 18k.",
+    "descricao": "Conjunto de brinco de argola e colar com pingente de patinadora bielmann.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 140,
     "preco": 140,
     "categoria": "Conjuntos"
   },
   {
     "id": "9",
-    "titulo": "Conjunto: Patins com roda de zirconia",
+    "titulo": "Conjunto: Patins com roda de zircônia",
     "imagem": "https://i.postimg.cc/rwf5mb9N/conjunto-ouro-roda-zirconia.jpg",
-    "descricao": "Conjunto de brinco de tarracha e colar com pingente de patins com zirconia nas rodas.",
-    "material": "Temos em prata 925 ou banhado a ouro 18k.",
-    "preco": 180,
+    "descricao": "Conjunto de brinco de tarracha e colar com pingente de patins com zircônia nas rodas.",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 140,
     "precoOuro": 140,
     "precoPrata": 180,
     "categoria": "Conjuntos",
@@ -277,11 +284,11 @@
   },
   {
     "id": "10",
-    "titulo": "Conjunto: Patins com detalhadas com zirconia",
+    "titulo": "Conjunto: Patins com detalhes cravejados em zircônia",
     "imagem": "https://i.postimg.cc/8C3Wd69F/conjunto-ouro-zirconia-preto.jpg",
-    "descricao": "Conjunto de brinco de tarracha e colar com pingente de patins com detalhes com zirconia.",
+    "descricao": "Conjunto de brinco de tarracha e colar com pingente de patins com detalhes com zircônia (cristal, rubi ou negra).",
     "material": "Temos em prata 925 e banhado a ouro 18k",
-    "preco": 190,
+    "precoOculto": 155,
     "precoOuro": 155,
     "precoPrata": 190,
     "categoria": "Conjuntos",
@@ -292,7 +299,7 @@
         "imagens": ["https://i.postimg.cc/k5DKtc13/conjunto-ouro-zirconia.jpg"]
       },
       {
-        "nome": "Ouro1",
+        "nome": "Ouro-negra",
         "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
         "imagens": [
           "https://i.postimg.cc/8C3Wd69F/conjunto-ouro-zirconia-preto.jpg"
@@ -311,6 +318,7 @@
     "imagem": "https://i.postimg.cc/rmr4fp2f/conjunto-prata-bailarina.jpg",
     "descricao": "Conjunto de brinco de tarracha e colar com pingente de patinadora.",
     "material": "Prata 925",
+    "precoOculto": 140,
     "preco": 140,
     "categoria": "Conjuntos"
   },
@@ -319,13 +327,414 @@
     "titulo": "Shine disk",
     "imagem": "https://i.postimg.cc/bwM15nc7/disk-shine-2.jpg",
     "descricao": "Cartela de shine disk autoadesivo para patins.",
+    "precoOculto": 220,
     "preco": 220,
     "categoria": "Diversos",
     "imagensExtras": [
       "https://i.postimg.cc/XvC96vnp/disk-shine-4.jpg",
       "https://i.postimg.cc/xCVMfSdg/disk-shine-3.jpg",
-      "https://i.postimg.cc/SxjWVr5L/disk-shine-1.jpg",
+      "https://i.postimg.cc/3JxV4sdV/shine-disk-1.jpg",
       "https://i.postimg.cc/bwM15nc7/disk-shine-2.jpg"
+    ]
+  },
+  {
+    "id": "13",
+    "titulo": "Colar: Patins com detalhes cravejados em zircônia",
+    "descricao": "Colar com pingente de patins com detalhes com zircônia (cristal, rubi ou negra).",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 95,
+    "precoOuro": 95,
+    "precoPrata": 120,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #FFFFFF 50%)",
+        "imagens": ["https://i.postimg.cc/fRK2qKqG/Ouro-zirconia-cristal.jpg"]
+      },
+      {
+        "nome": "Ouro-negra",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
+        "imagens": ["https://i.postimg.cc/QMd62TRH/Ouro-zirconia-negra.jpg"]
+      },
+      {
+        "nome": "Ouro-rubi",
+        "codigo": "linear-gradient(to right, #F558D5 50%, #000000 50%)",
+        "imagens": ["https://i.postimg.cc/Hk6G3W1H/Prata-zirconia-rubi.jpg"]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "linear-gradient(to right, #FFFFFF 50%, #c0c0c0 50%)",
+        "imagens": ["https://i.postimg.cc/Jh0q6WkX/Prata-zirconia-cristal.jpg"]
+      },
+      {
+        "nome": "Prata-rubi",
+        "codigo": "linear-gradient(to right, #F558D5 50%, #c0c0c0 50%)",
+        "imagens": ["https://i.postimg.cc/YSRLRstT/Zirconia-rubi-prata.png"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/fRK2qKqG/Ouro-zirconia-cristal.jpg"
+  },
+  {
+    "id": "14",
+    "titulo": "Colar: Bielmann",
+    "descricao": "Colar com pingente de patinadora bielmann.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 80,
+    "preco": 80,
+    "categoria": "Colares",
+    "imagem": "https://i.postimg.cc/RCkDWqnD/Ouro-bielmann.jpg"
+  },
+  {
+    "id": "15",
+    "titulo": "Colar: Patins 3D",
+    "descricao": "Colar com pingente de patins maciço.",
+    "material": "Temos em prata 925 e banhado a ouro 18k",
+    "precoOuro": 90,
+    "precoPrata": 110,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/VsC7P1HB/Prata-maci-o.jpg"]
+      },
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/SsXgspQ4/Ouro-maci-o.jpg"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/VsC7P1HB/Prata-maci-o.jpg"
+  },
+  {
+    "id": "16",
+    "titulo": "Colar: Patins com roda de zircônia",
+    "descricao": "Colar com pingente de patins com zircônia nas rodas.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 90,
+    "precoOuro": 90,
+    "precoPrata": 110,
+    "categoria": "Colares",
+    "imagem": "https://i.postimg.cc/PxB2vFNw/Ouro-zirconia-roda.jpg",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/PxB2vFNw/Ouro-zirconia-roda.jpg"]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/CKSfjgpj/Zirconia-roda-prata.png"]
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "titulo": "Brinco: Patins coloridos",
+    "descricao": "Brinco de tarraxa de patins coloridos resinados",
+    "material": "Temos em prata 925 e banhado a ouro 18k. O valor corresponde ao par.",
+    "precoOculto": 60,
+    "precoOuro": 60,
+    "precoPrata": 70,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/2y0L0Wjm/Colorido-resinado-prata.jpg"]
+      },
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/Pxzw8cBC/Colorido-resinado-ouro.jpg"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/Pxzw8cBC/Colorido-resinado-ouro.jpg",
+    "imagensExtras": [
+      "https://i.postimg.cc/DwJ4cm9k/Colorido-resinado-preto-ouro.jpg",
+      "https://i.postimg.cc/yxVwRshg/Colorido-resinado-branco-prata.jpg"
+    ]
+  },
+  {
+    "id": "18",
+    "titulo": "Brinco: Patins 3D",
+    "descricao": "Brinco de argola com pingente de patins maciço.",
+    "material": "Prata 925",
+    "precoOculto": 80,
+    "preco": 80,
+    "categoria": "Brincos",
+    "imagem": "https://i.postimg.cc/D0vbQ6TB/Maci-o-prata.jpg",
+    "imagensExtras": ["https://i.postimg.cc/ryj4VB1b/Maci-o-extra-prata.jpg"]
+  },
+  {
+    "id": "19",
+    "titulo": "Brinco: Patinadora",
+    "descricao": "Brinco de tarraxa de patinadora",
+    "material": "Prata 925",
+    "precoOculto": 60,
+    "preco": 60,
+    "categoria": "Brincos",
+    "imagem": "https://i.postimg.cc/NfPrTRPk/Patinadora-prata.jpg"
+  },
+  {
+    "id": "20",
+    "titulo": "Brinco: Patins com zircônia",
+    "descricao": "Brinco de argola com pingente de patins cravejado com zircônia",
+    "material": "Temos em prata 925 e banhado a ouro 18k. O valor corresponde ao par.",
+    "precoOculto": 70,
+    "precoOuro": 70,
+    "precoPrata": 80,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/BnrL7438/Zirconia-ouro.jpg"]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/C1YZY7zS/Zirconia-prata.jpg"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/BnrL7438/Zirconia-ouro.jpg"
+  },
+  {
+    "id": "21",
+    "titulo": "Berloque: Patins coloridos",
+    "descricao": "Berloques, para pulseiras, coloridos resinados. O valor corresponde à unidade. A pulseira não acompanha o berloque. Valor da pulseira prata: R$ 100,00 e da pulseira dourada: R$ 109,00.",
+    "material": "Temos em prata 925 e banhado a ouro 18k",
+    "precoOculto": 60,
+    "precoOuro": 60,
+    "precoPrata": 70,
+    "categoria": "Berloques",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": [
+          "https://i.postimg.cc/4yTT2SK6/Coloridos-resinados-Ouro.jpg"
+        ]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": [
+          "https://i.postimg.cc/vHbsWCwM/Coloridos-resinados-Prata.jpg"
+        ]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/4yTT2SK6/Coloridos-resinados-Ouro.jpg",
+    "imagensExtras": [
+      "https://i.postimg.cc/kMxCRqZf/Coloridos-resinados-preto-Ouro.jpg",
+      "https://i.postimg.cc/h4xQQ1yq/Coloridos-resinados-Prata-extra.png",
+      "https://i.postimg.cc/4yTT2SK6/Coloridos-resinados-Ouro.jpg"
+    ]
+  },
+  {
+    "id": "22",
+    "titulo": "Berloque: Detalhados",
+    "descricao": "Berloque, para pulseiras, detalhados. O pingente de patins é cravejado com zircônia. A pulseira não acompanha o berloque. Valor da pulseira prata: R$ 100,00 e da pulseira dourada: R$ 109,00.",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 60,
+    "preco": 60,
+    "categoria": "Berloques",
+    "imagem": "https://i.postimg.cc/3NCQsFpP/Detalhado-Ouro.jpg",
+    "imagensExtras": [
+      "https://i.postimg.cc/zXrbCH6H/Detalhe-Ouro-extra.png",
+      "https://i.postimg.cc/15rgJ51C/Detalhe-Ouro-extra-2.png",
+      "https://i.postimg.cc/3NCQsFpP/Detalhado-Ouro.jpg"
+    ]
+  },
+  {
+    "id": "23",
+    "titulo": "Brinco: Patins com zircônia",
+    "descricao": "Brinco de tarraxa com patins cravejado com zircônia",
+    "material": "Prata 925",
+    "precoOculto": 70,
+    "preco": 70,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Branco",
+        "codigo": "#FFFFFF",
+        "imagens": ["https://i.postimg.cc/280cbWSr/Tarraxa-zirconia-prata.png"]
+      },
+      {
+        "nome": "Preto",
+        "codigo": "#000000",
+        "imagens": [
+          "https://i.postimg.cc/BnthxvjD/Tarraxa-zirconia-prata-negra.png"
+        ]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/280cbWSr/Tarraxa-zirconia-prata.png"
+  },
+  {
+    "id": "24",
+    "titulo": "Colar: Patins colorido",
+    "descricao": "Colar com pingente colorido resinado. O valor corresponde à unidade",
+    "material": "Banhado a ouro 18k",
+    "precoOculto": 100,
+    "preco": 100,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "imagens": ["https://i.postimg.cc/zfQsZdfc/resinado-ouro-azul.jpg"]
+      },
+      {
+        "nome": "Branco",
+        "codigo": "#FFFFFF",
+        "imagens": ["https://i.postimg.cc/rmtv8S0F/resinado-ouro-branco.jpg"]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "imagens": ["https://i.postimg.cc/vTFCDcf7/resinado-ouro-laranja.jpg"]
+      },
+      {
+        "nome": "Preto",
+        "codigo": "#000000",
+        "imagens": ["https://i.postimg.cc/jj2p1VRf/resinado-ouro-preto.jpg"]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "imagens": ["https://i.postimg.cc/1RwL2r1v/resinado-ouro-rosa.jpg"]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "imagens": ["https://i.postimg.cc/gkpfWLYm/resinado-ouro-verde.jpg"]
+      },
+      {
+        "nome": "Vermelho",
+        "codigo": "#DB1000",
+        "imagens": ["https://i.postimg.cc/9FBsFXMT/resinado-ouro-vermelho.jpg"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/1RwL2r1v/resinado-ouro-rosa.jpg"
+  },
+  {
+    "id": "25",
+    "titulo": "Colar: Patins colorido",
+    "descricao": "Colar com pingente colorido resinado. O valor corresponde à unidade",
+    "material": "Prata 925",
+    "precoOculto": 120,
+    "preco": 120,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Amarelo",
+        "codigo": "#EFEB00",
+        "imagens": ["https://i.postimg.cc/htywTCVt/resinado-prata-amarelo.jpg"]
+      },
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "imagens": ["https://i.postimg.cc/VkLpSyrh/resinado-prata-azul.jpg"]
+      },
+      {
+        "nome": "Branco",
+        "codigo": "#FFFFFF",
+        "imagens": ["https://i.postimg.cc/hGXYr90b/resinado-prata-branco.jpg"]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "imagens": ["https://i.postimg.cc/rp7PYKn6/resinado-prata-laranja.jpg"]
+      },
+      {
+        "nome": "Preto",
+        "codigo": "#000000",
+        "imagens": ["https://i.postimg.cc/j5NFVtmD/resinado-prata-preto.jpg"]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "imagens": ["https://i.postimg.cc/nrGSzTHZ/resinado-prata-rosa.jpg"]
+      },
+      {
+        "nome": "Rosa Choque",
+        "codigo": "#F558D5",
+        "imagens": [
+          "https://i.postimg.cc/bYxB3Y1M/resinado-prata-rosa-choque.jpg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "imagens": ["https://i.postimg.cc/QxjnPLbM/resinado-prata-verde.jpg"]
+      },
+      {
+        "nome": "Vermelho",
+        "codigo": "#DB1000",
+        "imagens": ["https://i.postimg.cc/WbSfc9Ww/resinado-prata-vermelho.jpg"]
+      }
+    ],
+    "imagem": "https://i.postimg.cc/WbSfc9Ww/resinado-prata-vermelho.jpg"
+  },
+  {
+    "id": "26",
+    "titulo": "Colar duplo: 2 patinadoras",
+    "imagem": "https://i.postimg.cc/Z5kkZXnN/Duplo-patinadoras-ouro.jpg",
+    "descricao": "Colar duplo de duas patinadoras.",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 140,
+    "precoPrata": 170,
+    "precoOuro": 140,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/Z5kkZXnN/Duplo-patinadoras-ouro.jpg"]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/bw17vLSB/Duplo-patinadoras-prata.jpg"]
+      }
+    ],
+    "imagensExtras": [
+      "https://i.postimg.cc/Xv3TBFw7/Duplo-patinadoras-ouro-detales.jpg",
+      "https://i.postimg.cc/VvWFT773/Duplo-ouro-extra.png",
+      "https://i.postimg.cc/Y0R18v07/Duplo-prata-extra.png"
+    ]
+  },
+  {
+    "id": "27",
+    "titulo": "Colar duplo: 1 patinadora e 1 patins",
+    "imagem": "https://i.postimg.cc/m21xvTLR/Duplo-patinadora-patins-prata.jpg",
+    "descricao": "Colar duplo de uma patinadora e um patins.",
+    "material": "Temos em prata 925 ou banhado a ouro 18k",
+    "precoOculto": 140,
+    "precoPrata": 170,
+    "precoOuro": 140,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": [
+          "https://i.postimg.cc/mkqvP5S0/Duplo-patinadora-patins-ouro.jpg"
+        ]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": [
+          "https://i.postimg.cc/m21xvTLR/Duplo-patinadora-patins-prata.jpg"
+        ]
+      }
+    ],
+    "imagensExtras": [
+      "https://i.postimg.cc/VvWFT773/Duplo-ouro-extra.png",
+      "https://i.postimg.cc/Y0R18v07/Duplo-prata-extra.png"
     ]
   }
 ]
