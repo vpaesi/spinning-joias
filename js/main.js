@@ -214,6 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Exibe o modal
     modal.style.display = "block";
+    console.log("aqui");
 
     // Adiciona evento para fechar o modal
     modalClose.addEventListener("click", fecharModal);

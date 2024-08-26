@@ -21,6 +21,7 @@
   float: right;
   font-size: 28px;
   font-weight: bold;
+  text-align: right;
 }
 
 .modal-close:hover,
@@ -79,7 +80,7 @@ strong {
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     z-index: 999; /* Certifique-se de que o modal esteja acima de outros elementos */
