@@ -1,3 +1,17 @@
+@media screen and (max-width: 387px) {
+  #pesquisa-joia {
+    padding-bottom: 25px;
+  }
+
+  input {
+    height: 60px;
+  }
+
+  .banner__pesquisa::placeholder {
+    text-align: center;
+  }
+}
+
 .banner {
   background: var(--degrade);
   text-align: center;
@@ -42,14 +56,25 @@
 }
 
 .banner__pesquisa::placeholder {
+  display: flex;
   font-family: var(--fonte-principal);
   font-size: 16px;
-  font-weight: 400;
-  text-align: center;
+  text-wrap: wrap;
   color: var(--texto);
+  width: 100%;
 }
 
 .banner__sub-texto {
   font-size: 14px;
   padding-top: 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .banner__pesquisa::placeholder {
+    font-family: var(--fonte-principal);
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--texto);
+  }
 }

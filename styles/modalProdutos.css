@@ -13,8 +13,7 @@
 
 #modal-produto-imagem-principal {
   border-radius: 5px;
-  max-height: 300px;
-  margin-left: 10%;
+  max-height: 350px;
 }
 
 .modal-close {
@@ -75,17 +74,32 @@ strong {
 }
 
 @media (min-width: 1024px) {
+  .modal {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999; /* Certifique-se de que o modal esteja acima de outros elementos */
+  }
+
   .modal-content {
-    margin: 5% 5% 0 15%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     max-width: 1000px;
     max-height: 800px;
+    width: 80%;
+    margin: 0 auto; /* Remove o margin customizado para centralizar */
+    position: relative; /* Necessário para posicionar elementos internos */
+    transform: translateY(-50%);
+    top: 50%;
   }
 
-  .modal-coluna-1 {
-    order: 1;
+  .modal-coluna-1,
+  .modal-coluna-2 {
     max-width: 50%;
   }
 
@@ -101,7 +115,6 @@ strong {
 
   .modal-coluna-2 {
     order: 2;
-    max-width: 50%;
     margin-left: 2%;
   }
 }
