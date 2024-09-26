@@ -25,10 +25,30 @@ document.addEventListener("DOMContentLoaded", () => {
     "modal-produto-imagens-extras"
   );
   const modalFotos = document.getElementById("modal-produto-fotos");
+  const backToTopBtn = document.getElementById("backToTopBtn");
 
   let produtos = [];
   let page = 1;
   const pageSize = 20;
+
+  window.onscroll = function () {
+    toggleButtonVisibility();
+  };
+
+  function toggleButtonVisibility() {
+    if (
+      document.body.scrollTop > 200 ||
+      document.documentElement.scrollTop > 200
+    ) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  }
+
+  backToTopBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   function mostrarProdutos(produtos) {
     if (produtos.length === 0) {
