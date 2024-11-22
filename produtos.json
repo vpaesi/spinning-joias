@@ -1119,5 +1119,35 @@
         "imagens": ["https://i.postimg.cc/0ywHs9pZ/pulseira-prata.jpg"]
       }
     ]
+  },
+   {
+    "id": "40",
+    "titulo": "Shoulder bag: Patins",
+    "descricao": "Peça moderna em 3D, resistente, elástica e com proteção térmica",
+    "material": "Neoprene e fecho tratorado",
+    "precoOculto": 130,
+    "preco": 130,
+    "categoria": "Diversos",
+    "imagem": "https://i.postimg.cc/xdN3S7rs/bags-todas.jpg",
+    "cores": [
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "imagens": ["https://i.postimg.cc/2512SyW7/bags-azul.jpg"]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "imagens": ["https://i.postimg.cc/sx4JNhFs/bags-prata.jpg"]
+      },
+      {
+        "nome": "Ouro",
+        "codigo": "#DAA520",
+        "imagens": ["https://i.postimg.cc/m2Vw3CNS/bags-dourada.jpg"]
+      }
+    ],
+    "imagensExtras": [
+      "https://i.postimg.cc/KvmfgJLz/bags-dourada-detalhes.jpg","https://i.postimg.cc/qvRG1q1H/bags-prata-detalhe.jpg"
+    ]
   }
 ]
