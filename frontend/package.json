@@ -41,9 +41,9 @@
     "vite": "^6.0.5"
   },
   "jest": {
-    "testEnvironment": "jest-environment-jsdom",
+    "testEnvironment": "jsdom",
     "setupFilesAfterEnv": [
-      "<rootDir>/setup-tests.js"
+      "<rootDir>/setup-tests.ts"
     ]
   }
 }
