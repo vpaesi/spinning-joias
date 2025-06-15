@@ -14,6 +14,7 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
         src={produto.imagem} 
         alt={produto.nome} 
         className="card-img-top"
+        style={{ height: '220px', objectFit: 'cover' }}
         onError={(e) => {
             (e.currentTarget as HTMLImageElement).src = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
           }}
