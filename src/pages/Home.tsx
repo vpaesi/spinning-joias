@@ -1,20 +1,19 @@
-import Buscador from '../components/Buscador'
-import Nav from '../components/Nav'
-import HeroSection from '../components/HeroSection'
-import TextoFixo from '../components/TextoFixo'
+import CardProduto from "../components/CardProduto"
 
 function Home() {
 
   return (
     <>
-      <div className="Home">
-          <Buscador />
-          <Nav />
-          <HeroSection />
-          <TextoFixo frase={'Encontre a joia que dança com você!'} />
-      </div>
+      <section className="py-5">
+        <h5 className="text-center">Encontre a joia que dança com você!</h5>
+            <div className="container px-4 px-lg-5 mt-5">
+              <div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+              <CardProduto/>
+              </div>
+            </div>
+        </section>  
     </>
   )
 }
 
-export default Home
+export default Home;
