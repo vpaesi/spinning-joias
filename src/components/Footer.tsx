@@ -1,14 +1,16 @@
 function Footer() {
   return (
     <footer className="py-5 text-center bg-azul">
-      <h1>Spinning Joias</h1>
+      <a href="/">
+        <h1>Spinning Joias</h1>
+      </a>
       <div className="footer-links">
         <a href="#">Perguntas frequentes (FAQ)</a>
         <a href="#">Mais buscados</a>
         <a href="#">Sobre a Spinning Joias</a>
       </div>
       <div className="footer-imagens">
-        <a href="#">
+        <a href="https://www.instagram.com/patricia_spinningjoias/" target="_blank" rel="noopener noreferrer">
           <img
             src="/src/assets/instagram.png"
             alt="Instagram"
@@ -16,7 +18,7 @@ function Footer() {
             style={{ width: '50px', height: '50px' }}
           />
         </a>
-        <a href="#">
+        <a href="http://wa.me/555181598553" target="_blank" rel="noopener noreferrer">
           <img
             src="/src/assets/whatsapp.png"
             alt="Whatsapp"
@@ -26,7 +28,7 @@ function Footer() {
         </a>
         <a href="#">
           <img
-            src="/src/assets/info.png"
+            src="/src/assets/email.png"
             alt="E-mail"
             className="img-fluid"
             style={{ width: '50px', height: '50px' }}

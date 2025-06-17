@@ -83,6 +83,10 @@ body {
   color: var(--preto);
 }
 
+.nav-btn-carrinho{
+  background-color: var(--dourado);  
+}
+
 .bg-hero-section {
   background-image: url('./assets/bg-hero-section.jpg');
   background-size: cover;
@@ -107,15 +111,19 @@ body {
 }
 
 .produto-preco {
-  margin-top: 10px;
-  padding: 0;
-  gap: 0;
-}
-.produto-preco-bottom {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  text-wrap: nowrap;
+  align-items: center;
+  justify-items: center;
+  margin-top: 10px;
   font-size: var(--20px);
+}
+
+.produto-preco-top {
+  text-decoration: line-through !important;
+  color: var(--rosa) !important;
+}
+
+.produto-preco-bottom {
   font-weight: 700;
 }
 
@@ -186,7 +194,9 @@ hr {
 h1,
 .h1 {
   font-family: 'Parisienne', cursive;
-  font-size: calc(1.375rem + 1.5vw);
+  font-size: calc(1.375rem + 1vw);
+  margin: 0;
+  padding: 0;
 }
 
 h2,
@@ -3237,10 +3247,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-info {
-  --bs-btn-color: #0dcaf0;
-  --bs-btn-border-color: #0dcaf0;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #0dcaf0;
+  --bs-btn-color: var(--preto);
+  --bs-btn-border-color: var(--preto);
+  --bs-btn-hover-color: var(--preto);
+  --bs-btn-hover-bg: var(--azul-celeste);
   --bs-btn-hover-border-color: #0dcaf0;
   --bs-btn-focus-shadow-rgb: 13, 202, 240;
   --bs-btn-active-color: #000;
@@ -3846,6 +3856,12 @@ fieldset:disabled .btn {
     background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out;
 }
+
+.nav-header{
+  padding-right: var(--20px);
+  margin: 0 var(--20px);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .nav-link {
     transition: none;

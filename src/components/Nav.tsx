@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
@@ -38,29 +40,29 @@ function Nav() {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <a className="dropdown-item" href="#!">
+                  <Link className="dropdown-item" to="/categoria/Anel">
                     Anéis
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#!">
+                  <Link className="dropdown-item" to="/categoria/Berloque">
                     Berloques
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#!">
+                  <Link className="dropdown-item" to="/categoria/Brinco">
                     Brincos
-                  </a>
+                  </Link>                  
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#!">
+                  <Link className="dropdown-item" to="/categoria/Colar">
                     Colares
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#!">
+                  <Link className="dropdown-item" to="/categoria/Diversos">
                     Diversos
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
@@ -83,15 +85,15 @@ function Nav() {
               </ul>
             </li>
           </ul>
-          <a className="navbar-brand nav-header" href="#!">
-            Spinning Joias
+          <a className="nav-header" href="/">
+            <h1>Spinning Joias</h1>
           </a>
-          <form className="d-flex">
-            <button className="btn btn-outline-dark" type="submit">
+          <form className="d-flex nav-btn-carrinho">
+            <button className="btn btn-outline-dark " type="submit">
               <i className="bi-cart-fill me-1"></i>
-              Cart
-              <span className="badge bg-dark text-white ms-1 rounded-pill">
-                0
+              Carrrinho
+              <span className="badge bg-branco ms-1 rounded-pill">
+                <img src="/src/assets/cart.png" alt="Carrinho" className="img-fluid" style={{ width: '20px', height: '20px' }} />
               </span>
             </button>
           </form>

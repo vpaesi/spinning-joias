@@ -1,19 +1,29 @@
+import { Link } from "react-router-dom";
+
 function HeroSection() {
   return (
     <>
       <div className="bg-dourado hero-section-top">
         <ul className="hero-section-top-list">
           <li>
-            <a href="#">Brinco</a>
+            <Link to="produtos/categoria/Brinco">
+              Brincos
+            </Link>
           </li>
           <li>
-            <a href="#">Colares</a>
+            <Link to="produtos/categoria/Colar">
+              Colares
+            </Link>          
           </li>
           <li>
-            <a href="#">Pulseiras</a>
+            <Link to="produtos/categoria/Diverso">
+              Diversos
+            </Link>
           </li>
           <li>
-            <a href="#">Berloques</a>
+            <Link to="produtos/categoria/Berloque">
+              Berloques
+            </Link>
           </li>
         </ul>
       </div>

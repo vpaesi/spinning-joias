@@ -3,17 +3,21 @@ import CardProduto from './CardProduto';
 import type { Produto } from '../types/Produto';
 
 interface Carrossel {
+  categoria?: string;
   usarCarrossel?: boolean;
 }
 
-const ListaProdutos: React.FC<Carrossel> = ({ usarCarrossel = false }) => {
+const ListaProdutos: React.FC<Carrossel> = ({ categoria, usarCarrossel = false }) => {
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     const apiUrl = import.meta.env.VITE_API_URL;
+    const url = categoria 
+    ? `${apiUrl}/produtos/categoria/${encodeURIComponent(categoria)}`
+    : `${apiUrl}/produtos`;
 
-    fetch(`${apiUrl}/produtos`)
+    fetch(url)
       .then((res) => {
         if (!res.ok) throw new Error('Erro ao buscar produtos');
         return res.json();
@@ -22,7 +26,7 @@ const ListaProdutos: React.FC<Carrossel> = ({ usarCarrossel = false }) => {
       .catch((err) => {
         console.error('Erro ao carregar produtos:', err);
       });
-  }, []);
+  }, [categoria]);
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
