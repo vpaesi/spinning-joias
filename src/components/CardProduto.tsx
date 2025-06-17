@@ -7,7 +7,7 @@ interface CardProdutoProps {
 
 const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
   return (
-    <div className="col mb-5">
+    <div className="col mb-5 card-produto">
       <div className="card h-100">
         {/* Product image*/}
         <img 
@@ -44,9 +44,8 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
         </div>
 
         {/* Product actions*/}
-        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
-          <div className="text-center">
-            <a className="btn btn-outline-info mt-auto" href="#">
+        <div className="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+            <a className="btn btn-outline-info mt-auto p-2" href="#">
               Adicionar ao
               <img
                 src="/src/assets/cart.png"
@@ -55,7 +54,6 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
                 style={{ width: '20px', height: '20px', marginLeft: '5px' }}
               />
             </a>
-          </div>
         </div>
       </div>
     </div>

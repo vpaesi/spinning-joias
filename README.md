@@ -55,7 +55,7 @@ npm install
 
 ### 4. Criar .env
 
-Crie na raíz do repositório um arquivo `.env` com a porta local do backend. Por exemplo:
+Crie na raíz do repositório um arquivo `.env.local` com a porta local do seu backend. Por exemplo:
 
 ```ts
 VITE_API_URL=http://localhost:8080

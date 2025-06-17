@@ -3,16 +3,18 @@ import ListaProdutos from '../components/ListaProdutos';
 function Home() {
   return (
     <>
-      <section className="py-5">
-        <h5 className="text-center">Encontre a joia que dança com você!</h5>
-        <div className="container px-4 px-lg-5 mt-5">
+      <section>
+        <h5 className="produtos-section-titulo">Encontre a joia que dança com você!</h5>
+        <div className="container px-4">
         <ListaProdutos usarCarrossel={true} />
         </div>        
       </section>
-      
+
+      <hr className="my-4" /> 
+
       <section>
         <div>
-          <h5 className="text-center">Todos os produtos</h5>
+          <h5 className="produtos-section-titulo">Todos os produtos</h5>
           <ListaProdutos usarCarrossel={false} />
         </div>
       </section>

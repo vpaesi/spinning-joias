@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CardProduto from './CardProduto';
 import type { Produto } from '../types/Produto';
+import CarrosselProdutos from './CarrosselProdutos';
 
 interface Carrossel {
   categoria?: string;
@@ -34,23 +35,25 @@ const ListaProdutos: React.FC<Carrossel> = ({ categoria, usarCarrossel = false }
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Embaralha os produtos para exibir em ordem aleatória
+  const produtosAleatorios = React.useMemo(() => {
+    const copia = [...produtos];
+    for (let i = copia.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copia[i], copia[j]] = [copia[j], copia[i]];
+    }
+    return copia;
+  }, [produtos]);
+
   const listaNormal = (
     <div className='lista-produtos'>
-      {produtos.map((produto) => (
+      {produtosAleatorios.map((produto) => (
         <CardProduto key={produto.id} produto={produto} />
       ))}
     </div>
   );
 
-  const listaCarrossel = (
-    <div className="lista-carrossel">
-      {produtos.map((produto) => (
-        <div key={produto.id} className="lista-carrossel-card">
-          <CardProduto produto={produto} />
-        </div>
-      ))}
-    </div>
-  );
+const listaCarrossel = <CarrosselProdutos produtos={produtos} />;
 
   return (
     <>

@@ -10,6 +10,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
 :root {
   --bs-dark: #212529;
   --bs-danger-rgb: 220, 53, 69;
@@ -110,6 +114,19 @@ body {
   padding: var(--20px);
 }
 
+.carrossel-produtos .card-produto{
+  height: 450px;
+  margin: 0 var(--10px);
+}
+
+.swiper-button-prev:after, .swiper-button-next:after{
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--rosa);
+}
+
 .produto-preco {
   display: grid;
   align-items: center;
@@ -142,6 +159,12 @@ body {
 
 .lista-carrossel-card{
   min-width: 250px;
+}
+
+.produtos-section-titulo{
+  text-align: center;
+  font-size: calc(var(--20px) * 1.2);
+  margin: var(--20px) 0;
 }
 
 .footer-links {
@@ -185,7 +208,7 @@ li {
 
 hr {
   margin: 1rem 0;
-  color: inherit;
+  color: var(--dourado);
   border: 0;
   border-top: 1px solid;
   opacity: 0.25;
