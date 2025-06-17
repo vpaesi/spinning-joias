@@ -11,9 +11,17 @@ const ListaProdutos: React.FC<Carrossel> = ({ usarCarrossel = false }) => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    fetch('http://localhost:8080/produtos')
-      .then((res) => res.json())
-      .then(setProdutos);
+    const apiUrl = import.meta.env.VITE_API_URL;
+
+    fetch(`${apiUrl}/produtos`)
+      .then((res) => {
+        if (!res.ok) throw new Error('Erro ao buscar produtos');
+        return res.json();
+      })
+      .then(setProdutos)
+      .catch((err) => {
+        console.error('Erro ao carregar produtos:', err);
+      });
   }, []);
 
   useEffect(() => {
