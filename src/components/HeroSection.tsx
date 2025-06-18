@@ -16,13 +16,13 @@ function HeroSection() {
             </Link>          
           </li>
           <li>
-            <Link to="produtos/categoria/Diverso">
-              Diversos
+            <Link to="produtos/categoria/Berloque">
+              Berloques
             </Link>
           </li>
           <li>
-            <Link to="produtos/categoria/Berloque">
-              Berloques
+            <Link to="produtos/categoria/Diverso">
+              Diversos
             </Link>
           </li>
         </ul>

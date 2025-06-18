@@ -2,9 +2,9 @@ import './App.css';
 import Nav from './components/Nav';
 import HeroSection from './components/HeroSection';
 import Footer from './components/Footer';
-import ListaProdutos from './components/ListaProdutos';
 import Home from './pages/Home';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import SearchCategorias from './pages/SearchCategorias';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <HeroSection />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/categoria/:categoria" element={<ListaProdutos />} />
+          <Route path="/produtos/categoria/:categoria" element={<SearchCategorias />} />
         </Routes>
         <Footer />
       </BrowserRouter>
