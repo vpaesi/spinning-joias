@@ -1,6 +1,4 @@
-// CarrosselProdutos.tsx
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { Navigation, Pagination } from 'swiper/modules';
 import CardProduto from './CardProduto';
 import type { Produto } from '../types/Produto';

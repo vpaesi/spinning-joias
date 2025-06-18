@@ -1,30 +1,20 @@
 import { Link } from "react-router-dom";
 
 function HeroSection() {
+
+  const heroSectionLinkBrincos = <li><Link to="produtos/categoria/Brinco">Brincos</Link></li>;
+  const heroSectionLinkColares = <li><Link to="produtos/categoria/Colares">Colares</Link></li>;
+  const heroSectionLinkBerloques = <li><Link to="produtos/categoria/Berloques">Berloques</Link></li>;
+  const heroSectionLinkDiversos = <li><Link to="produtos/categoria/Diverso">Diversos</Link></li>;
+
   return (
     <>
       <div className="bg-dourado hero-section-top">
         <ul className="hero-section-top-list">
-          <li>
-            <Link to="produtos/categoria/Brinco">
-              Brincos
-            </Link>
-          </li>
-          <li>
-            <Link to="produtos/categoria/Colar">
-              Colares
-            </Link>          
-          </li>
-          <li>
-            <Link to="produtos/categoria/Berloque">
-              Berloques
-            </Link>
-          </li>
-          <li>
-            <Link to="produtos/categoria/Diverso">
-              Diversos
-            </Link>
-          </li>
+          {heroSectionLinkBrincos}
+          {heroSectionLinkColares}
+          {heroSectionLinkBerloques}
+          {heroSectionLinkDiversos}
         </ul>
       </div>
       <div className="bg-hero-section py-5">

@@ -10,7 +10,6 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
   return (
     <div className="col mb-5 card-produto">
       <div className="card h-100">
-        {/* Product image*/}
         <img 
         src={produto.imagem} 
         alt={produto.nome} 
@@ -20,31 +19,23 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
             (e.currentTarget as HTMLImageElement).src = "https://dummyimage.com/450x300/dee2e6/6c757d.jpg";
           }}
         />
-        {/* Product details*/}
+
         <div className="card-body p-4">
-          {/* Product name*/}
           <h5 className="fw-bolder text-center">{produto.nome}</h5>
 
-          {/* Product price*/}
           <div className='produto-preco'>
               <span className="produto-preco-top">
                 De:{' '}
-                {(0.1 * produto.preco + produto.preco).toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                })}
+                {(0.1 * produto.preco + produto.preco).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               </span>
               <span className='produto-preco-bottom'>
                 Por:{' '}
-                {produto.preco.toLocaleString('pt-BR', {
-                  style: 'currency',
-                  currency: 'BRL',
-                })}
+                {produto.preco.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
               </span>
           </div>
         </div>
 
-        {/* Product actions*/}
+
         <div className="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
             <a className="btn btn-outline-info mt-auto p-2" href="#">
               Adicionar ao

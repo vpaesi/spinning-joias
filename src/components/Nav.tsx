@@ -1,12 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import cart from '../assets/cart.png';
+import { CATEGORIAS_LINKS } from '../routes/paths';
 
 function Nav() {
+
+  const renderLinksCategoria = () =>
+    Object.values(CATEGORIAS_LINKS).map(({ nome, link }) => (
+      <li key={nome}>
+        <Link className="dropdown-item" to={link}>
+          {nome}
+        </Link>
+      </li>
+    ));
+
+  const navLinkHome = <Link className="nav-link" to="/">Home</Link>;
+  const navLinkContato = <Link className="nav-link" to="/contato">Contato</Link>;
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light">
-      <div className="container px-4 px-lg-5">
+    <nav className="navbar navbar-expand-lg navbar-light nav-header">
+      <div className="container px-4 px-lg-5 d-flex align-items-center justify-content-between">
         <button
-          className="navbar-toggler"
+          className="navbar-toggler order-1 d-lg-none"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -16,88 +30,84 @@ function Nav() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-            <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#!">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#!">
-                Contato
-              </a>
-            </li>
+
+        <div className="d-none d-lg-flex align-items-center order-1">
+          <ul className="navbar-nav flex-row gap-2 align-items-center mb-0">
+            <li className="nav-item"> {navLinkHome} </li>
+            <li className="nav-item"> {navLinkContato} </li>
             <li className="nav-item dropdown">
-              <a
+              <Link
                 className="nav-link dropdown-toggle"
                 id="navbarDropdown"
-                href="#"
+                to="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Categorias
-              </a>
+              </Link>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <Link className="dropdown-item" to="/categoria/Anel">
-                    Anéis
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/categoria/Berloque">
-                    Berloques
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/categoria/Brinco">
-                    Brincos
-                  </Link>                  
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/categoria/Colar">
-                    Colares
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/categoria/Diversos">
-                    Diversos
-                  </Link>
-                </li>
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#!">
-                    Meu carrinho
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#!">
-                    Sobre a Spinning Joias
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#!">
-                    Perguntas Frequentes (FAQ)
-                  </a>
-                </li>
+                {renderLinksCategoria()}
               </ul>
             </li>
           </ul>
-          <a className="nav-header" href="/">
-            <h1>Spinning Joias</h1>
-          </a>
-          <form className="d-flex nav-btn-carrinho">
-            <button className="btn btn-outline-dark " type="submit">
-              <i className="bi-cart-fill me-1"></i>
-              Carrrinho
+        </div>
+
+        <a className="nav-header m-0 order-2 mx-2" href="/">
+          <h1 className="mb-0 d-none d-lg-block" style={{ fontSize: '2.5rem' }}>Spinning Joias</h1>
+          <h1 className="mb-0 d-lg-none" style={{ fontSize: '2.2rem' }}>Spinning Joias</h1>
+        </a>
+
+        <div className="order-3">
+          <Link className="d-lg-none ms-2" to="#">
+            <img
+              src={cart}
+              alt="Carrinho"
+              className="img-fluid"
+              style={{ width: "28px", height: "28px" }}
+            />
+          </Link>
+          <form className="d-none d-lg-flex nav-btn-carrinho ms-2">
+            <button className="btn btn-outline-dark" type="submit">
+              Carrinho
               <span className="badge bg-branco ms-1 rounded-pill">
-                <img src={cart} alt="Carrinho" className="img-fluid" style={{ width: '20px', height: '20px' }} />
+                <img
+                  src={cart}
+                  alt="Carrinho"
+                  className="img-fluid"
+                  style={{ width: '22px', height: '22px' }}
+                />
               </span>
             </button>
           </form>
+        </div>
+
+        <div className="collapse navbar-collapse order-4" id="navbarSupportedContent">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li className="nav-item d-lg-none"> {navLinkHome} </li>
+            <li className="nav-item d-lg-none"> {navLinkContato} </li>
+            <li className="nav-item dropdown d-lg-none">
+              <Link
+                className="nav-link dropdown-toggle"
+                id="navbarDropdownMobile"
+                to="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Categorias
+              </Link>
+              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMobile">
+                {renderLinksCategoria()}
+              </ul>
+              <li className="nav-item d-lg-none">
+                <Link className="nav-link" to="#!">Sobre a Spinning Joias</Link>
+              </li>
+              <li className="nav-item d-lg-none">
+                <Link className="nav-link" to="#!">Perguntas Frequentes (FAQ)</Link>
+              </li>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>

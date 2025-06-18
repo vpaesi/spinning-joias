@@ -87,6 +87,10 @@ body {
   color: var(--preto);
 }
 
+.nav-header{
+  font-size: calc(var(--20px));
+}
+
 .nav-btn-carrinho{
   background-color: var(--dourado);  
 }

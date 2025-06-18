@@ -1,43 +1,29 @@
 import insta from '../assets/instagram.png';
 import whats from '../assets/whatsapp.png';
 import email from '../assets/email.png';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
     <footer className="py-5 text-center bg-azul">
-      <a href="/">
+      <Link to="/">
         <h1>Spinning Joias</h1>
-      </a>
+      </Link>
       <div className="footer-links">
-        <a href="#">Perguntas frequentes (FAQ)</a>
-        <a href="#">Mais buscados</a>
-        <a href="#">Sobre a Spinning Joias</a>
+        <Link to="#">Perguntas frequentes (FAQ)</Link>
+        <Link to="#">Mais buscados</Link>
+        <Link to="#">Sobre a Spinning Joias</Link>
       </div>
       <div className="footer-imagens">
-        <a href="https://www.instagram.com/patricia_spinningjoias/" target="_blank" rel="noopener noreferrer">
-          <img
-            src={insta}
-            alt="Instagram"
-            className="img-fluid"
-            style={{ width: '50px', height: '50px' }}
-          />
-        </a>
-        <a href="http://wa.me/555181598553" target="_blank" rel="noopener noreferrer">
-          <img
-            src={whats}
-            alt="Whatsapp"
-            className="img-fluid"
-            style={{ width: '50px', height: '50px' }}
-          />
-        </a>
-        <a href="#">
-          <img
-            src={email}
-            alt="E-mail"
-            className="img-fluid"
-            style={{ width: '50px', height: '50px' }}
-          />
-        </a>
+        <Link to="https://www.instagram.com/patricia_spinningjoias/" target="_blank" rel="noopener noreferrer">
+          <img src={insta} alt="Instagram" className="img-fluid" style={{ width: '50px', height: '50px' }}/>
+        </Link>
+        <Link to="http://wa.me/555181598553" target="_blank" rel="noopener noreferrer">
+          <img src={whats} alt="Whatsapp" className="img-fluid" style={{ width: '50px', height: '50px' }}/>
+        </Link>
+        <Link to="mailto:" target="_blank" rel="noopener noreferrer">
+          <img src={email} alt="E-mail" className="img-fluid" style={{ width: '50px', height: '50px' }}/>
+        </Link>
       </div>
       <div className="footer-creditos">
         <p>© Spinning Joias </p>
