@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import cart from '../assets/cart.png';
 
 function Nav() {
   return (
@@ -93,7 +94,7 @@ function Nav() {
               <i className="bi-cart-fill me-1"></i>
               Carrrinho
               <span className="badge bg-branco ms-1 rounded-pill">
-                <img src="/src/assets/cart.png" alt="Carrinho" className="img-fluid" style={{ width: '20px', height: '20px' }} />
+                <img src={cart} alt="Carrinho" className="img-fluid" style={{ width: '20px', height: '20px' }} />
               </span>
             </button>
           </form>
