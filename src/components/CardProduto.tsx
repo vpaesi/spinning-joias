@@ -1,4 +1,5 @@
 import React from 'react';
+import cart from '../assets/cart.png';
 import type { Produto } from '../types/Produto';
 
 interface CardProdutoProps {
@@ -48,10 +49,10 @@ const CardProduto: React.FC<CardProdutoProps> = ({ produto }) => {
             <a className="btn btn-outline-info mt-auto p-2" href="#">
               Adicionar ao
               <img
-                src="/src/assets/cart.png"
-                alt="Carrinho"
-                className="img-fluid"
-                style={{ width: '20px', height: '20px', marginLeft: '5px' }}
+              src={cart}
+              alt="Carrinho"
+              className="img-fluid"
+              style={{ width: '20px', height: '20px', marginLeft: '5px' }}
               />
             </a>
         </div>

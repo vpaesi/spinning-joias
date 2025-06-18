@@ -1,3 +1,7 @@
+import insta from '../assets/instagram.png';
+import whats from '../assets/whatsapp.png';
+import email from '../assets/email.png';
+
 function Footer() {
   return (
     <footer className="py-5 text-center bg-azul">
@@ -12,7 +16,7 @@ function Footer() {
       <div className="footer-imagens">
         <a href="https://www.instagram.com/patricia_spinningjoias/" target="_blank" rel="noopener noreferrer">
           <img
-            src="/src/assets/instagram.png"
+            src={insta}
             alt="Instagram"
             className="img-fluid"
             style={{ width: '50px', height: '50px' }}
@@ -20,7 +24,7 @@ function Footer() {
         </a>
         <a href="http://wa.me/555181598553" target="_blank" rel="noopener noreferrer">
           <img
-            src="/src/assets/whatsapp.png"
+            src={whats}
             alt="Whatsapp"
             className="img-fluid"
             style={{ width: '50px', height: '50px' }}
@@ -28,7 +32,7 @@ function Footer() {
         </a>
         <a href="#">
           <img
-            src="/src/assets/email.png"
+            src={email}
             alt="E-mail"
             className="img-fluid"
             style={{ width: '50px', height: '50px' }}
