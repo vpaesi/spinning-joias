@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer className="py-5 text-center bg-azul">
+    <footer className="py-5 text-center bg-azul-celeste">
       <Link to="/">
         <h1>Spinning Joias</h1>
       </Link>

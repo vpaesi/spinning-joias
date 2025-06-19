@@ -9,7 +9,7 @@ function HeroSection() {
 
   return (
     <>
-      <div className="bg-dourado hero-section-top">
+      <div className="bg-dourado">
         <ul className="hero-section-top-list">
           {heroSectionLinkBrincos}
           {heroSectionLinkColares}
@@ -19,7 +19,6 @@ function HeroSection() {
       </div>
       <div className="bg-hero-section py-5">
         <div className="container px-4 px-lg-5 my-5">
-          <div className="">
             <h2 className="display-4 fw-bolder">
               Brilhe com elegância em cada giro
             </h2>
@@ -27,7 +26,6 @@ function HeroSection() {
               Spinning Joias tem a jóia que dança com você
             </h3>
           </div>
-        </div>
       </div>
       <div className="bg-dourado hero-section-bottom text-center">
         <h4>Entregamos em todo território brasileiro</h4>

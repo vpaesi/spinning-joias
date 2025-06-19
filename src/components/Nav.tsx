@@ -19,6 +19,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light nav-header">
       <div className="container px-4 px-lg-5 d-flex align-items-center justify-content-between">
+        {/* Hamburguer mobile */}
         <button
           className="navbar-toggler order-1 d-lg-none"
           type="button"
@@ -31,7 +32,8 @@ function Nav() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="d-none d-lg-flex align-items-center order-1">
+        {/* Links - esquerda */}
+        <div className="d-none d-lg-flex align-items-center order-1" style={{ flex: 1 }}>
           <ul className="navbar-nav flex-row gap-2 align-items-center mb-0">
             <li className="nav-item"> {navLinkHome} </li>
             <li className="nav-item"> {navLinkContato} </li>
@@ -53,12 +55,14 @@ function Nav() {
           </ul>
         </div>
 
-        <a className="nav-header m-0 order-2 mx-2" href="/">
+        {/* H1 - centro */}
+        <a className="nav-header m-0 order-2 mx-2 flex-grow-1 text-center" href="/" style={{ flex: 1 }}>
           <h1 className="mb-0 d-none d-lg-block" style={{ fontSize: '2.5rem' }}>Spinning Joias</h1>
-          <h1 className="mb-0 d-lg-none" style={{ fontSize: '2.2rem' }}>Spinning Joias</h1>
+          <h1 className="mb-0 d-lg-none" style={{ fontSize: '2rem' }}>Spinning Joias</h1>
         </a>
 
-        <div className="order-3">
+        {/* Carrinho - direita */}
+        <div className="order-3 d-flex align-items-center" style={{ flex: 1, justifyContent: "flex-end" }}>
           <Link className="d-lg-none ms-2" to="#">
             <img
               src={cart}
@@ -67,7 +71,7 @@ function Nav() {
               style={{ width: "28px", height: "28px" }}
             />
           </Link>
-          <form className="d-none d-lg-flex nav-btn-carrinho ms-2">
+          <form className="d-none d-lg-flex ms-2">
             <button className="btn btn-outline-dark" type="submit">
               Carrinho
               <span className="badge bg-branco ms-1 rounded-pill">
@@ -82,6 +86,7 @@ function Nav() {
           </form>
         </div>
 
+        {/* Mobile menu */}
         <div className="collapse navbar-collapse order-4" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
             <li className="nav-item d-lg-none"> {navLinkHome} </li>

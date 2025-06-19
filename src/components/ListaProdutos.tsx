@@ -1,64 +1,54 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import CardProduto from './CardProduto';
-import type { Produto } from '../types/Produto';
 import CarrosselProdutos from './CarrosselProdutos';
+import type { Produto } from '../types/Produto';
 
-interface Carrossel {
-  categoria?: string;
+interface ListaProdutosProps {
+  produtos: Produto[];
   usarCarrossel?: boolean;
+  orderAlpha: string;
+  orderPreco: string;
+  precoRange: [number, number];
 }
 
-const ListaProdutos: React.FC<Carrossel> = ({ categoria, usarCarrossel = false }) => {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+const ListaProdutos: React.FC<ListaProdutosProps> = ({
+  produtos,
+  usarCarrossel = false,
+  orderAlpha,
+  orderPreco,
+  precoRange,
+}) => {
+  const [min, max] = precoRange;
 
-  useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    const url = categoria 
-    ? `${apiUrl}/produtos/categoria/${encodeURIComponent(categoria)}`
-    : `${apiUrl}/produtos`;
+  // 1. Filtra por preço
+  const filtrados = produtos.filter(
+    (p) => p.preco >= min && p.preco <= max
+  );
 
-    fetch(url)
-      .then((res) => {
-        if (!res.ok) throw new Error('Erro ao buscar produtos');
-        return res.json();
-      })
-      .then(setProdutos)
-      .catch((err) => {
-        console.error('Erro ao carregar produtos:', err);
-      });
-  }, [categoria]);
+  // 2. Ordena
+  const ordenados = [...filtrados].sort((a, b) => {
+    if (orderAlpha === 'nome-asc') return a.nome.localeCompare(b.nome);
+    if (orderAlpha === 'nome-desc') return b.nome.localeCompare(a.nome);
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    if (orderPreco === 'preco-asc') return a.preco - b.preco;
+    if (orderPreco === 'preco-desc') return b.preco - a.preco;
 
-  // Embaralha os produtos para exibir em ordem aleatória
-  const produtosAleatorios = React.useMemo(() => {
-    const copia = [...produtos];
-    for (let i = copia.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [copia[i], copia[j]] = [copia[j], copia[i]];
-    }
-    return copia;
-  }, [produtos]);
+    return 0; // sem ordenação
+  });
 
-  const listaNormal = (
-    <div className='lista-produtos'>
-      {produtosAleatorios.map((produto) => (
+  // 3. Embaralha se pedido
+  const final = orderAlpha === 'random'
+    ? ordenados.sort(() => Math.random() - 0.5)
+    : ordenados;
+
+  return usarCarrossel ? (
+    <CarrosselProdutos produtos={final} />
+  ) : (
+    <div className="lista-produtos">
+      {final.map((produto) => (
         <CardProduto key={produto.id} produto={produto} />
       ))}
     </div>
-  );
-
-const listaCarrossel = <CarrosselProdutos produtos={produtos} />;
-
-  return (
-    <>
-      {usarCarrossel && isMobile ? listaCarrossel : listaNormal}
-    </>
   );
 };
 

@@ -1,0 +1,40 @@
+h1, .h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: calc(1.375rem + 1vw);
+  margin: 0;
+  padding: 0;
+}
+
+h2, .h2 {
+  font-size: calc(1rem + 0.9vw);
+}
+
+h3, .h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+
+h4, .h4 {
+  font-size: calc(1.275rem + 0.3vw);
+}
+
+h5, .h5 {
+  font-size: 1.25rem;
+}
+
+
+a,
+a:visited,
+.nav-link,
+.dropdown-item,
+.footer-links a {
+  color: #212529 !important;
+  text-decoration: none !important;
+}
+
+a:hover,
+.nav-link:hover,
+.dropdown-item:hover,
+.footer-links a:hover {
+  color: var(--rosa) !important;
+  text-decoration: none !important;
+}

@@ -1,0 +1,11 @@
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+
+@import './core.css';
+@import './layout.css';
+@import './typography.css';
+@import './hero-section.css';
+@import './card-produto.css';
+@import './swiper.css';
+@import './footer.css';

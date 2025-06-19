@@ -1,0 +1,25 @@
+.nav-header {
+  font-size: 1.25rem;
+}
+
+.bg-hero-section {
+  background-image: url('../assets/bg-hero-section.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 0.625rem;
+  color: var(--branco);
+}
+
+.hero-section-top-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+  gap: 1.25rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  margin: 0 0.625rem;
+}
+
+.hero-section-bottom {
+  padding: 1.25rem;
+}

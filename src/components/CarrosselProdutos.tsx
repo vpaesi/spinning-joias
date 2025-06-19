@@ -14,8 +14,12 @@ const CarrosselProdutos: React.FC<Props> = ({ produtos }) => {
       navigation
       pagination={{ clickable: true }}
       loop={true}
-      spaceBetween={3}
-      slidesPerView={2}
+      breakpoints={{
+      0: { slidesPerView: 1.2 },
+      480: { slidesPerView: 1.2 },
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3.5 },
+    }}
       className='carrossel-produtos'
     >
       {[...produtos]

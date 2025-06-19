@@ -1,0 +1,21 @@
+.bg-branco {
+  background-color: var(--branco);
+  color: var(--preto);
+  padding: 0.5rem;
+}
+
+.bg-dourado {
+  background-color: var(--dourado);
+  color: var(--preto);
+}
+
+.bg-azul-celeste{
+  background-color: var(--azul-celeste);
+  color: var(--preto);
+}
+
+.produtos-section-titulo {
+  text-align: center;
+  font-size: calc(1.25rem * 1.2);
+  margin: 1.25rem 0;
+}

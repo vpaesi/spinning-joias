@@ -1,0 +1,27 @@
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  display: none;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--rosa);
+}
+
+.lista-produtos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100vw;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+
+.lista-carrossel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.25rem;
+}
+
+.lista-carrossel-card {
+  min-width: 250px;
+}
