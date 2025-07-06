@@ -1,18 +1,15 @@
+import { useState, useEffect } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import RenderizaProdutos from "./components/RenderizaProdutos";
-import Filter from "./components/Filter";
-import Search from "./components/Search";
-import { useProdutos, Produto } from "./hooks/useProdutos";
-import { useState, useEffect } from "react";
 import BtnBackToTop from "./components/BtnBackToTop";
-import NavProdutosPrincipais from "./components/NavProdutosPrincipais";
-import MenuHamburguer from "./components/MenuHamburguer";
-import CarrosselProdutos from "./components/CarrosselProdutos";
+import Home from "./pages/Home";
+import { useProdutos, Produto } from "./hooks/useProdutos";
+import About from "./pages/About";
+import FAQ from "./pages/Faq";
 
 function App() {
-  const { produtos, loading, erro } = useProdutos();
+  const { produtos } = useProdutos();
 
   const [produtosBusca, setProdutosBusca] = useState<Produto[]>(produtos);
   const [produtosFiltrados, setProdutosFiltrados] =
@@ -38,54 +35,16 @@ function App() {
     setProdutosFiltrados(filtrados);
   }
 
-  // Função para selecionar categoria pelo Filter
-  function handleFilterResult(resultados: Produto[], categoria: string) {
-    setProdutosFiltrados(resultados);
-    setCategoriaSelecionada(categoria);
-  }
-
-  function handleSearchResult(resultados: Produto[], termo: string) {
-    setProdutosBusca(resultados);
-    setProdutosFiltrados(resultados);
-    setPesquisa(termo);
-    setCategoria("todos");
-    setPrecoOrdem("");
-  }
-
   return (
     <>
-      {" "}
       <Header onCategoriaSelect={handleCategoriaMenu} />
-      <Search produtos={produtos} onSearchResult={handleSearchResult} />
-      <NavProdutosPrincipais onCategoriaSelect={handleCategoriaMenu} />
-      <MenuHamburguer onCategoriaSelect={handleCategoriaMenu} />
-      <HeroSection />
-      <h2 className="bg-yellow-100 py-2 text-center text-yellow-800 font-semibold">
-        Entregamos em todo território brasileiro
-      </h2>
-      <RenderizaProdutos
-        produtos={produtosFiltrados}
-        loading={loading}
-        erro={erro}
-        categoriaSelecionada={categoriaSelecionada}
-        carrossel={true} // ou false para lista normal
-      />
-      <Filter
-        produtos={produtosBusca}
-        categoriaSelecionada={categoriaSelecionada}
-        onFilterResult={handleFilterResult}
-      />
-      <h2 className="py-2 text-center font-semibold">
-        {categoriaSelecionada && categoriaSelecionada !== "todos"
-          ? categoriaSelecionada
-          : "Todos os produtos"}
-      </h2>
-      <RenderizaProdutos
-        produtos={produtosFiltrados}
-        loading={loading}
-        erro={erro}
-        categoriaSelecionada={categoriaSelecionada}
-      />
+     <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/faq" element={<FAQ />} />
+      </Routes>
+     </BrowserRouter>
       <BtnBackToTop />
       <Footer />
     </>

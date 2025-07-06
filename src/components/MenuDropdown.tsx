@@ -28,7 +28,7 @@ function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
       ))}
       <hr className="my-2" />
       <a href="/carrinho" className="block px-6 py-2 hover:bg-yellow-100">Meu carrinho</a>
-      <a href="/sobre" className="block px-6 py-2 hover:bg-yellow-100">Sobre a Spinning</a>
+      <a href="/about" className="block px-6 py-2 hover:bg-yellow-100">Sobre a Spinning</a>
       <a href="/faq" className="block px-6 py-2 hover:bg-yellow-100">Perguntas Frequentes (FAQ)</a>
     </div>
   );

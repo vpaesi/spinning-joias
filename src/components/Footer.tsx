@@ -49,13 +49,13 @@ function Footer() {
                 />
               </li>
               <li className="flex items-center gap-2 mb-1">
-                <a href="#">Perguntas frequentes (FAQ)</a>
+                <a href="/faq">Perguntas frequentes (FAQ)</a>
               </li>
               <li className="flex items-center gap-2 mb-1">
                 <a href="#">Mais buscados</a>
               </li>
               <li className="flex items-center gap-2 mb-1">
-                <a href="#">Sobre a Spinning Joias</a>
+                <a href="/about">Sobre a Spinning Joias</a>
               </li>
             </ul>            
           </div>
