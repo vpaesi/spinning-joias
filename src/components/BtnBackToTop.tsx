@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 function BtnBackToTop() {
-
   useEffect(() => {
     const handleScroll = () => {
       const btn = document.getElementById("backToTopBtn");
@@ -15,7 +14,7 @@ function BtnBackToTop() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-   <>
+    <>
       <button
         id="backToTopBtn"
         title="Voltar ao Topo"
@@ -23,9 +22,9 @@ function BtnBackToTop() {
         style={{ display: "none" }}
         onClick={scrollToTop}
       >
-        ⬆
+        <i className="bi bi-arrow-up-short text-xl" aria-hidden="true"></i>
       </button>
-   </>
+    </>
   );
 }
 

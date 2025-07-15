@@ -9,13 +9,13 @@ function HeroSection() {
         className="bg-yellow-700 text-white px-6 py-2 rounded hover:bg-yellow-800 transition-colors"
         onClick={() =>
           window.scrollTo({
-            top: document.body.scrollHeight,
             behavior: "smooth",
+            top: document.getElementById("lista-colecao")?.offsetTop || 0,
           })
         }
       >
         Ver coleção
-      </button>
+      </button>      
     </section>
   );
 }

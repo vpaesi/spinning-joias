@@ -11,12 +11,12 @@ interface CarrosselProdutosProps {
 }
 
 function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps) {
-  // Pega os 10 últimos produtos
   const ultimosProdutos = produtos.slice(-10).reverse();
+  const enableLoop = produtos.length >= 9;
 
   return (
     <div className="w-full max-w-6xl mx-auto py-6">
-        <h2 className="py-2 text-center font-semibold">
+      <h2 className="py-2 text-center font-semibold">
         Novidades
       </h2>
       <Swiper
@@ -24,21 +24,22 @@ function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps)
         spaceBetween={24}
         navigation
         pagination={{ clickable: true }}
-        loop
+        loop={enableLoop}
         breakpoints={{
-          320: { slidesPerView: 1 },
+          320: { slidesPerView: 1.5 },
           480: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
           1280: { slidesPerView: 5 },
         }}
-        style={{ paddingBottom: 32 }}
+        style={{ paddingBottom: 32, paddingLeft: 16, paddingRight: 16 }}
       >
         {ultimosProdutos.map((produto) => (
           <SwiperSlide key={produto.id}>
             <div
-              className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full"
+              className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
               onClick={() => onProdutoClick && onProdutoClick(produto)}
+              style={{ height: '24rem' }}
             >
               <img
                 src={produto.imagem}
@@ -46,10 +47,7 @@ function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps)
                 className="w-full h-48 object-cover rounded-t"
               />
               <div className="p-4 flex-1 flex flex-col">
-                <h5 className="font-bold text-lg mb-2">{produto.titulo}</h5>
-                <div className="text-gray-500 text-sm mb-1">
-                  {produto.categoria}
-                </div>
+                <h5 className="font-bold text-lg mb-2">{produto.titulo}</h5>                
                 <div className="flex flex-col items-center mb-2">
                   {produto.preco !== undefined ? (
                     <>

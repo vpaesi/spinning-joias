@@ -3,9 +3,7 @@ import { useProdutos, Produto } from "../hooks/useProdutos";
 import HeroSection from "../components/HeroSection";
 import RenderizaProdutos from "../components/RenderizaProdutos";
 import Filter from "../components/Filter";
-import Search from "../components/Search";
 import NavProdutosPrincipais from "../components/NavProdutosPrincipais";
-import MenuHamburguer from "../components/MenuHamburguer";
 
 function Home() {
   const { produtos, loading, erro } = useProdutos();
@@ -50,9 +48,7 @@ function Home() {
 
   return (
     <>
-      <Search produtos={produtos} onSearchResult={handleSearchResult} />
       <NavProdutosPrincipais onCategoriaSelect={handleCategoriaMenu} />
-      <MenuHamburguer onCategoriaSelect={handleCategoriaMenu} />
       <HeroSection />
       <h2 className="bg-yellow-100 py-2 text-center text-yellow-800 font-semibold">
         Entregamos em todo território brasileiro
@@ -69,7 +65,7 @@ function Home() {
         categoriaSelecionada={categoriaSelecionada}
         onFilterResult={handleFilterResult}
       />
-      <h2 className="py-2 text-center font-semibold">
+      <h2 id="lista-colecao" className="py-2 text-center font-semibold">
         {categoriaSelecionada && categoriaSelecionada !== "todos"
           ? categoriaSelecionada
           : "Todos os produtos"}

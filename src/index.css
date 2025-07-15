@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Swiper navigation arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #b7791f !important; /* cor desejada para as setas */
+}
+
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  background: #bd9a60 !important; /* cor desejada para as bolinhas */
+  opacity: 0.5;
+}
+.swiper-pagination-bullet-active {
+  background: #b7791f !important; /* cor ativa das bolinhas */
+  opacity: 1;
+}

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Produto as ProdutoType, Cor } from "../hooks/useProdutos";
-import logoWhatsapp from "../assets/whatsapp-medio.png";
 
 interface ProdutoModalProps {
   produto: ProdutoType | null;
@@ -166,17 +165,13 @@ function ModalProduto({ produto, fecharModal }: ProdutoModalProps) {
             )}
             {/* Contato WhatsApp */}
             <div className="flex items-center gap-2 mt-4">
-              <img
-                src={logoWhatsapp}
-                alt="Logo do whatsapp"
-                className="w-8 h-8"
-              />
               <a
                 href="http://wa.me/555181598553"
                 className="text-green-700 font-semibold no-underline hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
+                <i className="bi bi-whatsapp ml-1 m-2"></i>
                 Encomende agora mesmo!
               </a>
             </div>

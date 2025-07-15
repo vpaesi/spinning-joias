@@ -36,13 +36,15 @@ function Search({ produtos, onSearchResult }: SearchProps) {
 
   return (
     <div className="flex justify-center items-center gap-2 mb-2">
+      <div className="relative w-full md:w-1/2 lg:w-full">
       <input
         type="search"
-        className="border rounded px-3 py-2 w-72"
+        className="border border-yellow-700 rounded px-3 py-2 w-full pr-10"
         placeholder="Pesquise a joia que é a sua cara!"
         onChange={handleSearch}
       />
-      <i className="fa fa-search text-yellow-700" aria-hidden="true"></i>
+      <i className="bi bi-search text-yellow-700 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" aria-hidden="true"></i>
+      </div>
     </div>
   );
 }

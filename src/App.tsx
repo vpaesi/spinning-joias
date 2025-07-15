@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import { useProdutos, Produto } from "./hooks/useProdutos";
 import About from "./pages/About";
 import FAQ from "./pages/Faq";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 function App() {
   const { produtos } = useProdutos();
@@ -37,7 +38,9 @@ function App() {
 
   return (
     <>
-      <Header onCategoriaSelect={handleCategoriaMenu} />
+      <Header onCategoriaSelect={handleCategoriaMenu} produtos={[]} onSearchResult={function (resultados: Produto[], termo: string): void {
+        throw new Error("Function not implemented.");
+      } } />
      <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />

@@ -50,7 +50,7 @@ function RenderizaProdutos({
   if (erro) return <div>{erro}</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50">
       
       {carrossel ? (
         <CarrosselProdutos produtos={produtos} onProdutoClick={abrirModal} />
