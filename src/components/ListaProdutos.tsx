@@ -2,7 +2,7 @@ import { Produto } from "../hooks/useProdutos";
 import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
-} from "../utils/formataPreco";
+} from "../utils/FormataPreco";
 
 interface ListaProdutosProps {
   produtosFiltrados: Produto[];
@@ -38,7 +38,7 @@ function ListaProdutos({
                   <span className="line-through text-gray-400 text-xs">
                     {formatoDoPrecoSemDesconto(produto.preco)}
                   </span>
-                  <span className="text-green-700 font-semibold">
+                  <span className="text-blue-500 font-semibold">
                     {formatoDoPreco(produto.preco)}
                   </span>
                 </>

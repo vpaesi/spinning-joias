@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+
+h1,
+.font-cursive {
+  font-family: "Parisienne", cursive !important;
+}
+
+button,
+.btn {
+  background-color: #d9a76b !important;
+  color: #fff !important;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+button:hover,
+.btn:hover {
+  background-color: #b88a4a !important;
+}
+
+.filtro-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.filtro-icone {
+  font-size: 1.7rem;
+  margin-right: 0.5rem;
+}
+.filtro-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.filtro-modal {
+  background: #b3e0fa;
+  border-radius: 1rem;
+  box-shadow: 0 2px 8px 0 #0001;
+  padding: 2rem 1.5rem;
+  min-width: 270px;
+  max-width: 350px;
+  margin-top: 1rem;
+}
+.filtro-modal label {
+  font-weight: 500;
+}
+.filtro-modal .range-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+.filtro-modal .slider {
+  width: 100%;
+  margin: 1rem 0 1.5rem 0;
+}
+.filtro-modal select {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  border: none;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.hero-gradient {
+  background: linear-gradient(120deg, #93bfda 60%, #f7d6d6 100%);
+}
+.hero-title {
+  font-size: 2.2rem;
+  font-family: "Parisienne", cursive;
+  color: #fff;
+  text-shadow: 0 2px 8px #0002;
+}
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 2.8rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  .filtro-modal {
+    min-width: 350px;
+  }
+}

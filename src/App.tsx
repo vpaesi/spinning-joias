@@ -38,16 +38,20 @@ function App() {
 
   return (
     <>
-      <Header onCategoriaSelect={handleCategoriaMenu} produtos={[]} onSearchResult={function (resultados: Produto[], termo: string): void {
-        throw new Error("Function not implemented.");
-      } } />
-     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About/>} />
-        <Route path="/faq" element={<FAQ />} />
-      </Routes>
-     </BrowserRouter>
+      <Header
+        onCategoriaSelect={handleCategoriaMenu}
+        produtos={[]}
+        onSearchResult={function (resultados: Produto[], termo: string): void {
+          throw new Error("Function not implemented.");
+        }}
+      />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/faq" element={<FAQ />} />
+        </Routes>
+      </BrowserRouter>
       <BtnBackToTop />
       <Footer />
     </>

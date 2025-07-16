@@ -5,30 +5,48 @@ interface NavProdutosPrincipaisProps {
 function NavProdutosPrincipais({
   onCategoriaSelect,
 }: NavProdutosPrincipaisProps) {
+  const handleClick = (categoria: string) => {
+    onCategoriaSelect(categoria);
+    window.scrollTo({
+      behavior: "smooth",
+      top: document.getElementById("lista-colecao")?.offsetTop || 0,
+    });
+  };
+
   return (
-    <div className="bg-yellow-100 py-2 text-center text-yellow-800 font-semibold">
-      <nav className="flex justify-center gap-4 md:gap-40">
+    <div
+      className="py-2 text-center text-yellow-800 font-semibold w-full"
+      style={{
+        backgroundColor: "#D9A76B",
+        color: "#fff",
+        border: "none",
+        padding: "0.5rem 1.5rem",
+        fontWeight: 500,
+        transition: "background 0.2s",
+      }}
+    >
+      <nav className="flex flex-wrap justify-center md:gap-10 lg:gap-40 w-full">
         <button
-          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer"
-          onClick={() => onCategoriaSelect("Brincos")}
+          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
+          onClick={() => handleClick("Brincos")}
         >
           Brincos
         </button>
         <button
-          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer"
-          onClick={() => onCategoriaSelect("Colares")}
+          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
+          onClick={() => handleClick("Colares")}
         >
           Colares
         </button>
         <button
-          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer"
-          onClick={() => onCategoriaSelect("Berloques")}
+          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
+          onClick={() => handleClick("Berloques")}
         >
           Berloques
         </button>
         <button
-          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer"
-          onClick={() => onCategoriaSelect("Diversos")}
+          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
+          onClick={() => handleClick("Diversos")}
         >
           Diversos
         </button>

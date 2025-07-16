@@ -5,8 +5,8 @@ const personalInfo = {
   socialMedia: {
     instagram: "https://www.instagram.com/patricia_spinningjoias/",
     whats: "http://wa.me/555191820585",
-    email: "mailto:caprica72@gmail.com"
-  }
+    email: "mailto:caprica72@gmail.com",
+  },
 };
 
 export default personalInfo;

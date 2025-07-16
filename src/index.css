@@ -5,15 +5,32 @@
 /* Swiper navigation arrows */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #b7791f !important; /* cor desejada para as setas */
+  color: #d9a76b !important;
 }
 
 /* Swiper pagination bullets */
 .swiper-pagination-bullet {
-  background: #bd9a60 !important; /* cor desejada para as bolinhas */
-  opacity: 0.5;
+  background: #d9a76b !important;
 }
 .swiper-pagination-bullet-active {
-  background: #b7791f !important; /* cor ativa das bolinhas */
+  background: #b7791f !important;
   opacity: 1;
+}
+
+.btn-dropdown,
+.btn-filter {
+  background-color: transparent !important;
+  color: #000 !important;
+  border: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn-dropdown {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-filter:hover {
+  background-color: #d9a76b !important;
 }

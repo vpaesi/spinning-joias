@@ -21,13 +21,16 @@ function RenderizaProdutos({
   carrossel = false,
 }: RenderizaProdutosProps) {
   const [page, setPage] = useState(1);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
+    null
+  );
 
   useEffect(() => {
     if (!carrossel) {
       function onScroll() {
         if (
-          window.innerHeight + window.scrollY >= document.body.offsetHeight - 2 &&
+          window.innerHeight + window.scrollY >=
+            document.body.offsetHeight - 2 &&
           page * PAGE_SIZE < produtos.length
         ) {
           setPage((prev) => prev + 1);
@@ -51,7 +54,6 @@ function RenderizaProdutos({
 
   return (
     <div className="bg-gray-50">
-      
       {carrossel ? (
         <CarrosselProdutos produtos={produtos} onProdutoClick={abrirModal} />
       ) : (
@@ -62,10 +64,7 @@ function RenderizaProdutos({
           abrirModal={abrirModal}
         />
       )}
-      <ModalProduto
-        produto={produtoSelecionado}
-        fecharModal={fecharModal}
-      />
+      <ModalProduto produto={produtoSelecionado} fecharModal={fecharModal} />
     </div>
   );
 }

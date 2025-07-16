@@ -2,68 +2,64 @@ import personalInfo from "../utils/DadosSpinning";
 
 function Footer() {
   return (
-    <>
-      <footer className="bg-yellow-700 text-white mt-8">
-        <div className="container mx-auto py-8 grid grid-cols-1 gap-8 text-center">
-          <div>
-            <h2 className="text-xl font-bold mb-2">Spinning Joias</h2>
-            <ul className="flex flex-col items-center">
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a
-                  href={`${personalInfo.socialMedia.instagram}`}
-                  className="text-white no-underline hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="bi bi-instagram"></i>
-                </a>
-              </li>
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a
-                  href={`${personalInfo.socialMedia.whats}`}
-                  className="text-white no-underline hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="bi bi-whatsapp"></i>
-                </a>
-              </li>
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a
-                  href={`${personalInfo.socialMedia.email}`}
-                  className="text-white no-underline hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <i className="bi bi-envelope"></i>
-                </a>
-              </li>
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a href="/faq">Perguntas frequentes (FAQ)</a>
-              </li>
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a href="#">Mais buscados</a>
-              </li>
-              <li className="flex items-center gap-2 mb-1 p-2">
-                <a href="/about">Sobre a Spinning Joias</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div className="text-center py-4 bg-yellow-800 text-sm">
-          <p>© Spinning Joias</p>
-          <p>v. 1.2.0 released 08.06.2025 by {" "}</p>
+    <footer className="bg-[#b3e0fa] text-black mt-8 font-sans">
+      <div className="container mx-auto py-10 flex flex-col items-center justify-center min-h-[60vh]">
+        <h1 className="font-cursive text-4xl mb-8 mt-4">
+          {" "}
+          {`${personalInfo.nomeDaLoja}`}
+        </h1>
+        <div className="flex flex-row items-center justify-center gap-10 mb-8">
           <a
-            href="https://vitoria-de-camargo.vercel.app/"
+            href={`${personalInfo.socialMedia.instagram}`}
+            className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
             target="_blank"
             rel="noopener noreferrer"
-            className="underline"
+            aria-label="Instagram"
           >
-            Vitória de Camargo
+            <i className="bi bi-instagram"></i>
+          </a>
+          <a
+            href={`${personalInfo.socialMedia.whats}`}
+            className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <i className="bi bi-chat-dots"></i>
+          </a>
+          <a
+            href={`${personalInfo.socialMedia.email}`}
+            className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email"
+          >
+            <i className="bi bi-envelope"></i>
           </a>
         </div>
-      </footer>
-    </>
+        <ul className="flex flex-col items-center gap-4 text-lg mb-8">
+          <li>
+            <a href="/faq" className="hover:underline">
+              Perguntas frequentes (FAQ)
+            </a>
+          </li>
+          <li>
+            <a href="/about" className="hover:underline">
+              Sobre a {`${personalInfo.nomeDaLoja}`}
+            </a>
+          </li>
+        </ul>
+        <div className="text-center text-[#6bb3d6] text-sm mt-8">
+          <p>© {`${personalInfo.nomeDaLoja}`}</p>
+          <p>
+            v. 2.0 released 08.06.2025 by{" "}
+            <a href="github.com/vitoriacamargo" className="hover:underline">
+              Vitória de Camargo
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 }
 

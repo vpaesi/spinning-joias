@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { formatoDoPreco, formatoDoPrecoSemDesconto } from "../utils/formataPreco";
+import {
+  formatoDoPreco,
+  formatoDoPrecoSemDesconto,
+} from "../utils/FormataPreco";
 import { Produto as ProdutoType, Cor } from "../hooks/useProdutos";
 
 interface ProdutoModalProps {
@@ -95,20 +98,20 @@ function ModalProduto({ produto, fecharModal }: ProdutoModalProps) {
             <h2 className="text-2xl font-bold mb-2">{produto.titulo}</h2>
             <div className="mb-2 text-gray-600">{produto.categoria}</div>
             <div className="mb-2">
-                <>
-                  <span className="line-through text-gray-400 text-sm mr-2">
-                    {formatoDoPrecoSemDesconto(produto.preco)}
-                  </span>
-                  <span className="text-green-700 font-semibold text-lg">
-                    {formatoDoPreco(produto.preco)}
-                  </span>
-                </>
-             
+              <>
+                <span className="line-through text-gray-400 text-sm mr-2">
+                  {formatoDoPrecoSemDesconto(produto.preco)}
+                </span>
+                <span className="text-blue-500 font-semibold text-lg">
+                  {formatoDoPreco(produto.preco)}
+                </span>
+              </>
             </div>
             <div className="mb-2">{produto.descricao}</div>
             {produto.informacoes_extras && (
               <div className="mb-2">
-                <span className="font-semibold">informacoes_extras:</span> {produto.informacoes_extras}
+                <span className="font-semibold">informacoes_extras:</span>{" "}
+                {produto.informacoes_extras}
               </div>
             )}
             {/* Cores */}
@@ -140,7 +143,7 @@ function ModalProduto({ produto, fecharModal }: ProdutoModalProps) {
             <div className="flex items-center gap-2 mt-4">
               <a
                 href="http://wa.me/555181598553"
-                className="text-green-700 font-semibold no-underline hover:underline"
+                className="text-blue-500 font-semibold no-underline hover:underline"
                 target="_blank"
                 rel="noopener noreferrer"
               >

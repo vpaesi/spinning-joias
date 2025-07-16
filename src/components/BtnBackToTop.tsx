@@ -1,12 +1,9 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 function BtnBackToTop() {
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
-      const btn = document.getElementById("backToTopBtn");
-      if (btn) {
-        btn.style.display = window.scrollY > 200 ? "block" : "none";
-      }
+      setShow(window.scrollY > 200);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -14,17 +11,23 @@ function BtnBackToTop() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <>
-      <button
-        id="backToTopBtn"
-        title="Voltar ao Topo"
-        className="fixed bottom-6 right-6 bg-yellow-700 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-50"
-        style={{ display: "none" }}
-        onClick={scrollToTop}
-      >
-        <i className="bi bi-arrow-up-short text-xl" aria-hidden="true"></i>
-      </button>
-    </>
+    <button
+      id="backToTopBtn"
+      title="Voltar ao Topo"
+      className={`fixed bottom-8 right-4 bg-yellow-700 text-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg z-[100] transition-opacity duration-300 ${
+        show
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+      }`}
+      onClick={scrollToTop}
+      aria-label="Voltar ao topo"
+      style={{ boxShadow: "0 4px 16px #0002" }}
+    >
+      <i
+        className="bi bi-arrow-up-short text-3xl m-0 p-0 flex items-center justify-center"
+        aria-hidden="true"
+      ></i>
+    </button>
   );
 }
 

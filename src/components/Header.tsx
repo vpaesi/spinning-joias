@@ -2,6 +2,7 @@ import MenuHamburguer from "./MenuHamburguer";
 import Search from "./Search";
 
 import { Produto } from "../hooks/useProdutos";
+import personalInfo from "../utils/DadosSpinning";
 
 interface HeaderProps {
   onCategoriaSelect: (categoria: string) => void;
@@ -19,7 +20,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
             href="/"
             className="no-underline text-yellow-700 hover:text-yellow-800"
           >
-            <b>Spinning</b> Joias
+            {`${personalInfo.nomeDaLoja}`}
           </a>
         </h1>
         {/* Visiveis apenas no desktop */}
@@ -27,16 +28,18 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
           <Search produtos={produtos} onSearchResult={onSearchResult} />
         </div>
         <div className="hidden md:block flex-1 ml-4">
-            <a href="/about"
+          <a
+            href="/about"
             className="text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
-            >
+          >
             Sobre a Spinning
-            </a>
-            <a href="/faq"
+          </a>
+          <a
+            href="/faq"
             className="ml-4 text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
-            >
+          >
             FAQ
-            </a>
+          </a>
         </div>
       </div>
       {/* Barra de pesquisa visível no mobile */}

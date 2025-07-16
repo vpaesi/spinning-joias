@@ -38,38 +38,47 @@ function Home() {
     setCategoriaSelecionada(categoria);
   }
 
-  function handleSearchResult(resultados: Produto[], termo: string) {
-    setProdutosBusca(resultados);
-    setProdutosFiltrados(resultados);
-    setPesquisa(termo);
-    setCategoria("todos");
-    setPrecoOrdem("");
-  }
-
   return (
     <>
       <NavProdutosPrincipais onCategoriaSelect={handleCategoriaMenu} />
       <HeroSection />
-      <h2 className="bg-yellow-100 py-2 text-center text-yellow-800 font-semibold">
-        Entregamos em todo território brasileiro
+      <h2
+        className="py-2 text-center text-yellow-800 font-semibold"
+        style={{
+          backgroundColor: "#D9A76B",
+          color: "#fff",
+          border: "none",
+          padding: "0.5rem 1.5rem",
+          fontWeight: 500,
+          transition: "background 0.2s",
+        }}
+      >
+        Entregamos em todo território brasileiro!
       </h2>
       <RenderizaProdutos
         produtos={produtosFiltrados}
         loading={loading}
         erro={erro}
         categoriaSelecionada={categoriaSelecionada}
-        carrossel={true} // ou false para lista normal
+        carrossel={true}
       />
-      <Filter
-        produtos={produtosBusca}
-        categoriaSelecionada={categoriaSelecionada}
-        onFilterResult={handleFilterResult}
-      />
-      <h2 id="lista-colecao" className="py-2 text-center font-semibold">
-        {categoriaSelecionada && categoriaSelecionada !== "todos"
-          ? categoriaSelecionada
-          : "Todos os produtos"}
-      </h2>
+      <div className="w-full flex flex-col gap-1 mt-8 mb-4">
+        <h2
+          id="lista-colecao"
+          className="text-2xl md:text-2xl text-center w-full max-w-2xl mx-auto"
+        >
+          {categoriaSelecionada && categoriaSelecionada !== "todos"
+            ? categoriaSelecionada
+            : "Todos os produtos"}
+        </h2>
+        <div className="flex-1 flex justify-start px-16">
+          <Filter
+            produtos={produtosBusca}
+            categoriaSelecionada={categoriaSelecionada}
+            onFilterResult={handleFilterResult}
+          />
+        </div>
+      </div>
       <RenderizaProdutos
         produtos={produtosFiltrados}
         loading={loading}
