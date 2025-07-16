@@ -13,13 +13,10 @@ export interface Produto {
   nome?: string;
   descricao: string;
   preco?: number;
-  precoPrata?: number;
-  precoOuro?: number;
-  precoOculto?: number;
   categoria: string;
   imagem: string;
   imagensExtras?: string[];
-  material?: string;
+  informacoes_extras?: string;
   cores?: Cor[];
 }
 

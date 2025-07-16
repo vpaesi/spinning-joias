@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { formatoDoPreco, formatoDoPrecoSemDesconto } from "../utils/formataPreco";
 import { Produto as ProdutoType, Cor } from "../hooks/useProdutos";
 
 interface ProdutoModalProps {
@@ -94,48 +95,20 @@ function ModalProduto({ produto, fecharModal }: ProdutoModalProps) {
             <h2 className="text-2xl font-bold mb-2">{produto.titulo}</h2>
             <div className="mb-2 text-gray-600">{produto.categoria}</div>
             <div className="mb-2">
-              {produto.preco !== undefined ? (
                 <>
                   <span className="line-through text-gray-400 text-sm mr-2">
-                    {(produto.preco * 1.1).toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
+                    {formatoDoPrecoSemDesconto(produto.preco)}
                   </span>
                   <span className="text-green-700 font-semibold text-lg">
-                    {produto.preco.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                    })}
+                    {formatoDoPreco(produto.preco)}
                   </span>
                 </>
-              ) : (
-                <>
-                  {produto.precoPrata && (
-                    <span className="mr-2">
-                      Prata:{" "}
-                      {produto.precoPrata.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </span>
-                  )}
-                  {produto.precoOuro && (
-                    <span>
-                      Ouro:{" "}
-                      {produto.precoOuro.toLocaleString("pt-BR", {
-                        style: "currency",
-                        currency: "BRL",
-                      })}
-                    </span>
-                  )}
-                </>
-              )}
+             
             </div>
             <div className="mb-2">{produto.descricao}</div>
-            {produto.material && (
+            {produto.informacoes_extras && (
               <div className="mb-2">
-                <span className="font-semibold">Material:</span> {produto.material}
+                <span className="font-semibold">informacoes_extras:</span> {produto.informacoes_extras}
               </div>
             )}
             {/* Cores */}

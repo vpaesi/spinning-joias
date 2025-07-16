@@ -21,12 +21,12 @@ function Search({ produtos, onSearchResult }: SearchProps) {
     const consulta = padronizaTextoDaPesquisa(termo);
     const resultados = produtos.filter((produto) => {
       const titulo = padronizaTextoDaPesquisa(produto.titulo);
-      const material = padronizaTextoDaPesquisa(produto.material || "");
+      const informacoes_extras = padronizaTextoDaPesquisa(produto.informacoes_extras || "");
       const descricao = padronizaTextoDaPesquisa(produto.descricao);
       const categoriaProduto = padronizaTextoDaPesquisa(produto.categoria);
       return (
         titulo.includes(consulta) ||
-        material.includes(consulta) ||
+        informacoes_extras.includes(consulta) ||
         descricao.includes(consulta) ||
         categoriaProduto.includes(consulta)
       );

@@ -1,4 +1,5 @@
 import { Produto } from "../hooks/useProdutos";
+import { formatoDoPreco, formatoDoPrecoSemDesconto } from "../utils/formataPreco";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
@@ -49,43 +50,15 @@ function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps)
               <div className="p-4 flex-1 flex flex-col">
                 <h5 className="font-bold text-lg mb-2">{produto.titulo}</h5>                
                 <div className="flex flex-col items-center mb-2">
-                  {produto.preco !== undefined ? (
                     <>
                       <span className="line-through text-gray-400 text-xs">
-                        {(produto.preco * 1.1).toLocaleString("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                        })}
+                        {formatoDoPrecoSemDesconto(produto.preco)}
                       </span>
                       <span className="text-green-700 font-semibold">
-                        {produto.preco.toLocaleString("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                        })}
+                        {formatoDoPreco(produto.preco)}
                       </span>
                     </>
-                  ) : (
-                    <>
-                      {produto.precoPrata && (
-                        <span>
-                          Prata:{" "}
-                          {produto.precoPrata.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                          })}
-                        </span>
-                      )}
-                      {produto.precoOuro && (
-                        <span>
-                          Ouro:{" "}
-                          {produto.precoOuro.toLocaleString("pt-BR", {
-                            style: "currency",
-                            currency: "BRL",
-                          })}
-                        </span>
-                      )}
-                    </>
-                  )}
+                  
                 </div>
                 <button
                   className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"

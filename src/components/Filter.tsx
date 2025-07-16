@@ -20,9 +20,9 @@ function Filter({ produtos, categoriaSelecionada, onFilterResult }: FilterProps)
     }
 
     if (precoOrdem === "menor-maior") {
-      filtrados.sort((a, b) => (a.precoOculto ?? 0) - (b.precoOculto ?? 0));
+      filtrados.sort((a, b) => (a.preco ?? 0) - (b.preco ?? 0));
     } else if (precoOrdem === "maior-menor") {
-      filtrados.sort((a, b) => (b.precoOculto ?? 0) - (a.precoOculto ?? 0));
+      filtrados.sort((a, b) => (b.preco ?? 0) - (a.preco ?? 0));
     }
 
     onFilterResult(filtrados, categoria);
