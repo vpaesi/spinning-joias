@@ -7,12 +7,15 @@ interface FilterProps {
   onFilterResult: (resultados: Produto[], categoria: string) => void;
 }
 
+
 function Filter({
   produtos,
   categoriaSelecionada,
   onFilterResult,
 }: FilterProps) {
   const [open, setOpen] = useState(false);
+  const [ordemAlfabetica, setOrdemAlfabetica] = useState<'none' | 'asc' | 'desc'>('none');
+  const [ordemPreco, setOrdemPreco] = useState<'none' | 'asc' | 'desc'>('none');
   const filtroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,13 +50,40 @@ function Filter({
       );
     }
 
-    if (precoOrdem === "menor-maior") {
+    if (ordemPreco === 'asc') {
       filtrados.sort((a, b) => (a.preco ?? 0) - (b.preco ?? 0));
-    } else if (precoOrdem === "maior-menor") {
+    } else if (ordemPreco === 'desc') {
       filtrados.sort((a, b) => (b.preco ?? 0) - (a.preco ?? 0));
+    } else if (ordemPreco === 'none') {
+      filtrados = filtrados.sort(() => Math.random() - 0.5);
+    }
+
+    if (ordemAlfabetica === 'asc') {
+      filtrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
+    } else if (ordemAlfabetica === 'desc') {
+      filtrados.sort((a, b) => b.titulo.localeCompare(a.titulo));
+    } else if (ordemAlfabetica === 'none') {
+      filtrados = filtrados.sort(() => Math.random() - 0.5);
     }
 
     onFilterResult(filtrados, categoria);
+    setOpen(false);
+  }
+
+  function handleAlfabeticaClick() {
+    setOrdemAlfabetica((prev) => {
+      if (prev === 'none') return 'asc';
+      if (prev === 'asc') return 'desc';
+      return 'none';
+    });
+  }
+
+  function handlePrecoClick() {
+    setOrdemPreco((prev) => {
+      if (prev === 'none') return 'asc';
+      if (prev === 'asc') return 'desc';
+      return 'none';
+    });
   }
 
   return (
@@ -79,7 +109,7 @@ function Filter({
           className="filtro-modal absolute z-20 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0"
           style={{ top: "100%", position: "absolute" }}
           onChange={handleFilter}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleFilter}
         >
           <div>
             <label htmlFor="categoria" className="mr-2 font-semibold">
@@ -90,6 +120,7 @@ function Filter({
               name="categoria"
               className="border rounded px-2 py-1"
               value={categoriaSelecionada}
+              onChange={handleFilter}
             >
               <option value="todos">Todos os produtos</option>
               {[...new Set(produtos.map((p) => p.categoria))].map((cat) => (
@@ -99,20 +130,39 @@ function Filter({
               ))}
             </select>
           </div>
-          <div className="mt-4">
-            <label htmlFor="precoOrdem" className="mr-2 font-semibold">
-              Ordenar por preço:
-            </label>
-            <select
-              id="precoOrdem"
-              name="precoOrdem"
-              className="border rounded px-2 py-1"
-              defaultValue=""
+          <div className="mt-4 flex justify-center items-center gap-4 w-full">
+            <button
+              type="button"
+              className={`btn-filter-ordem-preco flex items-center gap-1 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold
+                ${ordemPreco === 'none' ? 'bg-[#f7ecd6] hover:bg-[#f7d6a6]' : 'bg-[#D9A76B] hover:bg-[#b88a4a] text-white'}`}
+              onClick={() => {
+                handlePrecoClick();
+                setTimeout(() => setOpen(false), 100);
+              }}
+              aria-label="Ordenar por preço"
             >
-              <option value="">Selecione</option>
-              <option value="menor-maior">Menor para Maior</option>
-              <option value="maior-menor">Maior para Menor</option>
-            </select>
+              <span className="font-semibold mr-1">R$</span>
+              <span className="flex flex-col">
+                <i className={`bi bi-arrow-down ${ordemPreco === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+                <i className={`bi bi-arrow-up ${ordemPreco === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+              </span>
+            </button>
+            <button
+              type="button"
+              className={`btn-filter-ordem-alfabetica flex items-center gap-1 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold
+                ${ordemAlfabetica === 'none' ? 'bg-[#f7ecd6] hover:bg-[#f7d6a6]' : 'bg-[#D9A76B] hover:bg-[#b88a4a] text-white'}`}
+              onClick={() => {
+                handleAlfabeticaClick();
+                setTimeout(() => setOpen(false), 100);
+              }}
+              aria-label="Ordenar alfabeticamente"
+            >
+              <span className="font-semibold mr-1">AZ</span>
+              <span className="flex flex-col">
+                <i className={`bi bi-arrow-down ${ordemAlfabetica === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+                <i className={`bi bi-arrow-up ${ordemAlfabetica === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+              </span>
+            </button>
           </div>
         </form>
       )}
