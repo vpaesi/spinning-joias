@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { scrollToElement } from "../utils/scrollToElement";
 import { padronizaTextoDaPesquisa } from "../utils/padronizaTextoDaPesquisa";
 import { Produto } from "../hooks/useProdutos";
@@ -6,10 +5,11 @@ import { Produto } from "../hooks/useProdutos";
 interface SearchProps {
   produtos: Produto[];
   onSearchResult: (resultados: Produto[], termo: string) => void;
+  valorBusca: string;
+  setValorBusca: (valor: string) => void;
 }
 
-function Search({ produtos, onSearchResult }: SearchProps) {
-  const [valorBusca, setValorBusca] = useState("");
+function Search({ produtos, onSearchResult, valorBusca, setValorBusca }: SearchProps) {
 
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {

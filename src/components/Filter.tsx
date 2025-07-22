@@ -5,13 +5,14 @@ interface FilterProps {
   produtos: Produto[];
   categoriaSelecionada: string;
   onFilterResult: (resultados: Produto[], categoria: string) => void;
+  todasCategorias: string[];
 }
-
 
 function Filter({
   produtos,
   categoriaSelecionada,
   onFilterResult,
+  todasCategorias,
 }: FilterProps) {
   const [open, setOpen] = useState(false);
   const [ordemAlfabetica, setOrdemAlfabetica] = useState<'none' | 'asc' | 'desc'>('none');
@@ -32,69 +33,118 @@ function Filter({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
-  function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
-    const categoria = e.target.value;
+  function filtraEOrdena(categoria: string, ordemPrecoAtual = ordemPreco, ordemAlfabeticaAtual = ordemAlfabetica) {
     let filtrados = [...produtos];
-
     if (categoria !== "todos") {
       filtrados = filtrados.filter(
         (produto) => produto.categoria === categoria
       );
     }
-
-    if (ordemPreco === 'asc') {
-      filtrados.sort((a, b) => (a.preco ?? 0) - (b.preco ?? 0));
-    } else if (ordemPreco === 'desc') {
-      filtrados.sort((a, b) => (b.preco ?? 0) - (a.preco ?? 0));
-    } else if (ordemPreco === 'none') {
-      filtrados = filtrados.sort(() => Math.random() - 0.5);
-    }
-
-    if (ordemAlfabetica === 'asc') {
-      filtrados.sort((a, b) => a.titulo.localeCompare(b.titulo));
-    } else if (ordemAlfabetica === 'desc') {
-      filtrados.sort((a, b) => b.titulo.localeCompare(a.titulo));
-    } else if (ordemAlfabetica === 'none') {
-      filtrados = filtrados.sort(() => Math.random() - 0.5);
-    }
-
+    // Ordenação combinada
+    filtrados.sort((a, b) => {
+      // Ordenação por preço
+      let precoComp = 0;
+      if (ordemPrecoAtual === 'asc') {
+        precoComp = (a.preco ?? 0) - (b.preco ?? 0);
+      } else if (ordemPrecoAtual === 'desc') {
+        precoComp = (b.preco ?? 0) - (a.preco ?? 0);
+      }
+      // Ordenação por título
+      let tituloComp = 0;
+      if (ordemAlfabeticaAtual === 'asc') {
+        tituloComp = a.titulo.localeCompare(b.titulo);
+      } else if (ordemAlfabeticaAtual === 'desc') {
+        tituloComp = b.titulo.localeCompare(a.titulo);
+      }
+      // Se ambos ativos, prioriza preço, depois título
+      if (ordemPrecoAtual !== 'none' && ordemAlfabeticaAtual !== 'none') {
+        return precoComp !== 0 ? precoComp : tituloComp;
+      }
+      // Só preço
+      if (ordemPrecoAtual !== 'none') return precoComp;
+      // Só título
+      if (ordemAlfabeticaAtual !== 'none') return tituloComp;
+      // Nenhum: ordem aleatória
+      return Math.random() - 0.5;
+    });
     onFilterResult(filtrados, categoria);
+  }
+
+  function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
+    const categoria = e.target.value;
+    filtraEOrdena(categoria);
     setOpen(false);
   }
 
   function handleAlfabeticaClick() {
     setOrdemAlfabetica((prev) => {
-      if (prev === 'none') return 'asc';
-      if (prev === 'asc') return 'desc';
-      return 'none';
+      let next: typeof prev;
+      if (prev === 'none') next = 'asc';
+      else if (prev === 'asc') next = 'desc';
+      else next = 'none';
+      // Aplica ordenação imediatamente
+      filtraEOrdena(categoriaSelecionada, ordemPreco, next);
+      return next;
     });
   }
 
   function handlePrecoClick() {
     setOrdemPreco((prev) => {
-      if (prev === 'none') return 'asc';
-      if (prev === 'asc') return 'desc';
-      return 'none';
+      let next: typeof prev;
+      if (prev === 'none') next = 'asc';
+      else if (prev === 'asc') next = 'desc';
+      else next = 'none';
+      // Aplica ordenação imediatamente
+      filtraEOrdena(categoriaSelecionada, next, ordemAlfabetica);
+      return next;
     });
   }
 
   return (
-    <div
-      className="relative flex flex-col items-center justify-center"
-      ref={filtroRef}
-    >
+    <div className="relative flex flex-row items-center justify-center gap-4" ref={filtroRef}>
       <button
         type="button"
-        className="btn-filter filtro-label flex items-center gap-2 px-4 py-2 rounded bg-[#b3e0fa] text-black font-semibold shadow hover:bg-[#a0d2ec] transition"
+        className={`btn-filter flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${open ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+        style={{ minHeight: 0, minWidth: 0, height: 'auto' }}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="filtro-modal"
       >
-        <span className="filtro-icone">
+        <span className="filtro-icone" style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>
           <i className="bi bi-funnel"></i>
         </span>
-        Filtros
+        Categorias
       </button>
+
+      <label className="text-lg font-semibold">
+        Ordenar por:
+      </label>
+      <button
+        type="button"
+        className={`btn-filter-ordem-preco flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${ordemPreco !== 'none' ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+        onClick={handlePrecoClick}
+        aria-label="Ordenar por preço"
+      >
+        <span className="font-semibold">R$</span>
+        <span className="flex gap-1 items-center">
+          <i className={`bi bi-arrow-down ${ordemPreco === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+          <i className={`bi bi-arrow-up ${ordemPreco === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+        </span>
+      </button>
+
+      <button
+        type="button"
+        className={`btn-filter-ordem-alfabetica flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${ordemAlfabetica !== 'none' ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+        onClick={handleAlfabeticaClick}
+        aria-label="Ordenar alfabeticamente"
+      >
+        <span className="font-semibold">AZ</span>
+        <span className="flex gap-1 items-center">
+          <i className={`bi bi-arrow-down ${ordemAlfabetica === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+          <i className={`bi bi-arrow-up ${ordemAlfabetica === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+        </span>
+      </button>
+
       {open && (
         <form
           id="filtro-modal"
@@ -113,46 +163,12 @@ function Filter({
               onChange={handleFilter}
             >
               <option value="todos">Todos os produtos</option>
-              {[...new Set(produtos.map((p) => p.categoria))].map((cat) => (
+              {todasCategorias.map((cat) => (
                 <option key={cat} value={cat}>
                   {cat}
                 </option>
               ))}
             </select>
-          </div>
-          <div className="mt-4 flex justify-center items-center gap-4 w-full">
-            <button
-              type="button"
-              className={`btn-filter-ordem-preco flex items-center gap-1 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold
-                ${ordemPreco === 'none' ? 'bg-[#f7ecd6] hover:bg-[#f7d6a6]' : 'bg-[#D9A76B] hover:bg-[#b88a4a] text-white'}`}
-              onClick={() => {
-                handlePrecoClick();
-                setTimeout(() => setOpen(false), 100);
-              }}
-              aria-label="Ordenar por preço"
-            >
-              <span className="font-semibold mr-1">R$</span>
-              <span className="flex flex-col">
-                <i className={`bi bi-arrow-down ${ordemPreco === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-                <i className={`bi bi-arrow-up ${ordemPreco === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-              </span>
-            </button>
-            <button
-              type="button"
-              className={`btn-filter-ordem-alfabetica flex items-center gap-1 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold
-                ${ordemAlfabetica === 'none' ? 'bg-[#f7ecd6] hover:bg-[#f7d6a6]' : 'bg-[#D9A76B] hover:bg-[#b88a4a] text-white'}`}
-              onClick={() => {
-                handleAlfabeticaClick();
-                setTimeout(() => setOpen(false), 100);
-              }}
-              aria-label="Ordenar alfabeticamente"
-            >
-              <span className="font-semibold mr-1">AZ</span>
-              <span className="flex flex-col">
-                <i className={`bi bi-arrow-down ${ordemAlfabetica === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-                <i className={`bi bi-arrow-up ${ordemAlfabetica === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-              </span>
-            </button>
           </div>
         </form>
       )}

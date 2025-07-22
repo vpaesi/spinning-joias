@@ -10,11 +10,21 @@ interface HeaderProps {
   onSearchResult: (resultados: Produto[], termo: string) => void;
 }
 
+import { useState } from "react";
+
 function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
+  const [valorBusca, setValorBusca] = useState("");
+
+  // Limpa busca ao filtrar por categoria/nav/menu
+  function handleCategoriaSelect(categoria: string) {
+    setValorBusca("");
+    onCategoriaSelect(categoria);
+  }
+
   return (
     <header className="bg-white px-12 py-4 flex flex-col md:flex-row gap-4 items-center justify-between">
       <div className="flex items-center gap-4 w-full md:w-auto">
-        <MenuHamburguer onCategoriaSelect={onCategoriaSelect} />
+        <MenuHamburguer onCategoriaSelect={handleCategoriaSelect} />
         <h1 className="text-2xl font-bold text-yellow-700 whitespace-nowrap ">
           <a
             href="/"
@@ -27,8 +37,11 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
         <div className="hidden md:block flex-1 ml-4" style={{ width: "100vw" }}>
           <Search
             produtos={produtos}
+            valorBusca={valorBusca}
+            setValorBusca={setValorBusca}
             onSearchResult={(resultados, termo) => {
               onSearchResult(resultados, termo);
+              setValorBusca(termo);
               setTimeout(() => scrollToElement("lista-colecao") , 100);
             }}
           />
@@ -52,8 +65,11 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
       <div className="block md:hidden w-full">
         <Search
           produtos={produtos}
+          valorBusca={valorBusca}
+          setValorBusca={setValorBusca}
           onSearchResult={(resultados, termo) => {
             onSearchResult(resultados, termo);
+            setValorBusca(termo);
             setTimeout(() => scrollToElement("produtos") , 100);
           }}
         />

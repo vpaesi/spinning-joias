@@ -6,7 +6,7 @@ interface MenuDropdownProps {
   onClose: () => void;
 }
 
-const categorias = ["Anéis", "Berloques", "Brincos", "Colares", "Diversos"];
+const categorias = ["Aneis", "Berloques", "Brincos & Argolas", "Colares", "Diversos"];
 
 function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
   return (

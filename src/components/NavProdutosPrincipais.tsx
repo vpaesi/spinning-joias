@@ -29,7 +29,7 @@ function NavProdutosPrincipais({
           className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
           onClick={() => handleClick("Brincos")}
         >
-          Brincos
+          Brincos & Argolas
         </button>
         <button
           className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"

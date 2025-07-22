@@ -9,23 +9,25 @@ import About from "./pages/About";
 import FAQ from "./pages/Faq";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+
 function App() {
   const { produtos } = useProdutos();
 
   const [produtosBusca, setProdutosBusca] = useState<Produto[]>(produtos);
-  const [produtosFiltrados, setProdutosFiltrados] =
-    useState<Produto[]>(produtos);
-  const [categoriaSelecionada, setCategoriaSelecionada] =
-    useState<string>("todos");
+  const [produtosFiltrados, setProdutosFiltrados] = useState<Produto[]>(produtos);
+  const [categoriaSelecionada, setCategoriaSelecionada] = useState<string>("todos");
+  const [termoBusca, setTermoBusca] = useState<string>("");
 
   useEffect(() => {
     setProdutosBusca(produtos);
     setProdutosFiltrados(produtos);
+    setTermoBusca("");
   }, [produtos]);
 
-  // Função para selecionar categoria (menu/nav)
+  // Função para selecionar categoria (menu/nav/filtro)
   function handleCategoriaMenu(categoria: string) {
     setCategoriaSelecionada(categoria);
+    setTermoBusca("");
     const filtrados =
       categoria === "todos"
         ? produtos
@@ -41,10 +43,11 @@ function App() {
       <Header
         onCategoriaSelect={handleCategoriaMenu}
         produtos={produtos}
-        onSearchResult={(resultados) => {
+        onSearchResult={(resultados, termo) => {
           setProdutosFiltrados(resultados);
           setProdutosBusca(resultados);
           setCategoriaSelecionada("todos");
+          setTermoBusca(termo);
         }}
       />
       <BrowserRouter>
@@ -59,6 +62,7 @@ function App() {
             produtosBusca={produtosBusca}
             setProdutosBusca={setProdutosBusca}
             produtos={produtos}
+            termoBusca={termoBusca}
           />} />
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
