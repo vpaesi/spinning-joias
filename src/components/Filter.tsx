@@ -60,11 +60,14 @@ function Filter({
   }
 
   return (
-    <div className="relative flex flex-row items-center justify-center gap-4">
-      <div className="flex flex-row items-center gap-4" ref={filtroRef}>
+    <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 w-full">
+      <div
+        className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 w-full md:w-auto"
+        ref={filtroRef}
+      >
         <button
           type="button"
-          className={`btn-filter flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${open ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+          className={`btn-filter flex items-center px-4 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
           style={{ minHeight: 0, minWidth: 0, height: 'auto' }}
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
@@ -73,15 +76,16 @@ function Filter({
           <span className="filtro-icone" style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>
             <i className="bi bi-funnel"></i>
           </span>
-          Categorias
+          <span className="hidden sm:inline">Categorias</span>
+          <span className="inline sm:hidden">Cat.</span>
         </button>
 
-        <label className="text-lg font-semibold">
+        <label className="text-base md:text-lg font-semibold whitespace-nowrap">
           Ordenar por:
         </label>
         <button
           type="button"
-          className={`btn-filter-ordem-preco flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${ordemPreco !== 'none' ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+          className={`btn-filter-ordem-preco flex items-center gap-2 px-3 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
           onClick={handlePrecoClick}
           aria-label="Ordenar por preço"
         >
@@ -94,7 +98,7 @@ function Filter({
 
         <button
           type="button"
-          className={`btn-filter-ordem-alfabetica flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold${ordemAlfabetica !== 'none' ? ' bg-[#a8743d] text-white' : ' bg-[#f7ecd6] hover:bg-[#f7d6a6]'}`}
+          className={`btn-filter-ordem-alfabetica flex items-center gap-2 px-3 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
           onClick={handleAlfabeticaClick}
           aria-label="Ordenar alfabeticamente"
         >
@@ -108,10 +112,10 @@ function Filter({
         {open && (
           <form
             id="filtro-modal"
-            className="filtro-modal absolute z-20 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0"
+            className="filtro-modal absolute z-20 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] max-w-xs sm:max-w-sm md:max-w-md"
             style={{ top: "100%", position: "absolute" }}
           >
-            <div>
+            <div className="flex flex-col gap-2">
               <label htmlFor="categoria" className="mr-2 font-semibold">
                 Escolha a categoria do produto:
               </label>
@@ -133,15 +137,15 @@ function Filter({
           </form>
         )}
       </div>
-      <div className="flex-1"></div>
+      <div className="flex-1 mt-2 md:mt-0"></div>
       <a
         href="/"
-        className="ml-8 flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-lg transition font-semibold bg-[#f7ecd6] hover:bg-[#f7d6a6]"
+        className="btn-pg-inicial ml-0 md:ml-8 flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold"
         style={{ minHeight: 0, minWidth: 0, height: 'auto' }}
         aria-label="Voltar para home"
       >
         <i className="bi bi-house-door"></i>
-        <span>Home</span>
+        <span className="hidden sm:inline">Página inicial</span>
       </a>
     </div>
   );

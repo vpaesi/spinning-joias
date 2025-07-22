@@ -1,13 +1,19 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import { Produto } from "../hooks/useProdutos";
-
+import {
+  formatoDoPreco,
+  formatoDoPrecoSemDesconto,
+} from "../utils/FormataPreco";
 interface CarrosselProdutosProps {
   produtos: Produto[];
   onProdutoClick?: (produto: Produto) => void;
 }
 
-function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps) {
+function CarrosselProdutos({
+  produtos,
+  onProdutoClick,
+}: CarrosselProdutosProps) {
   const ultimosProdutos = produtos.slice(-10).reverse();
   const enableLoop = produtos.length >= 9;
 
@@ -38,7 +44,9 @@ function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps)
           <SwiperSlide key={produto.id}>
             <div
               className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
-              onClick={() => { if (onProdutoClick) onProdutoClick(produto); }}
+              onClick={() => {
+                if (onProdutoClick) onProdutoClick(produto);
+              }}
               style={{ height: "24rem" }}
             >
               <img
@@ -47,9 +55,14 @@ function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps)
                 className="w-full h-48 object-cover rounded-t"
               />
               <div className="p-4 flex-1 flex flex-col">
-                <h5 className="font-bold text-lg mb-2">{produto.titulo}</h5>
-                <div className="flex flex-col items-center mb-2">
-                  <></>
+                <h5 className="font-bold text-lg mb-1 text-center">{produto.titulo}</h5>
+                <div className="flex flex-col items-center justify-center flex-1 my-2 gap-1">
+                  <span className="line-through text-gray-400 text-xs">
+                    {formatoDoPrecoSemDesconto(produto.preco)}
+                  </span>
+                  <span className="text-blue-500 font-semibold text-lg">
+                    {formatoDoPreco(produto.preco)}
+                  </span>
                 </div>
                 <button
                   className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"

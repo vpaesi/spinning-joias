@@ -9,6 +9,7 @@ interface ListaProdutosProps {
   page: number;
   PAGE_SIZE: number;
   abrirModal: (produto: Produto) => void;
+  fadeIn?: boolean;
 }
 
 function ListaProdutos({

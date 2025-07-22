@@ -54,6 +54,7 @@ function Home({
             border: "none",
             padding: "0.5rem 1.5rem",
             fontWeight: 500,
+            fontSize: "1.2rem",
             transition: "background 0.2s",
           }}
         >

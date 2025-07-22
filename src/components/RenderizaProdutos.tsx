@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
+
+import { useState, useEffect, useRef } from "react";
 import { Produto } from "../hooks/useProdutos";
 import ModalProduto from "./ModalProduto";
 import ListaProdutos from "./ListaProdutos";
 import CarrosselProdutos from "./CarrosselProdutos";
+
 const PAGE_SIZE = 8;
 
 interface RenderizaProdutosProps {
@@ -20,21 +22,43 @@ function RenderizaProdutos({
   // UI state only
   const [page, setPage] = useState(1);
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!carrossel) {
       function onScroll() {
-        if (
-          window.innerHeight + window.scrollY >= document.body.offsetHeight - 2 &&
-          page * PAGE_SIZE < produtos.length
-        ) {
-          setPage((prev) => prev + 1);
+        const reachedBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 400;
+        const hasMore = ((page) * PAGE_SIZE) < produtos.length;
+        if (reachedBottom && hasMore && !isLoadingMore) {
+          setIsLoadingMore(true);
         }
       }
       window.addEventListener("scroll", onScroll);
-      return () => window.removeEventListener("scroll", onScroll);
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      };
     }
-  }, [page, produtos.length, carrossel]);
+  }, [produtos.length, carrossel, isLoadingMore, page]);
+
+  // Efeito para simular carregamento e liberar o próximo lote
+  useEffect(() => {
+    if (isLoadingMore) {
+      const hasMore = (page * PAGE_SIZE) < produtos.length;
+      if (hasMore) {
+        timeoutRef.current = setTimeout(() => {
+          setPage((prev) => prev + 1);
+          setIsLoadingMore(false);
+        }, 600);
+      } else {
+        setIsLoadingMore(false);
+      }
+    }
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [isLoadingMore, page, produtos.length]);
 
   const abrirModal = (produto: Produto) => setProdutoSelecionado(produto);
   const fecharModal = () => setProdutoSelecionado(null);
@@ -47,14 +71,35 @@ function RenderizaProdutos({
       {carrossel ? (
         <CarrosselProdutos produtos={produtos} onProdutoClick={abrirModal} />
       ) : (
-        <ListaProdutos
-          produtosFiltrados={produtos}
-          page={page}
-          PAGE_SIZE={PAGE_SIZE}
-          abrirModal={abrirModal}
-        />
+        <>
+          <ListaProdutos
+            produtosFiltrados={produtos}
+            page={page}
+            PAGE_SIZE={PAGE_SIZE}
+            abrirModal={abrirModal}
+          />
+          {isLoadingMore && ((page - 1) * PAGE_SIZE < produtos.length) && (
+            <div className="flex justify-center items-center py-6 animate-fadein">
+              <div className="loader-spinner mr-2"></div>
+              <span className="text-yellow-700 font-medium">Carregando produtos...</span>
+            </div>
+          )}
+        </>
       )}
       <ModalProduto produto={produtoSelecionado} fecharModal={fecharModal} />
+      <style>{`
+        .animate-fadein { animation: fadein 0.5s; }
+        @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+        .loader-spinner {
+          border: 4px solid #f3f3f3;
+          border-top: 4px solid #D9A76B;
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+          animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+      `}</style>
     </div>
   );
 }
