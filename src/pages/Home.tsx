@@ -8,34 +8,29 @@ interface HomeProps {
   produtosFiltrados: Produto[];
   loading: boolean;
   erro: string | null;
-  categoriaSelecionada: string;
-  setProdutosFiltrados: (produtos: Produto[]) => void;
   produtos: Produto[];
   termoBusca: string;
-  onCategoriaSelect: (categoria: string) => void;
+  categoriaSelecionada: string;
+  ordemAlfabetica: 'none' | 'asc' | 'desc';
+  ordemPreco: 'none' | 'asc' | 'desc';
+  onCategoriaChange: (categoria: string) => void;
+  onOrdemAlfabeticaChange: (ordem: 'none' | 'asc' | 'desc') => void;
+  onOrdemPrecoChange: (ordem: 'none' | 'asc' | 'desc') => void;
 }
 
 function Home({
   produtosFiltrados,
   loading,
   erro,
-  categoriaSelecionada,
-  setProdutosFiltrados,
   produtos,
   termoBusca,
-  onCategoriaSelect,
+  categoriaSelecionada,
+  ordemAlfabetica,
+  ordemPreco,
+  onCategoriaChange,
+  onOrdemAlfabeticaChange,
+  onOrdemPrecoChange,
 }: HomeProps) {
-  // Função para selecionar categoria (menu/nav)
-  // Redireciona toda seleção de categoria para a função do App (que atualiza a URL)
-  function handleCategoriaMenu(categoria: string) {
-    onCategoriaSelect(categoria);
-  }
-
-  // Função para selecionar categoria pelo Filter
-  function handleFilterResult(resultados: Produto[], categoria: string) {
-    onCategoriaSelect(categoria);
-    setProdutosFiltrados(resultados);
-  }
   // Exibir carrossel e hero só se não houver busca nem filtro
   const exibeCarrossel = !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
 
@@ -48,7 +43,7 @@ function Home({
 
   return (
     <>
-      <NavProdutosPrincipais onCategoriaSelect={handleCategoriaMenu} />
+      <NavProdutosPrincipais onCategoriaSelect={onCategoriaChange} />
       {exibeCarrossel && <HeroSection />}
       {exibeCarrossel && (
         <h2
@@ -82,10 +77,13 @@ function Home({
         </h2>
         <div className="flex-1 flex justify-start px-16">
           <Filter
-            produtos={produtos}
             categoriaSelecionada={categoriaSelecionada}
-            onFilterResult={handleFilterResult}
             todasCategorias={[...new Set(produtos.map((p) => p.categoria))]}
+            ordemAlfabetica={ordemAlfabetica}
+            ordemPreco={ordemPreco}
+            onCategoriaChange={onCategoriaChange}
+            onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
+            onOrdemPrecoChange={onOrdemPrecoChange}
           />
         </div>
       </div>

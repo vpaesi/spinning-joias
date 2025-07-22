@@ -17,6 +17,7 @@ function ListaProdutos({
   PAGE_SIZE,
   abrirModal,
 }: ListaProdutosProps) {
+  // Apenas UI, paginação já deve ser feita fora se necessário
   return (
     <main className="container mx-auto px-4 py-6 md:px-12">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

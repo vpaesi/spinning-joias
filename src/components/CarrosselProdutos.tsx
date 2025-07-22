@@ -1,23 +1,13 @@
-import { Produto } from "../hooks/useProdutos";
-import {
-  formatoDoPreco,
-  formatoDoPrecoSemDesconto,
-} from "../utils/FormataPreco";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Produto } from "../hooks/useProdutos";
 
 interface CarrosselProdutosProps {
   produtos: Produto[];
   onProdutoClick?: (produto: Produto) => void;
 }
 
-function CarrosselProdutos({
-  produtos,
-  onProdutoClick,
-}: CarrosselProdutosProps) {
+function CarrosselProdutos({ produtos, onProdutoClick }: CarrosselProdutosProps) {
   const ultimosProdutos = produtos.slice(-10).reverse();
   const enableLoop = produtos.length >= 9;
 
@@ -26,7 +16,7 @@ function CarrosselProdutos({
       <h2 className="py-2 text-center text-2xl md:text-2xl">Novidades</h2>
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={24}
+        spaceBetween={16}
         navigation
         pagination={{ clickable: true }}
         loop={enableLoop}
@@ -59,14 +49,7 @@ function CarrosselProdutos({
               <div className="p-4 flex-1 flex flex-col">
                 <h5 className="font-bold text-lg mb-2">{produto.titulo}</h5>
                 <div className="flex flex-col items-center mb-2">
-                  <>
-                    <span className="line-through text-gray-400 text-xs">
-                      {formatoDoPrecoSemDesconto(produto.preco)}
-                    </span>
-                    <span className="text-blue-500 font-semibold">
-                      {formatoDoPreco(produto.preco)}
-                    </span>
-                  </>
+                  <></>
                 </div>
                 <button
                   className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
