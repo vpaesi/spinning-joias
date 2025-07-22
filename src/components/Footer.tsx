@@ -1,4 +1,4 @@
-import personalInfo from "../utils/DadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 
 function Footer() {
   return (
@@ -6,11 +6,11 @@ function Footer() {
       <div className="container mx-auto py-10 flex flex-col items-center justify-center min-h-[60vh]">
         <h1 className="font-cursive text-4xl mb-8 mt-4">
           {" "}
-          {`${personalInfo.nomeDaLoja}`}
+          {`${dadosLoja.nomeDaLoja}`}
         </h1>
         <div className="flex flex-row items-center justify-center gap-10 mb-8">
           <a
-            href={`${personalInfo.socialMedia.instagram}`}
+            href={`${dadosLoja.socialMedia.instagram}`}
             className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
             target="_blank"
             rel="noopener noreferrer"
@@ -19,7 +19,7 @@ function Footer() {
             <i className="bi bi-instagram"></i>
           </a>
           <a
-            href={`${personalInfo.socialMedia.whats}`}
+            href={`${dadosLoja.socialMedia.whats}`}
             className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
             target="_blank"
             rel="noopener noreferrer"
@@ -28,7 +28,7 @@ function Footer() {
             <i className="bi bi-chat-dots"></i>
           </a>
           <a
-            href={`${personalInfo.socialMedia.email}`}
+            href={`${dadosLoja.socialMedia.email}`}
             className="text-yellow-600 text-3xl hover:scale-110 transition-transform"
             target="_blank"
             rel="noopener noreferrer"
@@ -45,12 +45,12 @@ function Footer() {
           </li>
           <li>
             <a href="/about" className="hover:underline">
-              Sobre a {`${personalInfo.nomeDaLoja}`}
+              Sobre a {`${dadosLoja.nomeDaLoja}`}
             </a>
           </li>
         </ul>
         <div className="text-center text-[#6bb3d6] text-sm mt-8">
-          <p>© {`${personalInfo.nomeDaLoja}`}</p>
+          <p>© {`${dadosLoja.nomeDaLoja}`}</p>
           <p>
             v. 2.0 released 08.06.2025 by{" "}
             <a href="github.com/vitoriacamargo" className="hover:underline">

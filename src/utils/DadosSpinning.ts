@@ -1,4 +1,4 @@
-const personalInfo = {
+const dadosLoja = {
   nomeDaLoja: "Spinning Joias",
   email: "caprica72@gmail.com",
   phone: "(51) 99182-0585",
@@ -9,4 +9,4 @@ const personalInfo = {
   },
 };
 
-export default personalInfo;
+export default dadosLoja;

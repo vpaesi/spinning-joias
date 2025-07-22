@@ -2,7 +2,7 @@ import MenuHamburguer from "./MenuHamburguer";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
-import personalInfo from "../utils/DadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 
 interface HeaderProps {
   onCategoriaSelect: (categoria: string) => void;
@@ -30,7 +30,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
             href="/"
             className="no-underline text-yellow-700 hover:text-yellow-800"
           >
-            {`${personalInfo.nomeDaLoja}`}
+            {`${dadosLoja.nomeDaLoja}`}
           </a>
         </h1>
         {/* Visiveis apenas no desktop */}

@@ -10,11 +10,9 @@ interface HomeProps {
   erro: string | null;
   categoriaSelecionada: string;
   setProdutosFiltrados: (produtos: Produto[]) => void;
-  setCategoriaSelecionada: (categoria: string) => void;
-  produtosBusca: Produto[];
-  setProdutosBusca: (produtos: Produto[]) => void;
   produtos: Produto[];
   termoBusca: string;
+  onCategoriaSelect: (categoria: string) => void;
 }
 
 function Home({
@@ -23,29 +21,20 @@ function Home({
   erro,
   categoriaSelecionada,
   setProdutosFiltrados,
-  setCategoriaSelecionada,
-  produtosBusca,
-  setProdutosBusca,
   produtos,
   termoBusca,
+  onCategoriaSelect,
 }: HomeProps) {
   // Função para selecionar categoria (menu/nav)
+  // Redireciona toda seleção de categoria para a função do App (que atualiza a URL)
   function handleCategoriaMenu(categoria: string) {
-    setCategoriaSelecionada(categoria);
-    const filtrados =
-      categoria === "todos"
-        ? produtos
-        : produtos.filter(
-            (p) => p.categoria.toLowerCase() === categoria.toLowerCase()
-          );
-    setProdutosBusca(filtrados);
-    setProdutosFiltrados(filtrados);
+    onCategoriaSelect(categoria);
   }
 
   // Função para selecionar categoria pelo Filter
   function handleFilterResult(resultados: Produto[], categoria: string) {
+    onCategoriaSelect(categoria);
     setProdutosFiltrados(resultados);
-    setCategoriaSelecionada(categoria);
   }
   // Exibir carrossel e hero só se não houver busca nem filtro
   const exibeCarrossel = !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
@@ -81,7 +70,6 @@ function Home({
           produtos={produtosFiltrados}
           loading={loading}
           erro={erro}
-          categoriaSelecionada={categoriaSelecionada}
           carrossel={true}
         />
       )}
@@ -105,7 +93,6 @@ function Home({
         produtos={produtosFiltrados}
         loading={loading}
         erro={erro}
-        categoriaSelecionada={categoriaSelecionada}
       />
     </>
   );

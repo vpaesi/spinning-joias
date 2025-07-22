@@ -9,16 +9,13 @@ interface RenderizaProdutosProps {
   produtos: Produto[];
   loading: boolean;
   erro: string | null;
-  categoriaSelecionada?: string | null;
   carrossel?: boolean;
 }
-
 function RenderizaProdutos({
   produtos,
   loading,
   erro,
-  categoriaSelecionada,
-  carrossel = false,
+  carrossel = false
 }: RenderizaProdutosProps) {
   const [page, setPage] = useState(1);
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(

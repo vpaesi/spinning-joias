@@ -1,4 +1,4 @@
-import personalInfo from "../utils/DadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
 interface MenuDropdownProps {
@@ -26,7 +26,7 @@ function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
       ))}
       <hr className="my-2" />
       <a href="/about" className="block px-6 py-2 hover:bg-yellow-100">
-        Sobre a {`${personalInfo.nomeDaLoja}`}
+        Sobre a {`${dadosLoja.nomeDaLoja}`}
       </a>
       <a href="/faq" className="block px-6 py-2 hover:bg-yellow-100">
         Perguntas Frequentes (FAQ)

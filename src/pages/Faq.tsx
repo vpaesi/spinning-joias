@@ -1,6 +1,6 @@
 import modal_encomende from "../assets/modal_encomende.png";
 import diferenca_semijoia from "../assets/diferenca_semijoia.jpg";
-import personalInfo from "../utils/DadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 import { useState } from "react";
 
 function FAQ() {
@@ -41,14 +41,14 @@ function FAQ() {
             forma, você pode decidir quais produtos deseja e entrar em contato
             conosco através do WhatsApp (clicando{" "}
             <a
-              href={`${personalInfo.socialMedia.whats}`}
+              href={`${dadosLoja.socialMedia.whats}`}
               className="text-blue-600 underline"
             >
               aqui
             </a>
             ) ou Instagram (clicando{" "}
             <a
-              href={`${personalInfo.socialMedia.instagram}`}
+              href={`${dadosLoja.socialMedia.instagram}`}
               className="text-blue-600 underline"
             >
               aqui
@@ -80,7 +80,7 @@ function FAQ() {
           <p>
             Fique atento(a) ao nosso{" "}
             <a
-              href={`${personalInfo.socialMedia.instagram}`}
+              href={`${dadosLoja.socialMedia.instagram}`}
               className="text-blue-600 underline"
             >
               Instagram
@@ -100,14 +100,14 @@ function FAQ() {
             <b>Pix/transferência</b>: Para compras online (encomendas realizadas
             pelo{" "}
             <a
-              href={`${personalInfo.socialMedia.whats}`}
+              href={`${dadosLoja.socialMedia.whats}`}
               className="text-blue-600 underline"
             >
               Whats
             </a>{" "}
             ou pelo{" "}
             <a
-              href={`${personalInfo.socialMedia.instagram}`}
+              href={`${dadosLoja.socialMedia.instagram}`}
               className="text-blue-600 underline"
             >
               Instagram
