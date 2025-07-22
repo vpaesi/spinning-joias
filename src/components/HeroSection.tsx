@@ -1,3 +1,5 @@
+import { scrollToElement } from "../utils/scrollToElement";
+
 function HeroSection() {
   return (
     <section className="hero-gradient py-16 px-16 text-start flex flex-col items-start justify-center min-h-[320px] md:min-h-[380px] shadow-lg">
@@ -9,12 +11,7 @@ function HeroSection() {
       </h2>
       <button
         className="btn text-lg px-8 py-3 mt-2"
-        onClick={() =>
-          window.scrollTo({
-            behavior: "smooth",
-            top: document.getElementById("lista-colecao")?.offsetTop || 0,
-          })
-        }
+        onClick={() => scrollToElement("lista-colecao")}
       >
         Ver Coleção
       </button>

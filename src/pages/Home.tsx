@@ -1,24 +1,32 @@
-import { useState, useEffect } from "react";
-import { useProdutos, Produto } from "../hooks/useProdutos";
+import { Produto } from "../hooks/useProdutos";
 import HeroSection from "../components/HeroSection";
 import RenderizaProdutos from "../components/RenderizaProdutos";
 import Filter from "../components/Filter";
 import NavProdutosPrincipais from "../components/NavProdutosPrincipais";
 
-function Home() {
-  const { produtos, loading, erro } = useProdutos();
+interface HomeProps {
+  produtosFiltrados: Produto[];
+  loading: boolean;
+  erro: string | null;
+  categoriaSelecionada: string;
+  setProdutosFiltrados: (produtos: Produto[]) => void;
+  setCategoriaSelecionada: (categoria: string) => void;
+  produtosBusca: Produto[];
+  setProdutosBusca: (produtos: Produto[]) => void;
+  produtos: Produto[];
+}
 
-  const [produtosBusca, setProdutosBusca] = useState<Produto[]>(produtos);
-  const [produtosFiltrados, setProdutosFiltrados] =
-    useState<Produto[]>(produtos);
-  const [categoriaSelecionada, setCategoriaSelecionada] =
-    useState<string>("todos");
-
-  useEffect(() => {
-    setProdutosBusca(produtos);
-    setProdutosFiltrados(produtos);
-  }, [produtos]);
-
+function Home({
+  produtosFiltrados,
+  loading,
+  erro,
+  categoriaSelecionada,
+  setProdutosFiltrados,
+  setCategoriaSelecionada,
+  produtosBusca,
+  setProdutosBusca,
+  produtos,
+}: HomeProps) {
   // Função para selecionar categoria (menu/nav)
   function handleCategoriaMenu(categoria: string) {
     setCategoriaSelecionada(categoria);

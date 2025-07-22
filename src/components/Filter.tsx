@@ -32,16 +32,8 @@ function Filter({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
-  function handleFilter(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const categoria = (
-      form.elements.namedItem("categoria") as HTMLSelectElement
-    ).value;
-    const precoOrdem = (
-      form.elements.namedItem("precoOrdem") as HTMLSelectElement
-    ).value;
-
+  function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
+    const categoria = e.target.value;
     let filtrados = [...produtos];
 
     if (categoria !== "todos") {
@@ -108,8 +100,6 @@ function Filter({
           id="filtro-modal"
           className="filtro-modal absolute z-20 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0"
           style={{ top: "100%", position: "absolute" }}
-          onChange={handleFilter}
-          onSubmit={handleFilter}
         >
           <div>
             <label htmlFor="categoria" className="mr-2 font-semibold">

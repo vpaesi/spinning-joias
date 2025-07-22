@@ -1,3 +1,5 @@
+import { scrollToElement } from "../utils/scrollToElement";
+
 interface NavProdutosPrincipaisProps {
   onCategoriaSelect: (categoria: string) => void;
 }
@@ -7,10 +9,7 @@ function NavProdutosPrincipais({
 }: NavProdutosPrincipaisProps) {
   const handleClick = (categoria: string) => {
     onCategoriaSelect(categoria);
-    window.scrollTo({
-      behavior: "smooth",
-      top: document.getElementById("lista-colecao")?.offsetTop || 0,
-    });
+    scrollToElement("lista-colecao");
   };
 
   return (

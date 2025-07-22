@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { scrollToElement } from "../utils/scrollToElement";
 function BtnBackToTop() {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -8,7 +9,7 @@ function BtnBackToTop() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => scrollToElement();
 
   return (
     <button

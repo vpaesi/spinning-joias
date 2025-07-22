@@ -1,6 +1,6 @@
 import MenuHamburguer from "./MenuHamburguer";
 import Search from "./Search";
-
+import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
 import personalInfo from "../utils/DadosSpinning";
 
@@ -25,7 +25,13 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
         </h1>
         {/* Visiveis apenas no desktop */}
         <div className="hidden md:block flex-1 ml-4" style={{ width: "100vw" }}>
-          <Search produtos={produtos} onSearchResult={onSearchResult} />
+          <Search
+            produtos={produtos}
+            onSearchResult={(resultados, termo) => {
+              onSearchResult(resultados, termo);
+              setTimeout(() => scrollToElement("lista-colecao") , 100);
+            }}
+          />
         </div>
         <div className="hidden md:block flex-1 ml-4">
           <a
@@ -44,7 +50,13 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
       </div>
       {/* Barra de pesquisa visível no mobile */}
       <div className="block md:hidden w-full">
-        <Search produtos={produtos} onSearchResult={onSearchResult} />
+        <Search
+          produtos={produtos}
+          onSearchResult={(resultados, termo) => {
+            onSearchResult(resultados, termo);
+            setTimeout(() => scrollToElement("produtos") , 100);
+          }}
+        />
       </div>
       {/* TODO: Descomentar quando tiver autenticação */}
       {/* <div className="flex items-center gap-4">

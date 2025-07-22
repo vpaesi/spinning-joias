@@ -40,14 +40,26 @@ function App() {
     <>
       <Header
         onCategoriaSelect={handleCategoriaMenu}
-        produtos={[]}
-        onSearchResult={function (resultados: Produto[], termo: string): void {
-          throw new Error("Function not implemented.");
+        produtos={produtos}
+        onSearchResult={(resultados) => {
+          setProdutosFiltrados(resultados);
+          setProdutosBusca(resultados);
+          setCategoriaSelecionada("todos");
         }}
       />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home
+            produtosFiltrados={produtosFiltrados}
+            loading={false}
+            erro={null}
+            categoriaSelecionada={categoriaSelecionada}
+            setProdutosFiltrados={setProdutosFiltrados}
+            setCategoriaSelecionada={setCategoriaSelecionada}
+            produtosBusca={produtosBusca}
+            setProdutosBusca={setProdutosBusca}
+            produtos={produtos}
+          />} />
           <Route path="/about" element={<About />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>

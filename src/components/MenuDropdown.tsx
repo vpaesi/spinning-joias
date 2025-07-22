@@ -1,4 +1,5 @@
 import personalInfo from "../utils/DadosSpinning";
+import { scrollToElement } from "../utils/scrollToElement";
 
 interface MenuDropdownProps {
   onCategoriaSelect: (categoria: string) => void;
@@ -17,10 +18,7 @@ function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
           onClick={() => {
             onCategoriaSelect(cat);
             onClose();
-            window.scrollTo({
-              behavior: "smooth",
-              top: document.getElementById("lista-colecao")?.offsetTop || 0,
-            });
+            scrollToElement("lista-colecao");
           }}
         >
           {cat}
