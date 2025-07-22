@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Produto } from "../hooks/useProdutos";
 import ModalProduto from "./ModalProduto";
@@ -78,6 +77,13 @@ function RenderizaProdutos({
             PAGE_SIZE={PAGE_SIZE}
             abrirModal={abrirModal}
           />
+          <div className="w-full flex justify-center my-4 text-gray-700 text-sm">
+            {(() => {
+              const total = produtos.length;
+              const mostrados = Math.min(page * PAGE_SIZE, total);
+              return `Mostrando ${mostrados} de ${total} produtos encontrados`;
+            })()}
+          </div>
           {isLoadingMore && ((page - 1) * PAGE_SIZE < produtos.length) && (
             <div className="flex justify-center items-center py-6 animate-fadein">
               <div className="loader-spinner mr-2"></div>
