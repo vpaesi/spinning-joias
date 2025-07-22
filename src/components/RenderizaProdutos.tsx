@@ -81,7 +81,7 @@ function RenderizaProdutos({
             PAGE_SIZE={PAGE_SIZE}
             abrirModal={abrirModal}
           />
-          <div className="w-full flex justify-center my-4 text-gray-700 text-sm">
+          <div className="w-full flex justify-center my-4 text-gray-700 text-sm bg-white">
             {(() => {
               const total = produtos.length;
               const mostrados = Math.min(page * PAGE_SIZE, total);

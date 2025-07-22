@@ -18,14 +18,13 @@ function ListaProdutos({
   PAGE_SIZE,
   abrirModal,
 }: ListaProdutosProps) {
-  // Apenas UI, paginação já deve ser feita fora se necessário
   return (
-    <main className="container mx-auto px-4 py-6 md:px-12">
+    <main className="container mx-auto px-4 py-6 md:px-12 bg-white">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {produtosFiltrados.slice(0, page * PAGE_SIZE).map((produto) => (
           <div
             key={produto.id}
-            className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col"
+            className="lista-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col"
             onClick={() => abrirModal(produto)}
           >
             <img

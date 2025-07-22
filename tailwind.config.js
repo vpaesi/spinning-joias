@@ -5,4 +5,5 @@ export default {
     extend: {},
   },
   plugins: [require('@tailwindcss/line-clamp')],
+  darkMode: 'class', // habilita dark mode via classe .dark no <html>
 };

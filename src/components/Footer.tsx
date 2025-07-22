@@ -3,7 +3,7 @@ import dadosLoja from "../utils/dadosSpinning";
 function Footer() {
   return (
     <footer className="bg-[#b3e0fa] text-black mt-8 font-sans">
-      <div className="container mx-auto py-10 flex flex-col items-center justify-center min-h-[60vh]">
+      <div className="footer container mx-auto py-10 flex flex-col items-center justify-center min-h-[60vh]">
         <h1 className="font-cursive text-4xl mb-8 mt-4">
           {" "}
           {`${dadosLoja.nomeDaLoja}`}
@@ -16,7 +16,7 @@ function Footer() {
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <i className="bi bi-instagram"></i>
+            <i className="bi bi-instagram footer-icon"></i>
           </a>
           <a
             href={`${dadosLoja.socialMedia.whats}`}
@@ -25,7 +25,7 @@ function Footer() {
             rel="noopener noreferrer"
             aria-label="WhatsApp"
           >
-            <i className="bi bi-chat-dots"></i>
+            <i className="bi bi-chat-dots footer-icon"></i>
           </a>
           <a
             href={`${dadosLoja.socialMedia.email}`}
@@ -34,7 +34,7 @@ function Footer() {
             rel="noopener noreferrer"
             aria-label="Email"
           >
-            <i className="bi bi-envelope"></i>
+            <i className="bi bi-envelope footer-icon"></i>
           </a>
         </div>
         <ul className="flex flex-col items-center gap-4 text-lg mb-8">
@@ -49,7 +49,7 @@ function Footer() {
             </a>
           </li>
         </ul>
-        <div className="text-center text-[#6bb3d6] text-sm mt-8">
+        <div className="footer-credits text-center text-[#6bb3d6] text-sm mt-8">
           <p>© {`${dadosLoja.nomeDaLoja}`}</p>
           <p>
             v. 2.0 released 08.06.2025 by{" "}

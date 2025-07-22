@@ -18,7 +18,7 @@ function CarrosselProdutos({
   const ultimosProdutos = produtos.slice(-10).reverse();
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-6">
+    <div className="w-full max-w-6xl mx-auto py-6 bg-white">
       <h2 className="py-2 text-center text-2xl md:text-2xl">Novidades</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -49,7 +49,7 @@ function CarrosselProdutos({
         {ultimosProdutos.map((produto) => (
           <SwiperSlide key={produto.id}>
             <div
-              className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
+              className="carrossel-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
               onClick={() => {
                 if (onProdutoClick) onProdutoClick(produto);
               }}

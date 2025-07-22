@@ -48,16 +48,7 @@ function Home({
       {exibeCarrossel && <HeroSection />}
       {exibeCarrossel && (
         <h2
-          className="py-2 text-center text-yellow-800 font-semibold"
-          style={{
-            backgroundColor: "#D9A76B",
-            color: "#fff",
-            border: "none",
-            padding: "0.5rem 1.5rem",
-            fontWeight: 500,
-            fontSize: "1.2rem",
-            transition: "background 0.2s",
-          }}
+          className="texto-pre-produto py-2 text-center font-semibold"
         >
           Entregamos em todo território brasileiro!
         </h2>

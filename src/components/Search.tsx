@@ -63,7 +63,7 @@ function Search({
       >
         <input
           type="search"
-          className="border border-yellow-700 rounded px-3 py-2 w-full pr-20"
+          className="campo-busca border border-yellow-700 rounded px-3 py-2 w-full pr-20"
           placeholder="Buscar produtos..."
           value={valorBusca}
           onChange={handleSearch}
@@ -71,7 +71,7 @@ function Search({
         {valorBusca && (
           <button
             type="submit"
-            className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 bg-[#D9A76B] hover:bg-[#b88a4a] text-white font-semibold px-3 py-1 rounded shadow transition"
+            className="campo-busca-btn absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 font-semibold px-3 py-1 rounded shadow transition"
             style={{ zIndex: 2 }}
             onClick={handleSubmit}
           >

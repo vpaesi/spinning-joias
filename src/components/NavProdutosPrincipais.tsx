@@ -14,15 +14,7 @@ function NavProdutosPrincipais({
 
   return (
     <div
-      className="py-2 text-center text-yellow-800 font-semibold w-full"
-      style={{
-        backgroundColor: "#D9A76B",
-        color: "#fff",
-        border: "none",
-        padding: "0.5rem 1.5rem",
-        fontWeight: 500,
-        transition: "background 0.2s",
-      }}
+      className="nav-top py-2 text-center text-yellow-800 font-semibold w-full"
     >
       <nav className="flex flex-wrap justify-center md:gap-10 lg:gap-40 w-full">
         <button
