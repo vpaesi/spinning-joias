@@ -3,11 +3,11 @@ import { useState, useRef, useEffect } from "react";
 interface FilterProps {
   categoriaSelecionada: string;
   todasCategorias: string[];
-  ordemAlfabetica: 'none' | 'asc' | 'desc';
-  ordemPreco: 'none' | 'asc' | 'desc';
+  ordemAlfabetica: "none" | "asc" | "desc";
+  ordemPreco: "none" | "asc" | "desc";
   onCategoriaChange: (categoria: string) => void;
-  onOrdemAlfabeticaChange: (ordem: 'none' | 'asc' | 'desc') => void;
-  onOrdemPrecoChange: (ordem: 'none' | 'asc' | 'desc') => void;
+  onOrdemAlfabeticaChange: (ordem: "none" | "asc" | "desc") => void;
+  onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
 }
 
 function Filter({
@@ -36,7 +36,6 @@ function Filter({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
-
   function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     const categoria = e.target.value;
     onCategoriaChange(categoria);
@@ -45,17 +44,17 @@ function Filter({
 
   function handleAlfabeticaClick() {
     let next: typeof ordemAlfabetica;
-    if (ordemAlfabetica === 'none') next = 'asc';
-    else if (ordemAlfabetica === 'asc') next = 'desc';
-    else next = 'none';
+    if (ordemAlfabetica === "none") next = "asc";
+    else if (ordemAlfabetica === "asc") next = "desc";
+    else next = "none";
     onOrdemAlfabeticaChange(next);
   }
 
   function handlePrecoClick() {
     let next: typeof ordemPreco;
-    if (ordemPreco === 'none') next = 'asc';
-    else if (ordemPreco === 'asc') next = 'desc';
-    else next = 'none';
+    if (ordemPreco === "none") next = "asc";
+    else if (ordemPreco === "asc") next = "desc";
+    else next = "none";
     onOrdemPrecoChange(next);
   }
 
@@ -68,12 +67,15 @@ function Filter({
         <button
           type="button"
           className={`btn-filter flex items-center px-4 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
-          style={{ minHeight: 0, minWidth: 0, height: 'auto' }}
+          style={{ minHeight: 0, minWidth: 0, height: "auto" }}
           onClick={() => setOpen((v) => !v)}
           aria-expanded={open}
           aria-controls="filtro-modal"
         >
-          <span className="filtro-icone" style={{ display: 'flex', alignItems: 'center', fontSize: 20 }}>
+          <span
+            className="filtro-icone"
+            style={{ display: "flex", alignItems: "center", fontSize: 20 }}
+          >
             <i className="bi bi-funnel"></i>
           </span>
           <span className="hidden sm:inline">Categorias</span>
@@ -91,8 +93,20 @@ function Filter({
         >
           <span className="font-semibold">R$</span>
           <span className="flex gap-1 items-center">
-            <i className={`bi bi-arrow-down ${ordemPreco === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-            <i className={`bi bi-arrow-up ${ordemPreco === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+            <i
+              className={`bi bi-arrow-down ${
+                ordemPreco === "asc"
+                  ? "text-yellow-700 font-bold"
+                  : "text-gray-400"
+              }`}
+            ></i>
+            <i
+              className={`bi bi-arrow-up ${
+                ordemPreco === "desc"
+                  ? "text-yellow-700 font-bold"
+                  : "text-gray-400"
+              }`}
+            ></i>
           </span>
         </button>
 
@@ -104,8 +118,20 @@ function Filter({
         >
           <span className="font-semibold">AZ</span>
           <span className="flex gap-1 items-center">
-            <i className={`bi bi-arrow-down ${ordemAlfabetica === 'asc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
-            <i className={`bi bi-arrow-up ${ordemAlfabetica === 'desc' ? 'text-yellow-700 font-bold' : 'text-gray-400'}`}></i>
+            <i
+              className={`bi bi-arrow-down ${
+                ordemAlfabetica === "asc"
+                  ? "text-yellow-700 font-bold"
+                  : "text-gray-400"
+              }`}
+            ></i>
+            <i
+              className={`bi bi-arrow-up ${
+                ordemAlfabetica === "desc"
+                  ? "text-yellow-700 font-bold"
+                  : "text-gray-400"
+              }`}
+            ></i>
           </span>
         </button>
 
@@ -141,7 +167,7 @@ function Filter({
       <a
         href="/"
         className="btn-pg-inicial ml-0 md:ml-8 flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold"
-        style={{ minHeight: 0, minWidth: 0, height: 'auto' }}
+        style={{ minHeight: 0, minWidth: 0, height: "auto" }}
         aria-label="Voltar para home"
       >
         <i className="bi bi-house-door"></i>

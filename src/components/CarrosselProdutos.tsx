@@ -4,7 +4,8 @@ import { Produto } from "../hooks/useProdutos";
 import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
-} from "../utils/FormataPreco";
+} from "../utils/formataPreco";
+
 interface CarrosselProdutosProps {
   produtos: Produto[];
   onProdutoClick?: (produto: Produto) => void;
@@ -28,7 +29,7 @@ function CarrosselProdutos({
         autoplay={{
           delay: 0,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true
+          pauseOnMouseEnter: true,
         }}
         speed={6500}
         breakpoints={{
@@ -47,39 +48,41 @@ function CarrosselProdutos({
       >
         {ultimosProdutos.map((produto) => (
           <SwiperSlide key={produto.id}>
-        <div
-          className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
-          onClick={() => {
-            if (onProdutoClick) onProdutoClick(produto);
-          }}
-          style={{ height: "24rem" }}
-        >
-          <img
-            src={produto.imagem}
-            alt={produto.titulo}
-            className="w-full h-48 object-cover rounded-t"
-          />
-          <div className="p-4 flex-1 flex flex-col">
-            <h5 className="font-bold text-lg mb-1 text-center">{produto.titulo}</h5>
-            <div className="flex flex-col items-center justify-center flex-1 my-2 gap-1">
-          <span className="line-through text-gray-400 text-xs">
-            {formatoDoPrecoSemDesconto(produto.preco)}
-          </span>
-          <span className="text-blue-500 font-semibold text-lg">
-            {formatoDoPreco(produto.preco)}
-          </span>
-            </div>
-            <button
-          className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
-          onClick={(e) => {
-            e.stopPropagation();
-            if (onProdutoClick) onProdutoClick(produto);
-          }}
+            <div
+              className="bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
+              onClick={() => {
+                if (onProdutoClick) onProdutoClick(produto);
+              }}
+              style={{ height: "24rem" }}
             >
-          + Detalhes
-            </button>
-          </div>
-        </div>
+              <img
+                src={produto.imagem}
+                alt={produto.titulo}
+                className="w-full h-48 object-cover rounded-t"
+              />
+              <div className="p-4 flex-1 flex flex-col">
+                <h5 className="font-bold text-lg mb-1 text-center">
+                  {produto.titulo}
+                </h5>
+                <div className="flex flex-col items-center justify-center flex-1 my-2 gap-1">
+                  <span className="line-through text-gray-400 text-xs">
+                    {formatoDoPrecoSemDesconto(produto.preco)}
+                  </span>
+                  <span className="text-blue-500 font-semibold text-lg">
+                    {formatoDoPreco(produto.preco)}
+                  </span>
+                </div>
+                <button
+                  className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onProdutoClick) onProdutoClick(produto);
+                  }}
+                >
+                  + Detalhes
+                </button>
+              </div>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

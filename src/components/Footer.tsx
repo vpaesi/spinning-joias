@@ -1,4 +1,4 @@
-import dadosLoja from "../utils/DadosSpinning";
+import dadosLoja from "../utils/dadosSpinning";
 
 function Footer() {
   return (

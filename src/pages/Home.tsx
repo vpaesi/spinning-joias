@@ -11,11 +11,11 @@ interface HomeProps {
   produtos: Produto[];
   termoBusca: string;
   categoriaSelecionada: string;
-  ordemAlfabetica: 'none' | 'asc' | 'desc';
-  ordemPreco: 'none' | 'asc' | 'desc';
+  ordemAlfabetica: "none" | "asc" | "desc";
+  ordemPreco: "none" | "asc" | "desc";
   onCategoriaChange: (categoria: string) => void;
-  onOrdemAlfabeticaChange: (ordem: 'none' | 'asc' | 'desc') => void;
-  onOrdemPrecoChange: (ordem: 'none' | 'asc' | 'desc') => void;
+  onOrdemAlfabeticaChange: (ordem: "none" | "asc" | "desc") => void;
+  onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
 }
 
 function Home({
@@ -32,7 +32,8 @@ function Home({
   onOrdemPrecoChange,
 }: HomeProps) {
   // Exibir carrossel e hero só se não houver busca nem filtro
-  const exibeCarrossel = !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
+  const exibeCarrossel =
+    !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
 
   let tituloLista = "Todos os produtos";
   if (termoBusca) {

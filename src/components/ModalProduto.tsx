@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
-} from "../utils/FormataPreco";
+} from "../utils/formataPreco";
 import { Produto as ProdutoType, Cor } from "../hooks/useProdutos";
 
 interface ProdutoModalProps {

@@ -9,9 +9,12 @@ interface SearchProps {
   setValorBusca: (valor: string) => void;
 }
 
-function Search({ produtos, onSearchResult, valorBusca, setValorBusca }: SearchProps) {
-
-
+function Search({
+  produtos,
+  onSearchResult,
+  valorBusca,
+  setValorBusca,
+}: SearchProps) {
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     const termo = e.target.value;
     setValorBusca(termo);
@@ -21,7 +24,11 @@ function Search({ produtos, onSearchResult, valorBusca, setValorBusca }: SearchP
     scrollToElement("produtos");
   }
 
-  function handleSubmit(e?: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+  function handleSubmit(
+    e?:
+      | React.FormEvent<HTMLFormElement>
+      | React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) {
     if (e) e.preventDefault();
     const termo = valorBusca;
     if (!termo) {
@@ -49,7 +56,11 @@ function Search({ produtos, onSearchResult, valorBusca, setValorBusca }: SearchP
 
   return (
     <div className="flex justify-center items-center gap-2 mb-2">
-      <form className="relative w-full md:w-1/2 lg:w-full" onSubmit={handleSubmit} autoComplete="off">
+      <form
+        className="relative w-full md:w-1/2 lg:w-full"
+        onSubmit={handleSubmit}
+        autoComplete="off"
+      >
         <input
           type="search"
           className="border border-yellow-700 rounded px-3 py-2 w-full pr-20"

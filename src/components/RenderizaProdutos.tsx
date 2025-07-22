@@ -16,19 +16,23 @@ function RenderizaProdutos({
   produtos,
   loading,
   erro,
-  carrossel = false
+  carrossel = false,
 }: RenderizaProdutosProps) {
   // UI state only
   const [page, setPage] = useState(1);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
+    null
+  );
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!carrossel) {
       function onScroll() {
-        const reachedBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 400;
-        const hasMore = ((page) * PAGE_SIZE) < produtos.length;
+        const reachedBottom =
+          window.innerHeight + window.scrollY >=
+          document.body.offsetHeight - 400;
+        const hasMore = page * PAGE_SIZE < produtos.length;
         if (reachedBottom && hasMore && !isLoadingMore) {
           setIsLoadingMore(true);
         }
@@ -44,7 +48,7 @@ function RenderizaProdutos({
   // Efeito para simular carregamento e liberar o próximo lote
   useEffect(() => {
     if (isLoadingMore) {
-      const hasMore = (page * PAGE_SIZE) < produtos.length;
+      const hasMore = page * PAGE_SIZE < produtos.length;
       if (hasMore) {
         timeoutRef.current = setTimeout(() => {
           setPage((prev) => prev + 1);
@@ -84,10 +88,12 @@ function RenderizaProdutos({
               return `Mostrando ${mostrados} de ${total} produtos encontrados`;
             })()}
           </div>
-          {isLoadingMore && ((page - 1) * PAGE_SIZE < produtos.length) && (
+          {isLoadingMore && (page - 1) * PAGE_SIZE < produtos.length && (
             <div className="flex justify-center items-center py-6 animate-fadein">
               <div className="loader-spinner mr-2"></div>
-              <span className="text-yellow-700 font-medium">Carregando produtos...</span>
+              <span className="text-yellow-700 font-medium">
+                Carregando produtos...
+              </span>
             </div>
           )}
         </>

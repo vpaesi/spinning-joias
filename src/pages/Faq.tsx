@@ -1,6 +1,6 @@
 import modal_encomende from "../assets/modal_encomende.png";
 import diferenca_semijoia from "../assets/diferenca_semijoia.jpg";
-import dadosLoja from "../utils/DadosSpinning";
+import dadosLoja from "../utils/dadosSpinning";
 import { useState } from "react";
 
 function FAQ() {

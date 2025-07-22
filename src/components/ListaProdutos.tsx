@@ -2,7 +2,7 @@ import { Produto } from "../hooks/useProdutos";
 import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
-} from "../utils/FormataPreco";
+} from "../utils/formataPreco";
 
 interface ListaProdutosProps {
   produtosFiltrados: Produto[];

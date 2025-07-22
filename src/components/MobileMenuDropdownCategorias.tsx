@@ -1,14 +1,23 @@
-import dadosLoja from "../utils/DadosSpinning";
+import dadosLoja from "../utils/dadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
-interface MenuDropdownProps {
+interface MobileMenuDropdownCategoriasProps {
   onCategoriaSelect: (categoria: string) => void;
   onClose: () => void;
 }
 
-const categorias = ["Aneis", "Berloques", "Brincos & Argolas", "Colares", "Diversos"];
+const categorias = [
+  "Aneis",
+  "Berloques",
+  "Brincos & Argolas",
+  "Colares",
+  "Diversos",
+];
 
-function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
+function MobileMenuDropdownCategorias({
+  onCategoriaSelect,
+  onClose,
+}: MobileMenuDropdownCategoriasProps) {
   return (
     <div className="absolute left-2 top-14 bg-white shadow-lg border-2 rounded z-50 min-w-[220px] py-2">
       {categorias.map((cat) => (
@@ -35,4 +44,4 @@ function MenuDropdown({ onCategoriaSelect, onClose }: MenuDropdownProps) {
   );
 }
 
-export default MenuDropdown;
+export default MobileMenuDropdownCategorias;

@@ -1,8 +1,8 @@
-import MenuHamburguer from "./MenuHamburguer";
+import MobileMenuHamburgerButton from "./MobileMenuHamburgerButton";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
-import dadosLoja from "../utils/DadosSpinning";
+import dadosLoja from "../utils/dadosSpinning";
 
 interface HeaderProps {
   onCategoriaSelect: (categoria: string) => void;
@@ -24,7 +24,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
   return (
     <header className="bg-white px-12 py-4 flex flex-col md:flex-row gap-4 items-center justify-between">
       <div className="flex items-center gap-4 w-full md:w-auto">
-        <MenuHamburguer onCategoriaSelect={handleCategoriaSelect} />
+        <MobileMenuHamburgerButton onCategoriaSelect={handleCategoriaSelect} />
         <h1 className="text-2xl font-bold text-yellow-700 whitespace-nowrap ">
           <a
             href="/"
@@ -42,7 +42,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
             onSearchResult={(resultados, termo) => {
               onSearchResult(resultados, termo);
               setValorBusca(termo);
-              setTimeout(() => scrollToElement("lista-colecao") , 100);
+              setTimeout(() => scrollToElement("lista-colecao"), 100);
             }}
           />
         </div>
@@ -70,7 +70,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
           onSearchResult={(resultados, termo) => {
             onSearchResult(resultados, termo);
             setValorBusca(termo);
-            setTimeout(() => scrollToElement("produtos") , 100);
+            setTimeout(() => scrollToElement("produtos"), 100);
           }}
         />
       </div>
