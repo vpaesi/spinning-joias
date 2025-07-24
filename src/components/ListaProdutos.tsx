@@ -30,7 +30,7 @@ function ListaProdutos({
             <img
               src={produto.imagem}
               alt={produto.titulo}
-              className="w-full h-40 object-cover rounded-t"
+              className="w-full h-44 object-cover rounded-t"
             />
             <div className="p-3 flex-1 flex flex-col">
               <h5 className="font-bold text-base mb-2">{produto.titulo}</h5>

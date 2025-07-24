@@ -21,11 +21,14 @@ function Filter({
 }: FilterProps) {
   const [open, setOpen] = useState(false);
   const filtroRef = useRef<HTMLDivElement>(null);
+  const modalRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
     if (!open) return;
     function handleClickOutside(event: MouseEvent) {
       if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node) &&
         filtroRef.current &&
         !filtroRef.current.contains(event.target as Node)
       ) {
@@ -39,7 +42,8 @@ function Filter({
   function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     const categoria = e.target.value;
     onCategoriaChange(categoria);
-    setOpen(false);
+    // Remover esta linha para manter o modal aberto
+    // setOpen(false);
   }
 
   function handleAlfabeticaClick() {
@@ -60,7 +64,7 @@ function Filter({
 
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
-      <div className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+      <div className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full">
         {/* Grupo de botões principais - esquerda no desktop */}
         <div
           className="flex flex-row items-center gap-2 justify-center sm:justify-start"
@@ -156,11 +160,10 @@ function Filter({
             id="filtro-modal"
             className="fixed inset-0 z-50 flex items-start justify-center pt-20 md:pt-16"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
-            onClick={() => setOpen(false)}
           >
             <form
+              ref={modalRef}
               className="filtro-modal bg-white rounded-lg shadow-xl border border-gray-200 p-6 mx-4 w-full max-w-sm"
-              onClick={(e) => e.stopPropagation()}
             >
               <div className="flex flex-col gap-4">
                 <label

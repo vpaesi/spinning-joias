@@ -3,7 +3,7 @@ import MobileMenuHamburgerButton from "./MobileMenuHamburgerButton";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
-import dadosLoja from "../utils/dadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 import ThemeToggle from "./ThemeToggle";
 
 interface HeaderProps {
