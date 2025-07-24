@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 export interface Cor {
   nome: string;
   codigo: string;
-  imagem?: string;
-  imagens?: string[];
+  fotoDestaque?: string;
+  fotoCor?: string[];
 }
 
 export interface Produto {
@@ -14,8 +14,8 @@ export interface Produto {
   descricao: string;
   preco?: number;
   categoria: string;
-  imagem: string;
-  imagensExtras?: string[];
+  fotoDestaque: string;
+  fotosAdicionais?: string[];
   informacoes_extras?: string;
   cores?: Cor[];
 }

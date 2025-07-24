@@ -42,8 +42,6 @@ function Filter({
   function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
     const categoria = e.target.value;
     onCategoriaChange(categoria);
-    // Remover esta linha para manter o modal aberto
-    // setOpen(false);
   }
 
   function handleAlfabeticaClick() {

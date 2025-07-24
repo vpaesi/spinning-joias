@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Produto } from "../hooks/useProdutos";
@@ -8,14 +9,15 @@ import {
 
 interface CarrosselProdutosProps {
   produtos: Produto[];
-  onProdutoClick?: (produto: Produto) => void;
 }
 
-function CarrosselProdutos({
-  produtos,
-  onProdutoClick,
-}: CarrosselProdutosProps) {
+function CarrosselProdutos({ produtos }: CarrosselProdutosProps) {
+  const navigate = useNavigate();
   const ultimosProdutos = produtos.slice(-10).reverse();
+
+  function irParaProduto(produto: Produto) {
+    navigate(`/produto/${produto.id}`);
+  }
 
   return (
     <div className="w-full max-w-6xl mx-auto py-6 bg-white">
@@ -50,13 +52,11 @@ function CarrosselProdutos({
           <SwiperSlide key={produto.id}>
             <div
               className="carrossel-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
-              onClick={() => {
-                if (onProdutoClick) onProdutoClick(produto);
-              }}
+              onClick={() => irParaProduto(produto)}
               style={{ height: "24rem" }}
             >
               <img
-                src={produto.imagem}
+                src={produto.fotoDestaque}
                 alt={produto.titulo}
                 className="w-full h-48 object-cover rounded-t"
               />
@@ -76,7 +76,7 @@ function CarrosselProdutos({
                   className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
                   onClick={(e) => {
                     e.stopPropagation();
-                    if (onProdutoClick) onProdutoClick(produto);
+                    irParaProduto(produto);
                   }}
                 >
                   + Detalhes

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Produto } from "../hooks/useProdutos";
 import {
   formatoDoPreco,
@@ -8,7 +9,6 @@ interface ListaProdutosProps {
   produtosFiltrados: Produto[];
   page: number;
   PAGE_SIZE: number;
-  abrirModal: (produto: Produto) => void;
   fadeIn?: boolean;
 }
 
@@ -16,8 +16,13 @@ function ListaProdutos({
   produtosFiltrados,
   page,
   PAGE_SIZE,
-  abrirModal,
 }: ListaProdutosProps) {
+  const navigate = useNavigate();
+
+  function irParaProduto(produto: Produto) {
+    navigate(`/produto/${produto.id}`);
+  }
+
   return (
     <main className="container mx-auto px-4 py-6 md:px-12 bg-white">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -25,10 +30,10 @@ function ListaProdutos({
           <div
             key={produto.id}
             className="lista-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col"
-            onClick={() => abrirModal(produto)}
+            onClick={() => irParaProduto(produto)}
           >
             <img
-              src={produto.imagem}
+              src={produto.fotoDestaque}
               alt={produto.titulo}
               className="w-full h-44 object-cover rounded-t"
             />
@@ -48,7 +53,7 @@ function ListaProdutos({
                 className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
                 onClick={(e) => {
                   e.stopPropagation();
-                  abrirModal(produto);
+                  irParaProduto(produto);
                 }}
               >
                 + Detalhes
