@@ -220,6 +220,19 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   color: var(--branco);
 }
 
+.dark .btn-dropdown{
+  background-color: transparent !important;
+  color: var(--branco) !important;
+  transition: background 0.2s;
+
+}
+.dark .btn-menu-dropdown{
+  border: transparent !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
+  padding: 0.5rem;
+}
+
 .dark .hero-gradient {
   background: linear-gradient(120deg, #655b44 60%, var(--amarelo-destaque-escuro) 100%);
 }
@@ -229,7 +242,6 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   color: var(--branco) !important;
   background-color: transparent !important;
 }
-
 .dark .swiper-pagination-bullet {
   background: var(--branco) !important;
   &:active {
