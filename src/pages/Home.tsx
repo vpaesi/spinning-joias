@@ -55,7 +55,7 @@ function Home({
       )}
       {exibeCarrossel && (
         <RenderizaProdutos
-          produtos={produtosFiltrados}
+          produtos={produtos}
           loading={loading}
           erro={erro}
           carrossel={true}
