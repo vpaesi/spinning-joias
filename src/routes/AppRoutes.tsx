@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import BtnBackToTop from "../components/BtnBackToTop";
 import Home from "../pages/Home";
+import ProdutoDetalhes from "../pages/ProdutoDetalhes";
 import { useProdutos, Produto } from "../hooks/useProdutos";
 import { getProdutosFiltradosOrdenados } from "../utils/produtosUtils";
 import About from "../pages/About";
@@ -91,6 +92,7 @@ function AppRoutes() {
             />
           }
         />
+        <Route path="/produto/:id" element={<ProdutoDetalhes />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
       </Routes>

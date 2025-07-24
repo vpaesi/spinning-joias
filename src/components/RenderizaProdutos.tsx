@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 import { Produto } from "../hooks/useProdutos";
-import ModalProduto from "./ModalProduto";
 import ListaProdutos from "./ListaProdutos";
 import CarrosselProdutos from "./CarrosselProdutos";
 
@@ -18,11 +17,7 @@ function RenderizaProdutos({
   erro,
   carrossel = false,
 }: RenderizaProdutosProps) {
-  // UI state only
-  const [page, setPage] = useState(1);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
-    null
-  );
+  const [page, setPage] = useState(1);  
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -63,23 +58,19 @@ function RenderizaProdutos({
     };
   }, [isLoadingMore, page, produtos.length]);
 
-  const abrirModal = (produto: Produto) => setProdutoSelecionado(produto);
-  const fecharModal = () => setProdutoSelecionado(null);
-
   if (loading) return <div>Carregando...</div>;
   if (erro) return <div>{erro}</div>;
 
   return (
     <div className="bg-gray-50">
       {carrossel ? (
-        <CarrosselProdutos produtos={produtos} onProdutoClick={abrirModal} />
+        <CarrosselProdutos produtos={produtos} />
       ) : (
         <>
           <ListaProdutos
             produtosFiltrados={produtos}
             page={page}
             PAGE_SIZE={PAGE_SIZE}
-            abrirModal={abrirModal}
           />
           <div className="w-full flex justify-center my-4 text-gray-700 text-sm bg-white">
             {(() => {
@@ -98,7 +89,6 @@ function RenderizaProdutos({
           )}
         </>
       )}
-      <ModalProduto produto={produtoSelecionado} fecharModal={fecharModal} />
       <style>{`
         .animate-fadein { animation: fadein 0.5s; }
         @keyframes fadein { from { opacity: 0; } to { opacity: 1; } }

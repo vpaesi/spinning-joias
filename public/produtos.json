@@ -26,17 +26,17 @@
     "categoria": "Colares",
     "cores": [
       {
-        "nome": "Prata-cristal",
+        "nome": "Cristal",
         "codigo": "linear-gradient(to right, #c0c0c0 50%, #FFFFFF 50%)",
         "imagens": ["https://i.postimg.cc/Jh0q6WkX/Prata-zirconia-cristal.jpg"]
       },
       {
-        "nome": "Prata-rubi",
+        "nome": "Ruby",
         "codigo": "linear-gradient(to right, #c0c0c0 50%, #F558D5 50%)",
         "imagens": ["https://i.postimg.cc/YSRLRstT/Zirconia-rubi-prata.png"]
       },
       {
-        "nome": "Prata-negra",
+        "nome": "Negra",
         "codigo": "linear-gradient(to right, #c0c0c0 50%, #000000 50%)",
         "imagens": [
           "https://i.postimg.cc/Gp1DCpXc/colar-patins-zirconia-negra-prata.jpg"
@@ -53,17 +53,17 @@
     "categoria": "Colares",
     "cores": [
       {
-        "nome": "Ouro-cristal",
+        "nome": "Cristal",
         "codigo": "linear-gradient(to right, #DAA520 50%, #FFFFFF 50%)",
         "imagens": ["https://i.postimg.cc/fRK2qKqG/Ouro-zirconia-cristal.jpg"]
       },
       {
-        "nome": "Ouro-negra",
+        "nome": "Negra",
         "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
         "imagens": ["https://i.postimg.cc/QMd62TRH/Ouro-zirconia-negra.jpg"]
       },
       {
-        "nome": "Ouro-ruby",
+        "nome": "Ruby",
         "codigo": "linear-gradient(to right, #DAA520 50%, #F558D5 50%)",
         "imagens": ["https://i.postimg.cc/vZGb9gHg/Zirconia-rubi-ouro.jpg"]
       }
@@ -110,7 +110,7 @@
     "categoria": "Colares",
     "cores": [
       {
-        "nome": "Amarelo",
+        "nome": "Amarela",
         "codigo": "#EFEB00",
         "imagens": ["https://i.postimg.cc/htywTCVt/resinado-prata-amarelo.jpg"]
       },
@@ -120,7 +120,7 @@
         "imagens": ["https://i.postimg.cc/VkLpSyrh/resinado-prata-azul.jpg"]
       },
       {
-        "nome": "Branco",
+        "nome": "Branca",
         "codigo": "#FFFFFF",
         "imagens": ["https://i.postimg.cc/hGXYr90b/resinado-prata-branco.jpg"]
       },
@@ -130,7 +130,7 @@
         "imagens": ["https://i.postimg.cc/rp7PYKn6/resinado-prata-laranja.jpg"]
       },
       {
-        "nome": "Preto",
+        "nome": "Preta",
         "codigo": "#000000",
         "imagens": ["https://i.postimg.cc/j5NFVtmD/resinado-prata-preto.jpg"]
       },
@@ -152,7 +152,7 @@
         "imagens": ["https://i.postimg.cc/QxjnPLbM/resinado-prata-verde.jpg"]
       },
       {
-        "nome": "Vermelho",
+        "nome": "Vermelha",
         "codigo": "#DB1000",
         "imagens": ["https://i.postimg.cc/WbSfc9Ww/resinado-prata-vermelho.jpg"]
       }
@@ -172,7 +172,7 @@
         "imagens": ["https://i.postimg.cc/zfQsZdfc/resinado-ouro-azul.jpg"]
       },
       {
-        "nome": "Branco",
+        "nome": "Branca",
         "codigo": "#FFFFFF",
         "imagens": ["https://i.postimg.cc/rmtv8S0F/resinado-ouro-branco.jpg"]
       },
@@ -182,7 +182,7 @@
         "imagens": ["https://i.postimg.cc/vTFCDcf7/resinado-ouro-laranja.jpg"]
       },
       {
-        "nome": "Preto",
+        "nome": "Preta",
         "codigo": "#000000",
         "imagens": ["https://i.postimg.cc/jj2p1VRf/resinado-ouro-preto.jpg"]
       },
@@ -197,7 +197,7 @@
         "imagens": ["https://i.postimg.cc/gkpfWLYm/resinado-ouro-verde.jpg"]
       },
       {
-        "nome": "Vermelho",
+        "nome": "Vermelha",
         "codigo": "#DB1000",
         "imagens": ["https://i.postimg.cc/9FBsFXMT/resinado-ouro-vermelho.jpg"]
       }
@@ -212,7 +212,7 @@
     "categoria": "Brincos",
     "cores": [
       {
-        "nome": "Amarelo",
+        "nome": "Amarela",
         "codigo": "#EFEB00",
         "imagens": [
           "https://i.postimg.cc/JhPLdsyy/brinco-resinado-prata-amarelo.jpg"
@@ -226,7 +226,7 @@
         ]
       },
       {
-        "nome": "Branco",
+        "nome": "Branca",
         "codigo": "#FFFFFF",
         "imagens": [
           "https://i.postimg.cc/5yv9GxdZ/brinco-resinado-prata-branco.jpg"
@@ -247,7 +247,7 @@
         ]
       },
       {
-        "nome": "Vermelho",
+        "nome": "Vermelha",
         "codigo": "#DB1000",
         "imagens": [
           "https://i.postimg.cc/qRKdBjbK/brinco-resinado-prata-vermelho.jpg"
@@ -264,7 +264,7 @@
     "categoria": "Brincos",
     "cores": [
       {
-        "nome": "Amarelo",
+        "nome": "Amarela",
         "codigo": "#EFEB00",
         "imagens": [
           "https://i.postimg.cc/DwK1jHhJ/brinco-resinado-ouro-amarelo.jpg"
@@ -285,7 +285,7 @@
         ]
       },
       {
-        "nome": "Preto",
+        "nome": "Preta",
         "codigo": "#000000",
         "imagens": [
           "https://i.postimg.cc/Cdpn2B3T/brinco-resinado-ouro-preto.jpg"
@@ -306,7 +306,7 @@
         ]
       },
       {
-        "nome": "Vermelho",
+        "nome": "Vermelha",
         "codigo": "#DB1000",
         "imagens": [
           "https://i.postimg.cc/BQFzkj8h/brinco-resinado-ouro-vermelho.jpg"
@@ -323,7 +323,7 @@
     "categoria": "Brincos",
     "cores": [
       {
-        "nome": "Prata-cristal",
+        "nome": "Cristal",
         "codigo": "linear-gradient(to right, #c0c0c0 50%, #FFFFFF 50%)",
         "imagens": ["https://i.postimg.cc/280cbWSr/Tarraxa-zirconia-prata.png"]
       },
@@ -345,19 +345,19 @@
     "categoria": "Brincos",
     "cores": [
       {
-        "nome": "Ouro-cristal",
+        "nome": "Cristal",
         "codigo": "linear-gradient(to right, #DAA520 50%, #FFFFFF 50%)",
         "imagens": [
           "https://i.postimg.cc/tTB0YM0v/brinco-patins-zirconia-ouro.jpg"
         ]
       },
       {
-        "nome": "Ouro-negra",
+        "nome": "Negra",
         "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
         "imagens": ["https://i.postimg.cc/m2t4FBgY/brinco-patins-ruby-ouro.jpg"]
       },
       {
-        "nome": "Ouro-ruby",
+        "nome": "Ruby",
         "codigo": "linear-gradient(to right, #DAA520 50%, #F558D5 50%)",
         "imagens": [
           "https://i.postimg.cc/rwfYGtZz/brinco-zirconia-ruby-ouro.jpg"
@@ -567,7 +567,7 @@
     "categoria": "Diversos",
     "cores": [
       {
-        "nome": "Amarelo",
+        "nome": "Amarela",
         "codigo": "#EFEB00",
 
         "imagens": ["https://i.postimg.cc/mZ0y3rgB/pompom-amarelo.jpg"]
@@ -584,7 +584,7 @@
         "imagens": ["https://i.postimg.cc/rsWWZSwc/pompom-marrom.jpg"]
       },
       {
-        "nome": "Vermelho",
+        "nome": "Vermelha",
         "codigo": "#DB1000",
 
         "imagens": ["https://i.postimg.cc/rFX50Yfp/pompom-vermelho.jpg"]

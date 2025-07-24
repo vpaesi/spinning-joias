@@ -187,7 +187,7 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   color: var(--branco);
 }
 
-.dark button, .dark .btn, .dark .btn-pg-inicial {
+.dark button, .dark .btn, .dark .btn-pg-inicial, .dark .btn-produto-detalhe-encomende {
   background-color: var(--amarelo-destaque) !important;
   color: var(--branco) !important;
   padding: 0.5rem 1.5rem;
