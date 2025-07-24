@@ -59,120 +59,142 @@ function Filter({
   }
 
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-full overflow-x-hidden">
-      <div
-        className="flex flex-row flex-wrap items-center gap-2 sm:gap-4 w-full md:w-auto"
-        ref={filtroRef}
-      >
-        <button
-          type="button"
-          className={`btn-filter flex items-center px-4 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
-          style={{ minHeight: 0, minWidth: 0, height: "auto" }}
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="filtro-modal"
+    <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
+      <div className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 w-full">
+        {/* Grupo de botões principais - esquerda no desktop */}
+        <div
+          className="flex flex-row items-center gap-2 justify-center sm:justify-start"
+          ref={filtroRef}
         >
-          <span
-            className="filtro-icone"
-            style={{ display: "flex", alignItems: "center", fontSize: 20 }}
+          <button
+            type="button"
+            className="btn-filter flex items-center px-2 sm:px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-sm sm:text-base md:text-lg transition font-semibold hover:bg-gray-50"
+            style={{ minHeight: "44px", height: "44px" }}
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="filtro-modal"
           >
-            <i className="bi bi-funnel"></i>
-          </span>
-          <span className="hidden sm:inline">Categorias</span>
-          <span className="inline sm:hidden">Cat.</span>
-        </button>
+            <span className="filtro-icone flex items-center" style={{ fontSize: 16 }}>
+              <i className="bi bi-funnel"></i>
+            </span>
+            <span className="ml-2">Categoria</span>
+          </button>
 
-        <label className="text-base md:text-lg font-semibold whitespace-nowrap">
-          Ordenar por:
-        </label>
-        <button
-          type="button"
-          className={`btn-filter-ordem-preco flex items-center gap-2 px-3 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
-          onClick={handlePrecoClick}
-          aria-label="Ordenar por preço"
-        >
-          <span className="font-semibold">R$</span>
-          <span className="flex gap-1 items-center">
-            <i
-              className={`bi bi-arrow-down ${
-                ordemPreco === "asc"
-                  ? "text-yellow-700 font-bold"
-                  : "text-gray-400"
-              }`}
-            ></i>
-            <i
-              className={`bi bi-arrow-up ${
-                ordemPreco === "desc"
-                  ? "text-yellow-700 font-bold"
-                  : "text-gray-400"
-              }`}
-            ></i>
+          <span className="text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap text-black dark:text-white">
+            Ordenar:
           </span>
-        </button>
 
-        <button
-          type="button"
-          className={`btn-filter-ordem-alfabetica flex items-center gap-2 px-3 py-2 rounded border border-gray-300 shadow text-black text-base md:text-lg transition font-semibold`}
-          onClick={handleAlfabeticaClick}
-          aria-label="Ordenar alfabeticamente"
-        >
-          <span className="font-semibold">AZ</span>
-          <span className="flex gap-1 items-center">
-            <i
-              className={`bi bi-arrow-down ${
-                ordemAlfabetica === "asc"
-                  ? "text-yellow-700 font-bold"
-                  : "text-gray-400"
-              }`}
-            ></i>
-            <i
-              className={`bi bi-arrow-up ${
-                ordemAlfabetica === "desc"
-                  ? "text-yellow-700 font-bold"
-                  : "text-gray-400"
-              }`}
-            ></i>
-          </span>
-        </button>
+          <button
+            type="button"
+            className="btn-filter-ordem-preco flex items-center gap-1 px-2 sm:px-3 py-2 rounded border border-gray-300 shadow text-black bg-white text-sm sm:text-base md:text-lg transition font-semibold hover:bg-gray-50"
+            style={{ minHeight: "44px", height: "44px" }}
+            onClick={handlePrecoClick}
+            aria-label="Ordenar por preço"
+          >
+            <span className="font-semibold">R$</span>
+            <span className="flex gap-1 items-center">
+              <i
+                className={`bi bi-arrow-down ${
+                  ordemPreco === "asc"
+                    ? "text-yellow-700 dark:text-yellow-400 font-bold"
+                    : "text-gray-400"
+                }`}
+              ></i>
+              <i
+                className={`bi bi-arrow-up ${
+                  ordemPreco === "desc"
+                    ? "text-yellow-700 dark:text-yellow-400 font-bold"
+                    : "text-gray-400"
+                }`}
+              ></i>
+            </span>
+          </button>
 
+          <button
+            type="button"
+            className="btn-filter-ordem-alfabetica flex items-center gap-1 px-2 sm:px-3 py-2 rounded border border-gray-300 shadow text-black bg-white text-sm sm:text-base md:text-lg transition font-semibold hover:bg-gray-50"
+            style={{ minHeight: "44px", height: "44px" }}
+            onClick={handleAlfabeticaClick}
+            aria-label="Ordenar alfabeticamente"
+          >
+            <span className="font-semibold">AZ</span>
+            <span className="flex gap-1 items-center">
+              <i
+                className={`bi bi-arrow-down ${
+                  ordemAlfabetica === "asc"
+                    ? "text-yellow-700 dark:text-yellow-400 font-bold"
+                    : "text-gray-400"
+                }`}
+              ></i>
+              <i
+                className={`bi bi-arrow-up ${
+                  ordemAlfabetica === "desc"
+                    ? "text-yellow-700 dark:text-yellow-400 font-bold"
+                    : "text-gray-400"
+                }`}
+              ></i>
+            </span>
+          </button>
+        </div>
+
+        {/* Botão Página inicial - direita no desktop */}
+        <div className="hidden sm:flex justify-end">
+          <a
+            href="/"
+            className="btn-pg-inicial flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-base md:text-lg transition font-semibold hover:bg-gray-50"
+            style={{ minHeight: "44px", height: "44px" }}
+            aria-label="Voltar para home"
+          >
+            <i className="bi bi-house-door"></i>
+            <span>Página inicial</span>
+          </a>
+        </div>
+
+        {/* Modal */}
         {open && (
-          <form
+          <div
             id="filtro-modal"
-            className="filtro-modal absolute z-50 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] max-w-xs sm:max-w-sm md:max-w-md shadow-lg border border-gray-200"
-            style={{ top: "100%", position: "absolute" }}
+            className="fixed inset-0 z-50 flex items-start justify-center pt-20 md:pt-16"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            onClick={() => setOpen(false)}
           >
-            <div className="flex flex-col gap-2">
-              <label htmlFor="categoria" className="mr-2 font-semibold">
-                Escolha a categoria do produto:
-              </label>
-              <select
-                id="categoria"
-                name="categoria"
-                className="border rounded px-2 py-1"
-                value={categoriaSelecionada}
-                onChange={handleFilter}
-              >
-                <option value="todos">Todos os produtos</option>
-                {todasCategorias.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </form>
+            <form
+              className="filtro-modal bg-white rounded-lg shadow-xl border border-gray-200 p-6 mx-4 w-full max-w-sm"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex flex-col gap-4">
+                <label
+                  htmlFor="categoria"
+                  className="text-lg font-semibold text-gray-800 dark:text-white"
+                >
+                  Escolha a categoria do produto:
+                </label>
+                <select
+                  id="categoria"
+                  name="categoria"
+                  className="border border-gray-300 rounded px-3 py-2 bg-white text-gray-800 dark:text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                  value={categoriaSelecionada}
+                  onChange={handleFilter}
+                >
+                  <option value="todos">Todos os produtos</option>
+                  {todasCategorias.map((categoria) => (
+                    <option key={categoria} value={categoria}>
+                      {categoria}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  className="mt-2 px-4 py-2 bg-yellow-700 text-white rounded hover:bg-yellow-800 transition"
+                  onClick={() => setOpen(false)}
+                >
+                  Fechar
+                </button>
+              </div>
+            </form>
+          </div>
         )}
       </div>
-      <div className="flex-1 mt-2 md:mt-0"></div>
-      <a
-        href="/"
-        className="btn-pg-inicial ml-0 md:ml-8 flex items-center gap-2 px-4 py-2 rounded border shadow text-black text-base md:text-lg transition font-semibold hidden sm:flex"
-        style={{ minHeight: 0, minWidth: 0, height: "auto" }}
-        aria-label="Voltar para home"
-      >
-        <i className="bi bi-house-door"></i>
-        <span className="hidden sm:inline">Página inicial</span>
-      </a>
     </div>
   );
 }

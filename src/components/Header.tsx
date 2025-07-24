@@ -25,7 +25,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
 
   return (
     <header className="bg-white px-2 md:px-12 py-4 flex flex-col md:flex-row gap-4 items-center justify-between max-w-full overflow-x-hidden">
-      <div className="flex items-center gap-2 md:gap-4 w-full md:w-auto">
+      <div className="flex items-center justify-center gap-2 md:gap-4 w-full md:w-auto">
         <MobileMenuHamburgerButton onCategoriaSelect={handleCategoriaSelect} />
         <h1 className="text-2xl font-bold text-yellow-700 whitespace-nowrap flex items-center">
           <a
