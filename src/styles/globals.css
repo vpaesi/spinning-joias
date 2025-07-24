@@ -46,11 +46,13 @@ button:hover,
 .filtro-modal {
   background: #b3e0fa;
   border-radius: 1rem;
-  box-shadow: 0 2px 8px 0 #0001;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   padding: 2rem 1.5rem;
   min-width: 270px;
   max-width: 350px;
   margin-top: 1rem;
+  z-index: 50;
+  position: absolute;
 }
 .filtro-modal label {
   font-weight: 500;
@@ -174,6 +176,7 @@ button:hover,
   --dark: #222;
   --amarelo-destaque: #b88a4a;
   --amarelo-destaque-escuro: #a27a41;  
+  --amarelo-destaque-claro: #e6c092;
 }
 
 html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
@@ -236,4 +239,13 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   &:hover {
     color: var(--dark);
   }
+}
+
+.dark .text-blue-500 {
+  color: var(--amarelo-destaque-claro) !important;
+}
+
+.dark .lista-produto-individual .text-blue-500,
+.dark .carrossel-produto-individual .text-blue-500 {
+  color: var(--amarelo-destaque-claro) !important;
 }

@@ -138,7 +138,7 @@ function Filter({
         {open && (
           <form
             id="filtro-modal"
-            className="filtro-modal absolute z-20 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] max-w-xs sm:max-w-sm md:max-w-md"
+            className="filtro-modal absolute z-50 mt-3 left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 w-[90vw] max-w-xs sm:max-w-sm md:max-w-md shadow-lg border border-gray-200"
             style={{ top: "100%", position: "absolute" }}
           >
             <div className="flex flex-col gap-2">

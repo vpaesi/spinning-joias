@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import MobileMenuHamburgerButton from "./MobileMenuHamburgerButton";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
@@ -56,18 +57,18 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
           <ThemeToggle />
         </div>
         <div className="hidden md:block flex-1 ml-4">
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
           >
             Sobre a Spinning
-          </a>
-          <a
-            href="/faq"
+          </Link>
+          <Link
+            to="/faq"
             className="ml-4 text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
           >
             FAQ
-          </a>
+          </Link>
         </div>
       </div>
       {/* Barra de pesquisa visível no mobile */}

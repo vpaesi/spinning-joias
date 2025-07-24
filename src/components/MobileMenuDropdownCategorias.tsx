@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import dadosLoja from "../utils/dadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
@@ -34,12 +35,12 @@ function MobileMenuDropdownCategorias({
         </button>
       ))}
       <hr className="my-2" />
-      <a href="/about" className="block px-6 py-2 hover:bg-yellow-100">
+      <Link to="/about" className="block px-6 py-2 hover:bg-yellow-100">
         Sobre a {`${dadosLoja.nomeDaLoja}`}
-      </a>
-      <a href="/faq" className="block px-6 py-2 hover:bg-yellow-100">
+      </Link>
+      <Link to="/faq" className="block px-6 py-2 hover:bg-yellow-100">
         Perguntas Frequentes (FAQ)
-      </a>
+      </Link>
     </div>
   );
 }
