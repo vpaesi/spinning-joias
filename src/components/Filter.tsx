@@ -11,7 +11,6 @@ interface FilterProps {
 }
 
 function Filter({
-  categoriaSelecionada,
   todasCategorias,
   ordemAlfabetica,
   ordemPreco,
@@ -39,10 +38,6 @@ function Filter({
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
 
-  function handleFilter(e: React.ChangeEvent<HTMLSelectElement>) {
-    const categoria = e.target.value;
-    onCategoriaChange(categoria);
-  }
 
   function handleAlfabeticaClick() {
     let next: typeof ordemAlfabetica;
@@ -62,21 +57,24 @@ function Filter({
 
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
-      <div className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full">
+      <div
+        className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full"
+        ref={filtroRef}
+      >
         {/* Grupo de botões principais - esquerda no desktop */}
-        <div
-          className="flex flex-row items-center gap-2 justify-center sm:justify-start"
-          ref={filtroRef}
-        >
+        <div className="flex flex-row items-center gap-2 justify-center sm:justify-start">
           <button
             type="button"
             className="btn-filter flex items-center px-2 sm:px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-sm sm:text-base md:text-lg transition font-semibold hover:bg-gray-50"
             style={{ minHeight: "44px", height: "44px" }}
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
-            aria-controls="filtro-modal"
+            aria-controls="filtro-dropdown"
           >
-            <span className="filtro-icone flex items-center" style={{ fontSize: 16 }}>
+            <span
+              className="filtro-icone flex items-center"
+              style={{ fontSize: 16 }}
+            >
               <i className="bi bi-funnel"></i>
             </span>
             <span className="ml-2">Categoria</span>
@@ -152,47 +150,38 @@ function Filter({
           </a>
         </div>
 
-        {/* Modal */}
+        {/* Dropdown de categorias */}
         {open && (
           <div
-            id="filtro-modal"
-            className="fixed inset-0 z-50 flex items-start justify-center pt-20 md:pt-16"
-            style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+            id="filtro-dropdown"
+            className="absolute left-0 top-full mt-2 z-50 w-max min-w-[220px] bg-white shadow-lg border-2 rounded-lg"
           >
-            <form
-              ref={modalRef}
-              className="filtro-modal bg-white rounded-lg shadow-xl border border-gray-200 p-6 mx-4 w-full max-w-sm"
-            >
-              <div className="flex flex-col gap-4">
-                <label
-                  htmlFor="categoria"
-                  className="text-lg font-semibold text-gray-800 dark:text-white"
-                >
-                  Escolha a categoria do produto:
-                </label>
-                <select
-                  id="categoria"
-                  name="categoria"
-                  className="border border-gray-300 rounded px-3 py-2 bg-white text-gray-800 dark:text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
-                  value={categoriaSelecionada}
-                  onChange={handleFilter}
-                >
-                  <option value="todos">Todos os produtos</option>
-                  {todasCategorias.map((categoria) => (
-                    <option key={categoria} value={categoria}>
-                      {categoria}
-                    </option>
-                  ))}
-                </select>
+            <ul>
+              <li>
                 <button
-                  type="button"
-                  className="mt-2 px-4 py-2 bg-yellow-700 text-white rounded hover:bg-yellow-800 transition"
-                  onClick={() => setOpen(false)}
+                  className="btn-dropdown block w-full text-left px-6 py-2"
+                  onClick={() => {
+                    onCategoriaChange("todos");
+                    setOpen(false);
+                  }}
                 >
-                  Fechar
+                  Todos os produtos
                 </button>
-              </div>
-            </form>
+              </li>
+              {todasCategorias.map((categoria) => (
+                <li key={categoria}>
+                  <button
+                    className="btn-dropdown block w-full text-left px-6 py-2"
+                    onClick={() => {
+                      onCategoriaChange(categoria);
+                      setOpen(false);
+                    }}
+                  >
+                    {categoria}
+                  </button>
+                </li>
+              ))}
+            </ul>
           </div>
         )}
       </div>

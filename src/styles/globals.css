@@ -224,9 +224,10 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   background-color: transparent !important;
   color: var(--branco) !important;
   transition: background 0.2s;
+  box-shadow: none !important;
 
 }
-.dark .btn-menu-dropdown{
+.dark .btn-menu-dropdown, .dark #filtro-dropdown{
   border: transparent !important;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
