@@ -56,7 +56,7 @@ function CarrosselProdutos({ produtos }: CarrosselProdutosProps) {
               style={{ height: "24rem" }}
             >
               <img
-                src={produto.imagem}
+                src={produto.fotoDestaque}
                 alt={produto.titulo}
                 className="w-full h-48 object-cover rounded-t"
               />

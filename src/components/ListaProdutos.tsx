@@ -33,7 +33,7 @@ function ListaProdutos({
             onClick={() => irParaProduto(produto)}
           >
             <img
-              src={produto.imagem}
+              src={produto.fotoDestaque}
               alt={produto.titulo}
               className="w-full h-44 object-cover rounded-t"
             />
