@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import dadosLoja from "../utils/dadosSpinning";
+import dadosLoja from "../utils/DadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
 interface MobileMenuDropdownCategoriasProps {

@@ -1,10 +1,10 @@
 function About() {
   return (
-    <div className="flex justify-center items-start min-h-screen bg-yellow-100 py-8 px-4">
+    <div className="pg-about flex justify-center items-start min-h-screen bg-yellow-100 py-8 px-4">
       <div className="w-full max-w-3xl bg-white rounded-lg shadow-lg p-6 md:p-10">
-        <h1 className="text-3xl font-bold mb-6 text-center">
+        <h2 className="text-3xl font-bold mb-6 text-center">
           Sobre a Spinning Joias
-        </h1>
+        </h2>
         <div className="space-y-4">
           <div className="border-b pb-2">
             <h2 className="text-2xl font-semibold mt-4 mb-2">Nossa História</h2>
@@ -15,12 +15,14 @@ function About() {
               que representassem a elegância e a leveza dos movimentos da
               patinação.
             </p>
+            <br />
             <p>
               Acreditamos que cada peça de joia deve contar uma história e
               refletir a personalidade de quem a usa. Por isso, nossa equipe
               está sempre em busca de inovações e tendências para trazer o
               melhor em design e qualidade.
             </p>
+            <br />
             <p>
               Com o tempo, <b>expandimos nossa linha de produtos</b> para
               incluir semijoias que atendem a todos os gostos e estilos, e
@@ -28,18 +30,21 @@ function About() {
               bonés, bolsas, viseiras, etc., sempre com a qualidade e o design
               que nos tornaram conhecidos.
             </p>
+            <br />
             <p>
               A Spinning Joias é mais do que uma marca, é uma comunidade de
               pessoas com estilo e <b>apaixonadas por patinação</b>. Estamos
               aqui para oferecer a melhor experiência de compra e atendimento,
               sempre com um sorriso no rosto e disposição para ajudar.
             </p>
+            <br />
             <p>
               Hoje, somos uma marca reconhecida e com clientes satisfeitos em
               todo o Brasil. Continuamos a inovar e a buscar novas formas de
               encantar nossos clientes, sempre com o compromisso de oferecer o
               melhor em qualidade e atendimento.
             </p>
+            <br />
           </div>
           <div className="border-b pb-2">
             <h2 className="text-2xl font-semibold mt-4 mb-2">🎯 Missão</h2>
@@ -48,6 +53,7 @@ function About() {
               preço justo, por meio de uma plataforma moderna, segura e pensada
               para quem valoriza estilo, praticidade e beleza.
             </p>
+            <br />
           </div>
           <div className="border-b pb-2">
             <h2 className="text-2xl font-semibold mt-4 mb-2">🌟 Visão</h2>
@@ -56,6 +62,7 @@ function About() {
               autenticidade, oferecendo uma experiência de compra encantadora e
               confiável.
             </p>
+            <br />
           </div>
           <div className="border-b pb-2">
             <h2 className="text-2xl font-semibold mt-4 mb-2">💎 Valores</h2>
@@ -64,7 +71,8 @@ function About() {
               cada decisão, desde a criação de nossos produtos até o atendimento
               ao cliente. Aqui estão os nossos principais valores:
             </p>
-            <h3 className="text-xl font-semibold mt-4 mb-2">S.P.I.N.</h3>
+            <br />
+            <h3 className="text-xl font-semibold mb-2">S.P.I.N.</h3>
             <ul className="list-disc pl-6 space-y-2">
               <li>
                 <b>S</b>ensibilidade: Valorizamos a beleza e a emoção que cada
@@ -85,6 +93,7 @@ function About() {
                 ações.
               </li>
             </ul>
+            <br />
           </div>
         </div>
       </div>
