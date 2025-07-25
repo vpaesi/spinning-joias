@@ -8,23 +8,28 @@ export default function BtnAddCarrinho({ produto, className = "" }: { produto: P
   const { adicionar } = useCarrinho();
   const [modal, setModal] = useState(false);
 
+  const addCarrinhoBtn = (className: string, setModal: () => void) => {
+    return (
+      <button
+        className={`bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition flex items-center gap-1 ${className}`}
+        onClick={setModal}
+        type="button"
+      >
+        + Carrinho
+      </button>
+    );
+  };
+
   function handleAdd(cor?: Cor) {
     adicionar(produto, cor, 1);
     setModal(false);
     toast.success("Produto adicionado ao carrinho!");
-    // Não faz navigate!
   }
 
   if (produto.cores && produto.cores.length > 0) {
     return (
       <>
-        <button
-          className={`bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition flex items-center gap-1 ${className}`}
-          onClick={() => setModal(true)}
-          type="button"
-        >
-          <i className="bi bi-bag-plus"></i> Carrinho
-        </button>
+        {addCarrinhoBtn(className, () => setModal(true))}
         {modal && (
           <ModalSelecionaCor
             produto={produto}
@@ -36,12 +41,6 @@ export default function BtnAddCarrinho({ produto, className = "" }: { produto: P
     );
   }
   return (
-    <button
-      className={`text-white rounded px-3 py-1 transition flex items-center gap-3 ${className}`}
-      onClick={() => handleAdd()}
-      type="button"
-    >
-      <i className="bi bi-bag-plus"></i> Carrinho
-    </button>
+    addCarrinhoBtn(className, () => handleAdd(undefined))
   );
 }

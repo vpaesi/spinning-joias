@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import dadosLoja from "../utils/DadosSpinning";
 
 export default function Carrinho() {
-  const { itens, remover, atualizarQuantidade, limpar } = useCarrinho();
+  const { itens, remover, atualizarQuantidade, limpar, adicionar } = useCarrinho();
   const [form, setForm] = useState({
     nome: "",
     cpf: "",
@@ -65,7 +65,29 @@ export default function Carrinho() {
                     <img src={item.produto.fotoDestaque} alt={item.produto.titulo} className="w-12 h-12 object-cover rounded" />
                     <span>{item.produto.titulo}</span>
                   </td>
-                  <td className="border-r border-gray-200">{item.corSelecionada?.nome || "-"}</td>
+                  <td className="border-r border-gray-200">
+                    {item.produto.cores && item.produto.cores.length > 0 ? (
+                      <select
+                        value={item.corSelecionada?.nome || ""}
+                        onChange={e => {
+                          const novaCor = item.produto.cores?.find(cor => cor.nome === e.target.value);
+                          if (novaCor) {
+                            remover(item.id, item.corSelecionada);
+                            adicionar(item.produto, novaCor, item.quantidade);
+                          }
+                        }}
+                      >
+                        <option value="">Selecione</option>
+                        {item.produto.cores.map((cor, i) => (
+                          <option key={i} value={cor.nome}>
+                            {cor.nome}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      "-"
+                    )}
+                  </td>
                   <td className="border-r border-gray-200">
                     <select
                       value={item.quantidade}
