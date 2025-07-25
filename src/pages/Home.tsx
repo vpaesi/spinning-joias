@@ -3,6 +3,7 @@ import HeroSection from "../components/HeroSection";
 import RenderizaProdutos from "../components/RenderizaProdutos";
 import Filter from "../components/Filter";
 import NavProdutosPrincipais from "../components/NavProdutosPrincipais";
+import Letreiro from "../components/Letreiro";
 
 interface HomeProps {
   produtosFiltrados: Produto[];
@@ -31,7 +32,6 @@ function Home({
   onOrdemAlfabeticaChange,
   onOrdemPrecoChange,
 }: HomeProps) {
-  // Exibir carrossel e hero só se não houver busca nem filtro
   const exibeCarrossel =
     !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
 
@@ -46,13 +46,7 @@ function Home({
     <>
       <NavProdutosPrincipais onCategoriaSelect={onCategoriaChange} />
       {exibeCarrossel && <HeroSection />}
-      {exibeCarrossel && (
-        <h2
-          className="texto-pre-produto py-2 text-center font-semibold"
-        >
-          Entregamos em todo território brasileiro!
-        </h2>
-      )}
+      {exibeCarrossel && <Letreiro />}
       {exibeCarrossel && (
         <RenderizaProdutos
           produtos={produtos}
@@ -61,6 +55,7 @@ function Home({
           carrossel={true}
         />
       )}
+      <hr className="border-t border-yellow-500" />
       <div className="w-full flex flex-col gap-1 mt-8 mb-4">
         <h2
           id="lista-colecao"

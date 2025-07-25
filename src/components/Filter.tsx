@@ -10,7 +10,7 @@ interface FilterProps {
   onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
 }
 
-function Filter({
+export default function Filter({
   todasCategorias,
   ordemAlfabetica,
   ordemPreco,
@@ -37,7 +37,6 @@ function Filter({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [open]);
-
 
   function handleAlfabeticaClick() {
     let next: typeof ordemAlfabetica;
@@ -72,8 +71,8 @@ function Filter({
             aria-controls="filtro-dropdown"
           >
             <span
-              className="filtro-icone flex items-center"
-              style={{ fontSize: 16 }}
+              className="flex items-center"
+              style={{ fontSize: "1.7rem", marginRight: "0.5rem" }}
             >
               <i className="bi bi-funnel"></i>
             </span>
@@ -188,5 +187,3 @@ function Filter({
     </div>
   );
 }
-
-export default Filter;

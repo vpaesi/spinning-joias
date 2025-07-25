@@ -4,18 +4,24 @@ import { useCarrinho } from "../context/CarrinhoContext";
 import ModalSelecionaCor from "./ModalSelecionaCor";
 import { toast } from "react-toastify";
 
-export default function BtnAddCarrinho({ produto, className = "" }: { produto: Produto; className?: string }) {
+export default function BtnAddCarrinho({
+  produto,
+  className = "",
+}: {
+  produto: Produto;
+  className?: string;
+}) {
   const { adicionar } = useCarrinho();
   const [modal, setModal] = useState(false);
 
   const addCarrinhoBtn = (className: string, setModal: () => void) => {
     return (
       <button
-        className={`bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition flex items-center gap-1 ${className}`}
+        className={`flex justify-center bg-yellow-700 text-white rounded py-1 hover:bg-yellow-800 transition gap-1 ${className}`}
         onClick={setModal}
         type="button"
       >
-        + Carrinho
+        Adicionar ao Carrinho
       </button>
     );
   };
@@ -40,7 +46,5 @@ export default function BtnAddCarrinho({ produto, className = "" }: { produto: P
       </>
     );
   }
-  return (
-    addCarrinhoBtn(className, () => handleAdd(undefined))
-  );
+  return addCarrinhoBtn(className, () => handleAdd(undefined));
 }

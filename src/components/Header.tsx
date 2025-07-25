@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import MobileMenuHamburgerButton from "./MobileMenuHamburgerButton";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
@@ -16,7 +15,11 @@ interface HeaderProps {
 
 import { useState } from "react";
 
-function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
+export default function Header({
+  onCategoriaSelect,
+  produtos,
+  onSearchResult,
+}: HeaderProps) {
   const [valorBusca, setValorBusca] = useState("");
   const { itens } = useCarrinho();
   const navigate = useNavigate();
@@ -30,7 +33,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
 
   return (
     <header className="bg-white px-2 md:px-12 py-4 flex flex-col md:flex-row gap-4 items-center justify-between max-w-full overflow-x-hidden">
-      <div className="flex items-center justify-center gap-2 md:gap-4 w-full md:w-auto">
+      <div className="flex items-center justify-center gap-2 md:gap-4 w-full md:w-auto flex-1">
         <MobileMenuHamburgerButton onCategoriaSelect={handleCategoriaSelect} />
         <h1 className="text-2xl font-bold text-yellow-700 whitespace-nowrap flex items-center">
           <a
@@ -45,7 +48,7 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
           </span>
         </h1>
         {/* Visiveis apenas no desktop */}
-        <div className="hidden md:block flex-1 ml-4" style={{ width: "100vw" }}>
+        <div className="hidden md:block flex-1 ml-4">
           <Search
             produtos={produtos}
             valorBusca={valorBusca}
@@ -74,21 +77,8 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
             )}
           </button>
         </div>
-        <div className="hidden md:block flex-1 ml-4">
-          <Link
-            to="/about"
-            className="text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
-          >
-            Sobre a Spinning
-          </Link>
-          <Link
-            to="/faq"
-            className="ml-4 text-yellow-700 hover:text-yellow-800 transition-colors font-medium"
-          >
-            FAQ
-          </Link>
-        </div>
       </div>
+
       {/* Barra de pesquisa visível no mobile */}
       <div className="block md:hidden w-full">
         <Search
@@ -102,15 +92,6 @@ function Header({ onCategoriaSelect, produtos, onSearchResult }: HeaderProps) {
           }}
         />
       </div>
-      {/* TODO: Descomentar quando tiver autenticação */}
-      {/* <div className="flex items-center gap-4">
-        <button className="bg-yellow-700 text-white px-4 py-2 rounded hover:bg-yellow-800 transition-colors">
-          Login
-        </button>
-        <p>Não tem uma conta?</p>
-      </div>  */}
     </header>
   );
 }
-
-export default Header;

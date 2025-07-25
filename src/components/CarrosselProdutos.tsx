@@ -2,16 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Produto } from "../hooks/useProdutos";
-import {
-  formatoDoPreco,
-  formatoDoPrecoSemDesconto,
-} from "../utils/formataPreco";
+import CardProduto from "./CardProduto";
 
 interface CarrosselProdutosProps {
   produtos: Produto[];
 }
 
-function CarrosselProdutos({ produtos }: CarrosselProdutosProps) {
+export default function CarrosselProdutos({
+  produtos,
+}: CarrosselProdutosProps) {
   const navigate = useNavigate();
   const ultimosProdutos = produtos.slice(-10).reverse();
 
@@ -50,44 +49,14 @@ function CarrosselProdutos({ produtos }: CarrosselProdutosProps) {
       >
         {ultimosProdutos.map((produto) => (
           <SwiperSlide key={produto.id}>
-            <div
-              className="carrossel-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col h-full card-produto-individual"
-              onClick={() => irParaProduto(produto)}
-              style={{ height: "24rem" }}
-            >
-              <img
-                src={produto.fotoDestaque}
-                alt={produto.titulo}
-                className="w-full h-48 object-cover rounded-t"
-              />
-              <div className="p-4 flex-1 flex flex-col">
-                <h5 className="font-bold text-lg mb-1 text-center">
-                  {produto.titulo}
-                </h5>
-                <div className="flex flex-col items-center justify-center flex-1 my-2 gap-1">
-                  <span className="line-through text-gray-400 text-xs">
-                    {formatoDoPrecoSemDesconto(produto.preco)}
-                  </span>
-                  <span className="text-blue-500 font-semibold text-lg">
-                    {formatoDoPreco(produto.preco)}
-                  </span>
-                </div>
-                <button
-                  className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    irParaProduto(produto);
-                  }}
-                >
-                  + Detalhes
-                </button>
-              </div>
-            </div>
+            <CardProduto
+              produto={produto}
+              onDetalhes={() => irParaProduto(produto)}
+              imgClassName="h-48"
+            />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
 }
-
-export default CarrosselProdutos;

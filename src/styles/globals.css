@@ -29,59 +29,6 @@ button:hover,
   background-color: #b88a4a !important;
 }
 
-.filtro-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-.filtro-icone {
-  font-size: 1.7rem;
-  margin-right: 0.5rem;
-}
-.filtro-label {
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-.filtro-modal {
-  background: #b3e0fa;
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  padding: 2rem 1.5rem;
-  min-width: 270px;
-  max-width: 350px;
-  margin-top: 1rem;
-  z-index: 50;
-  position: absolute;
-  max-height: 80vh;
-  overflow-y: auto;
-}
-.filtro-modal label {
-  font-weight: 500;
-}
-.filtro-modal .range-label {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-.filtro-modal .slider {
-  width: 100%;
-  margin: 1rem 0 1.5rem 0;
-}
-.filtro-modal select {
-  width: 100%;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  border: none;
-  font-size: 1rem;
-  margin-top: 0.5rem;
-}
-
-.campo-busca-btn{
-  padding: 0.25rem !important;
-}
-
 .hero-gradient {
   background: linear-gradient(120deg, #93bfda 60%, #f7d6d6 100%);
 }
@@ -103,16 +50,9 @@ button:hover,
   .hero-subtitle {
     font-size: 1.3rem;
   }
-  .filtro-modal {
-    min-width: 350px;
-  }
 }
 
-.dark .campo-busca {
-  background-color: var(--dark);
-} 
-
-.texto-pre-produto{
+.letreiro{
   background-color: var(--amarelo-destaque);
   color: var(--branco);
   border: none;
@@ -133,11 +73,15 @@ button:hover,
   transition: background 0.2s;
 }
 
+.swiper-slide {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 22rem !important;
+}
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--amarelo-destaque) !important;
 }
-
 .swiper-pagination-bullet {
   background: var(--amarelo-destaque) !important;
   &:active {
@@ -158,6 +102,17 @@ button:hover,
 .btn-dropdown {
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
+}
+
+.btn-modal-selecao-cor{
+  background-color: transparent !important;
+  border: 1px solid var(--amarelo-destaque) !important;
+  color: var(--amarelo-destaque) !important;
+  &:hover {
+    background-color: transparent !important;
+    color: var(--amarelo-destaque-escuro);
+    box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
+  }
 }
 
 .btn-filter,
@@ -187,6 +142,10 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   color: var(--branco);
 }
 
+.dark .campo-busca {
+  background-color: var(--dark);
+} 
+
 .dark button, .dark .btn, .dark .btn-pg-inicial, .dark .btn-produto-detalhe-encomende {
   background-color: var(--amarelo-destaque) !important;
   color: var(--branco) !important;
@@ -213,9 +172,7 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
 }
 
-/* filtro ?*/
-
-.dark .texto-pre-produto{
+.dark .letreiro{
   background-color: var(--amarelo-destaque-escuro);
   color: var(--branco);
 }

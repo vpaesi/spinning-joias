@@ -1,10 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Produto } from "../hooks/useProdutos";
-import {
-  formatoDoPreco,
-  formatoDoPrecoSemDesconto,
-} from "../utils/formataPreco";
-import BtnAddCarrinho from "./BtnAddCarrinho";
+import CardProduto from "./CardProduto";
 
 interface ListaProdutosProps {
   produtosFiltrados: Produto[];
@@ -28,42 +24,11 @@ function ListaProdutos({
     <main className="container mx-auto px-4 py-6 md:px-12 bg-white">
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {produtosFiltrados.slice(0, page * PAGE_SIZE).map((produto) => (
-          <div
+          <CardProduto
             key={produto.id}
-            className="lista-produto-individual bg-white rounded shadow hover:shadow-lg transition cursor-pointer flex flex-col"
-            onClick={() => irParaProduto(produto)}
-          >
-            <img
-              src={produto.fotoDestaque}
-              alt={produto.titulo}
-              className="w-full h-44 object-cover rounded-t"
-            />
-            <div className="p-3 flex-1 flex flex-col">
-              <h5 className="font-bold text-base mb-2">{produto.titulo}</h5>
-              <div className="flex flex-col items-center mb-2">
-                <>
-                  <span className="line-through text-gray-400 text-xs">
-                    {formatoDoPrecoSemDesconto(produto.preco)}
-                  </span>
-                  <span className="text-blue-500 font-semibold">
-                    {formatoDoPreco(produto.preco)}
-                  </span>
-                </>
-              </div>
-              <div className="flex gap-2 mt-auto">
-                <button
-                  className="bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition flex-1"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    irParaProduto(produto);
-                  }}
-                >
-                  + Detalhes
-                </button>
-                <BtnAddCarrinho produto={produto} className="flex-1" />
-              </div>
-            </div>
-          </div>
+            produto={produto}
+            onDetalhes={() => irParaProduto(produto)}
+          />
         ))}
       </div>
     </main>
