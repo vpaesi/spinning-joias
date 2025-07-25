@@ -201,6 +201,30 @@ function FAQ() {
         <p>Sim, todas as nossas joias tem garantia do banho e antialérgico.</p>
       ),
     },
+    {
+      pergunta: "Como funciona o carrinho de compras?",
+      resposta: (
+        <p>
+          Agora você pode adicionar produtos ao carrinho, selecionar variações (cor/tamanho), ajustar quantidades e gerar uma mensagem automática com todos os dados do pedido. Basta clicar no ícone de sacola no topo do site para acessar seu carrinho.
+        </p>
+      ),
+    },
+    {
+      pergunta: "Como faço para finalizar meu pedido?",
+      resposta: (
+        <p>
+          Após adicionar os produtos ao carrinho e preencher seus dados de entrega, clique em "Gerar mensagem automática". Copie a mensagem e envie pelo WhatsApp para a Spinning Joias. Assim, confirmamos a disponibilidade e combinamos o pagamento.
+        </p>
+      ),
+    },
+    {
+      pergunta: "Posso alterar ou remover produtos do carrinho?",
+      resposta: (
+        <p>
+          Sim! No carrinho, você pode ajustar a quantidade, remover produtos ou limpar tudo antes de gerar sua mensagem de pedido.
+        </p>
+      ),
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);

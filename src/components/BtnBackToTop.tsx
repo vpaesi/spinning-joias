@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { scrollToElement } from "../utils/scrollToElement";
 
-function BtnBackToTop() {
+export default function BtnBackToTop() {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
@@ -32,5 +32,3 @@ function BtnBackToTop() {
     </button>
   );
 }
-
-export default BtnBackToTop;

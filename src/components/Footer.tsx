@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import dadosLoja from "../utils/DadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
-function Footer() {
+export default function Footer() {
   const handleScrollToTop = () => {
     scrollToElement();
   };
@@ -88,5 +88,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

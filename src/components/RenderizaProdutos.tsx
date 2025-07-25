@@ -17,7 +17,7 @@ function RenderizaProdutos({
   erro,
   carrossel = false,
 }: RenderizaProdutosProps) {
-  const [page, setPage] = useState(1);  
+  const [page, setPage] = useState(1);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 

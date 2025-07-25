@@ -17,10 +17,17 @@ function MobileMenuHamburgerButton({
         setOpen(false);
       }
     }
+    function handleScroll() {
+      setOpen(false);
+    }
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
+      window.addEventListener("scroll", handleScroll, { passive: true });
     }
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, [open]);
 
   return (

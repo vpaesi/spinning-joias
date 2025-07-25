@@ -20,7 +20,7 @@ function MobileMenuDropdownCategorias({
   onClose,
 }: MobileMenuDropdownCategoriasProps) {
   return (
-    <div className="absolute left-2 top-14 bg-white shadow-lg border-2 rounded z-50 min-w-[220px] py-2">
+    <div className="btn-menu-dropdown fixed left-2 top-[60px] z-[9999] w-max min-w-[220px] bg-white shadow-lg border-2 rounded-lg md:hidden">
       {categorias.map((cat) => (
         <button
           key={cat}
@@ -35,10 +35,18 @@ function MobileMenuDropdownCategorias({
         </button>
       ))}
       <hr className="my-2" />
-      <Link to="/about" className="block px-6 py-2 hover:bg-yellow-100">
+      <Link
+        to="/about"
+        className="block px-6 py-2 hover:bg-yellow-100"
+        onClick={onClose}
+      >
         Sobre a {`${dadosLoja.nomeDaLoja}`}
       </Link>
-      <Link to="/faq" className="block px-6 py-2 hover:bg-yellow-100">
+      <Link
+        to="/faq"
+        className="block px-6 py-2 hover:bg-yellow-100"
+        onClick={onClose}
+      >
         Perguntas Frequentes (FAQ)
       </Link>
     </div>

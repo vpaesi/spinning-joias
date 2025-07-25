@@ -9,6 +9,7 @@ import { useProdutos, Produto } from "../hooks/useProdutos";
 import { getProdutosFiltradosOrdenados } from "../utils/produtosUtils";
 import About from "../pages/About";
 import FAQ from "../pages/Faq";
+import Carrinho from "../pages/Carrinho";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 function AppRoutes() {
@@ -95,6 +96,7 @@ function AppRoutes() {
         <Route path="/produto/:id" element={<ProdutoDetalhes />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/carrinho" element={<Carrinho />} />
       </Routes>
       <BtnBackToTop />
       <Footer />

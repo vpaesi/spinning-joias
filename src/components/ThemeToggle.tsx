@@ -4,7 +4,8 @@ function getInitialTheme() {
   if (typeof window !== "undefined") {
     const stored = localStorage.getItem("theme");
     if (stored) return stored;
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+      return "dark";
   }
   return "light";
 }
@@ -25,9 +26,9 @@ export default function ThemeToggle() {
       type="button"
     >
       {theme === "dark" ? (
-      <i className="bi bi-sun-fill text-yellow-500 flex items-center"></i>
+        <i className="bi bi-sun-fill text-yellow-500 flex items-center"></i>
       ) : (
-      <i className="bi bi-moon-fill text-gray-700 flex items-center"></i>
+        <i className="bi bi-moon-fill text-gray-700 flex items-center"></i>
       )}
     </button>
   );

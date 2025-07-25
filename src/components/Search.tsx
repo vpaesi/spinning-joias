@@ -71,8 +71,8 @@ function Search({
         {valorBusca && (
           <button
             type="submit"
-            className="campo-busca-btn absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 font-semibold px-3 py-1 rounded shadow transition"
-            style={{ zIndex: 2 }}
+            className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 font-semibold rounded shadow transition"
+            style={{ zIndex: 2, padding: "0.25rem" }}
             onClick={handleSubmit}
           >
             <i className="bi bi-search"></i>

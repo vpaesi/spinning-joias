@@ -1,6 +1,6 @@
 import { scrollToElement } from "../utils/scrollToElement";
 
-function HeroSection() {
+export default function HeroSection() {
   return (
     <section className="hero-gradient py-16 px-16 text-start flex flex-col items-start justify-center min-h-[320px] md:min-h-[380px] shadow-lg">
       <h1 className="hero-title mb-2 drop-shadow-lg">
@@ -18,5 +18,3 @@ function HeroSection() {
     </section>
   );
 }
-
-export default HeroSection;
