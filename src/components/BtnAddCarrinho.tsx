@@ -12,6 +12,7 @@ export default function BtnAddCarrinho({ produto, className = "" }: { produto: P
     adicionar(produto, cor, 1);
     setModal(false);
     toast.success("Produto adicionado ao carrinho!");
+    // Não faz navigate!
   }
 
   if (produto.cores && produto.cores.length > 0) {

@@ -5,7 +5,6 @@ import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
 } from "../utils/formataPreco";
-import dadosLoja from "../utils/DadosSpinning";
 import BtnAddCarrinho from "../components/BtnAddCarrinho";
 
 function ProdutoDetalhes() {

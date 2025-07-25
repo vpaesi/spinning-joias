@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "react-toastify/dist/ReactToastify.css";
-import App from "./App.tsx";
+import App from "./App";
 import { CarrinhoProvider } from "./context/CarrinhoContext";
 
 createRoot(document.getElementById("root")!).render(

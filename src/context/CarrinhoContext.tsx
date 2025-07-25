@@ -19,12 +19,10 @@ interface CarrinhoContextProps {
 const CarrinhoContext = createContext<CarrinhoContextProps | undefined>(undefined);
 
 export function CarrinhoProvider({ children }: { children: ReactNode }) {
-  const [itens, setItens] = useState<ItemCarrinho[]>([]);
-
-  useEffect(() => {
+  const [itens, setItens] = useState<ItemCarrinho[]>(() => {
     const salvo = localStorage.getItem("carrinho");
-    if (salvo) setItens(JSON.parse(salvo));
-  }, []);
+    return salvo ? JSON.parse(salvo) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem("carrinho", JSON.stringify(itens));
