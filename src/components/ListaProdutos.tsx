@@ -4,6 +4,7 @@ import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
 } from "../utils/formataPreco";
+import BtnAddCarrinho from "./BtnAddCarrinho";
 
 interface ListaProdutosProps {
   produtosFiltrados: Produto[];
@@ -49,15 +50,18 @@ function ListaProdutos({
                   </span>
                 </>
               </div>
-              <button
-                className="mt-auto bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  irParaProduto(produto);
-                }}
-              >
-                + Detalhes
-              </button>
+              <div className="flex gap-2 mt-auto">
+                <button
+                  className="bg-yellow-700 text-white rounded px-3 py-1 hover:bg-yellow-800 transition flex-1"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    irParaProduto(produto);
+                  }}
+                >
+                  + Detalhes
+                </button>
+                <BtnAddCarrinho produto={produto} className="flex-1" />
+              </div>
             </div>
           </div>
         ))}

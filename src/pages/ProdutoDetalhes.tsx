@@ -6,6 +6,7 @@ import {
   formatoDoPrecoSemDesconto,
 } from "../utils/formataPreco";
 import dadosLoja from "../utils/DadosSpinning";
+import BtnAddCarrinho from "../components/BtnAddCarrinho";
 
 function ProdutoDetalhes() {
   const { id } = useParams<{ id: string }>();
@@ -82,9 +83,15 @@ function ProdutoDetalhes() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       {/* Breadcrumb */}
-      <nav className="mb-6">
+      <nav className="mb-6 flex justify-between items-center">
         <button onClick={() => navigate("/")} className="hover:underline">
           ← Voltar aos produtos
+        </button>
+        <button
+          className="flex items-center gap-1 bg-yellow-700 text-white px-4 py-2 rounded hover:bg-yellow-800 transition"
+          onClick={() => navigate("/carrinho")}
+        >
+          <i className="bi bi-bag"></i> Carrinho
         </button>
       </nav>
 
@@ -182,17 +189,8 @@ function ProdutoDetalhes() {
               </div>
             )}
 
-            {/* Contato WhatsApp */}
             <div className="mt-8">
-              <a
-                href={dadosLoja.socialMedia.whats}
-                className="btn-produto-detalhe-encomende inline-flex items-center bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-800 transition text-lg"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="bi bi-whatsapp mr-2 text-xl"></i>
-                Encomende agora mesmo!
-              </a>
+              <BtnAddCarrinho produto={produto} className="btn-produto-detalhe-encomende inline-flex items-center bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-800 transition text-lg" />
             </div>
 
             <div className="mt-4 text-gray-600 dark:text-white">
