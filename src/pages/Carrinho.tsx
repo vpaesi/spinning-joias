@@ -15,12 +15,14 @@ export default function Carrinho() {
     nome: "",
     cpf: "",
     endereco: "",
+    complemento: "", // <-- Adicione este campo!
     cidade: "",
     uf: "",
     cep: "",
   });
   const [pagamento, setPagamento] = useState<"pix" | "transferencia">("pix");
   const [mensagem, setMensagem] = useState("");
+  const [erros, setErros] = useState<string[]>([]);
   const navigate = useNavigate();
 
   const total = itens.reduce(
@@ -67,6 +69,7 @@ export default function Carrinho() {
             pagamento={pagamento}
             mensagem={mensagem}
             setMensagem={setMensagem}
+            erros={erros}
           />
         </>
       )}

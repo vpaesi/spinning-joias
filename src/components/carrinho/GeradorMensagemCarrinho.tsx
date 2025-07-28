@@ -28,7 +28,8 @@ export default function GeradorMensagemCarrinho({
   pagamento,
   mensagem,
   setMensagem,
-}: GeradorMensagemCarrinhoProps) {
+  erros, // <-- Adicione esta prop ao chamar o componente!
+}: GeradorMensagemCarrinhoProps & { erros: { [k: string]: string | null } }) {
   function gerarMensagem() {
     let msg = `Olá, gostaria de encomendar:\n\n`;
     itens.forEach((item, idx) => {
@@ -53,28 +54,21 @@ export default function GeradorMensagemCarrinho({
     window.open(url, "_blank");
   }
 
-  // Preenche automaticamente a mensagem quando todos os campos do form estão preenchidos
+  // Preenche automaticamente a mensagem apenas se todos os campos obrigatórios estiverem preenchidos e sem erro
   useEffect(() => {
-    const todosPreenchidos = Object.values(form).every(
-      (v) => v && v.trim() !== ""
+    // Campos obrigatórios (exceto complemento)
+    const obrigatorios = ["nome", "cpf", "endereco", "cidade", "uf", "cep"];
+    const todosPreenchidos = obrigatorios.every(
+      (campo) => form[campo] && form[campo].trim() !== ""
     );
-    if (todosPreenchidos && itens.length > 0) {
-      let msg = `Olá, gostaria de encomendar:\n\n`;
-      itens.forEach((item, idx) => {
-        msg += `${idx + 1}. ${item.produto.titulo}`;
-        if (item.corSelecionada?.nome) msg += ` (${item.corSelecionada.nome})`;
-        msg += ` - Qtd: ${item.quantidade} - Valor: ${formatoDoPreco(
-          item.produto.preco
-        )}\n`;
-      });
-      msg += `\nTotal: ${formatoDoPreco(total)}\n\n`;
-      msg += `Dados para envio:\nNome: ${form.nome}\nCPF: ${form.cpf}\nEndereço: ${form.endereco}\nComplemento: ${form.complemento}\nCidade: ${form.cidade}\nUF: ${form.uf}\nCEP: ${form.cep}\n`;
-      msg += `\nForma de pagamento: ${
-        pagamento === "pix" ? "Pix" : "Transferência"
-      }\n`;
-      setMensagem(msg);
+    const semErros = obrigatorios.every(
+      (campo) => !erros[campo]
+    );
+    if (todosPreenchidos && semErros && itens.length > 0) {
+      gerarMensagem();
     }
-  }, [form, itens, total, pagamento, setMensagem]);
+    // eslint-disable-next-line
+  }, [form, itens, total, pagamento, erros]);
 
   return (
     <>
@@ -84,7 +78,7 @@ export default function GeradorMensagemCarrinho({
         rows={8}
         value={mensagem}
         onChange={(e) => setMensagem(e.target.value)}
-        style={{ whiteSpace: "pre-line" }}
+        style={{ whiteSpace: "pre-line", borderColor: "#d9a76b" }} // amarelo
       />
       <div className="flex items-center gap-3 mb-8">
         <button

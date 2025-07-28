@@ -107,4 +107,4 @@ export function useCarrinho() {
   return ctx;
 }
 
-export { Produto, Cor };
+export type { Produto, Cor };
