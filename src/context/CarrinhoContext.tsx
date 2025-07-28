@@ -106,3 +106,5 @@ export function useCarrinho() {
     throw new Error("useCarrinho deve ser usado dentro do CarrinhoProvider");
   return ctx;
 }
+
+export { Produto, Cor };

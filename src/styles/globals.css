@@ -3,8 +3,11 @@
 :root {
   --amarelo-destaque: #d9a76b;
   --branco: #fff;
+  --azul-link: #1e90ff;
 }
-html, body, #root {
+html,
+body,
+#root {
   max-width: 100vw;
   overflow-x: hidden;
 }
@@ -26,7 +29,7 @@ button,
 }
 button:hover,
 .btn:hover {
-  background-color: #b88a4a !important;
+  background-color: #ad916a !important;
 }
 
 .hero-gradient {
@@ -52,7 +55,7 @@ button:hover,
   }
 }
 
-.letreiro{
+.letreiro {
   background-color: var(--amarelo-destaque);
   color: var(--branco);
   border: none;
@@ -104,7 +107,7 @@ button:hover,
   padding: 0.5rem 1.5rem;
 }
 
-.btn-modal-selecao-cor{
+.btn-modal-selecao-cor {
   background-color: transparent !important;
   border: 1px solid var(--amarelo-destaque) !important;
   color: var(--amarelo-destaque) !important;
@@ -128,25 +131,42 @@ button:hover,
   }
 }
 
+.btn-carrinho-limpa, .btn-carrinho-gera-mensagem, .btn-carrinho-remover {
+  background-color: transparent !important;
+  color: var(--azul-link) !important;
+  padding: 0;
+  &:hover {
+    background-color: transparent !important;
+    text-decoration: underline;
+  }
+}
+
 /* Modo escuro */
 :root {
   --dark: #222;
   --cinza-escuro: #333;
   --amarelo-destaque: #b88a4a;
-  --amarelo-destaque-escuro: #a27a41;  
+  --amarelo-destaque-escuro: #a27a41;
   --amarelo-destaque-claro: #e6c092;
 }
 
-html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
+html.dark,
+body.dark,
+.dark .bg-white,
+.dark .bg-gray-50,
+.dark a {
   background: var(--dark) !important;
   color: var(--branco);
 }
 
 .dark .campo-busca {
   background-color: var(--dark);
-} 
+}
 
-.dark button, .dark .btn, .dark .btn-pg-inicial, .dark .btn-produto-detalhe-encomende {
+.dark button,
+.dark .btn,
+.dark .btn-pg-inicial,
+.dark .btn-produto-detalhe-encomende {
   background-color: var(--amarelo-destaque) !important;
   color: var(--branco) !important;
   padding: 0.5rem 1.5rem;
@@ -164,27 +184,28 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
   transition: background 0.2s;
 }
 
-.dark .btn-filter-container button, .dark .btn-pg-inicial{
-  background-color: transparent!important;
+.dark .btn-filter-container button,
+.dark .btn-pg-inicial {
+  background-color: transparent !important;
   padding: 0.5rem 1.5rem;
   border: none;
   transition: box-shadow 0.2s;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
 }
 
-.dark .letreiro{
+.dark .letreiro {
   background-color: var(--amarelo-destaque-escuro);
   color: var(--branco);
 }
 
-.dark .btn-dropdown{
+.dark .btn-dropdown {
   background-color: transparent !important;
   color: var(--branco) !important;
   transition: background 0.2s;
   box-shadow: none !important;
-
 }
-.dark .btn-menu-dropdown, .dark #filtro-dropdown{
+.dark .btn-menu-dropdown,
+.dark #filtro-dropdown {
   border: transparent !important;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
@@ -192,7 +213,11 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
 }
 
 .dark .hero-gradient {
-  background: linear-gradient(120deg, #655b44 60%, var(--amarelo-destaque-escuro) 100%);
+  background: linear-gradient(
+    120deg,
+    #655b44 60%,
+    var(--amarelo-destaque-escuro) 100%
+  );
 }
 
 .dark .swiper-button-next,
@@ -203,21 +228,25 @@ html.dark, body.dark, .dark .bg-white, .dark .bg-gray-50, .dark a {
 .dark .swiper-pagination-bullet {
   background: var(--branco) !important;
   &:active {
-    background: var(--amarelo-destaque)!important;
+    background: var(--amarelo-destaque) !important;
     opacity: 1;
   }
 }
 
-.dark .lista-produto-individual, .dark .carrossel-produto-individual {
+.dark .lista-produto-individual,
+.dark .carrossel-produto-individual {
   border: 1px solid var(--amarelo-destaque) !important;
   box-shadow: var(--branco);
 }
 
-.dark .pg-faq, .dark .pg-about {
+.dark .pg-faq,
+.dark .pg-about {
   background-color: var(--cinza-escuro) !important;
 }
 
-.dark .footer, .dark .footer-credits, .dark .footer-icon{
+.dark .footer,
+.dark .footer-credits,
+.dark .footer-icon {
   background-color: var(--amarelo-destaque-escuro) !important;
   color: var(--branco);
 }
