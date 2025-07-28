@@ -19,7 +19,7 @@ export default function InputFormCarrinho({
     <div className="flex flex-col gap-1">
       <label className="text-sm font-medium">{label}</label>
       <input
-        className={`border p-2 rounded ${erro ? "border-red-500" : ""}`}
+        className={`border p-2 dark:bg-[#3c3c3c] rounded ${erro ? "border-red-500" : ""}`}
         placeholder={placeholder}
         value={value}
         type={type}

@@ -27,11 +27,11 @@ export default function InfoProdutoCarrinho({
     <table className="w-full mb-1 border border-gray-300">
       <thead>
         <tr className="bg-gray-100 border-b border-gray-300">
-          <th className="border-r border-gray-300">Produto</th>
-          <th className="border-r border-gray-300">Variação</th>
-          <th className="border-r border-gray-300">Quantidade</th>
-          <th className="border-r border-gray-300">Valor (un.)</th>
-          <th></th>
+          <th className="border-r border-gray-300 dark:bg-[#222]">Produto</th>
+          <th className="border-r border-gray-300 dark:bg-[#222]">Variação</th>
+          <th className="border-r border-gray-300 dark:bg-[#222]">Quantidade</th>
+          <th className="border-r border-gray-300 dark:bg-[#222]">Valor (un.)</th>
+          <th className="dark:bg-[#222]"></th>
         </tr>
       </thead>
       <tbody>
@@ -41,7 +41,7 @@ export default function InfoProdutoCarrinho({
               <img
                 src={item.produto.fotoDestaque}
                 alt={item.produto.titulo}
-                className="w-12 h-12 object-cover rounded"
+                className="w-12 h-12 m-2 object-cover rounded"
               />
               <Link
                 to={`/produto/${item.produto.id}`}
@@ -64,7 +64,7 @@ export default function InfoProdutoCarrinho({
                       adicionar(item.produto, novaCor, item.quantidade);
                     }
                   }}
-                  className="mx-auto"
+                  className="mx-auto dark:bg-[#222] cursor-pointer"
                 >
                   <option value="">Selecione</option>
                   {item.produto.cores.map((cor, i) => (
@@ -87,7 +87,7 @@ export default function InfoProdutoCarrinho({
                     item.corSelecionada
                   )
                 }
-                className="mx-auto"
+                className="mx-auto dark:bg-[#222]"
               >
                 {[...Array(10)].map((_, i) => (
                   <option key={i + 1} value={i + 1}>

@@ -74,7 +74,7 @@ export default function GeradorMensagemCarrinho({
     <>
       <h2 className="text-xl font-bold mb-4 mt-4">Mensagem para WhatsApp</h2>
       <textarea
-        className="w-full border rounded p-2 mb-2 font-mono leading-relaxed"
+        className="w-full border rounded p-2 mb-2 font-mono leading-relaxed dark:bg-[#3c3c3c]"
         rows={8}
         value={mensagem}
         onChange={(e) => setMensagem(e.target.value)}

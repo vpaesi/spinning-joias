@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function LetreiroConteudo() {
   return (
-    <>
+    <div className="letreiro-conteudo">
       Entregamos em todo território brasileiro!
       <span className="inline-block mx-2" role="img" aria-label="patins">
         🛼
@@ -16,6 +16,6 @@ export default function LetreiroConteudo() {
       <Link to="/faq" className="underline hover:text-yellow-800 transition">
         Perguntas frequentes (FAQ)
       </Link>
-    </>
+    </div>
   );
 }

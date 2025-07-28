@@ -169,33 +169,25 @@ body.dark,
 .dark .btn-produto-detalhe-encomende {
   background-color: var(--amarelo-destaque) !important;
   color: var(--branco) !important;
-  padding: 0.5rem 1.5rem;
-  border: none;
-  &:hover {
-    background-color: var(--amarelo-destaque-escuro) !important;
-  }
 }
 
 .dark .nav-top {
   background-color: var(--amarelo-destaque) !important;
-  border: none;
-  padding: 0;
-  text-align: center;
-  transition: background 0.2s;
+  & button:hover {
+    text-decoration: underline;
+  }
 }
 
 .dark .btn-filter-container button,
 .dark .btn-pg-inicial {
   background-color: transparent !important;
-  padding: 0.5rem 1.5rem;
   border: none;
   transition: box-shadow 0.2s;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
 }
 
-.dark .letreiro {
-  background-color: var(--amarelo-destaque-escuro);
-  color: var(--branco);
+.dark .letreiro-conteudo a {
+  background-color: transparent !important;
 }
 
 .dark .btn-dropdown {
@@ -207,9 +199,7 @@ body.dark,
 .dark .btn-menu-dropdown,
 .dark #filtro-dropdown {
   border: transparent !important;
-  border-radius: 0.5rem;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
-  padding: 0.5rem;
 }
 
 .dark .hero-gradient {
