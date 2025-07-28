@@ -135,7 +135,28 @@ button:hover,
   }
 }
 
-.btn-carrinho-limpa, .btn-carrinho-gera-mensagem, .btn-carrinho-quantidade, .btn-carrinho-remover {
+.btn-pagina-atual,
+.btn-pagina-nao-atual,
+.btn-paginacao,
+.dark .btn-pagina-nao-atual,
+.dark .btn-pagina-atual,
+.dark .btn-paginacao {
+  background-color: transparent !important;
+  color: var(--amarelo-destaque-escuro) !important;
+}
+.btn-pagina-nao-atual:hover,
+.btn-paginacao:hover,
+.btn-pagina-atual,
+.dark .btn-pagina-nao-atual:hover,
+.dark .btn-paginacao:hover,
+.dark .btn-pagina-atual {
+  text-decoration: underline;
+}
+
+.btn-carrinho-limpa,
+.btn-carrinho-gera-mensagem,
+.btn-carrinho-quantidade,
+.btn-carrinho-remover {
   background-color: transparent !important;
   color: var(--azul-link) !important;
   padding: 0;

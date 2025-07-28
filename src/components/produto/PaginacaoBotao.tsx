@@ -11,37 +11,36 @@ export default function PaginacaoBotao({
 }: PaginacaoBotaoProps) {
   if (totalPages <= 1) return null;
   return (
-    <>
+    <div className="flex justify-center items-center gap-2 my-4">
       <div className="flex gap-1 items-center mt-1">
         <button
-          className="px-2 py-1 rounded border bg-white hover:bg-yellow-100"
+          className="btn-paginacao px-2 py-1 rounded border"
           disabled={page <= 1}
           onClick={() => setPage(page - 1)}
         >
-          &lt;
+          &lt; Página anterior
         </button>
         {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i + 1}
             className={`px-2 py-1 rounded border ${
-              page === i + 1 ? "bg-yellow-200 font-bold" : "bg-white"
-            } hover:bg-yellow-100`}
+              page === i + 1
+                ? "font-bold btn-pagina-atual"
+                : "btn-pagina-nao-atual"
+            }`}
             onClick={() => setPage(i + 1)}
           >
             {i + 1}
           </button>
         ))}
         <button
-          className="px-2 py-1 rounded border bg-white hover:bg-yellow-100"
+          className="btn-paginacao px-2 py-1 rounded border"
           disabled={page >= totalPages}
           onClick={() => setPage(page + 1)}
         >
-          &gt;
+          Próxima página &gt;
         </button>
       </div>
-      <div className="text-gray-700 text-sm mt-1">
-        Página {page} de {totalPages}
-      </div>
-    </>
+    </div>
   );
 }
