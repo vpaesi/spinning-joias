@@ -1,64 +1,38 @@
-import { useState, useEffect, useRef } from "react";
 import { Produto } from "../../hooks/useProdutos";
 import ListaProdutos from "./ListaProdutos";
 import CarrosselProdutos from "./CarrosselProdutos";
-
-const PAGE_SIZE = 8;
+import PaginacaoBotao from "./PaginacaoBotao";
+import TextoMostrandoProdutos from "./TextoMostrandoProdutos";
 
 interface RenderizaProdutosProps {
   produtos: Produto[];
   loading: boolean;
   erro: string | null;
   carrossel?: boolean;
+  page: number;
+  setPage: (page: number) => void;
+  pageSize: number;
+  setPageSize: (size: number) => void;
 }
+
 function RenderizaProdutos({
   produtos,
   loading,
   erro,
   carrossel = false,
+  page,
+  setPage,
+  pageSize,
 }: RenderizaProdutosProps) {
-  const [page, setPage] = useState(1);
-  const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    if (!carrossel) {
-      function onScroll() {
-        const reachedBottom =
-          window.innerHeight + window.scrollY >=
-          document.body.offsetHeight - 400;
-        const hasMore = page * PAGE_SIZE < produtos.length;
-        if (reachedBottom && hasMore && !isLoadingMore) {
-          setIsLoadingMore(true);
-        }
-      }
-      window.addEventListener("scroll", onScroll);
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-        if (timeoutRef.current) clearTimeout(timeoutRef.current);
-      };
-    }
-  }, [produtos.length, carrossel, isLoadingMore, page]);
-
-  useEffect(() => {
-    if (isLoadingMore) {
-      const hasMore = page * PAGE_SIZE < produtos.length;
-      if (hasMore) {
-        timeoutRef.current = setTimeout(() => {
-          setPage((prev) => prev + 1);
-          setIsLoadingMore(false);
-        }, 600);
-      } else {
-        setIsLoadingMore(false);
-      }
-    }
-    return () => {
-      if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    };
-  }, [isLoadingMore, page, produtos.length]);
+  const totalPages = pageSize === 0 ? 1 : Math.ceil(produtos.length / pageSize);
 
   if (loading) return <div>Carregando...</div>;
   if (erro) return <div>{erro}</div>;
+
+  const produtosPagina =
+    pageSize === 0
+      ? produtos
+      : produtos.slice((page - 1) * pageSize, page * pageSize);
 
   return (
     <div className="bg-gray-50">
@@ -67,25 +41,23 @@ function RenderizaProdutos({
       ) : (
         <>
           <ListaProdutos
-            produtosFiltrados={produtos}
+            produtosFiltrados={produtosPagina}
             page={page}
-            PAGE_SIZE={PAGE_SIZE}
+            PAGE_SIZE={pageSize === 0 ? produtos.length : pageSize}
           />
-          <div className="w-full flex justify-center my-4 text-gray-700 text-sm bg-white">
-            {(() => {
-              const total = produtos.length;
-              const mostrados = Math.min(page * PAGE_SIZE, total);
-              return `Mostrando ${mostrados} de ${total} produtos encontrados`;
-            })()}
-          </div>
-          {isLoadingMore && (page - 1) * PAGE_SIZE < produtos.length && (
-            <div className="flex justify-center items-center py-6 animate-fadein">
-              <div className="loader-spinner mr-2"></div>
-              <span className="text-yellow-700 font-medium">
-                Carregando produtos...
-              </span>
-            </div>
+          {/* Paginação e texto abaixo dos produtos */}
+          {pageSize !== 0 && (
+            <PaginacaoBotao
+              page={page}
+              setPage={setPage}
+              totalPages={totalPages}
+            />
           )}
+          <TextoMostrandoProdutos
+            page={page}
+            pageSize={pageSize}
+            total={produtos.length}
+          />
         </>
       )}
       <style>{`

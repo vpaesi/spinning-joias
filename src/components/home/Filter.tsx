@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import ProdutosPorPaginaSelect from "../produto/ProdutosPorPaginaSelect";
 
 interface FilterProps {
   categoriaSelecionada: string;
@@ -9,6 +10,9 @@ interface FilterProps {
   onCategoriaChange: (categoria: string) => void;
   onOrdemAlfabeticaChange: (ordem: "none" | "asc" | "desc") => void;
   onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
+  pageSize: number;
+  setPageSize: (size: number) => void;
+  setPage: (page: number) => void;
 }
 
 export default function Filter({
@@ -18,6 +22,9 @@ export default function Filter({
   onCategoriaChange,
   onOrdemAlfabeticaChange,
   onOrdemPrecoChange,
+  pageSize,
+  setPageSize,
+  setPage,
 }: FilterProps) {
   const [open, setOpen] = useState(false);
   const filtroRef = useRef<HTMLDivElement>(null);
@@ -139,6 +146,12 @@ export default function Filter({
             </span>
           </button>
         </div>
+
+        <ProdutosPorPaginaSelect
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+          setPage={setPage}
+        />
 
         {!isHomePage && (
           <div className="hidden sm:flex justify-end">

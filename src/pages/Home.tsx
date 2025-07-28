@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { Produto } from "../hooks/useProdutos";
 import HeroSection from "../components/home/HeroSection";
 import RenderizaProdutos from "../components/produto/RenderizaProdutos";
 import Filter from "../components/home/Filter";
 import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
 import Letreiro from "../components/home/Letreiro";
+import ProdutosPorPaginaSelect from "../components/produto/ProdutosPorPaginaSelect";
 
 interface HomeProps {
   produtosFiltrados: Produto[];
@@ -32,6 +34,9 @@ function Home({
   onOrdemAlfabeticaChange,
   onOrdemPrecoChange,
 }: HomeProps) {
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(8);
+
   const exibeCarrossel =
     !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
 
@@ -53,6 +58,14 @@ function Home({
           loading={loading}
           erro={erro}
           carrossel={true}
+          page={0}
+          setPage={function (page: number): void {
+            throw new Error("Function not implemented.");
+          }}
+          pageSize={0}
+          setPageSize={function (size: number): void {
+            throw new Error("Function not implemented.");
+          }}
         />
       )}
       <hr className="border-t border-yellow-500" />
@@ -71,12 +84,19 @@ function Home({
           onCategoriaChange={onCategoriaChange}
           onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
           onOrdemPrecoChange={onOrdemPrecoChange}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+          setPage={setPage}
         />
       </div>
       <RenderizaProdutos
         produtos={produtosFiltrados}
         loading={loading}
         erro={erro}
+        page={page}
+        setPage={setPage}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
       />
     </>
   );
