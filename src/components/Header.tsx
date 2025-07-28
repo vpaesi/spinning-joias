@@ -1,4 +1,4 @@
-import MobileMenuHamburgerButton from "./MobileMenuHamburgerButton";
+import MobileMenuHamburgerButton from "./menu-hamburger/MenuHamburgerButton";
 import Search from "./Search";
 import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
@@ -25,7 +25,6 @@ export default function Header({
   const navigate = useNavigate();
   const totalQtd = itens.reduce((acc, item) => acc + item.quantidade, 0);
 
-  // Limpa busca ao filtrar por categoria/nav/menu
   function handleCategoriaSelect(categoria: string) {
     setValorBusca("");
     onCategoriaSelect(categoria);
@@ -35,19 +34,17 @@ export default function Header({
     <header className="bg-white px-2 md:px-12 py-4 flex flex-col md:flex-row gap-4 items-center justify-between max-w-full overflow-x-hidden">
       <div className="flex items-center justify-center gap-2 md:gap-4 w-full md:w-auto flex-1">
         <MobileMenuHamburgerButton onCategoriaSelect={handleCategoriaSelect} />
-        <h1 className="text-2xl font-bold text-yellow-700 whitespace-nowrap flex items-center">
+        <h1 className="text-3xl mx-3 font-bold text-yellow-700 whitespace-nowrap flex items-center">
           <a
             href="/"
             className="no-underline text-yellow-700 hover:text-yellow-800"
           >
             {`${dadosLoja.nomeDaLoja}`}
           </a>
-          {/* Theme toggle no mobile */}
           <span className="inline md:hidden ml-2">
             <ThemeToggle />
           </span>
         </h1>
-        {/* Visiveis apenas no desktop */}
         <div className="hidden md:block flex-1 ml-4">
           <Search
             produtos={produtos}
@@ -60,7 +57,6 @@ export default function Header({
             }}
           />
         </div>
-        {/* Theme toggle no desktop */}
         <div className="hidden md:flex items-center">
           <ThemeToggle />
           <button
@@ -79,7 +75,6 @@ export default function Header({
         </div>
       </div>
 
-      {/* Barra de pesquisa visível no mobile */}
       <div className="block md:hidden w-full">
         <Search
           produtos={produtos}

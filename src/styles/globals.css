@@ -32,6 +32,10 @@ button:hover,
   background-color: #ad916a !important;
 }
 
+#backToTopBtn:hover {
+  background-color: #ad916a !important;
+}
+
 .hero-gradient {
   background: linear-gradient(120deg, #93bfda 60%, #f7d6d6 100%);
 }
@@ -131,7 +135,7 @@ button:hover,
   }
 }
 
-.btn-carrinho-limpa, .btn-carrinho-gera-mensagem, .btn-carrinho-remover {
+.btn-carrinho-limpa, .btn-carrinho-gera-mensagem, .btn-carrinho-quantidade, .btn-carrinho-remover {
   background-color: transparent !important;
   color: var(--azul-link) !important;
   padding: 0;

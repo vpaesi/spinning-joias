@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Produto } from "../hooks/useProdutos";
+import { Produto } from "../../hooks/useProdutos";
 import ListaProdutos from "./ListaProdutos";
 import CarrosselProdutos from "./CarrosselProdutos";
 
@@ -40,7 +40,6 @@ function RenderizaProdutos({
     }
   }, [produtos.length, carrossel, isLoadingMore, page]);
 
-  // Efeito para simular carregamento e liberar o próximo lote
   useEffect(() => {
     if (isLoadingMore) {
       const hasMore = page * PAGE_SIZE < produtos.length;

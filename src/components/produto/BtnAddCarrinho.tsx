@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Produto, Cor } from "../hooks/useProdutos";
-import { useCarrinho } from "../context/CarrinhoContext";
-import ModalSelecionaCor from "./ModalSelecionaCor";
 import { toast } from "react-toastify";
+import { Produto, Cor } from "../../hooks/useProdutos";
+import { useCarrinho } from "../../context/CarrinhoContext";
+import ModalSelecionaCor from "./../produto/ModalSelecionaCor";
 
 export default function BtnAddCarrinho({
   produto,
@@ -13,9 +13,25 @@ export default function BtnAddCarrinho({
 }) {
   const { adicionar } = useCarrinho();
   const [modal, setModal] = useState(false);
+  const [quantidade, setQuantidade] = useState(1);
 
-  const addCarrinhoBtn = (className: string, setModal: () => void) => {
-    return (
+  const addCarrinhoBtn = (className: string, setModal: () => void) => (
+    <div className="flex items-center gap-4">
+      <label className="flex items-center gap-2">
+        <span className="text-sm font-medium">Qtd:</span>
+        <input
+          type="number"
+          min={1}
+          max={10}
+          value={quantidade}
+          onChange={(e) =>
+            setQuantidade(
+              Math.max(1, Math.min(10, Number(e.target.value))),
+            )
+          }
+          className="w-16 border rounded px-2 py-1 text-center"
+        />
+      </label>
       <button
         className={`flex justify-center bg-yellow-700 text-white rounded py-1 hover:bg-yellow-800 transition gap-1 ${className}`}
         onClick={setModal}
@@ -23,11 +39,11 @@ export default function BtnAddCarrinho({
       >
         Adicionar ao Carrinho
       </button>
-    );
-  };
+    </div>
+  );
 
   function handleAdd(cor?: Cor) {
-    adicionar(produto, cor, 1);
+    adicionar(produto, cor, quantidade);
     setModal(false);
     toast.success("Produto adicionado ao carrinho!");
   }

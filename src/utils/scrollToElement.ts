@@ -15,7 +15,6 @@ export function scrollToElement(
       return;
     }
   }
-  // Fallback: scroll para o topo ou posição específica
   window.scrollTo({
     top: options?.top ?? 0,
     behavior: "smooth",

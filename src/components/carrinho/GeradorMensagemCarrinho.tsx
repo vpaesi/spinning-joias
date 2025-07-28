@@ -28,7 +28,7 @@ export default function GeradorMensagemCarrinho({
   pagamento,
   mensagem,
   setMensagem,
-  erros, // <-- Adicione esta prop ao chamar o componente!
+  erros,
 }: GeradorMensagemCarrinhoProps & { erros: { [k: string]: string | null } }) {
   function gerarMensagem() {
     let msg = `Olá, gostaria de encomendar:\n\n`;
@@ -54,20 +54,15 @@ export default function GeradorMensagemCarrinho({
     window.open(url, "_blank");
   }
 
-  // Preenche automaticamente a mensagem apenas se todos os campos obrigatórios estiverem preenchidos e sem erro
   useEffect(() => {
-    // Campos obrigatórios (exceto complemento)
     const obrigatorios = ["nome", "cpf", "endereco", "cidade", "uf", "cep"];
     const todosPreenchidos = obrigatorios.every(
       (campo) => form[campo] && form[campo].trim() !== ""
     );
-    const semErros = obrigatorios.every(
-      (campo) => !erros[campo]
-    );
+    const semErros = obrigatorios.every((campo) => !erros[campo]);
     if (todosPreenchidos && semErros && itens.length > 0) {
       gerarMensagem();
     }
-    // eslint-disable-next-line
   }, [form, itens, total, pagamento, erros]);
 
   return (
@@ -78,7 +73,7 @@ export default function GeradorMensagemCarrinho({
         rows={8}
         value={mensagem}
         onChange={(e) => setMensagem(e.target.value)}
-        style={{ whiteSpace: "pre-line", borderColor: "#d9a76b" }} // amarelo
+        style={{ whiteSpace: "pre-line", borderColor: "#d9a76b" }}
       />
       <div className="flex items-center gap-3 mb-8">
         <button
@@ -90,16 +85,21 @@ export default function GeradorMensagemCarrinho({
           Finalizar compra (via WhatsApp)
         </button>
         <span className="text-sm text-gray-600">
-          Ao clicar no botão ao lado, você será redirecionado para o WhatsApp da
-          Spinning com todos os dados do seu pedido preenchidos.
+          Ao clicar no botão ao lado, você será redirecionado para o WhatsApp da Spinning com todos os dados do seu pedido preenchidos.
+          <p className="text-gray-600 dark:text-white">
+          Dúvida de como realizar a compra?{" "}
+          <a href="/faq" className="text-blue-500 hover:underline font-medium">
+            Clique aqui!
+          </a>
+        </p>
         </span>
       </div>
       <div className="flex items-center gap-1">
-        <p className="text-sm text-gray-500">
-          A mensagem não foi gerada automaticamente? Clique{" "}
-        </p>
+        <span className="text-sm text-gray-500">
+          A mensagem não foi gerada automaticamente?{" "}
+        </span>
         <button className="btn-carrinho-gera-mensagem" onClick={gerarMensagem}>
-          aqui.
+          Clique aqui.
         </button>
       </div>
     </>

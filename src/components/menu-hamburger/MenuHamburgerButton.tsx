@@ -1,13 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import MobileMenuDropdownCategorias from "./MobileMenuDropdownCategorias";
+import MenuDropdownCategorias from "./MenuDropdownCategorias";
 
-interface MobileMenuHamburgerButtonProps {
+interface MenuHamburgerButtonProps {
   onCategoriaSelect: (categoria: string) => void;
 }
 
-function MobileMenuHamburgerButton({
-  onCategoriaSelect,
-}: MobileMenuHamburgerButtonProps) {
+function MenuHamburgerButton({ onCategoriaSelect }: MenuHamburgerButtonProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -53,7 +51,7 @@ function MobileMenuHamburgerButton({
         </svg>
       </button>
       {open && (
-        <MobileMenuDropdownCategorias
+        <MenuDropdownCategorias
           onCategoriaSelect={onCategoriaSelect}
           onClose={() => setOpen(false)}
         />
@@ -62,4 +60,4 @@ function MobileMenuHamburgerButton({
   );
 }
 
-export default MobileMenuHamburgerButton;
+export default MenuHamburgerButton;

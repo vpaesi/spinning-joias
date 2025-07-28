@@ -1,8 +1,8 @@
-import { Produto } from "../hooks/useProdutos";
+import { Produto } from "../../hooks/useProdutos";
 import {
   formatoDoPreco,
   formatoDoPrecoSemDesconto,
-} from "../utils/formataPreco";
+} from "../../utils/formataPreco";
 import BtnMaisDetalhes from "./BtnMaisDetalhes";
 
 interface CardProdutoProps {

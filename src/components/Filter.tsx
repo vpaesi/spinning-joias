@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface FilterProps {
   categoriaSelecionada: string;
@@ -21,6 +22,7 @@ export default function Filter({
   const [open, setOpen] = useState(false);
   const filtroRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLFormElement>(null);
+  const location = useLocation();
 
   useEffect(() => {
     if (!open) return;
@@ -54,13 +56,14 @@ export default function Filter({
     onOrdemPrecoChange(next);
   }
 
+  const isHomePage = location.pathname === "/" && location.search === "";
+
   return (
     <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
       <div
         className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full"
         ref={filtroRef}
       >
-        {/* Grupo de botões principais - esquerda no desktop */}
         <div className="flex flex-row items-center gap-2 justify-center sm:justify-start">
           <button
             type="button"
@@ -136,20 +139,20 @@ export default function Filter({
           </button>
         </div>
 
-        {/* Botão Página inicial - direita no desktop */}
-        <div className="hidden sm:flex justify-end">
-          <a
-            href="/"
-            className="btn-pg-inicial flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-base md:text-lg transition font-semibold hover:bg-gray-50"
-            style={{ minHeight: "44px", height: "44px" }}
-            aria-label="Voltar para home"
-          >
-            <i className="bi bi-house-door"></i>
-            <span>Página inicial</span>
-          </a>
-        </div>
+        {!isHomePage && (
+          <div className="hidden sm:flex justify-end">
+            <a
+              href="/"
+              className="btn-pg-inicial flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-base md:text-lg transition font-semibold hover:bg-gray-50"
+              style={{ minHeight: "44px", height: "44px" }}
+              aria-label="Voltar para home"
+            >
+              <i className="bi bi-house-door"></i>
+              <span>Página inicial</span>
+            </a>
+          </div>
+        )}
 
-        {/* Dropdown de categorias */}
         {open && (
           <div
             id="filtro-dropdown"

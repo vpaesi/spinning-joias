@@ -24,7 +24,6 @@ function AppRoutes() {
 
   const navigate = useNavigate();
 
-  // Aplica filtro, busca e ordenação centralizados
   function getProdutosFiltrados() {
     return getProdutosFiltradosOrdenados(
       produtos,
@@ -35,7 +34,6 @@ function AppRoutes() {
     );
   }
 
-  // Atualiza URL sempre que categoria ou busca mudam
   useEffect(() => {
     const params = new URLSearchParams();
     if (categoriaSelecionada && categoriaSelecionada !== "todos")
@@ -46,7 +44,6 @@ function AppRoutes() {
       { pathname: "/", search: search ? `?${search}` : "" },
       { replace: false }
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoriaSelecionada, termoBusca]);
 
   function handleCategoriaChange(categoria: string) {

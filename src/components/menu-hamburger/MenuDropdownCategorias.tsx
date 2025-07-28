@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import dadosLoja from "../utils/DadosSpinning";
-import { scrollToElement } from "../utils/scrollToElement";
+import dadosLoja from "../../utils/DadosSpinning";
+import { scrollToElement } from "../../utils/scrollToElement";
 
-interface MobileMenuDropdownCategoriasProps {
+interface MenuDropdownCategoriasProps {
   onCategoriaSelect: (categoria: string) => void;
   onClose: () => void;
 }
@@ -15,10 +15,10 @@ const categorias = [
   "Diversos",
 ];
 
-function MobileMenuDropdownCategorias({
+function MenuDropdownCategorias({
   onCategoriaSelect,
   onClose,
-}: MobileMenuDropdownCategoriasProps) {
+}: MenuDropdownCategoriasProps) {
   return (
     <div className="btn-menu-dropdown fixed left-2 top-[60px] z-[9999] w-max min-w-[220px] bg-white shadow-lg border-2 rounded-lg md:hidden">
       {categorias.map((cat) => (
@@ -36,15 +36,22 @@ function MobileMenuDropdownCategorias({
       ))}
       <hr className="my-2" />
       <Link
+        to="/carrinho"
+        className="block px-6 py-2 "
+        onClick={onClose}
+      >
+        Ver carrinho
+      </Link>
+      <Link
         to="/about"
-        className="block px-6 py-2 hover:bg-yellow-100"
+        className="block px-6 py-2 "
         onClick={onClose}
       >
         Sobre a {`${dadosLoja.nomeDaLoja}`}
       </Link>
       <Link
         to="/faq"
-        className="block px-6 py-2 hover:bg-yellow-100"
+        className="block px-6 py-2 "
         onClick={onClose}
       >
         Perguntas Frequentes (FAQ)
@@ -53,4 +60,4 @@ function MobileMenuDropdownCategorias({
   );
 }
 
-export default MobileMenuDropdownCategorias;
+export default MenuDropdownCategorias;

@@ -1,9 +1,9 @@
 import { Produto } from "../hooks/useProdutos";
-import HeroSection from "../components/HeroSection";
-import RenderizaProdutos from "../components/RenderizaProdutos";
+import HeroSection from "../components/home/HeroSection";
+import RenderizaProdutos from "../components/produto/RenderizaProdutos";
 import Filter from "../components/Filter";
 import NavProdutosPrincipais from "../components/NavProdutosPrincipais";
-import Letreiro from "../components/Letreiro";
+import Letreiro from "../components/home/Letreiro";
 
 interface HomeProps {
   produtosFiltrados: Produto[];

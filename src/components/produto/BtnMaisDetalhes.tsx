@@ -5,7 +5,7 @@ export default function BtnMaisDetalhes(onDetalhes: () => void) {
       onClick={onDetalhes}
       type="button"
     >
-      Adicionar ao carrinho
+      Ver produto
     </button>
   );
 }

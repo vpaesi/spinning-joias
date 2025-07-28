@@ -1,4 +1,4 @@
-import { Produto, Cor } from "../hooks/useProdutos";
+import { Produto, Cor } from "../../hooks/useProdutos";
 
 export default function ModalSelecionaCor({
   produto,

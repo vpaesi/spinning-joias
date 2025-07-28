@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import { Produto } from "../hooks/useProdutos";
+import { Produto } from "../../hooks/useProdutos";
 import CardProduto from "./CardProduto";
 
 interface CarrosselProdutosProps {

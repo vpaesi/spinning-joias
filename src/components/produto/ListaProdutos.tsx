@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Produto } from "../hooks/useProdutos";
+import { Produto } from "../../hooks/useProdutos";
 import CardProduto from "./CardProduto";
 
 interface ListaProdutosProps {

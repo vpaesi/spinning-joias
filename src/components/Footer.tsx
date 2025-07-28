@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#b3e0fa] text-black mt-8 font-sans">
+    <footer className="bg-[#b3e0fa] dark:bg-[#a27a41] text-black mt-8 font-sans">
       <div className="footer container mx-auto py-10 flex flex-col items-center justify-center min-h-[60vh]">
         <h1 className="font-cursive text-4xl mb-8 mt-4">
           {" "}

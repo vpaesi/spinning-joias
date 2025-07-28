@@ -15,7 +15,7 @@ export default function Carrinho() {
     nome: "",
     cpf: "",
     endereco: "",
-    complemento: "", // <-- Adicione este campo!
+    complemento: "",
     cidade: "",
     uf: "",
     cep: "",

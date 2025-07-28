@@ -3,19 +3,17 @@ import LetreiroConteudo from "./LetreiroConteudo";
 export default function Letreiro() {
   return (
     <div className="letreiro py-2 text-center font-semibold flex flex-col items-center gap-2">
-      {/* Letreiro animado só em telas médias */}
       <div className="w-full overflow-hidden">
         <div
           className={`
             whitespace-nowrap
             transition-all
-            ${"marquee-custom"}
+            marquee-custom
             hidden sm:block md:block
           `}
         >
           <LetreiroConteudo />
         </div>
-        {/* Fallback para telas fora do intervalo */}
         <div className="whitespace-nowrap block sm:hidden md:hidden">
           <LetreiroConteudo />
         </div>
@@ -26,6 +24,9 @@ export default function Letreiro() {
           .marquee-custom {
             display: block;
             animation: marquee 18s linear infinite;
+          }
+          .letreiro .block.sm\\:hidden.md\\:hidden {
+            display: none !important;
           }
         }
         @keyframes marquee {

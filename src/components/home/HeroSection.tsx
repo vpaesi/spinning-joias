@@ -1,4 +1,4 @@
-import { scrollToElement } from "../utils/scrollToElement";
+import { scrollToElement } from "../../utils/scrollToElement";
 
 export default function HeroSection() {
   return (
