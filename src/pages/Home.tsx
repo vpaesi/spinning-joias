@@ -1,8 +1,8 @@
 import { Produto } from "../hooks/useProdutos";
 import HeroSection from "../components/home/HeroSection";
 import RenderizaProdutos from "../components/produto/RenderizaProdutos";
-import Filter from "../components/Filter";
-import NavProdutosPrincipais from "../components/NavProdutosPrincipais";
+import Filter from "../components/home/Filter";
+import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
 import Letreiro from "../components/home/Letreiro";
 
 interface HomeProps {
@@ -63,17 +63,15 @@ function Home({
         >
           {tituloLista}
         </h2>
-        <div className="flex-1 flex justify-start px-16">
-          <Filter
-            categoriaSelecionada={categoriaSelecionada}
-            todasCategorias={[...new Set(produtos.map((p) => p.categoria))]}
-            ordemAlfabetica={ordemAlfabetica}
-            ordemPreco={ordemPreco}
-            onCategoriaChange={onCategoriaChange}
-            onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
-            onOrdemPrecoChange={onOrdemPrecoChange}
-          />
-        </div>
+        <Filter
+          categoriaSelecionada={categoriaSelecionada}
+          todasCategorias={[...new Set(produtos.map((p) => p.categoria))]}
+          ordemAlfabetica={ordemAlfabetica}
+          ordemPreco={ordemPreco}
+          onCategoriaChange={onCategoriaChange}
+          onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
+          onOrdemPrecoChange={onOrdemPrecoChange}
+        />
       </div>
       <RenderizaProdutos
         produtos={produtosFiltrados}

@@ -59,11 +59,12 @@ export default function Filter({
   const isHomePage = location.pathname === "/" && location.search === "";
 
   return (
-    <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
-      <div
-        className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full"
-        ref={filtroRef}
-      >
+    <div className="flex-1 flex justify-start mx-16">
+      <div className="relative flex flex-col items-center justify-center gap-4 w-full max-w-full overflow-visible px-4 sm:px-0">
+        <div
+          className="btn-filter-container flex flex-col sm:flex-row items-center justify-between gap-4 mt-4 w-full"
+          ref={filtroRef}
+        >
         <div className="flex flex-row items-center gap-2 justify-center sm:justify-start">
           <button
             type="button"
@@ -82,7 +83,7 @@ export default function Filter({
             <span className="ml-2">Categoria</span>
           </button>
 
-          <span className="text-sm sm:text-base md:text-lg font-semibold whitespace-nowrap text-black dark:text-white">
+          <span className="hidden sm:inline text-base md:text-lg font-semibold whitespace-nowrap text-black dark:text-white">
             Ordenar:
           </span>
 
@@ -186,6 +187,7 @@ export default function Filter({
             </ul>
           </div>
         )}
+      </div>
       </div>
     </div>
   );

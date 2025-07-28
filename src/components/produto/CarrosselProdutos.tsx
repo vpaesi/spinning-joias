@@ -19,8 +19,8 @@ export default function CarrosselProdutos({
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto py-6 bg-white">
-      <h2 className="py-2 text-center text-2xl md:text-2xl">Novidades</h2>
+    <div className="w-full py-6 bg-white">
+      <h2 className="py-2 mx-16 text-center text-2xl md:text-2xl">Novidades</h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={16}
@@ -39,8 +39,10 @@ export default function CarrosselProdutos({
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
           1280: { slidesPerView: 5 },
+          1536: { slidesPerView: 6 },
         }}
         style={{
+          width: "100%",
           paddingBottom: 32,
           paddingTop: 16,
           paddingLeft: 16,
