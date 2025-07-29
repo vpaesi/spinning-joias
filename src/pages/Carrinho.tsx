@@ -19,10 +19,12 @@ export default function Carrinho() {
     cidade: "",
     uf: "",
     cep: "",
+    celular: "", // Adicionar campo celular
+    numero: "",  // Adicionar campo numero
   });
   const [pagamento, setPagamento] = useState<"pix" | "transferencia">("pix");
   const [mensagem, setMensagem] = useState("");
-  const [erros, setErros] = useState<string[]>([]);
+  const [erros, setErros] = useState<{ [k: string]: string | null }>({});
   const navigate = useNavigate();
 
   const total = itens.reduce(
@@ -59,7 +61,12 @@ export default function Carrinho() {
             <span>Total: {formatoDoPreco(total)}</span>
           </div>
           <hr className="border-t mb-2 border-yellow-500" />
-          <InfoEntregaCarrinho form={form} setForm={setForm} />
+          <InfoEntregaCarrinho
+            form={form}
+            setForm={setForm}
+            erros={erros}
+            setErros={setErros}
+          />
           <PagamentoRadio value={pagamento} onChange={setPagamento} />
           <hr className="border-t mb-2 border-yellow-500" />
           <GeradorMensagemCarrinho

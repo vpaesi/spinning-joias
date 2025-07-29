@@ -2,7 +2,8 @@ import dadosLoja from "../../utils/DadosSpinning";
 import { formatoDoPreco } from "../../utils/formataPreco";
 import { ItemCarrinho } from "../../context/CarrinhoContext";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 
 interface GeradorMensagemCarrinhoProps {
   itens: ItemCarrinho[];
@@ -15,10 +16,13 @@ interface GeradorMensagemCarrinhoProps {
     cidade: string;
     uf: string;
     cep: string;
+    celular: string;
+    numero: string;
   };
   pagamento: "pix" | "transferencia";
   mensagem: string;
   setMensagem: (msg: string) => void;
+  erros: { [k: string]: string | null };
 }
 
 export default function GeradorMensagemCarrinho({
@@ -29,24 +33,24 @@ export default function GeradorMensagemCarrinho({
   mensagem,
   setMensagem,
   erros,
-}: GeradorMensagemCarrinhoProps & { erros: { [k: string]: string | null } }) {
-  function gerarMensagem() {
+}: GeradorMensagemCarrinhoProps) {
+  const gerarMensagem = useCallback(() => {
     let msg = `Olá, gostaria de encomendar:\n\n`;
     itens.forEach((item, idx) => {
       msg += `${idx + 1}. ${item.produto.titulo}`;
       if (item.corSelecionada?.nome) msg += ` (${item.corSelecionada.nome})`;
       msg += ` - Qtd: ${item.quantidade} - Valor: ${formatoDoPreco(
-        item.produto.preco
+        item.produto.preco ?? 0
       )}\n`;
     });
     msg += `\nTotal: ${formatoDoPreco(total)}\n\n`;
-    msg += `Dados para envio:\nNome: ${form.nome}\nCPF: ${form.cpf}\nEndereço: ${form.endereco}\nComplemento: ${form.complemento}\nCidade: ${form.cidade}\nUF: ${form.uf}\nCEP: ${form.cep}\n`;
+    msg += `Dados para envio:\nNome: ${form.nome}\nCPF: ${form.cpf}\nCelular: ${form.celular}\nEndereço: ${form.endereco}, ${form.numero}\nComplemento: ${form.complemento}\nCidade: ${form.cidade}\nUF: ${form.uf}\nCEP: ${form.cep}\n`;
     msg += `\nForma de pagamento: ${
       pagamento === "pix" ? "Pix" : "Transferência"
     }\n`;
     setMensagem(msg);
     toast.success("Mensagem gerada com sucesso!");
-  }
+  }, [itens, total, form, pagamento, setMensagem]);
 
   function enviarWhatsApp() {
     const numero = dadosLoja.socialMedia.whats.replace(/\D/g, "");
@@ -55,15 +59,15 @@ export default function GeradorMensagemCarrinho({
   }
 
   useEffect(() => {
-    const obrigatorios = ["nome", "cpf", "endereco", "cidade", "uf", "cep"];
+    const obrigatorios = ["nome", "cpf", "endereco", "cidade", "uf", "cep", "celular", "numero"];
     const todosPreenchidos = obrigatorios.every(
-      (campo) => form[campo] && form[campo].trim() !== ""
+      (campo) => form[campo as keyof typeof form] && form[campo as keyof typeof form].trim() !== ""
     );
     const semErros = obrigatorios.every((campo) => !erros[campo]);
     if (todosPreenchidos && semErros && itens.length > 0) {
       gerarMensagem();
     }
-  }, [form, itens, total, pagamento, erros]);
+  }, [form, itens, total, pagamento, erros, gerarMensagem]);
 
   return (
     <>
@@ -88,9 +92,9 @@ export default function GeradorMensagemCarrinho({
           Ao clicar no botão ao lado, você será redirecionado para o WhatsApp da Spinning com todos os dados do seu pedido preenchidos.
           <p className="text-gray-600 dark:text-white">
           Dúvida de como realizar a compra?{" "}
-          <a href="/faq" className="text-blue-500 hover:underline font-medium">
+          <Link to="/faq" className="text-blue-500 hover:underline font-medium">
             Clique aqui!
-          </a>
+          </Link>
         </p>
         </span>
       </div>

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import GrupoDadosPessoais from "./GrupoDadosPessoais";
 import GrupoEndereco from "./GrupoEndereco";
 import { validarNome, validarCPF, validarCEP, validarUF } from "../../utils/validacoesForm";
@@ -17,11 +16,16 @@ interface InfoEntregaCarrinhoProps {
     cep: string;
   };
   setForm: React.Dispatch<React.SetStateAction<InfoEntregaCarrinhoProps["form"]>>;
+  erros: { [k: string]: string | null };
+  setErros: React.Dispatch<React.SetStateAction<{ [k: string]: string | null }>>;
 }
 
-export default function InfoEntregaCarrinho({ form, setForm }: InfoEntregaCarrinhoProps) {
-  const [erros, setErros] = useState<{ [k: string]: string | null }>({});
-
+export default function InfoEntregaCarrinho({ 
+  form, 
+  setForm, 
+  erros, 
+  setErros 
+}: InfoEntregaCarrinhoProps) {
   function handleChange(field: string, value: string) {
     if (field === "cpf") value = formatarCPF(value);
     if (field === "cep") value = formatarCEP(value);

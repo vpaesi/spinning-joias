@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import BtnBackToTop from "../components/BtnBackToTop";
@@ -10,7 +11,6 @@ import { getProdutosFiltradosOrdenados } from "../utils/produtosUtils";
 import About from "../pages/About";
 import FAQ from "../pages/Faq";
 import Carrinho from "../pages/Carrinho";
-import "bootstrap-icons/font/bootstrap-icons.css";
 
 function AppRoutes() {
   const { produtos } = useProdutos();

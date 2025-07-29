@@ -5,7 +5,6 @@ import RenderizaProdutos from "../components/produto/RenderizaProdutos";
 import Filter from "../components/home/Filter";
 import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
 import Letreiro from "../components/home/Letreiro";
-import ProdutosPorPaginaSelect from "../components/produto/ProdutosPorPaginaSelect";
 
 interface HomeProps {
   produtosFiltrados: Produto[];
@@ -62,14 +61,10 @@ function Home({
           loading={loading}
           erro={erro}
           carrossel={true}
-          page={0}
-          setPage={function (page: number): void {
-            throw new Error("Function not implemented.");
-          }}
-          pageSize={0}
-          setPageSize={function (size: number): void {
-            throw new Error("Function not implemented.");
-          }}
+          page={1}
+          setPage={() => {}}
+          pageSize={8}
+          setPageSize={() => {}}
         />
       )}
       <hr className="border-t border-yellow-500" />
