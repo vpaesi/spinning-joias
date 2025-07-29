@@ -37,7 +37,6 @@ function Home({
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(8);
 
-  // Reset da página quando categoria ou termo de busca mudarem
   useEffect(() => {
     setPage(1);
   }, [categoriaSelecionada, termoBusca]);

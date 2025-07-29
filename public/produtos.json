@@ -318,7 +318,7 @@
     "id": 13,
     "titulo": "Brinco prata: Patins cravejado com zircônia",
     "descricao": "Par de brinco com tarraxa, em prata 925, de patins detalhado com zircônia (cristal, ruby ou negra)",
-    "fotoDestaque": "https://i.postimg.cc/280cbWSr/Tarraxa-zirconia-prata.png",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/brinco-prata-patins-zirconia.png",
     "preco": 70,
     "categoria": "Brincos",
     "cores": [
@@ -385,7 +385,7 @@
     "id": 16,
     "titulo": "Argola prata: Patins maciço",
     "descricao": "Par de brinco de argola, em prata 925, com pingente de patins maciço.",
-    "fotoDestaque": "https://i.postimg.cc/D0vbQ6TB/Maci-o-prata.jpg",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/brinco-prata-argola-patins-macico.png",
     "preco": 80,
     "categoria": "Brincos"
   },
@@ -393,7 +393,7 @@
     "id": 17,
     "titulo": "Argola dourada: Patins maciço",
     "descricao": "Par de brinco de argola, banhado a ouro 18k, com pingente de patins maciço.",
-    "fotoDestaque": "https://i.postimg.cc/sgrnC4qM/brinco-macico-ouro.jpg",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/brinco-dourado-argola-patins-macico.png",
     "preco": 70,
     "categoria": "Brincos"
   },
@@ -509,9 +509,9 @@
   },
   {
     "id": 29,
-    "titulo": "Argola prata: Patins com roda de zircônia",
-    "descricao": "Par de brinco de argola, em prata 925, com zircônia na roda.",
-    "fotoDestaque": "https://i.postimg.cc/J7dV8v5G/brinco-zirconia-roda-prata.jpg",
+    "titulo": "Brinco prata: Patins com roda de zircônia",
+    "descricao": "Par de brinco com tarraxa, em prata 925, de patins com zircônia na roda.",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/brinco-prata-patins-roda-zirconia.png",
     "informacoes_extras": "Prata 925",
     "preco": 70,
     "categoria": "Brincos"
@@ -679,13 +679,13 @@
     "descricao": "Par de brinco com tarraxa, banhado a ouro 18k, com pingente de patinadora bielmann",
     "preco": 40,
     "categoria": "Brincos",
-    "fotoDestaque": "https://i.postimg.cc/RVRSwX7m/brinco-bielmann.jpg"
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/brinco-dourado-bielman.png"
   },
   {
     "id": 43,
     "titulo": "Tornozeleira prata: Patins maciço",
     "descricao": "Tornozeleira em prata 925 com pingente de patins maciço.",
-    "fotoDestaque": "https://i.postimg.cc/LsXPFd8x/tornozeleira-prata.jpg",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/tornozeleira-prata.png",
     "preco": 60,
     "categoria": "Diversos"
   },
