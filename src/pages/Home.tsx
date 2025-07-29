@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Produto } from "../hooks/useProdutos";
 import HeroSection from "../components/home/HeroSection";
 import RenderizaProdutos from "../components/produto/RenderizaProdutos";
@@ -36,6 +36,11 @@ function Home({
 }: HomeProps) {
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(8);
+
+  // Reset da página quando categoria ou termo de busca mudarem
+  useEffect(() => {
+    setPage(1);
+  }, [categoriaSelecionada, termoBusca]);
 
   const exibeCarrossel =
     !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
