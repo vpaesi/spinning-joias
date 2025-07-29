@@ -6,7 +6,6 @@ interface ListaProdutosProps {
   produtosFiltrados: Produto[];
   page: number;
   PAGE_SIZE: number;
-  fadeIn?: boolean;
 }
 
 function ListaProdutos({

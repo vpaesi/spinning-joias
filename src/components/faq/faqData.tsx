@@ -9,6 +9,7 @@ import carrinhoMensagemFinaliza from "../../assets/carrinho-mensagem-finaliza.pn
 import diferenca_semijoia from "../../assets/diferenca_semijoia.jpg";
 import dadosLoja from "../../utils/DadosSpinning";
 import FaqImage from "./FaqImage";
+import { extrairNumeroTelefone } from "../../utils/telefone";
 
 export interface TabelaFreteItem {
   regiao: string;
@@ -133,7 +134,7 @@ export const faqData: FaqItem[] = [
             href={`${dadosLoja.socialMedia.whats}`}
             className="text-blue-600 underline"
           >
-            {dadosLoja.socialMedia.whats.replace(/\D/g, "")}
+            {extrairNumeroTelefone(dadosLoja.socialMedia.whats)}
           </a>
           .
         </p>

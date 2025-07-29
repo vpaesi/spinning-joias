@@ -1,9 +1,22 @@
 import dadosLoja from "../../utils/DadosSpinning";
 import { formatoDoPreco } from "../../utils/formataPreco";
+import { extrairNumeroTelefone } from "../../utils/telefone";
 import { ItemCarrinho } from "../../context/CarrinhoContext";
 import { toast } from "react-toastify";
 import { useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+
+// Constante para campos obrigatórios
+const CAMPOS_OBRIGATORIOS = [
+  "nome",
+  "cpf",
+  "endereco",
+  "cidade",
+  "uf",
+  "cep",
+  "celular",
+  "numero",
+];
 
 interface GeradorMensagemCarrinhoProps {
   itens: ItemCarrinho[];
@@ -53,17 +66,16 @@ export default function GeradorMensagemCarrinho({
   }, [itens, total, form, pagamento, setMensagem]);
 
   function enviarWhatsApp() {
-    const numero = dadosLoja.socialMedia.whats.replace(/\D/g, "");
+    const numero = extrairNumeroTelefone(dadosLoja.socialMedia.whats);
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
   }
 
   useEffect(() => {
-    const obrigatorios = ["nome", "cpf", "endereco", "cidade", "uf", "cep", "celular", "numero"];
-    const todosPreenchidos = obrigatorios.every(
+    const todosPreenchidos = CAMPOS_OBRIGATORIOS.every(
       (campo) => form[campo as keyof typeof form] && form[campo as keyof typeof form].trim() !== ""
     );
-    const semErros = obrigatorios.every((campo) => !erros[campo]);
+    const semErros = CAMPOS_OBRIGATORIOS.every((campo) => !erros[campo]);
     if (todosPreenchidos && semErros && itens.length > 0) {
       gerarMensagem();
     }
