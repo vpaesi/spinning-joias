@@ -1,10 +1,10 @@
+import { PAGE_SIZE_OPTIONS } from "../../utils/constants";
+
 interface ProdutosPorPaginaSelectProps {
   pageSize: number;
   setPageSize: (size: number) => void;
   setPage: (page: number) => void;
 }
-
-const PAGE_OPTIONS = [8, 16, 24, 32, 40, 48];
 
 export default function ProdutosPorPaginaSelect({
   pageSize,
@@ -12,19 +12,20 @@ export default function ProdutosPorPaginaSelect({
   setPage,
 }: ProdutosPorPaginaSelectProps) {
   return (
-    <div className="flex flex-wrap gap-2 items-center px-0 mt-4">
-      <span className="hidden sm:inline text-base md:text-lg font-semibold whitespace-nowrap text-black dark:text-white">
+    <div className="flex items-center gap-2">
+      <label htmlFor="pageSize" className="text-sm font-medium">
         Produtos por página:
-      </span>
+      </label>
       <select
-        className="paginacao-select px-4 py-2 rounded border border-[#d9a76b] bg-white hover:bg-yellow-100 font-semibold cursor-pointer"
+        id="pageSize"
         value={pageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));
           setPage(1);
         }}
+        className="border rounded px-2 py-1 text-sm dark:bg-gray-800 dark:border-gray-600"
       >
-        {PAGE_OPTIONS.map((size) => (
+        {PAGE_SIZE_OPTIONS.map((size) => (
           <option key={size} value={size}>
             {size}
           </option>

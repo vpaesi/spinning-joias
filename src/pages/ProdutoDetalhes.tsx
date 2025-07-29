@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useProdutos, Cor } from "../hooks/useProdutos";
 import {
   formatoDoPreco,
@@ -204,9 +204,9 @@ function ProdutoDetalhes() {
       <div className="text-center mt-8 py-4 border-t border-gray-200">
       <p className="text-gray-600 dark:text-white">
         Dúvida de como realizar a compra?{" "}
-        <a href="/faq" className="text-blue-500 hover:underline font-medium">
-        Clique aqui!
-        </a>
+        <Link to="/faq" className="text-blue-500 hover:underline font-medium">
+          Clique aqui!
+        </Link>
       </p>
       </div>
     </div>

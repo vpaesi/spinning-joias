@@ -61,7 +61,7 @@ export default function InfoEntregaCarrinho({
   return (
     <>
       <h2 className="text-xl font-bold mb-4 mt-4">Informações de Entrega*</h2>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 dark:text-white">
         *Preencha todos os dados abaixo requeridos pelos Correios para o envio.
       </p>
       <form className="bg-gray-50 p-4 rounded mb-4 mt-4 grid grid-cols-1 gap-2">

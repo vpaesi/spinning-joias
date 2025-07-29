@@ -1,22 +1,11 @@
 import dadosLoja from "../../utils/DadosSpinning";
 import { formatoDoPreco } from "../../utils/formataPreco";
-import { extrairNumeroTelefone } from "../../utils/telefone";
+import { extrairNumeroDeUrlWhatsApp } from "../../utils/telefone";
 import { ItemCarrinho } from "../../context/CarrinhoContext";
 import { toast } from "react-toastify";
 import { useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
-
-// Constante para campos obrigatórios
-const CAMPOS_OBRIGATORIOS = [
-  "nome",
-  "cpf",
-  "endereco",
-  "cidade",
-  "uf",
-  "cep",
-  "celular",
-  "numero",
-];
+import { CAMPOS_OBRIGATORIOS_CARRINHO } from "../../utils/constants";
 
 interface GeradorMensagemCarrinhoProps {
   itens: ItemCarrinho[];
@@ -66,16 +55,17 @@ export default function GeradorMensagemCarrinho({
   }, [itens, total, form, pagamento, setMensagem]);
 
   function enviarWhatsApp() {
-    const numero = extrairNumeroTelefone(dadosLoja.socialMedia.whats);
+    const numero = extrairNumeroDeUrlWhatsApp(dadosLoja.socialMedia.whats);
     const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
     window.open(url, "_blank");
   }
 
   useEffect(() => {
-    const todosPreenchidos = CAMPOS_OBRIGATORIOS.every(
-      (campo) => form[campo as keyof typeof form] && form[campo as keyof typeof form].trim() !== ""
-    );
-    const semErros = CAMPOS_OBRIGATORIOS.every((campo) => !erros[campo]);
+    const todosPreenchidos = CAMPOS_OBRIGATORIOS_CARRINHO.every((campo) => {
+      const fieldValue = form[campo as keyof typeof form];
+      return fieldValue && fieldValue.trim() !== "";
+    });
+    const semErros = CAMPOS_OBRIGATORIOS_CARRINHO.every((campo) => !erros[campo]);
     if (todosPreenchidos && semErros && itens.length > 0) {
       gerarMensagem();
     }
@@ -100,7 +90,7 @@ export default function GeradorMensagemCarrinho({
         >
           Finalizar compra (via WhatsApp)
         </button>
-        <span className="text-sm text-gray-600">
+        <span className="text-sm text-gray-600 dark:text-white">
           Ao clicar no botão ao lado, você será redirecionado para o WhatsApp da Spinning com todos os dados do seu pedido preenchidos.
           <p className="text-gray-600 dark:text-white">
           Dúvida de como realizar a compra?{" "}
@@ -111,7 +101,7 @@ export default function GeradorMensagemCarrinho({
         </span>
       </div>
       <div className="flex items-center gap-1">
-        <span className="text-sm text-gray-500">
+        <span className="text-sm text-gray-500 dark:text-white">
           A mensagem não foi gerada automaticamente?{" "}
         </span>
         <button className="btn-carrinho-gera-mensagem" onClick={gerarMensagem}>

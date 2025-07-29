@@ -34,7 +34,6 @@ export default function FaqImage({
 
   return (
     <>
-      {/* Imagem normal - responsiva */}
       <div className="flex justify-center mt-4">
         <img
           src={src}
@@ -49,7 +48,6 @@ export default function FaqImage({
         />
       </div>
 
-      {/* Modal de zoom */}
       {isZoomed && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4"

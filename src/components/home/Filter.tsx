@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import ProdutosPorPaginaSelect from "../produto/ProdutosPorPaginaSelect";
 
 interface FilterProps {
@@ -155,15 +155,12 @@ export default function Filter({
 
         {!isHomePage && (
           <div className="hidden sm:flex justify-end">
-            <a
-              href="/"
-              className="btn-pg-inicial flex items-center gap-2 px-4 py-2 rounded border border-gray-300 shadow text-black dark:text-white bg-white text-base md:text-lg transition font-semibold hover:bg-gray-50"
-              style={{ minHeight: "44px", height: "44px" }}
-              aria-label="Voltar para home"
+            <Link 
+              to="/" 
+              className="btn-pg-inicial bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition-colors"
             >
-              <i className="bi bi-house-door"></i>
-              <span>Página inicial</span>
-            </a>
+              Página inicial
+            </Link>
           </div>
         )}
 

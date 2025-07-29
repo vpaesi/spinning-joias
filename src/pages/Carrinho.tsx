@@ -7,6 +7,7 @@ import BtnLimparCarrinho from "../components/carrinho/BtnLimparCarrinho";
 import InfoProdutoCarrinho from "../components/carrinho/InfoProdutoCarrinho";
 import InfoEntregaCarrinho from "../components/carrinho/InfoEntregaCarrinho";
 import GeradorMensagemCarrinho from "../components/carrinho/GeradorMensagemCarrinho";
+import { useCarrinhoTotal, useCarrinhoQuantidadeTotal } from "../hooks/useCarrinhoTotal";
 
 export default function Carrinho() {
   const { itens, remover, atualizarQuantidade, limpar, adicionar } =
@@ -19,18 +20,17 @@ export default function Carrinho() {
     cidade: "",
     uf: "",
     cep: "",
-    celular: "", // Adicionar campo celular
-    numero: "",  // Adicionar campo numero
+    celular: "",
+    numero: "",
   });
   const [pagamento, setPagamento] = useState<"pix" | "transferencia">("pix");
   const [mensagem, setMensagem] = useState("");
   const [erros, setErros] = useState<{ [k: string]: string | null }>({});
   const navigate = useNavigate();
 
-  const total = itens.reduce(
-    (acc, item) => acc + (item.produto.preco || 0) * item.quantidade,
-    0
-  );
+  // Substituir o cálculo manual por:
+  const total = useCarrinhoTotal(itens);
+  const quantidadeTotal = useCarrinhoQuantidadeTotal(itens);
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-3xl">
@@ -55,8 +55,7 @@ export default function Carrinho() {
           </div>
           <div className="flex justify-between font-bold mb-4">
             <span>
-              Total de produtos:{" "}
-              {itens.reduce((acc, item) => acc + item.quantidade, 0)}
+              Total de produtos: {quantidadeTotal}
             </span>
             <span>Total: {formatoDoPreco(total)}</span>
           </div>

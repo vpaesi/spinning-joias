@@ -75,7 +75,7 @@ export default function Footer() {
         <div className="footer-credits text-center text-[#6bb3d6] text-sm mt-8">
           <p>© {`${dadosLoja.nomeDaLoja}`}</p>
           <p>
-            v. 2.0 released 08.06.2025 by{" "}
+            v. 2.0 by{" "}
             <a
               href="https://github.com/vitoriacamargo"
               className="hover:underline"

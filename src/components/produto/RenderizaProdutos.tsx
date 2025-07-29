@@ -45,7 +45,6 @@ function RenderizaProdutos({
             page={page}
             PAGE_SIZE={pageSize === 0 ? produtos.length : pageSize}
           />
-          {/* Paginação e texto abaixo dos produtos */}
           {pageSize !== 0 && (
             <PaginacaoBotao
               page={page}

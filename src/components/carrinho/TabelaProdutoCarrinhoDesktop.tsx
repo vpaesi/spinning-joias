@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { formatoDoPreco } from "../../utils/formataPreco";
 import { ItemCarrinho, Produto, Cor } from "../../context/CarrinhoContext";
+import { clampQuantity } from "../../utils/validacoes";
 
 interface TabelaProdutoCarrinhoDesktopProps {
   itens: ItemCarrinho[];
@@ -80,35 +81,29 @@ export default function TabelaProdutoCarrinhoDesktop({
             <td className="border-r border-gray-200 text-center align-middle">
               <div className="flex items-center justify-center gap-2">
                 <button
-                  className="btn-carrinho-quantidade px-2 py-1 rounded bg-gray-200"
                   onClick={() =>
                     item.quantidade > 1 &&
                     atualizarQuantidade(
                       item.id,
-                      item.quantidade - 1,
+                      clampQuantity(item.quantidade - 1),
                       item.corSelecionada
                     )
                   }
-                  disabled={item.quantidade <= 1}
-                  title="Diminuir quantidade"
-                  type="button"
+                  className="px-2 py-1 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
                 >
                   -
                 </button>
                 <span className="min-w-[2ch]">{item.quantidade}</span>
                 <button
-                  className="btn-carrinho-quantidade px-2 py-1 rounded"
                   onClick={() =>
                     item.quantidade < 10 &&
                     atualizarQuantidade(
                       item.id,
-                      item.quantidade + 1,
+                      clampQuantity(item.quantidade + 1),
                       item.corSelecionada
                     )
                   }
-                  disabled={item.quantidade >= 10}
-                  title="Aumentar quantidade"
-                  type="button"
+                  className="px-2 py-1 bg-gray-200 text-gray-800 rounded hover:bg-gray-300"
                 >
                   +
                 </button>

@@ -10,26 +10,16 @@ Este repositório contém a interface web do catálogo de produtos da Spinning J
 
 ## 📌 Sobre o Projeto
 
-Spinning Joias é uma aplicação desenvolvida para expor produtos da loja de forma clara e interativa.  
-A versão atual é estática e foi criada com HTML, CSS e JavaScript puros, permitindo navegação por produtos e exibição de informações básicas.
-
-Atualmente, se encontra em desenvolvimento uma nova versão (v2.0), iniciada na branch `dev`, com foco em uma **aplicação moderna**, totalmente integrada ao backend e com melhores funcionalidades para usuários e administradores.
+A versão 2.0 foi criada utilizando React, Vite e TypeScript, trazendo uma arquitetura moderna e escalável para o projeto. Foram implementadas funcionalidades como navegação entre produtos, exibição detalhada de informações, integração com o ``.json`` para listagem dinâmica dos itens e melhorias na experiência do usuário. Além disso, a estrutura do código foi organizada para facilitar a manutenção e a adição de novas features.
+Mas a maior novidade nessa versão é a implementação de um carrinho que armazena dados em localStorage e permite que o usuáio realize pedidos através de uma mensagem gerada automaticamente e em um clique todas as informações necessários para finalizar a compra é enviada para o Whats da Spinning Joias.
 
 ---
 
 ## ✨ Tecnologias
 
-### 📦 Versão atual (main)
-- HTML5
-- CSS3
-- JavaScript
-
-### 🚧 Versão 2.0 (branch `dev`)
 - [React](https://react.dev/)
 - [TypeScript](https://react.dev/learn/typescript)
 - [Vite](https://vitejs.dev/)
-- Integração com:
-  - [Java + Spring Boot (backend)](https://github.com/vpaesi/spinning-joias-backend)
 
 ---
 
@@ -59,28 +49,91 @@ npm install
 npm run dev
 ```
 
-## 📁 Estrutura Inicial
-spinning-joias/
-├── index.html
-├── style.css
-├── script.js
-├── README.md
-└── ...
-A estrutura da versão React estará disponível na branch ``dev``.
-
-## 🚧 Roadmap
-        ✅ Catálogo com HTML/CSS/JS
-        🟡 Migração completa para React + Vite + TypeScript
-        🟡 Integração com o backend
-        🟡 Tela de Signup
-        🟡 Tela de Login
-        🟡 Tela de Carrinho
-        🟡 Tela de Loading (mensagem para WhatsApp)
-        🟡 Home com ordenação e busca
-        🟡 Tela individual de produto
-
-## 🔗 Repositórios Relacionados
-[🔸 Backend - Spinning Joias](https://github.com/vpaesi/spinning-joias_backend)
+## 📁 Estrutura do diretorio
+└── spinning-joias/
+    ├── README.md
+    ├── eslint.config.js
+    ├── index.html
+    ├── package.json
+    ├── postcss.config.js
+    ├── tailwind.config.js
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    ├── vite.config.ts
+    ├── public/
+    │   └── produtos.json
+    └── src/
+        ├── App.tsx
+        ├── index.css
+        ├── main.tsx
+        ├── vite-env.d.ts
+        ├── components/
+        │   ├── BtnBackToTop.tsx
+        │   ├── Footer.tsx
+        │   ├── Header.tsx
+        │   ├── Search.tsx
+        │   ├── ThemeToggle.tsx
+        │   ├── carrinho/
+        │   │   ├── BtnLimparCarrinho.tsx
+        │   │   ├── GeradorMensagemCarrinho.tsx
+        │   │   ├── GrupoDadosPessoais.tsx
+        │   │   ├── GrupoEndereco.tsx
+        │   │   ├── InfoEntregaCarrinho.tsx
+        │   │   ├── InfoProdutoCarrinho.tsx
+        │   │   ├── InputFormCarrinho.tsx
+        │   │   ├── PagamentoRadio.tsx
+        │   │   ├── TabelaProdutoCarrinhoDesktop.tsx
+        │   │   └── TabelaProdutoCarrinhoMobile.tsx
+        │   ├── faq/
+        │   │   ├── faqData.tsx
+        │   │   ├── FaqImage.tsx
+        │   │   ├── FaqItem.tsx
+        │   │   └── FaqList.tsx
+        │   ├── home/
+        │   │   ├── Filter.tsx
+        │   │   ├── HeroSection.tsx
+        │   │   ├── Letreiro.tsx
+        │   │   ├── LetreiroConteudo.tsx
+        │   │   └── NavProdutosPrincipais.tsx
+        │   ├── menu-hamburger/
+        │   │   ├── MenuDropdownCategorias.tsx
+        │   │   └── MenuHamburgerButton.tsx
+        │   └── produto/
+        │       ├── BtnAddCarrinho.tsx
+        │       ├── BtnMaisDetalhes.tsx
+        │       ├── CardProduto.tsx
+        │       ├── CarrosselProdutos.tsx
+        │       ├── ListaProdutos.tsx
+        │       ├── ModalSelecionaCor.tsx
+        │       ├── PaginacaoBotao.tsx
+        │       ├── PaginacaoProdutos.tsx
+        │       ├── ProdutosPorPaginaSelect.tsx
+        │       ├── RenderizaProdutos.tsx
+        │       └── TextoMostrandoProdutos.tsx
+        ├── context/
+        │   └── CarrinhoContext.tsx
+        ├── hooks/
+        │   └── useProdutos.ts
+        ├── pages/
+        │   ├── About.tsx
+        │   ├── Carrinho.tsx
+        │   ├── Faq.tsx
+        │   ├── Home.tsx
+        │   └── ProdutoDetalhes.tsx
+        ├── routes/
+        │   └── AppRoutes.tsx
+        ├── styles/
+        │   └── globals.css
+        └── utils/
+            ├── DadosSpinning.ts
+            ├── formatadores.ts
+            ├── formataPreco.ts
+            ├── padronizaTextoDaPesquisa.ts
+            ├── produtosUtils.ts
+            ├── scrollToElement.ts
+            ├── telefone.ts
+            └── validacoesForm.ts
 
 ## 📊 Status do Projeto
 <p> <a href="https://github.com/vpaesi/spinning-joias/commits"> <img src="https://img.shields.io/github/last-commit/vpaesi/spinning-joias" alt="última atualização"/> </a> <a href="https://github.com/vpaesi/spinning-joias/issues/"> <img src="https://img.shields.io/github/issues/vpaesi/spinning-joias" alt="issues abertas" /> </a> <a href="https://github.com/vpaesi/spinning-joias/blob/main/LICENSE"> <img src="https://img.shields.io/github/license/vpaesi/spinning-joias" alt="licença" /> </a> </p>

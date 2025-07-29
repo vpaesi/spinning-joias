@@ -172,6 +172,11 @@ cursor: default;}
   }
 }
 
+.btn-carrinho-limpa{
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
 /* Modo escuro */
 :root {
   --dark: #222;

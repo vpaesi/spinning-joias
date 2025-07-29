@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { Produto, Cor } from "../../hooks/useProdutos";
 import { useCarrinho } from "../../context/CarrinhoContext";
 import ModalSelecionaCor from "./../produto/ModalSelecionaCor";
+import { clampQuantity } from "../../utils/validacoes";
 
 export default function BtnAddCarrinho({
   produto,
@@ -21,15 +22,13 @@ export default function BtnAddCarrinho({
         <span className="text-sm font-medium">Qtd:</span>
         <input
           type="number"
-          min={1}
-          max={10}
+          min="1"
+          max="10"
           value={quantidade}
           onChange={(e) =>
-            setQuantidade(
-              Math.max(1, Math.min(10, Number(e.target.value))),
-            )
+            setQuantidade(clampQuantity(Number(e.target.value)))
           }
-          className="w-16 border rounded px-2 py-1 text-center"
+          className="w-16 px-2 py-1 border rounded text-center dark:text-black"
         />
       </label>
       <button
