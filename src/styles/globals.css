@@ -150,8 +150,14 @@ button:hover,
 .dark .btn-pagina-nao-atual:hover,
 .dark .btn-paginacao:hover,
 .dark .btn-pagina-atual {
+  background-color: transparent !important;
   text-decoration: underline;
 }
+
+.btn-pagina-atual:hover{
+  background-color: transparent !important;
+cursor: default;}
+
 
 .btn-carrinho-limpa,
 .btn-carrinho-gera-mensagem,
@@ -204,11 +210,20 @@ body.dark,
 }
 
 .dark .btn-filter-container button,
-.dark .btn-pg-inicial {
+.dark .btn-pg-inicial, .dark .paginacao-select {
   background-color: transparent !important;
   border: none;
   transition: box-shadow 0.2s;
   box-shadow: 0 4px 12px 0 rgba(162, 122, 65, 0.35);
+}
+.dark .paginacao-select {
+  border: 1px solid var(--amarelo-destaque) !important;
+  background: var(--cinza-escuro);
+}
+
+.dark .paginacao-select option {
+  background-color: var(--cinza-escuro) !important;
+  color: var(--branco) !important;
 }
 
 .dark .letreiro-conteudo a {

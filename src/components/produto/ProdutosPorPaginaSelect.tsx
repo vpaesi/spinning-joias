@@ -17,7 +17,7 @@ export default function ProdutosPorPaginaSelect({
         Produtos por página:
       </span>
       <select
-        className="px-4 py-2 rounded border border-[#d9a76b] bg-white hover:bg-yellow-100 font-semibold cursor-pointer"
+        className="paginacao-select px-4 py-2 rounded border border-[#d9a76b] bg-white hover:bg-yellow-100 font-semibold cursor-pointer"
         value={pageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));
@@ -29,7 +29,6 @@ export default function ProdutosPorPaginaSelect({
             {size}
           </option>
         ))}
-        <option value={0}>Todos</option>
       </select>
     </div>
   );

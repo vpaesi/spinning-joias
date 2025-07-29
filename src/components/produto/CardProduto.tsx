@@ -22,7 +22,7 @@ export default function CardProduto({
 }: CardProdutoProps) {
   return (
     <div
-      className={`swiper-slide bg-white rounded shadow hover:shadow-lg transition ${className}`}
+      className={`swiper-slide bg-white rounded shadow hover:shadow-lg transition ${className} dark:border dark:border-gray-700 dark:bg-gray-800`}
     >
       <img
         src={produto.fotoDestaque}
