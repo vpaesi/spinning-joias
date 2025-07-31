@@ -1,71 +1,102 @@
-import { useEffect, useState } from 'react';
-import ListaProdutos from '../components/ListaProdutos';
-import Filter from '../components/Filter';
-import type { Produto } from '../types/Produto';
+import { useState, useEffect } from "react";
+import { Produto } from "../hooks/useProdutos";
+import HeroSection from "../components/home/HeroSection";
+import RenderizaProdutos from "../components/produto/RenderizaProdutos";
+import Filter from "../components/home/Filter";
+import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
+import Letreiro from "../components/home/Letreiro";
 
-function Home() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
-  const [orderAlpha, setOrderAlpha] = useState('nome-asc');
-  const [orderPreco, setOrderPreco] = useState('preco-asc');
-  const [precoRange, setPrecoRange] = useState<[number, number]>([0, 1000]);
+interface HomeProps {
+  produtosFiltrados: Produto[];
+  loading: boolean;
+  erro: string | null;
+  produtos: Produto[];
+  termoBusca: string;
+  categoriaSelecionada: string;
+  ordemAlfabetica: "none" | "asc" | "desc";
+  ordemPreco: "none" | "asc" | "desc";
+  onCategoriaChange: (categoria: string) => void;
+  onOrdemAlfabeticaChange: (ordem: "none" | "asc" | "desc") => void;
+  onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
+}
+
+function Home({
+  produtosFiltrados,
+  loading,
+  erro,
+  produtos,
+  termoBusca,
+  categoriaSelecionada,
+  ordemAlfabetica,
+  ordemPreco,
+  onCategoriaChange,
+  onOrdemAlfabeticaChange,
+  onOrdemPrecoChange,
+}: HomeProps) {
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(8);
 
   useEffect(() => {
-    const apiUrl = import.meta.env.VITE_API_URL;
-    fetch(`${apiUrl}/produtos`)
-      .then((res) => {
-        if (!res.ok) throw new Error('Erro ao buscar produtos');
-        return res.json();
-      })
-      .then((data) => {
-        setProdutos(data);
-        // Calcula range inicial com base nos dados
-        const precos = data.map((p: Produto) => p.preco);
-        const min = Math.min(...precos);
-        const max = Math.max(...precos);
-        setPrecoRange([min, max]);
-      })
-      .catch((err) => console.error('Erro ao carregar produtos:', err));
-  }, []);
+    setPage(1);
+  }, [categoriaSelecionada, termoBusca]);
+
+  const exibeCarrossel =
+    !termoBusca && (!categoriaSelecionada || categoriaSelecionada === "todos");
+
+  let tituloLista = "Todos os produtos";
+  if (termoBusca) {
+    tituloLista = `Resultado da pesquisa por: "${termoBusca}"`;
+  } else if (categoriaSelecionada && categoriaSelecionada !== "todos") {
+    tituloLista = categoriaSelecionada;
+  }
 
   return (
     <>
-      <section>
-        <h5 className="produtos-section-titulo">Todos os produtos</h5>
-        <div className="container px-4">
-          <ListaProdutos
+      <NavProdutosPrincipais onCategoriaSelect={onCategoriaChange} />
+      {exibeCarrossel && <HeroSection />}
+      {exibeCarrossel && <Letreiro />}
+      {exibeCarrossel && (
+        <RenderizaProdutos
           produtos={produtos}
-          usarCarrossel={true}
-          orderAlpha={orderAlpha}
-          orderPreco={orderPreco}
-          precoRange={precoRange}
+          loading={loading}
+          erro={erro}
+          carrossel={true}
+          page={1}
+          setPage={() => {}}
+          pageSize={8}
+          setPageSize={() => {}}
         />
-        </div>
-      </section>
-
-      <hr className="my-4" />
-
-      <section>
-        <h6 className="produtos-section-titulo">Encontre a joia que dança com você!</h6>
-          <Filter
-            produtos={produtos}
-            orderAlpha={orderAlpha}
-            setOrderAlpha={setOrderAlpha}
-            orderPreco={orderPreco}
-            setOrderPreco={setOrderPreco}
-            precoRange={precoRange}
-            setPrecoRange={setPrecoRange}            
-          />
-
-        <div className="container px-4">
-          <ListaProdutos
-            produtos={produtos}
-            usarCarrossel={false}
-            orderAlpha={orderAlpha}
-            orderPreco={orderPreco}
-            precoRange={precoRange}
-          />
-        </div>
-      </section>
+      )}
+      <hr className="border-t border-yellow-500" />
+      <div className="w-full flex flex-col gap-1 mt-8 mb-4">
+        <h2
+          id="lista-colecao"
+          className="text-2xl md:text-2xl text-center w-full max-w-2xl mx-auto"
+        >
+          {tituloLista}
+        </h2>
+        <Filter
+          categoriaSelecionada={categoriaSelecionada}
+          todasCategorias={[...new Set(produtos.map((p) => p.categoria))]}
+          ordemAlfabetica={ordemAlfabetica}
+          ordemPreco={ordemPreco}
+          onCategoriaChange={onCategoriaChange}
+          onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
+          onOrdemPrecoChange={onOrdemPrecoChange}
+          pageSize={pageSize}
+          setPageSize={setPageSize}
+          setPage={setPage}
+        />
+      </div>
+      <RenderizaProdutos
+        produtos={produtosFiltrados}
+        loading={loading}
+        erro={erro}
+        page={page}
+        setPage={setPage}
+        pageSize={pageSize}
+        setPageSize={setPageSize}
+      />
     </>
   );
 }
