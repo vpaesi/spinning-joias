@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import NavProdutosPrincipais from "../../../components/home/NavProdutosPrincipais";
+import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
 
 describe("NavProdutosPrincipais", () => {
   it("chama onCategoriaSelect para todas as categorias", () => {

@@ -51,7 +51,7 @@ npm run dev
 
 ---
 
-## 🧪 Como rodas os Testes
+## 🧪 Como rodar os Testes
 
 ```bash
 npm test

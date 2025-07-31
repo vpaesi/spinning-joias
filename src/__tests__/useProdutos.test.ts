@@ -11,9 +11,7 @@ describe("useProdutos hook", () => {
   });
 
   afterAll(() => {
-    // @ts-expect-error: mockClear may not exist on fetch, but we need to clear the mock for tests
-    global.fetch.mockClear();
-    delete (global as unknown as { fetch?: unknown }).fetch;
+jest.restoreAllMocks();
   });
 
   it("deve retornar estado inicial", () => {

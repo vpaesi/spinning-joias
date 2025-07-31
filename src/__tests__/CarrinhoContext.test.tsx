@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react";
-import { CarrinhoProvider, useCarrinho } from "../../context/CarrinhoContext";
+import { CarrinhoProvider, useCarrinho } from "../context/CarrinhoContext";
 
 const wrapper = ({ children }: any) => <CarrinhoProvider>{children}</CarrinhoProvider>;
 

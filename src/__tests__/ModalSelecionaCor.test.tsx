@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import ModalSelecionaCor from "../../../components/produto/ModalSelecionaCor";
+import ModalSelecionaCor from "../components/produto/ModalSelecionaCor";
 
 const produto = {
   id: 1,

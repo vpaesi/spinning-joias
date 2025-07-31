@@ -1,4 +1,4 @@
-import { clampQuantity } from "../../utils/validacoes";
+import { clampQuantity } from "../utils/validacoes";
 
 describe("clampQuantity", () => {
   it("deve retornar valor mínimo se menor que o mínimo", () => {
