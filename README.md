@@ -49,7 +49,26 @@ npm install
 npm run dev
 ```
 
+---
+
+## 🧪 Como rodar os Testes
+
+```bash
+npm test
+```
+
+### Rodar cobertura de testes
+
+```bash
+npm test -- --coverage
+```
+
+Após rodar o comando acima, será gerada uma pasta `coverage/` com o relatório. Para visualizar o relatório detalhado, abra o arquivo `coverage/lcov-report/index.html` no seu navegador.
+
+---
+
 ## 📁 Estrutura do diretorio
+```
 └── spinning-joias/
     ├── README.md
     ├── eslint.config.js
@@ -134,6 +153,7 @@ npm run dev
             ├── scrollToElement.ts
             ├── telefone.ts
             └── validacoesForm.ts
+```
 
 ## 📊 Status do Projeto
 <p> <a href="https://github.com/vpaesi/spinning-joias/commits"> <img src="https://img.shields.io/github/last-commit/vpaesi/spinning-joias" alt="última atualização"/> </a> <a href="https://github.com/vpaesi/spinning-joias/issues/"> <img src="https://img.shields.io/github/issues/vpaesi/spinning-joias" alt="issues abertas" /> </a> <a href="https://github.com/vpaesi/spinning-joias/blob/main/LICENSE"> <img src="https://img.shields.io/github/license/vpaesi/spinning-joias" alt="licença" /> </a> </p>
