@@ -49,6 +49,24 @@ npm install
 npm run dev
 ```
 
+---
+
+## 🧪 Como rodas os Testes
+
+```bash
+npm test
+```
+
+### Rodar cobertura de testes
+
+```bash
+npm test -- --coverage
+```
+
+Após rodar o comando acima, será gerada uma pasta `coverage/` com o relatório. Para visualizar o relatório detalhado, abra o arquivo `coverage/lcov-report/index.html` no seu navegador.
+
+---
+
 ## 📁 Estrutura do diretorio
 ```
 └── spinning-joias/
