@@ -50,6 +50,7 @@ npm run dev
 ```
 
 ## 📁 Estrutura do diretorio
+```
 └── spinning-joias/
     ├── README.md
     ├── eslint.config.js
@@ -134,6 +135,7 @@ npm run dev
             ├── scrollToElement.ts
             ├── telefone.ts
             └── validacoesForm.ts
+```
 
 ## 📊 Status do Projeto
 <p> <a href="https://github.com/vpaesi/spinning-joias/commits"> <img src="https://img.shields.io/github/last-commit/vpaesi/spinning-joias" alt="última atualização"/> </a> <a href="https://github.com/vpaesi/spinning-joias/issues/"> <img src="https://img.shields.io/github/issues/vpaesi/spinning-joias" alt="issues abertas" /> </a> <a href="https://github.com/vpaesi/spinning-joias/blob/main/LICENSE"> <img src="https://img.shields.io/github/license/vpaesi/spinning-joias" alt="licença" /> </a> </p>
