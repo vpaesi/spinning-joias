@@ -26,8 +26,7 @@ export function useProdutos() {
   const [erro, setErro] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
-    fetch("/produtos.json")
+    fetch("https://gist.githubusercontent.com/vpaesi/8e3c82e7231e5fb4909e0597f142a377/raw/produtos-spinning_joias.json")
       .then((res) => res.json())
       .then((data: Produto[]) => {
         setProdutos(data);

@@ -10,8 +10,11 @@ Este repositório contém a interface web do catálogo de produtos da Spinning J
 
 ## 📌 Sobre o Projeto
 
-A versão 2.0 foi criada utilizando React, Vite e TypeScript, trazendo uma arquitetura moderna e escalável para o projeto. Foram implementadas funcionalidades como navegação entre produtos, exibição detalhada de informações, integração com o ``.json`` para listagem dinâmica dos itens e melhorias na experiência do usuário. Além disso, a estrutura do código foi organizada para facilitar a manutenção e a adição de novas features.
-Mas a maior novidade nessa versão é a implementação de um carrinho que armazena dados em localStorage e permite que o usuáio realize pedidos através de uma mensagem gerada automaticamente e em um clique todas as informações necessários para finalizar a compra é enviada para o Whats da Spinning Joias.
+A versão 2.0 foi criada utilizando React, Vite e TypeScript, trazendo uma arquitetura moderna e escalável para o projeto. Foram implementadas funcionalidades como navegação entre produtos, exibição detalhada de informações, integração com GitHub Gist para listagem dinâmica dos produtos e melhorias na experiência do usuário. Além disso, a estrutura do código foi organizada para facilitar a manutenção e a adição de novas features.
+
+Mas a maior novidade nessa versão é a implementação de um carrinho que armazena dados em localStorage e permite que o usuário realize pedidos através de uma mensagem gerada automaticamente e em um clique todas as informações necessárias para finalizar a compra são enviadas para o WhatsApp da Spinning Joias.
+
+**📦 Catálogo de Produtos**: Os dados dos produtos são armazenados em um GitHub Gist público, permitindo atualizações rápidas do catálogo sem necessidade de redeploy da aplicação. Isso facilita a gestão do inventário e a adição de novos produtos.
 
 ---
 
