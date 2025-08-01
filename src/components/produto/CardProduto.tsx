@@ -22,29 +22,29 @@ export default function CardProduto({
 }: CardProdutoProps) {
   return (
     <div
-      className={`swiper-slide bg-white rounded shadow hover:shadow-lg transition ${className} dark:border dark:border-gray-700 dark:bg-gray-800`}
+      className={`swiper-slide bg-white rounded shadow hover:shadow-lg transition ${className} dark:border dark:border-gray-700 dark:bg-gray-800 h-96 flex flex-col`}
     >
       <img
         src={produto.fotoDestaque}
         alt={produto.titulo}
-        className={`w-full h-44 object-cover rounded-t ${imgClassName}`}
+        className={`w-full h-56 object-cover rounded-t ${imgClassName}`}
       />
-      <div className="p-3 flex-1 flex flex-col">
-        <div className="flex flex-col items-center justify-center flex-1">
-          <h5 className="text-center font-bold text-base mb-2">
+      <div className="p-2 flex-1 flex flex-col justify-between">
+        <div className="flex flex-col items-center text-center">
+          <h5 className="font-bold text-xs mb-1 line-clamp-2 min-h-[2rem]">
             {produto.titulo}
           </h5>
           <div className="flex flex-col items-center mb-2">
             <span className="line-through text-gray-400 text-xs">
               {formatoDoPrecoSemDesconto(produto.preco)}
             </span>
-            <span className="text-blue-500 font-semibold">
+            <span className="text-blue-500 font-semibold text-sm">
               {formatoDoPreco(produto.preco)}
             </span>
           </div>
           {children}
         </div>
-        <div className="flex gap-2 mt-auto">{BtnMaisDetalhes(onDetalhes)}</div>
+        <div className="flex gap-2">{BtnMaisDetalhes(onDetalhes)}</div>
       </div>
     </div>
   );
