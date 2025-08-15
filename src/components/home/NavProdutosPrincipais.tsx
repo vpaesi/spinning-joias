@@ -17,6 +17,12 @@ function NavProdutosPrincipais({
       <nav className="flex flex-wrap justify-center md:gap-10 lg:gap-40 w-full">
         <button
           className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
+          onClick={() => handleClick("Aneis")}
+        >
+          Aneis
+        </button>
+        <button
+          className="hover:text-yellow-900 transition-colors bg-transparent border-none cursor-pointer text-base md:text-lg px-2 py-1"
           onClick={() => handleClick("Brincos")}
         >
           Brincos & Argolas

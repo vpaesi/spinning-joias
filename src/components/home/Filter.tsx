@@ -181,7 +181,7 @@ export default function Filter({
                   Todos os produtos
                 </button>
               </li>
-              {todasCategorias.map((categoria) => (
+              {todasCategorias.sort((a, b) => a.localeCompare(b)).map((categoria) => (
                 <li key={categoria}>
                   <button
                     className="btn-dropdown block w-full text-left px-6 py-2"
