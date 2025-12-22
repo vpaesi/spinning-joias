@@ -1,6 +1,6 @@
 <section align="center">
 
-# 💎 Spinning Joias - Frontend
+# 💎 Spinning Joias
 
 Este repositório contém a interface web do catálogo de produtos da Spinning Joias.
 
