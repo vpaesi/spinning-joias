@@ -183,4 +183,13 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 
 - Em 06/11/2026, o deploy Preview falhou porque o projeto tentou usar Node.js `20.x`, runtime descontinuado pela Vercel; a mensagem de falha pede `26.x`.
 - `package.json` e `package-lock.json` declaram `engines.node: 26.x`; `.nvmrc` também seleciona Node 26 para ambientes locais que a respeitam. A Vercel permite que `engines.node` defina a versão acima da configuração do painel.
-- É necessário confirmar a correção na próxima execução do deploy Preview. A validação local atual ocorre em Node.js `22.14.0`, não comprova o build em Node 26.
+- A cliente confirmou que a nova execução do deploy Preview foi bem-sucedida após o envio de `d723937` à branch remota `dev`.
+- A validação local foi executada em Node.js `22.14.0`; não comprova o build em Node 26 por si só.
+
+## QA do Preview — bloqueio de acesso
+
+- Em 06/11/2026, foram consultados `https://spinning-joias-bgiclrvlx-vpaesis-projects.vercel.app/`, `/produto/1`, `/carrinho` e `/produtos.json` por HTTP. Todos responderam com HTML cujo título é “Login – Vercel”, portanto o status HTTP 200 não confirma que o catálogo ou as rotas foram servidos.
+- O alias de branch `https://spinning-joias-git-dev-vpaesis-projects.vercel.app/` foi verificado em seguida nas mesmas rotas; também respondeu com “Login – Vercel”.
+- Em seguida, a cliente forneceu um link compartilhável. A home passou a responder com a página “Spinning Joias” e `/produtos.json` retornou os 53 produtos, confirmando que o site está implantado e acessível por esse link.
+- O acesso direto às rotas `/produto/1` e `/carrinho` retornou `404 NOT_FOUND` mesmo com o link compartilhável. Causa: falta de fallback SPA na Vercel. Foi adicionado `vercel.json` com rewrite para `/index.html` e um teste de regressão `vercelConfig.test.ts`; é necessário validar essas rotas após o próximo Preview.
+- A rodada local atual passou: 18 suítes e 43 testes aprovados, lint aprovado e build aprovado. A máquina ainda usa Node.js `22.14.0`; isso não substitui a validação de build no runtime Node 26 da Vercel. QA visual/responsivo e aceite final continuam pendentes; não houve autorização para produção.
