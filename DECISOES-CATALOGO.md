@@ -197,4 +197,19 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 - Tema abriu escuro; alternar para claro e recarregar preservou a escolha. O retorno para escuro também persistiu após recarga.
 - A varredura encontrou textos ambíguos de compra em dois produtos e na página “Sobre”. Eles foram alinhados ao catálogo e à consulta direta com a loja; os novos textos foram confirmados no Preview.
 - Estado local: 20 suítes e 46 testes aprovados; lint e build aprovados. O build local roda em Node.js `22.14.0`; a cliente confirmou que o deploy Vercel com a declaração `26.x` foi bem-sucedido. Branch remota `dev` contém as correções de fallback e textos.
-- **Estado:** sessões 13–17 concluídas. A sessão 18 (aceite final do Preview pela cliente) aguarda decisão; a sessão 19 (produção) continua condicionada a esse aceite. Nenhuma publicação em produção foi feita.
+- **Estado:** sessões 13–17 concluídas. A cliente aprovou o Preview na sessão 18; a sessão 19 foi publicada em produção e iniciou a janela de observação de cinco dias úteis.
+
+## Sessão 18 — aceite final do Preview
+
+- Em 06/11/2026, a cliente aprovou a versão final do Preview após a revisão de QA das sessões 13–17.
+- Autorizada a publicação em produção, condicionada à promoção do commit aprovado de `dev` para a branch de produção `main`.
+
+## Sessão 19 — publicação em produção
+
+- O commit `44918a6` foi promovido por fast-forward de `dev` para `main` e enviado ao GitHub; o deploy Production da Vercel ficou `Ready`.
+- Deployment: `https://spinning-joias-8dk7cpjzf-vpaesis-projects.vercel.app`; alias de produção: `https://spinning-joias.vercel.app/`.
+- O log de produção confirma que `engines.node: 26.x` prevaleceu sobre a preferência `20.x` do painel e que o build terminou com sucesso.
+- Smoke test no domínio público: home e `/produto/1`, `/produto/9`, `/carrinho`, `/faq`, `/about` e `/produtos.json` responderam. O detalhe de produto e a FAQ renderizaram; `/carrinho` redirecionou à home. O JSON contém 53 produtos.
+- As 133 imagens locais referenciadas responderam HTTP 200; a imagem externa aprovada do produto #5 respondeu HTTP 200 (`image/png`). A home de produção carregou 18 imagens visíveis, sem imagem quebrada, overflow horizontal ou erro de console.
+- Verificações do release: 20 suítes/46 testes aprovados; lint e build local aprovados. O build de produção da Vercel também concluiu em Node 26.x.
+- **Estado:** publicação concluída; inicia-se a observação de cinco dias úteis prevista na seção 9 do plano. O alias de Preview continua disponível para futuras correções.
