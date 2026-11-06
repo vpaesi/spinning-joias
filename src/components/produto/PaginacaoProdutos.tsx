@@ -25,6 +25,7 @@ export default function PaginacaoProdutos({
         pageSize={pageSize}
         setPageSize={setPageSize}
         setPage={setPage}
+      totalProdutos={total}
       />
       {pageSize !== 0 && (
         <PaginacaoBotao page={page} setPage={setPage} totalPages={totalPages} />

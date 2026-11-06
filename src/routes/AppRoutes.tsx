@@ -138,7 +138,7 @@ function AppRoutes() {
         />
       </Routes>
       <BtnBackToTop />
-      <Footer />
+      <Footer onHome={() => handleCategoriaChange("todos")} />
     </>
   );
 }

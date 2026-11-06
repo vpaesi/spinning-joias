@@ -10,7 +10,7 @@
 
 O site passará a funcionar como catálogo digital: visitantes poderão encontrar produtos, consultar fotos, descrição, variações e preços, sem carrinho, formulário de compra ou finalização de pedido pelo site. A navegação atual (busca, categorias, ordenação, paginação, detalhes e FAQ) será mantida e ajustada para essa finalidade. As fotos de `C:\Users\vitoria.camargo\pessoal\spinning\spinning_fotos` serão copiadas para `C:\Users\vitoria.camargo\pessoal\spinning\spinning-joias\public\images\produtos\` e os endereços de imagem no catálogo serão atualizados para apontar para os arquivos do próprio site. O JSON de produtos será mantido localmente no repositório, conforme decisão aprovada no checkpoint do dia 1. Os canais de contato da loja continuam disponíveis para dúvidas e compra assistida.
 
-O plano estima **18 a 22 dias úteis**, em sessões de aproximadamente uma hora, incluindo validação do cliente, QA, publicação gradual e observação após a publicação. A duração pode mudar conforme a aprovação de textos e a disponibilidade de dados e ambiente da Vercel.
+O plano estima **19 a 23 dias úteis**, em sessões de aproximadamente uma hora, incluindo um checkpoint de aprovação do cliente ao final da primeira sprint, QA, publicação gradual e observação após a publicação. A duração pode mudar conforme as aprovações e a disponibilidade do ambiente da Vercel.
 
 ## 2. Objetivo e resultado esperado
 
@@ -62,6 +62,8 @@ Simplificar a experiência para consulta de catálogo, removendo todos os mecani
 | RF-07 | Acessar rota antiga | `/carrinho` redireciona para o catálogo sem erro de página. |
 | RF-08 | Atualizar ajuda | FAQ explica como navegar/consultar produtos e como falar com a loja; não ensina fluxo removido. |
 | RF-09 | Acessibilidade e estados | Imagens têm texto alternativo útil; controles de galeria e navegação têm rótulos acessíveis; carregamento, falha de fonte de dados e produto inexistente têm estado compreensível. |
+| RF-10 | Tema | O site inicia em tema escuro quando não existe preferência salva e mantém a escolha explícita de tema feita pela pessoa visitante. |
+| RF-11 | Retorno e paginação do catálogo | Os links “Página inicial” limpam a categoria selecionada; opções de produtos por página nunca excedem o total filtrado. |
 
 ### Requisitos não funcionais
 
@@ -76,7 +78,7 @@ O plano assume: preços continuam visíveis; canais sociais permanecem; não hav
 
 ## 7. Plano por sessões de uma hora
 
-Estimativa de **18 sessões de execução** mais **até 4 sessões de folga** para correções, espera de aprovação ou problemas de ambiente. As sessões representam uma hora total disponível do time por dia; dev e QA podem alternar a responsabilidade.
+Estimativa de **19 sessões de execução** mais **até 4 sessões de folga** para correções, espera de aprovação ou problemas de ambiente. As sessões representam uma hora total disponível do time por dia; dev e QA podem alternar a responsabilidade.
 
 |      Dia/sessão | Responsável principal | Trabalho e evidência de conclusão                                                                                                                                                                                  |
 | --------------: | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -91,16 +93,17 @@ Estimativa de **18 sessões de execução** mais **até 4 sessões de folga** pa
 |               9 | Dev                   | Atualizar README, metadados e imagens/referências que instruem checkout.                                                                                                                                           |
 |              10 | Dev                   | Limpar ou adequar testes obsoletos do carrinho e criar cobertura para navegação, carregamento local das fotos e ausência de compra.                                                                                |
 |              11 | Dev                   | Revisão técnica do diff, tipos, lint/build, tamanho do deploy e inspeção das rotas/estados de erro.                                                                                                                |
-|              12 | QA                    | Publicar/usar preview Vercel; smoke test em desktop e celular; registrar defeitos com passos e evidências.                                                                                                         |
-|              13 | QA                    | Testar busca, categoria, URL com parâmetros, ordenação, paginação, galeria, cores, imagem de cada item e rota inválida.                                                                                            |
-|              14 | QA                    | Varredura de ausência de checkout: navegação, textos, botões, FAQ, links antigos, persistência antiga e imagens quebradas.                                                                                         |
-|              15 | Dev                   | Corrigir defeitos prioritários encontrados no preview.                                                                                                                                                             |
-|              16 | QA                    | Regressão direcionada das correções e revisão de acessibilidade/visual em celular e desktop.                                                                                                                       |
-|              17 | Cliente + QA          | Aceite do preview usando checklist da seção 8; registrar aprovado ou pendências.                                                                                                                                   |
-|              18 | Dev + QA              | Publicar em produção após aceite, validar domínio, imagens e rotas, manter registro de versão e plano de reversão.                                                                                                 |
-| 19–22 (reserva) | Dev/QA                | Até quatro sessões para correções adicionais, espera de aprovação, Vercel ou regressões.                                                                                                                           |
+|              12 | Dev + cliente         | Entregar a versão dev ao cliente como fechamento da sprint, apresentar o resultado e aguardar aprovação antes de iniciar as sessões seguintes.                                                                     |
+|              13 | QA                    | Publicar/usar preview Vercel; smoke test em desktop e celular; registrar defeitos com passos e evidências.                                                                                                         |
+|              14 | QA                    | Testar busca, categoria, URL com parâmetros, ordenação, paginação, galeria, cores, imagem de cada item e rota inválida.                                                                                            |
+|              15 | QA                    | Varredura de ausência de checkout: navegação, textos, botões, FAQ, links antigos, persistência antiga e imagens quebradas.                                                                                         |
+|              16 | Dev                   | Corrigir defeitos prioritários encontrados no preview.                                                                                                                                                             |
+|              17 | QA                    | Regressão direcionada das correções e revisão de acessibilidade/visual em celular e desktop.                                                                                                                       |
+|              18 | Cliente + QA          | Aceite do preview usando checklist da seção 8; registrar aprovado ou pendências.                                                                                                                                   |
+|              19 | Dev + QA              | Publicar em produção após aceite, validar domínio, imagens e rotas, manter registro de versão e plano de reversão.                                                                                                 |
+| 20–23 (reserva) | Dev/QA                | Até quatro sessões para correções adicionais, espera de aprovação, Vercel ou regressões.                                                                                                                           |
 
-**Duração prevista:** 18–22 dias úteis (cerca de 4 semanas, considerando dias úteis). A incorporação das fotos e validação das referências está incluída nos dias 2–4, sem adicionar prazo-base, assumindo que as pastas de origem/destino e o snapshot local do catálogo estejam acessíveis e que o inventário confirme a redução líquida informada. Se a organização das fotos exigir correção manual extensa, usar as sessões de reserva; não comprimir o período de QA.
+**Duração prevista:** 19–23 dias úteis (cerca de 4–5 semanas, considerando dias úteis). A entrega da sessão 12 funciona como checkpoint de sprint: as sessões 13–19 só avançam após a aprovação do cliente. A incorporação das fotos e validação das referências está incluída nos dias 2–4, sem adicionar prazo-base, assumindo que as pastas de origem/destino e o snapshot local do catálogo estejam acessíveis e que o inventário confirme a redução líquida informada. Se a organização das fotos exigir correção manual extensa, usar as sessões de reserva; não comprimir o período de QA.
 
 ## 8. Plano de QA e aceite
 
@@ -109,13 +112,15 @@ Executar no preview da Vercel antes de produção, em pelo menos um navegador de
 ### Roteiros
 
 1. **Catálogo:** abrir home, ver cards, entrar nos detalhes e retornar; testar busca com resultado e sem resultado.
-2. **Navegação:** escolher categoria, ordenar por nome e preço, mudar paginação e abrir URL com `categoria`/`busca`.
-3. **Detalhes:** abrir produto com várias fotos e cores, trocar foto, verificar preço/texto; repetir produto sem variações e ID inexistente.
-4. **Fotos locais:** verificar que todas as URLs de imagem com correspondência local resolvem para arquivos do deploy, que cada foto de produto/variação corresponde ao item certo e que não há dependência de URL externa para carregar os metadados. Exceção aprovada pelo cliente: manter como está a URL externa da foto do produto #5 (`Colar prata: Patins maciço`). Testar acesso direto às imagens locais e a acessibilidade dessa URL no Preview e após deploy.
-5. **Remoção do ecommerce:** confirmar ausência de sacola/contador, “Adicionar ao carrinho”, quantidade, `/carrinho`, formulário de entrega/pagamento e “Finalizar compra”. Testar também URL antiga e dados `carrinho` já existentes no localStorage.
-6. **Contato:** abrir links de contato e confirmar que continuam apontando aos perfis oficiais, sem disparo automático de pedido ou dados pessoais.
-7. **FAQ e responsividade:** validar conteúdo atualizado, navegação por teclado, foco perceptível, nomes acessíveis e layout em larguras mobile/desktop.
-8. **Produção:** após publicar, repetir smoke test em domínio real e testar acesso direto e refresh de `/produto/:id` e `/carrinho`.
+2. **Navegação:** escolher categoria, voltar pela ação “Página inicial” e confirmar que o filtro foi limpo; ordenar por nome e preço; abrir URL com `categoria`/`busca`.
+3. **Quantidade por página:** confirmar que as opções não excedem o total de produtos filtrado e que o seletor some quando não houver resultados.
+4. **Detalhes:** abrir produto com várias fotos e cores, trocar foto, verificar preço/texto; repetir produto sem variações e ID inexistente.
+5. **Fotos locais:** verificar que todas as URLs de imagem com correspondência local resolvem para arquivos do deploy, que cada foto de produto/variação corresponde ao item certo e que não há dependência de URL externa para carregar os metadados. Exceção aprovada pelo cliente: manter como está a URL externa da foto do produto #5 (`Colar prata: Patins maciço`). Testar acesso direto às imagens locais e a acessibilidade dessa URL no Preview e após deploy.
+6. **Remoção do ecommerce:** confirmar ausência de sacola/contador, “Adicionar ao carrinho”, quantidade, `/carrinho`, formulário de entrega/pagamento e “Finalizar compra”. Testar também URL antiga e dados `carrinho` já existentes no localStorage.
+7. **Contato:** abrir links de contato e confirmar que continuam apontando aos perfis oficiais, sem disparo automático de pedido ou dados pessoais.
+8. **Tema:** confirmar abertura em tema escuro sem preferência explícita, alternância manual para claro e persistência após recarregar.
+9. **FAQ e responsividade:** validar conteúdo atualizado, navegação por teclado, foco perceptível, nomes acessíveis e layout em larguras mobile/desktop.
+10. **Produção:** após publicar, repetir smoke test em domínio real e testar acesso direto e refresh de `/produto/:id` e `/carrinho`.
 
 ### Critérios de aceite do cliente
 

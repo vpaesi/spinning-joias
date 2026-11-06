@@ -80,6 +80,7 @@ function Home({
           todasCategorias={[...new Set(produtos.map((p) => p.categoria))]}
           ordemAlfabetica={ordemAlfabetica}
           ordemPreco={ordemPreco}
+          totalProdutos={produtosFiltrados.length}
           onCategoriaChange={onCategoriaChange}
           onOrdemAlfabeticaChange={onOrdemAlfabeticaChange}
           onOrdemPrecoChange={onOrdemPrecoChange}

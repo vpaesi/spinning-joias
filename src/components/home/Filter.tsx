@@ -7,6 +7,7 @@ interface FilterProps {
   todasCategorias: string[];
   ordemAlfabetica: "none" | "asc" | "desc";
   ordemPreco: "none" | "asc" | "desc";
+  totalProdutos: number;
   onCategoriaChange: (categoria: string) => void;
   onOrdemAlfabeticaChange: (ordem: "none" | "asc" | "desc") => void;
   onOrdemPrecoChange: (ordem: "none" | "asc" | "desc") => void;
@@ -16,9 +17,11 @@ interface FilterProps {
 }
 
 export default function Filter({
+  categoriaSelecionada,
   todasCategorias,
   ordemAlfabetica,
   ordemPreco,
+  totalProdutos,
   onCategoriaChange,
   onOrdemAlfabeticaChange,
   onOrdemPrecoChange,
@@ -63,7 +66,10 @@ export default function Filter({
     onOrdemPrecoChange(next);
   }
 
-  const isHomePage = location.pathname === "/" && location.search === "";
+  const isHomePage =
+    location.pathname === "/" &&
+    location.search === "" &&
+    categoriaSelecionada === "todos";
 
   return (
     <div className="flex-1 flex justify-start mx-16">
@@ -151,12 +157,14 @@ export default function Filter({
           pageSize={pageSize}
           setPageSize={setPageSize}
           setPage={setPage}
+          totalProdutos={totalProdutos}
         />
 
         {!isHomePage && (
           <div className="hidden sm:flex justify-end">
             <Link 
               to="/" 
+              onClick={() => onCategoriaChange("todos")}
               className="btn-pg-inicial bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 transition-colors"
             >
               Página inicial

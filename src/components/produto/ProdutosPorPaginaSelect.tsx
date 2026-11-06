@@ -4,13 +4,28 @@ interface ProdutosPorPaginaSelectProps {
   pageSize: number;
   setPageSize: (size: number) => void;
   setPage: (page: number) => void;
+  totalProdutos: number;
 }
 
 export default function ProdutosPorPaginaSelect({
   pageSize,
   setPageSize,
   setPage,
+  totalProdutos,
 }: ProdutosPorPaginaSelectProps) {
+  if (totalProdutos <= 0) return null;
+
+  const effectivePageSize =
+    pageSize === 0 ? totalProdutos : Math.min(pageSize, totalProdutos);
+  const pageSizeOptions = PAGE_SIZE_OPTIONS.filter(
+    (size) => size <= totalProdutos
+  );
+
+  if (!pageSizeOptions.includes(effectivePageSize)) {
+    pageSizeOptions.push(effectivePageSize);
+    pageSizeOptions.sort((a, b) => a - b);
+  }
+
   return (
     <div className="flex items-center gap-2">
       <label htmlFor="pageSize" className="text-sm font-medium">
@@ -18,14 +33,14 @@ export default function ProdutosPorPaginaSelect({
       </label>
       <select
         id="pageSize"
-        value={pageSize}
+        value={effectivePageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));
           setPage(1);
         }}
         className="border rounded px-2 py-1 text-sm dark:bg-gray-800 dark:border-gray-600"
       >
-        {PAGE_SIZE_OPTIONS.map((size) => (
+        {pageSizeOptions.map((size) => (
           <option key={size} value={size}>
             {size}
           </option>

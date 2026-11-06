@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
-
-function getInitialTheme() {
-  if (typeof window !== "undefined") {
-    const stored = localStorage.getItem("theme");
-    if (stored) return stored;
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches)
-      return "dark";
-  }
-  return "light";
-}
+import { useTheme } from "../context/useTheme";
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState(getInitialTheme);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <button
-      aria-label="Alternar tema claro/escuro"
+      aria-label={theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro"}
+      aria-pressed={theme === "dark"}
       className="btn-theme-toggle ml-2 text-2xl p-2 rounded-full transition flex items-center justify-center"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={toggleTheme}
       type="button"
     >
       {theme === "dark" ? (

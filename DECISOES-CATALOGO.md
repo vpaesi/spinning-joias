@@ -163,3 +163,13 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 - O build ainda exibe avisos informativos sobre a base `caniuse-lite` desatualizada e o plugin `@tailwindcss/line-clamp` que já vem incluído no Tailwind 3.3+. Não impediram lint, testes ou build.
 
 **Estado da seção 11:** concluída localmente. QA de preview Vercel e aceite continuam pendentes conforme as sessões seguintes do plano.
+
+## Solicitações adicionais da cliente — 06/11/2026
+
+- **Navegação:** ao retornar por “Página inicial”, limpar o filtro de categoria para mostrar o catálogo completo. Aplicar o comportamento também ao link de início do rodapé.
+- **Quantidade por página:** limitar as opções do seletor ao total de produtos após os filtros; se não houver resultados, ocultar o seletor.
+- **Tema padrão:** iniciar em tema escuro quando não houver uma preferência previamente salva. Manter a troca manual de tema e persistir a escolha da pessoa visitante.
+- **Créditos da versão:** atualizar o rodapé para “v. 3.0 by Vitória de Camargo” e vincular o nome ao site `https://vitoria-de-camargo.vercel.app/`.
+- **Checkpoint da sprint:** após o Dia 11, entregar a versão dev ao cliente para avaliação e aguardar aprovação antes de seguir para as sessões restantes. O plano passa a ter 19 sessões mais até quatro de reserva.
+
+**Implementação e verificação:** os links de início limpam o filtro; o seletor de quantidade respeita o número filtrado e some sem resultados; o tema abre escuro por padrão e só grava uma preferência quando a pessoa o alterna; o rodapé identifica a versão 3.0 e aponta para o site indicado. O checkpoint foi inserido como sessão 12 e os passos posteriores foram reenumerados. Foram adicionados testes para navegação, opções de paginação, tema e créditos do rodapé. Verificações: 17 suítes/42 testes aprovados, lint aprovado e build aprovado.

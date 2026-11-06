@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import dadosLoja from "../utils/DadosSpinning";
 import { scrollToElement } from "../utils/scrollToElement";
 
-export default function Footer() {
+interface FooterProps {
+  onHome: () => void;
+}
+
+export default function Footer({ onHome }: FooterProps) {
   const handleScrollToTop = () => {
     scrollToElement();
   };
@@ -66,7 +70,10 @@ export default function Footer() {
             <Link
               to="/"
               className="hover:underline"
-              onClick={handleScrollToTop}
+              onClick={() => {
+                onHome();
+                handleScrollToTop();
+              }}
             >
               Retornar à página inicial
             </Link>
@@ -75,9 +82,9 @@ export default function Footer() {
         <div className="footer-credits text-center text-[#6bb3d6] text-sm mt-8">
           <p>© {`${dadosLoja.nomeDaLoja}`}</p>
           <p>
-            v. 2.0 by{" "}
+            v. 3.0 by{" "}
             <a
-              href="https://github.com/vitoriacamargo"
+              href="https://vitoria-de-camargo.vercel.app/"
               className="hover:underline"
             >
               Vitória de Camargo
