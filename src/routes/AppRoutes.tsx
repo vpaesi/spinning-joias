@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -10,7 +11,21 @@ import { useProdutos, Produto } from "../hooks/useProdutos";
 import { getProdutosFiltradosOrdenados } from "../utils/produtosUtils";
 import About from "../pages/About";
 import FAQ from "../pages/Faq";
-import Carrinho from "../pages/Carrinho";
+function CarrinhoRedirect() {
+  const navigate = useNavigate();
+  const redirectStarted = useRef(false);
+
+  useEffect(() => {
+    if (redirectStarted.current) return;
+    redirectStarted.current = true;
+    toast.info("O catálogo não possui carrinho.", {
+      toastId: "catalogo-sem-carrinho",
+    });
+    navigate("/", { replace: true });
+  }, [navigate]);
+
+  return null;
+}
 
 function AppRoutes() {
   const { produtos } = useProdutos();
@@ -117,7 +132,10 @@ function AppRoutes() {
         <Route path="/produto/:id" element={<ProdutoDetalhes />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
-        <Route path="/carrinho" element={<Carrinho />} />
+        <Route
+          path="/carrinho"
+          element={<CarrinhoRedirect />}
+        />
       </Routes>
       <BtnBackToTop />
       <Footer />

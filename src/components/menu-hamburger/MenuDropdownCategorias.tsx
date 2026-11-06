@@ -36,13 +36,6 @@ function MenuDropdownCategorias({
       ))}
       <hr className="my-2" />
       <Link
-        to="/carrinho"
-        className="block px-6 py-2 "
-        onClick={onClose}
-      >
-        Ver carrinho
-      </Link>
-      <Link
         to="/about"
         className="block px-6 py-2 "
         onClick={onClose}

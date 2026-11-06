@@ -159,24 +159,6 @@ button:hover,
 cursor: default;}
 
 
-.btn-carrinho-limpa,
-.btn-carrinho-gera-mensagem,
-.btn-carrinho-quantidade,
-.btn-carrinho-remover {
-  background-color: transparent !important;
-  color: var(--azul-link) !important;
-  padding: 0;
-  &:hover {
-    background-color: transparent !important;
-    text-decoration: underline;
-  }
-}
-
-.btn-carrinho-limpa{
-  margin-top: 1rem;
-  padding: 0.5rem;
-}
-
 /* Modo escuro */
 :root {
   --dark: #222;
@@ -201,8 +183,7 @@ body.dark,
 
 .dark button,
 .dark .btn,
-.dark .btn-pg-inicial,
-.dark .btn-produto-detalhe-encomende {
+.dark .btn-pg-inicial {
   background-color: var(--amarelo-destaque) !important;
   color: var(--branco) !important;
 }

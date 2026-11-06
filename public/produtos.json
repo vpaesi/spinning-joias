@@ -1,0 +1,938 @@
+[
+  {
+    "id": 1,
+    "titulo": "Colar prata: Patinadora",
+    "fotoDestaque": "/images/produtos/colar-prata-patinadora.jpg",
+    "descricao": "Colar em prata 925 com pingente de bailarina.",
+    "informacoes_extras": "No ato da compra, verifique a disponibilidade e diferença de valores entre o pingente da patinadora M e G.",
+    "preco": 120,
+    "categoria": "Colares",
+    "fotosAdicionais": [
+      "/images/produtos/colar-prata-patinadora-zirconia_cristal.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Colar dourado: Patinadora",
+    "fotoDestaque": "/images/produtos/colar-dourado-patinadora.jpg",
+    "descricao": "Colar banhado a ouro 18k com pingente de bailarina.",
+    "informacoes_extras": "No ato da compra, verifique a disponibilidade e diferença de valores entre o pingente da patinadora M e G.",
+    "preco": 100,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 3,
+    "titulo": "Colar prata: Patins cravejado com zircônia",
+    "fotoDestaque": "/images/produtos/colar-prata-patins-zirconia_cristal.png",
+    "descricao": "Colar em prata 925 com pingente de patins detalhado com zircônia (cristal, ruby ou negra).",
+    "preco": 120,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Cristal",
+        "codigo": "linear-gradient(to right, #c0c0c0 50%, #FFFFFF 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-zirconia_cristal.png"
+        ]
+      },
+      {
+        "nome": "Ruby",
+        "codigo": "linear-gradient(to right, #c0c0c0 50%, #F558D5 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-zirconia_rubi.png"
+        ]
+      },
+      {
+        "nome": "Negra",
+        "codigo": "linear-gradient(to right, #c0c0c0 50%, #000000 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-zirconia_negra.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": []
+  },
+  {
+    "id": 4,
+    "titulo": "Colar dourado: Patins cravejado com zircônia",
+    "fotoDestaque": "/images/produtos/colar-dourado-patins-zirconia_rubi.jpg",
+    "descricao": "Colar banhado a ouro 18k com pingente de patins detalhado com zircônia (cristal, ruby ou negra).",
+    "preco": 95,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Cristal",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #FFFFFF 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-zirconia_cristal.jpg"
+        ]
+      },
+      {
+        "nome": "Negra",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-zirconia_negra.jpg"
+        ]
+      },
+      {
+        "nome": "Ruby",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #F558D5 50%)",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-zirconia_rubi.jpg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-patins-zirconia-preta_e_rosa.jpg"
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Colar prata: Patins maciço",
+    "descricao": "Colar em prata 925 com pingente de patins maciço.",
+    "fotoDestaque": "https://y5xjbz8ukcif36ya.public.blob.vercel-storage.com/colar-prata-patins-macico.png",
+    "preco": 110,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 6,
+    "titulo": "Colar dourado: Patins maciço",
+    "descricao": "Colar banhado a ouro 18k com pingente de patins maciço.",
+    "fotoDestaque": "/images/produtos/colar-dourado-patins-macico.jpg",
+    "preco": 90,
+    "categoria": "Colares",
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-macico-patins.jpg"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Colar prata: Patins com roda de zircônia",
+    "descricao": "Colar em prata 925 com pingente de patins com zircônia nas rodas.",
+    "fotoDestaque": "/images/produtos/colar-prata-roda-zirconia_cristal.png",
+    "preco": 110,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 8,
+    "titulo": "Colar dourado: Patins com roda de zircônia",
+    "descricao": "Colar banhado a ouro 18k com pingente de patins com zircônia nas rodas.",
+    "fotoDestaque": "/images/produtos/colar-dourado-roda-zirconia_cristal.jpg",
+    "preco": 90,
+    "categoria": "Colares",
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-roda-zirconia_cristal.jpg"
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Colar prata: Patins colorido",
+    "descricao": "Colar em prata 925 com pingente colorido resinado.",
+    "fotoDestaque": "/images/produtos/colar-prata-patins-resina_amarela.jpg",
+    "preco": 120,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Amarela",
+        "codigo": "#EFEB00",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_amarela.jpg"
+        ]
+      },
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_azul.jpg"
+        ]
+      },
+      {
+        "nome": "Branca",
+        "codigo": "#FFFFFF",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_branca.jpg"
+        ]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_laranja.jpg"
+        ]
+      },
+      {
+        "nome": "Preta",
+        "codigo": "#000000",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_preta.jpg"
+        ]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_rosa.jpg"
+        ]
+      },
+      {
+        "nome": "Rosa Choque",
+        "codigo": "#F558D5",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_rosa_choque.jpg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_verde.jpg"
+        ]
+      },
+      {
+        "nome": "Vermelha",
+        "codigo": "#DB1000",
+        "fotoCor": [
+          "/images/produtos/colar-prata-patins-resina_vermelha.jpg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-prata-patins-resina_amarela.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_azul.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_branca.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_laranja.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_rosa_choque.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_rosa.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_verde.jpg",
+      "/images/produtos/conjunto-prata-patins-resina_vermelha.jpg"
+    ]
+  },
+  {
+    "id": 10,
+    "titulo": "Colar dourado: Patins colorido",
+    "descricao": "Colar banhado a ouro 18k com pingente colorido resinado.",
+    "fotoDestaque": "/images/produtos/colar-dourado-patins-resina_azul.jpg",
+    "preco": 100,
+    "categoria": "Colares",
+    "cores": [
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_azul.jpg"
+        ]
+      },
+      {
+        "nome": "Branca",
+        "codigo": "#FFFFFF",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_branca.jpg"
+        ]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_laranja.jpg"
+        ]
+      },
+      {
+        "nome": "Preta",
+        "codigo": "#000000",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_preta.jpg"
+        ]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_rosa.jpg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_verde.jpg"
+        ]
+      },
+      {
+        "nome": "Vermelha",
+        "codigo": "#DB1000",
+        "fotoCor": [
+          "/images/produtos/colar-dourado-patins-resina_vermelha.jpg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-patins-resina_branca.jpg",
+      "/images/produtos/conjunto-dourado-patins-resina_laranja.jpg",
+      "/images/produtos/conjunto-dourado-patins-resina_rosa.jpg",
+      "/images/produtos/conjunto-dourado-patins-resina_verde.jpg",
+      "/images/produtos/conjunto-dourado-patins-resina_vermelha.jpg"
+    ]
+  },
+  {
+    "id": 11,
+    "titulo": "Brinco prata: Patins coloridos",
+    "descricao": "Par de brinco com tarraxa, em prata 925, de patins colorido resinado.",
+    "fotoDestaque": "/images/produtos/brinco-prata-patins-resina-cores_variadas.jpg",
+    "preco": 80,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Amarela",
+        "codigo": "#EFEB00",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_amarela.jpeg"
+        ]
+      },
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_azul.jpeg"
+        ]
+      },
+      {
+        "nome": "Branca",
+        "codigo": "#FFFFFF",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_branca.jpg"
+        ]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_laranja.jpeg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_verde.jpeg"
+        ]
+      },
+      {
+        "nome": "Vermelha",
+        "codigo": "#DB1000",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-resina_vermelha.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": []
+  },
+  {
+    "id": 12,
+    "titulo": "Brinco dourado: Patins coloridos",
+    "descricao": "Par de brinco com tarraxa, banhado a ouro 18k, de patins colorido resinado.",
+    "fotoDestaque": "/images/produtos/brinco-dourado-patins-resina_amarela.jpg",
+    "preco": 60,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Amarela",
+        "codigo": "#EFEB00",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_amarela.jpg"
+        ]
+      },
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_azul.jpeg"
+        ]
+      },
+      {
+        "nome": "Laranja",
+        "codigo": "#FA7C01",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_laranja.jpeg"
+        ]
+      },
+      {
+        "nome": "Preta",
+        "codigo": "#000000",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_preta.jpg"
+        ]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_rosa.jpeg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_verde.jpeg"
+        ]
+      },
+      {
+        "nome": "Vermelha",
+        "codigo": "#DB1000",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-resina_vermelha.jpg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/brinco-dourado-patins-resina-cores_variadas.jpg"
+    ]
+  },
+  {
+    "id": 13,
+    "titulo": "Brinco prata: Patins cravejado com zircônia",
+    "descricao": "Par de brinco com tarraxa, em prata 925, de patins detalhado com zircônia (cristal, ruby ou negra)",
+    "fotoDestaque": "/images/produtos/brinco-prata-patins-zirconia_cristal.jpeg",
+    "preco": 70,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Cristal",
+        "codigo": "linear-gradient(to right, #c0c0c0 50%, #FFFFFF 50%)",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-zirconia_cristal.jpeg"
+        ]
+      },
+      {
+        "nome": "Prata-negra",
+        "codigo": "linear-gradient(to right, #c0c0c0 50%, #000000 50%)",
+        "fotoCor": [
+          "/images/produtos/brinco-prata-patins-zirconia_negra.jpg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/tarraxa-prata-zirconia_cristal.png"
+    ]
+  },
+  {
+    "id": 14,
+    "titulo": "Brinco dourado: Patins cravejado com zircônia",
+    "descricao": "Par de brinco com tarraxa, banhado a ouro 18k, de patins cravejado com zircônia.",
+    "fotoDestaque": "/images/produtos/brinco-dourado-patins-zirconia_cristal.jpeg",
+    "preco": 60,
+    "categoria": "Brincos",
+    "cores": [
+      {
+        "nome": "Cristal",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #FFFFFF 50%)",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-zirconia_cristal.jpeg"
+        ]
+      },
+      {
+        "nome": "Negra",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #000000 50%)",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-zirconia_negra.jpeg"
+        ]
+      },
+      {
+        "nome": "Ruby",
+        "codigo": "linear-gradient(to right, #DAA520 50%, #F558D5 50%)",
+        "fotoCor": [
+          "/images/produtos/brinco-dourado-patins-zirconia_rubi.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": []
+  },
+  {
+    "id": 15,
+    "titulo": "Brinco prata: Patinadora",
+    "descricao": "Par de brinco com tarraxa, em prata 925, de patins detalhado com zircônia (cristal, ruby ou negra)",
+    "fotoDestaque": "/images/produtos/brinco-prata-patinadora.png",
+    "preco": 60,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 16,
+    "titulo": "Brinco dourado: Patinadora",
+    "descricao": "Par de brinco com tarraxa, banhado a ouro 18k, de patinadora",
+    "fotoDestaque": "/images/produtos/brinco-dourado-patinadora-detalhado.jpg",
+    "preco": 50,
+    "categoria": "Brincos",
+    "fotosAdicionais": [
+      "/images/produtos/brinco-dourado-patins-detalhe_patinadora.png",
+      "/images/produtos/brinco-duplo-dourado-patinadoras.jpg"
+    ]
+  },
+  {
+    "id": 17,
+    "titulo": "Argola prata: Patins maciço",
+    "descricao": "Par de brinco de argola, em prata 925, com pingente de patins maciço.",
+    "fotoDestaque": "/images/produtos/argola-prata-patins-macico.png",
+    "preco": 80,
+    "categoria": "Brincos",
+    "fotosAdicionais": [
+      "/images/produtos/brinco-prata-patins-macico.jpg"
+    ]
+  },
+  {
+    "id": 18,
+    "titulo": "Argola dourada: Patins maciço",
+    "descricao": "Par de brinco de argola, banhado a ouro 18k, com pingente de patins maciço.",
+    "fotoDestaque": "/images/produtos/argola-dourada-patins-macico.png",
+    "preco": 70,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 19,
+    "titulo": "Argola prata: Patins com zircônia",
+    "descricao": "par de brinco de argola, em prata 925, com pingente de patins cravejado com zircônia",
+    "fotoDestaque": "/images/produtos/argola-prata-patins-zirconia.png",
+    "preco": 80,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 20,
+    "titulo": "Argola dourada: Patins com zircônia",
+    "descricao": "Par de brinco de argola, banhado a ouro 18k, com pingente de patins cravejado com zircônia",
+    "fotoDestaque": "/images/produtos/argola-dourada-patins-zirconia.png",
+    "preco": 70,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 21,
+    "titulo": "Berloque prata: Patins coloridos",
+    "descricao": "Berloque em prata 925 com pingente colorido resinado.",
+    "fotoDestaque": "/images/produtos/berloque-prata-patins-resina-cores_variadas.png",
+    "informacoes_extras": "O produto é referente a unidade de berloque e não acompanha a pulseira.",
+    "preco": 70,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 22,
+    "titulo": "Berloque dourado: Patins coloridos",
+    "descricao": "Berloque banhado a ouro 18k com pingente colorido resinado.",
+    "fotoDestaque": "/images/produtos/berloque-dourado-patins-coloridos.png",
+    "informacoes_extras": "O produto é referente a unidade de berloque e não acompanha a pulseira.",
+    "preco": 60,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 23,
+    "titulo": "Berloque dourado: Detalhados",
+    "descricao": "Berloque banhado a ouro 18k com pingente detalhado.",
+    "fotoDestaque": "/images/produtos/berloque-dourado-detalhes.png",
+    "informacoes_extras": "O produto é referente a unidade de berloque e não acompanha a pulseira. O pingente de patins é cravejado com zircônia.",
+    "preco": 60,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 24,
+    "titulo": "Berloque dourado: Patins maciço",
+    "fotoDestaque": "/images/produtos/berloque-dourado-patins-macico.png",
+    "descricao": "Berloque banhado a ouro 18k com pingente de patins maciço.",
+    "informacoes_extras": "O produto é referente a unidade de berloque e não acompanha a pulseira.",
+    "preco": 60,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 25,
+    "titulo": "Separador de berloque prata",
+    "fotoDestaque": "/images/produtos/separador-berloque-prata.png",
+    "descricao": "Separador de berloques em formato de patins. O valor corresponde à unidade.",
+    "informacoes_extras": "O produto é referente a unidade de separados e não acompanha a pulseira ou o berloque.",
+    "preco": 70,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 26,
+    "titulo": "Separador de berloque dourado",
+    "fotoDestaque": "/images/produtos/separador-berloque-dourado.png",
+    "descricao": "Separador de berloques em formato de patins. O valor corresponde à unidade.",
+    "informacoes_extras": "O produto é referente a unidade de separados e não acompanha a pulseira ou o berloque.",
+    "preco": 60,
+    "categoria": "Berloques",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 27,
+    "titulo": "Berloque prata: Patins duplo",
+    "fotoDestaque": "/images/produtos/berloque-prata-dois_patins-resina_roxa.jpeg",
+    "descricao": "Berloque em prata 925 com pingente colorido resinado.",
+    "informacoes_extras": "O produto é referente a unidade de berloque e não acompanha a pulseira.",
+    "preco": 70,
+    "categoria": "Berloques",
+    "cores": [
+      {
+        "nome": "Roxo",
+        "codigo": "#993399",
+        "fotoCor": [
+          "/images/produtos/berloque-prata-dois_patins-resina_roxa.jpeg"
+        ]
+      },
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "fotoCor": [
+          "/images/produtos/berloque-prata-dois_patins-resina_rosa.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": []
+  },
+  {
+    "id": 28,
+    "titulo": "Pulseira prata",
+    "descricao": "Pulseira em prata 925.",
+    "fotoDestaque": "/images/produtos/pulseira-prata-patins-simples.jpeg",
+    "preco": 99,
+    "categoria": "Diversos",
+    "fotosAdicionais": [
+      "/images/produtos/pulseira-prata-patins-no_pulso.png",
+      "/images/produtos/pulseira-prata-patins-resina-cores_variadas-detalhe.png"
+    ]
+  },
+  {
+    "id": 29,
+    "titulo": "Pulseira dourada",
+    "descricao": "Pulseira banhada a ouro 18k.",
+    "fotoDestaque": "/images/produtos/pulseira-dourada-patins-detalhe_pulso.png",
+    "preco": 109,
+    "categoria": "Diversos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 30,
+    "titulo": "Brinco prata: Patins com roda de zircônia",
+    "descricao": "Par de brinco com tarraxa, em prata 925, de patins com zircônia na roda.",
+    "fotoDestaque": "/images/produtos/brinco-prata-roda-zirconia_cristal.jpeg",
+    "informacoes_extras": "Prata 925",
+    "preco": 70,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 31,
+    "titulo": "Shine disk para patins",
+    "descricao": "Cartela com 8 unidades de shine disk para patins.",
+    "fotoDestaque": "/images/produtos/shine_disk-patinis-roda-colorida.jpeg",
+    "preco": 220,
+    "categoria": "Diversos",
+    "fotosAdicionais": [
+      "/images/produtos/shine_disk-acessorios-patinis-cartela.jpeg",
+      "/images/produtos/shine_disk-patinis-roda-azul.jpeg",
+      "/images/produtos/shine_disk-patinis-roda-detalhe.jpeg",
+      "/images/produtos/shine_disk-patinis-tenis-dourado.jpeg"
+    ]
+  },
+  {
+    "id": 32,
+    "titulo": "Cordão para celular",
+    "descricao": "Cordão brilhoso para celular (é necessário utilizar case/capinha).",
+    "fotoDestaque": "/images/produtos/cordao_celular-tecido-rosa_pink.jpeg",
+    "preco": 50,
+    "categoria": "Diversos",
+    "cores": [
+      {
+        "nome": "Rosa",
+        "codigo": "#F5A5C6",
+        "fotoCor": [
+          "/images/produtos/cordao_celular-tecido-rosa.jpeg"
+        ]
+      },
+      {
+        "nome": "Rosa Choque",
+        "codigo": "#F558D5",
+        "fotoCor": [
+          "/images/produtos/cordao_celular-tecido-rosa_pink.jpeg"
+        ]
+      },
+      {
+        "nome": "Verde",
+        "codigo": "#2EFF20",
+        "fotoCor": [
+          "/images/produtos/cordao_celular-tecido-verde.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/cordao_celular-tecido-cores_variadas.jpeg"
+    ]
+  },
+  {
+    "id": 33,
+    "titulo": "Pop Socket de pompom para celular",
+    "descricao": "O suporte pop socket contém fita dupla-face para colar na case/capinha do celular.",
+    "fotoDestaque": "/images/produtos/chaveiro-pompom-amarelo.jpeg",
+    "preco": 20,
+    "categoria": "Diversos",
+    "cores": [
+      {
+        "nome": "Amarela",
+        "codigo": "#EFEB00",
+        "fotoCor": [
+          "/images/produtos/chaveiro-pompom-amarelo.jpeg"
+        ]
+      },
+      {
+        "nome": "Grafite",
+        "codigo": "#474A51",
+        "fotoCor": [
+          "/images/produtos/chaveiro-pompom-cinza.jpeg"
+        ]
+      },
+      {
+        "nome": "Marrom",
+        "codigo": "#964b00",
+        "fotoCor": [
+          "/images/produtos/chaveiro-pompom-marrom.jpeg"
+        ]
+      },
+      {
+        "nome": "Vermelha",
+        "codigo": "#DB1000",
+        "fotoCor": [
+          "/images/produtos/chaveiro-pompom-vermelho.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/chaveiro-pompom-detalhe-etiqueta.jpeg"
+    ]
+  },
+  {
+    "id": 34,
+    "titulo": "Colar prata duplo: 2 patinadoras",
+    "descricao": "Colar duplo em prata 925 com um pingente de patinadora em cada fio.",
+    "fotoDestaque": "/images/produtos/colar-duplo-prata-duas_patinadoras.png",
+    "preco": 170,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 35,
+    "titulo": "Colar dourado duplo: 2 patinadoras",
+    "descricao": "Colar duplo banhado a ouro 18k com um pingente de patinadora em cada fio.",
+    "fotoDestaque": "/images/produtos/conjunto-dourado-duplo-bailarina.jpg",
+    "preco": 140,
+    "categoria": "Colares",
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-duplo-zirconia_cristal.jpg"
+    ]
+  },
+  {
+    "id": 36,
+    "titulo": "Colar prata duplo: 1 patinadora e 1 patins",
+    "descricao": "Colar duplo em prata 925 com um pingente de patinadora em um fio e um pingente de patins em outro fio.",
+    "fotoDestaque": "/images/produtos/colar-duplo-prata-patins_e_patinadora-zirconia_branca.png",
+    "preco": 170,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 37,
+    "titulo": "Colar dourado duplo: 1 patinadora e 1 patins",
+    "descricao": "Colar duplo banhado a ouro 18k com um pingente de patinadora em um fio e um pingente de patins em outro fio.",
+    "fotoDestaque": "/images/produtos/colar-duplo-dourado-patins_e_patinadora-zirconia_branca.png",
+    "preco": 140,
+    "categoria": "Colares",
+    "fotosAdicionais": [
+      "/images/produtos/conjunto-dourado-patins_e_patinadora.jpg"
+    ]
+  },
+  {
+    "id": 38,
+    "titulo": "Anel prata: Patins com zircônia",
+    "descricao": "Anel ajustável em prata 925, de patins com detalhe de zircônia.",
+    "fotoDestaque": "/images/produtos/anel-prata-patins-zirconia_cristal.jpg",
+    "preco": 70,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 39,
+    "titulo": "Anel dourado: Patins com zircônia",
+    "fotoDestaque": "/images/produtos/anel-dourado-patins-zirconia_cristal.jpg",
+    "descricao": "Anel ajustável banhado a ouro 18k, de patins com detalhe de zircônia.",
+    "preco": 60,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 40,
+    "titulo": "Argola prata: Bielmann",
+    "descricao": "Par de brinco de argola, em prata 925, com pingente de patinadora bielmann.",
+    "fotoDestaque": "/images/produtos/argola-prata-bielmann.png",
+    "preco": 70,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 41,
+    "titulo": "Argola dourada: Bielmann",
+    "descricao": "Par de brinco de argola, banhado a ouro 18k, com pingente de patinadora bielmann.",
+    "fotoDestaque": "/images/produtos/brinco-dourado-argola-bielmann.jpeg",
+    "preco": 60,
+    "categoria": "Brincos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 42,
+    "titulo": "Brinco dourado: Bielmann",
+    "descricao": "Par de brinco com tarraxa, banhado a ouro 18k, com pingente de patinadora bielmann",
+    "preco": 40,
+    "categoria": "Brincos",
+    "fotoDestaque": "/images/produtos/brinco-dourado-tarraxa-bielmann.jpeg",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 43,
+    "titulo": "Tornozeleira prata: Patins maciço",
+    "descricao": "Tornozeleira em prata 925 com pingente de patins maciço.",
+    "fotoDestaque": "/images/produtos/tornozeleira-prata-patinadora.jpeg",
+    "preco": 60,
+    "categoria": "Diversos",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 44,
+    "titulo": "Viseira regulável: Patins",
+    "descricao": "Viseira de tecido com regulagem",
+    "fotoDestaque": "/images/produtos/viseira-preta-logo.jpeg",
+    "preco": 40,
+    "categoria": "Diversos",
+    "fotosAdicionais": [
+      "/images/produtos/viseira-preta-logo-detalhe.jpeg"
+    ]
+  },
+  {
+    "id": 45,
+    "titulo": "Shoulder bag: Patins",
+    "descricao": "Shoulder bag com tecido neoprene e fecho tratorado, moderna em 3D, resistente, elástica e com proteção térmica",
+    "fotoDestaque": "/images/produtos/bolsa-colorida-patins-variadas.jpeg",
+    "preco": 130,
+    "categoria": "Diversos",
+    "cores": [
+      {
+        "nome": "Azul",
+        "codigo": "#0E8BFA",
+        "fotoCor": [
+          "/images/produtos/bolsa-tecido-azul-patinis_coloridos.jpeg"
+        ]
+      },
+      {
+        "nome": "Prata",
+        "codigo": "#c0c0c0",
+        "fotoCor": [
+          "/images/produtos/bolsa-prateada-patins.jpeg"
+        ]
+      },
+      {
+        "nome": "Dourada",
+        "codigo": "#DAA520",
+        "fotoCor": [
+          "/images/produtos/bolsa-dourada-patins.jpeg"
+        ]
+      }
+    ],
+    "fotosAdicionais": [
+      "/images/produtos/bolsa-dourada-patins-detalhe_lateral.jpeg"
+    ]
+  },
+  {
+    "id": 46,
+    "titulo": "Boné grafite: Patinadora",
+    "descricao": "Boné com tecido brilhoso na grafite com detalhes bordados.",
+    "fotoDestaque": "/images/produtos/bone-tecido-grafite-modelo_classico.jpeg",
+    "preco": 70,
+    "categoria": "Diversos",
+    "fotosAdicionais": [
+      "/images/produtos/bone-modelos-cores_variadas.jpeg",
+      "/images/produtos/bone-tecido-grafite-bandeira_brasil-detalhe.jpeg",
+      "/images/produtos/bone-tecido-grafite-logo-detalhe.jpeg",
+      "/images/produtos/bone-tecido-grafite-modelo_classico-frente.jpeg"
+    ]
+  },
+  {
+    "id": 47,
+    "titulo": "Boné prateado: Patinadora",
+    "descricao": "Boné com tecido brilhoso na cor prata com detalhes bordados.",
+    "fotoDestaque": "/images/produtos/bone-prateado-modelo_classico.jpeg",
+    "preco": 70,
+    "categoria": "Diversos",
+    "fotosAdicionais": [
+      "/images/produtos/bone-modelos-cores_variadas.jpeg",
+      "/images/produtos/bone-prateado-bandeira_brasil-detalhe.jpeg",
+      "/images/produtos/bone-prateado-logo-detalhe.jpeg"
+    ]
+  },
+  {
+    "id": 48,
+    "titulo": "Colar dourado: Bielmann",
+    "descricao": "Colar banhado a ouro 18k com pingente de patinadora bielmann.",
+    "fotoDestaque": "/images/produtos/colar-dourado-bielmann.png",
+    "preco": 80,
+    "categoria": "Colares",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 49,
+    "titulo": "Anel prata: Patins duplo",
+    "fotoDestaque": "/images/produtos/anel-prata-patins-duplo.png",
+    "descricao": "Anel ajustável em prata, com pingente de patins duplo.",
+    "preco": 80,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 50,
+    "titulo": "Anel prata: Patins zircônia",
+    "fotoDestaque": "/images/produtos/anel-prata-patins-zirconia_cristal.jpg",
+    "descricao": "Anel ajustável em prata, com pingente de patins cravejado com zircônia.",
+    "preco": 80,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 51,
+    "titulo": "Anel prata: Biellmann",
+    "fotoDestaque": "/images/produtos/anel-prata-bielmann.png",
+    "descricao": "Anel ajustável em prata, com pingente de patinadora biellmann.",
+    "preco": 70,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 52,
+    "titulo": "Anel dourado: Patins duplo",
+    "fotoDestaque": "/images/produtos/anel-dourado-patins-duplo.png",
+    "descricao": "Anel ajustável banhado a ouro 18k, com pingente de patins duplo.",
+    "preco": 70,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  },
+  {
+    "id": 53,
+    "titulo": "Anel dourado: Biellmann",
+    "fotoDestaque": "/images/produtos/anel-dourado-bielmann.png",
+    "descricao": "Anel ajustável banhado a ouro 18k, com pingente de patinadora biellmann.",
+    "preco": 60,
+    "categoria": "Aneis",
+    "fotosAdicionais": []
+  }
+]

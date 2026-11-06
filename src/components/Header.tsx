@@ -4,8 +4,6 @@ import { scrollToElement } from "../utils/scrollToElement";
 import { Produto } from "../hooks/useProdutos";
 import dadosLoja from "../utils/DadosSpinning";
 import ThemeToggle from "./ThemeToggle";
-import { useCarrinho } from "../context/CarrinhoContext";
-import { useNavigate } from "react-router-dom";
 
 interface HeaderProps {
   onCategoriaSelect: (categoria: string) => void;
@@ -21,9 +19,6 @@ export default function Header({
   onSearchResult,
 }: HeaderProps) {
   const [valorBusca, setValorBusca] = useState("");
-  const { itens } = useCarrinho();
-  const navigate = useNavigate();
-  const totalQtd = itens.reduce((acc, item) => acc + item.quantidade, 0);
 
   function handleCategoriaSelect(categoria: string) {
     setValorBusca("");
@@ -59,19 +54,6 @@ export default function Header({
         </div>
         <div className="hidden md:flex items-center">
           <ThemeToggle />
-          <button
-            className="relative ml-4"
-            aria-label="Ver carrinho"
-            onClick={() => navigate("/carrinho")}
-            type="button"
-          >
-            <i className="bi bi-bag text-2xl"></i>
-            {totalQtd > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-                {totalQtd}
-              </span>
-            )}
-          </button>
         </div>
       </div>
 

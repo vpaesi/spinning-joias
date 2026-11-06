@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useProdutos, Cor } from "../hooks/useProdutos";
-import {
-  formatoDoPreco,
-  formatoDoPrecoSemDesconto,
-} from "../utils/formataPreco";
-import BtnAddCarrinho from "../components/produto/BtnAddCarrinho";
+import { formatoDoPreco } from "../utils/formataPreco";
 
 function ProdutoDetalhes() {
   const { id } = useParams<{ id: string }>();
@@ -78,19 +74,13 @@ function ProdutoDetalhes() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      <nav className="mb-6 flex justify-between items-center">
-      <button
-        onClick={() => navigate("/")}
-        className="hover:underline px-2 py-1 sm:px-4 sm:py-2"
-      >
-        ← Voltar aos produtos
-      </button>
-      <button
-        className="flex items-center gap-1 bg-yellow-700 text-white px-2 py-1 rounded hover:bg-yellow-800 transition sm:px-4 sm:py-2"
-        onClick={() => navigate("/carrinho")}
-      >
-        <i className="bi bi-bag"></i> Ver Carrinho
-      </button>
+      <nav className="mb-6 flex justify-start items-center">
+        <button
+          onClick={() => navigate("/")}
+          className="hover:underline px-2 py-1 sm:px-4 sm:py-2"
+        >
+          ← Voltar aos produtos
+        </button>
       </nav>
 
       <div className="bg-white rounded-lg p-6">
@@ -103,20 +93,27 @@ function ProdutoDetalhes() {
         />
 
         {miniaturas.length > 1 && (
-          <div className="flex gap-2 mt-2 flex-wrap justify-center">
+          <div
+            role="group"
+            aria-label="Galeria de fotos do produto"
+            className="flex gap-2 mt-2 flex-wrap justify-center"
+          >
           {miniaturas.map((img, idx) => (
-            <img
-            key={idx}
-            src={img}
-            alt={`Miniatura ${idx + 1}`}
-            className={`w-16 h-16 object-cover rounded cursor-pointer border-2 transition
+            <button
+              key={idx}
+              type="button"
+              aria-label={`Ver foto ${idx + 1} de ${miniaturas.length} de ${produto.titulo}`}
+              aria-pressed={fotoDestaquePrincipal === img}
+              className={`w-16 h-16 overflow-hidden rounded border-2 transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700
               ${
               fotoDestaquePrincipal === img
                 ? "border-yellow-700"
                 : "border-gray-200 hover:border-yellow-700"
               }`}
             onClick={() => setfotoDestaquePrincipal(img)}
-            />
+            >
+              <img src={img} alt="" className="w-full h-full object-cover" />
+            </button>
           ))}
           </div>
         )}
@@ -126,9 +123,6 @@ function ProdutoDetalhes() {
         <h3 className="text-3xl font-bold mb-4">{produto.titulo}</h3>
 
         <div className="mb-6">
-          <span className="line-through text-gray-400 text-lg mr-2">
-          {formatoDoPrecoSemDesconto(produto.preco)}
-          </span>
           <span className="text-blue-500 font-semibold text-2xl">
           {formatoDoPreco(produto.preco)}
           </span>
@@ -154,11 +148,14 @@ function ProdutoDetalhes() {
           <span className="font-semibold text-lg mb-2 block">
             Cores disponíveis:
           </span>
-          <div className="flex gap-3 mt-2">
+          <div className="flex gap-3 mt-2" role="group" aria-label="Cores disponíveis">
             {produto.cores.map((cor, idx) => (
-            <div
+            <button
               key={idx}
-              className="flex flex-col items-center cursor-pointer"
+              type="button"
+              aria-label={`Selecionar cor ${cor.nome}`}
+              aria-pressed={Boolean(isCorSelecionada(cor))}
+              className="flex flex-col items-center cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-700"
               onClick={() => selecionarCor(cor)}
             >
               <span
@@ -177,18 +174,11 @@ function ProdutoDetalhes() {
               <span className="text-xs mt-1 text-center">
               {cor.nome}
               </span>
-            </div>
+            </button>
             ))}
           </div>
           </div>
         )}
-
-        <div className="mt-8">
-          <BtnAddCarrinho
-          produto={produto}
-          className="btn-produto-detalhe-encomende inline-flex items-center bg-yellow-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-yellow-800 transition text-lg"
-          />
-        </div>
 
         <div className="mt-4 text-gray-600 dark:text-white">
           <p className="text-sm">
@@ -203,9 +193,9 @@ function ProdutoDetalhes() {
 
       <div className="text-center mt-8 py-4 border-t border-gray-200">
       <p className="text-gray-600 dark:text-white">
-        Dúvida de como realizar a compra?{" "}
+        Tem dúvidas sobre este produto ou sobre como falar com a loja?{" "}
         <Link to="/faq" className="text-blue-500 hover:underline font-medium">
-          Clique aqui!
+          Consulte as perguntas frequentes.
         </Link>
       </p>
       </div>
