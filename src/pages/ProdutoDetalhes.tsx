@@ -6,7 +6,7 @@ import { formatoDoPreco } from "../utils/formataPreco";
 function ProdutoDetalhes() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { produtos } = useProdutos();
+  const { produtos, loading, erro } = useProdutos();
   const [corSelecionada, setCorSelecionada] = useState<Cor | null>(null);
   const [fotoDestaquePrincipal, setfotoDestaquePrincipal] = useState<
     string | null
@@ -54,6 +54,22 @@ function ProdutoDetalhes() {
     produto.fotosAdicionais.forEach((img) => miniaturasSet.add(img));
 
   const miniaturas = Array.from(miniaturasSet);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center" role="status">
+        Carregando produto...
+      </div>
+    );
+  }
+
+  if (erro) {
+    return (
+      <div className="container mx-auto px-4 py-8 text-center" role="alert">
+        Não foi possível carregar o catálogo. {erro}
+      </div>
+    );
+  }
 
   if (!produto) {
     return (

@@ -1,8 +1,5 @@
 import { Produto } from "../../hooks/useProdutos";
-import {
-  formatoDoPreco,
-  formatoDoPrecoSemDesconto,
-} from "../../utils/formataPreco";
+import { formatoDoPreco } from "../../utils/formataPreco";
 import BtnMaisDetalhes from "./BtnMaisDetalhes";
 
 interface CardProdutoProps {
@@ -35,9 +32,6 @@ export default function CardProduto({
             {produto.titulo}
           </h5>
           <div className="flex flex-col items-center mb-2">
-            <span className="line-through text-gray-400 text-xs">
-              {formatoDoPrecoSemDesconto(produto.preco)}
-            </span>
             <span className="text-blue-500 font-semibold text-sm">
               {formatoDoPreco(produto.preco)}
             </span>

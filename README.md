@@ -1,162 +1,62 @@
-<section align="center">
+# Spinning Joias
 
-# 💎 Spinning Joias
+Site de catálogo para consultar os produtos da Spinning Joias. A pessoa visitante pode pesquisar, navegar por categorias, ordenar e paginar os produtos, além de consultar fotos, descrições, preços e variações.
 
-Este repositório contém a interface web do catálogo de produtos da Spinning Joias.
+O site não possui carrinho, checkout nem formulário de pedido. Para tirar dúvidas ou conversar sobre disponibilidade, a pessoa deve falar diretamente com a loja pelos canais institucionais.
 
-</section>
+## Dados e imagens
 
----
+- Os dados dos produtos ficam em [`public/produtos.json`](public/produtos.json), servido pelo próprio site.
+- As fotos associadas localmente ficam em `public/images/produtos/` e são referenciadas no JSON por caminhos como `/images/produtos/nome-da-foto.jpg`.
+- A foto atual do produto #5 (“Colar prata: Patins maciço”) permanece hospedada externamente por decisão aprovada; os metadados do catálogo continuam locais.
+- Para atualizar produtos ou fotos, altere os arquivos correspondentes, confira as referências e publique uma nova versão do site.
 
-## 📌 Sobre o Projeto
+## Tecnologias
 
-A versão 2.0 foi criada utilizando React, Vite e TypeScript, trazendo uma arquitetura moderna e escalável para o projeto. Foram implementadas funcionalidades como navegação entre produtos, exibição detalhada de informações, integração com GitHub Gist para listagem dinâmica dos produtos e melhorias na experiência do usuário. Além disso, a estrutura do código foi organizada para facilitar a manutenção e a adição de novas features.
+- React 18 e TypeScript
+- Vite
+- React Router
+- Tailwind CSS
+- Jest e Testing Library
 
-Mas a maior novidade nessa versão é a implementação de um carrinho que armazena dados em localStorage e permite que o usuário realize pedidos através de uma mensagem gerada automaticamente e em um clique todas as informações necessárias para finalizar a compra são enviadas para o WhatsApp da Spinning Joias.
+## Executar localmente
 
-**📦 Catálogo de Produtos**: Os dados dos produtos são armazenados em um GitHub Gist público, permitindo atualizações rápidas do catálogo sem necessidade de redeploy da aplicação. Isso facilita a gestão do inventário e a adição de novos produtos.
-
----
-
-## ✨ Tecnologias
-
-- [React](https://react.dev/)
-- [TypeScript](https://react.dev/learn/typescript)
-- [Vite](https://vitejs.dev/)
-
----
-
-## ⚙️ Como rodar localmente
-
-### 1. Pré-requisitos
-
-- [Node.js](https://nodejs.org/) instalado (versão 18+ recomendada)
-- Git instalado
-
-### 2. Clonar o repositório
+Requisitos: Node.js 18 ou mais recente e Git.
 
 ```bash
 git clone https://github.com/vpaesi/spinning-joias.git
 cd spinning-joias
-```
-
-### 3. Instalar dependências
-
-```bash
 npm install
-```
-
-### 4. Executar o projeto localmente
-
-```bash
 npm run dev
 ```
 
----
-
-## 🧪 Como rodar os Testes
+## Verificações
 
 ```bash
 npm test
+npm run lint
+npm run build
 ```
 
-### Rodar cobertura de testes
+Os testes cobrem funções de busca e catálogo, carregamento do JSON local, referências de imagens, detalhes do produto e ausência de ações de compra.
 
-```bash
-npm test -- --coverage
+## Arquivos de planejamento
+
+- [`SPEC-CATALOGO-NAVEGAVEL.md`](SPEC-CATALOGO-NAVEGAVEL.md): escopo, critérios de aceite e plano de execução.
+- [`DECISOES-CATALOGO.md`](DECISOES-CATALOGO.md): decisões e registro das sessões.
+- [`MAPA-FOTOS-PRODUTOS.md`](MAPA-FOTOS-PRODUTOS.md) e [`MAPA-FOTOS-PRODUTOS.csv`](MAPA-FOTOS-PRODUTOS.csv): associação das fotos aos produtos.
+- [`INVENTARIO-SECAO-2.md`](INVENTARIO-SECAO-2.md): inventário do catálogo, imagens e referências.
+
+## Estrutura principal
+
+```text
+public/
+├── images/produtos/      # Fotos usadas pelo catálogo
+└── produtos.json         # Dados locais dos produtos
+src/
+├── components/           # Cabeçalho, navegação, FAQ e componentes de produto
+├── hooks/useProdutos.ts  # Carregamento do catálogo local
+├── pages/                # Home, detalhes, FAQ e sobre
+├── routes/               # Rotas do site e compatibilidade com /carrinho
+└── utils/                # Busca, formatação e utilitários
 ```
-
-Após rodar o comando acima, será gerada uma pasta `coverage/` com o relatório. Para visualizar o relatório detalhado, abra o arquivo `coverage/lcov-report/index.html` no seu navegador.
-
----
-
-## 📁 Estrutura do diretorio
-```
-└── spinning-joias/
-    ├── README.md
-    ├── eslint.config.js
-    ├── index.html
-    ├── package.json
-    ├── postcss.config.js
-    ├── tailwind.config.js
-    ├── tsconfig.app.json
-    ├── tsconfig.json
-    ├── tsconfig.node.json
-    ├── vite.config.ts
-    ├── public/
-    │   └── produtos.json
-    └── src/
-        ├── App.tsx
-        ├── index.css
-        ├── main.tsx
-        ├── vite-env.d.ts
-        ├── components/
-        │   ├── BtnBackToTop.tsx
-        │   ├── Footer.tsx
-        │   ├── Header.tsx
-        │   ├── Search.tsx
-        │   ├── ThemeToggle.tsx
-        │   ├── carrinho/
-        │   │   ├── BtnLimparCarrinho.tsx
-        │   │   ├── GeradorMensagemCarrinho.tsx
-        │   │   ├── GrupoDadosPessoais.tsx
-        │   │   ├── GrupoEndereco.tsx
-        │   │   ├── InfoEntregaCarrinho.tsx
-        │   │   ├── InfoProdutoCarrinho.tsx
-        │   │   ├── InputFormCarrinho.tsx
-        │   │   ├── PagamentoRadio.tsx
-        │   │   ├── TabelaProdutoCarrinhoDesktop.tsx
-        │   │   └── TabelaProdutoCarrinhoMobile.tsx
-        │   ├── faq/
-        │   │   ├── faqData.tsx
-        │   │   ├── FaqImage.tsx
-        │   │   ├── FaqItem.tsx
-        │   │   └── FaqList.tsx
-        │   ├── home/
-        │   │   ├── Filter.tsx
-        │   │   ├── HeroSection.tsx
-        │   │   ├── Letreiro.tsx
-        │   │   ├── LetreiroConteudo.tsx
-        │   │   └── NavProdutosPrincipais.tsx
-        │   ├── menu-hamburger/
-        │   │   ├── MenuDropdownCategorias.tsx
-        │   │   └── MenuHamburgerButton.tsx
-        │   └── produto/
-        │       ├── BtnAddCarrinho.tsx
-        │       ├── BtnMaisDetalhes.tsx
-        │       ├── CardProduto.tsx
-        │       ├── CarrosselProdutos.tsx
-        │       ├── ListaProdutos.tsx
-        │       ├── ModalSelecionaCor.tsx
-        │       ├── PaginacaoBotao.tsx
-        │       ├── PaginacaoProdutos.tsx
-        │       ├── ProdutosPorPaginaSelect.tsx
-        │       ├── RenderizaProdutos.tsx
-        │       └── TextoMostrandoProdutos.tsx
-        ├── context/
-        │   └── CarrinhoContext.tsx
-        ├── hooks/
-        │   └── useProdutos.ts
-        ├── pages/
-        │   ├── About.tsx
-        │   ├── Carrinho.tsx
-        │   ├── Faq.tsx
-        │   ├── Home.tsx
-        │   └── ProdutoDetalhes.tsx
-        ├── routes/
-        │   └── AppRoutes.tsx
-        ├── styles/
-        │   └── globals.css
-        └── utils/
-            ├── DadosSpinning.ts
-            ├── formatadores.ts
-            ├── formataPreco.ts
-            ├── padronizaTextoDaPesquisa.ts
-            ├── produtosUtils.ts
-            ├── scrollToElement.ts
-            ├── telefone.ts
-            └── validacoesForm.ts
-```
-
-## 📊 Status do Projeto
-<p> <a href="https://github.com/vpaesi/spinning-joias/commits"> <img src="https://img.shields.io/github/last-commit/vpaesi/spinning-joias" alt="última atualização"/> </a> <a href="https://github.com/vpaesi/spinning-joias/issues/"> <img src="https://img.shields.io/github/issues/vpaesi/spinning-joias" alt="issues abertas" /> </a> <a href="https://github.com/vpaesi/spinning-joias/blob/main/LICENSE"> <img src="https://img.shields.io/github/license/vpaesi/spinning-joias" alt="licença" /> </a> </p>

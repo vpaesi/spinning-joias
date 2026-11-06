@@ -2,6 +2,7 @@
 
 **Data do checkpoint:** 30/10/2026  
 **Branch:** `codex/catalogo-navegavel`  
+**Branch local de integração atual:** `dev` (sem envio ao remoto)
 **Referência:** [SPEC-CATALOGO-NAVEGAVEL.md](./SPEC-CATALOGO-NAVEGAVEL.md)
 
 ## Dia 1 — confirmação de premissas e governança
@@ -133,3 +134,32 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 - Miniaturas da galeria e seletores de cor foram convertidos em botões com rótulos acessíveis e estado de seleção exposto; continuam servindo apenas para consultar fotos e variações.
 
 **Estado da seção 8:** concluída. Preço, galeria, seleção de cores e chamada para a FAQ estão alinhados ao catálogo consultivo; a FAQ reescrita no código foi registrada neste diário.
+
+## Dia 9 — documentação, metadados e assets sem uso
+
+- Reescrito o README para descrever o site como catálogo, a fonte local `public/produtos.json`, as fotos versionadas e os comandos atuais de desenvolvimento e verificação. Removida a árvore antiga que listava arquivos de carrinho já excluídos.
+- Atualizado o `<meta name="description">` da página para apresentar a consulta de catálogo e os canais de contato. Corrigidos o valor do meta de compatibilidade do navegador e o caminho do favicon.
+- Removidos nove screenshots antigos de carrinho e checkout de `src/assets/`; a busca no repositório confirmou que já não eram referenciados pelo código ou pela documentação.
+
+**Estado da seção 9:** concluída. README, descrição da página e referências visuais correspondem ao catálogo sem fluxo de pedido.
+
+## Dia 10 — atualização da suíte de testes
+
+- Excluídos os testes de componentes, contexto, quantidade e validações exclusivos do carrinho/checkout removido; ajustado o teste de constantes para cobrir apenas as opções atuais de paginação.
+- Adicionada cobertura para o carregamento de `/produtos.json`, integridade das referências de imagens locais, preço e CTA informativo dos cards, galeria/cores/preço nos detalhes e ausência de ações de compra.
+- Removida a função de preço “sem desconto” que inventava um acréscimo de 10%, junto dos testes correspondentes. Cards e página de detalhes agora mostram apenas o preço cadastrado.
+- Ajustados os testes de navegação e scroll para isolar APIs de navegador que não existem no JSDOM.
+
+**Verificação:** `npx --no-install jest --runInBand` — 13 suítes aprovadas, 32 testes aprovados.
+
+**Estado da seção 10:** concluída para a limpeza e cobertura descritas acima. Lint, build e revisão técnica completa continuam previstos para a sessão 11.
+
+## Dia 11 — revisão técnica local
+
+- A home agora recebe os estados `loading` e `erro` reais do hook do catálogo. A página de detalhes mostra estado de carregamento, estado de falha e produto inexistente separadamente.
+- Testes adicionados para esses estados e repetida a suíte completa: **13 suítes e 35 testes aprovados**.
+- `npm run lint`: aprovado.
+- `npm run build`: aprovado. O diretório de deploy gerado contém 141 arquivos, incluindo as 133 fotos do catálogo, com 74.627.765 bytes no total.
+- O build ainda exibe avisos informativos sobre a base `caniuse-lite` desatualizada e o plugin `@tailwindcss/line-clamp` que já vem incluído no Tailwind 3.3+. Não impediram lint, testes ou build.
+
+**Estado da seção 11:** concluída localmente. QA de preview Vercel e aceite continuam pendentes conforme as sessões seguintes do plano.

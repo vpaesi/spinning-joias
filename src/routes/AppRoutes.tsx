@@ -28,7 +28,7 @@ function CarrinhoRedirect() {
 }
 
 function AppRoutes() {
-  const { produtos } = useProdutos();
+  const { produtos, loading, erro } = useProdutos();
   const [categoriaSelecionada, setCategoriaSelecionada] =
     useState<string>("todos");
   const [termoBusca, setTermoBusca] = useState<string>("");
@@ -116,8 +116,8 @@ function AppRoutes() {
           element={
             <Home
               produtosFiltrados={getProdutosFiltrados()}
-              loading={false}
-              erro={null}
+              loading={loading}
+              erro={erro}
               produtos={produtos}
               termoBusca={termoBusca}
               categoriaSelecionada={categoriaSelecionada}

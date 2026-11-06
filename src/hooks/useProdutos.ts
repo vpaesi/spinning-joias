@@ -32,7 +32,7 @@ export function useProdutos() {
         setProdutos(data);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(() => {
         setErro("Erro ao carregar produtos");
         setLoading(false);
       });

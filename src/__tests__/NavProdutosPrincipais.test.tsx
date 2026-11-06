@@ -1,6 +1,10 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import NavProdutosPrincipais from "../components/home/NavProdutosPrincipais";
 
+jest.mock("../utils/scrollToElement", () => ({
+  scrollToElement: jest.fn(),
+}));
+
 describe("NavProdutosPrincipais", () => {
   it("chama onCategoriaSelect para todas as categorias", () => {
     const onCategoriaSelect = jest.fn();
