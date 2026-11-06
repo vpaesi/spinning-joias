@@ -21,7 +21,7 @@ O site não possui carrinho, checkout nem formulário de pedido. Para tirar dúv
 
 ## Executar localmente
 
-Requisitos: Node.js 18 ou mais recente e Git.
+Requisitos: Node.js 26.x e Git. O runtime Node.js 26.x também está declarado para os builds na Vercel.
 
 ```bash
 git clone https://github.com/vpaesi/spinning-joias.git

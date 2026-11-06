@@ -173,3 +173,14 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 - **Checkpoint da sprint:** após o Dia 11, entregar a versão dev ao cliente para avaliação e aguardar aprovação antes de seguir para as sessões restantes. O plano passa a ter 19 sessões mais até quatro de reserva.
 
 **Implementação e verificação:** os links de início limpam o filtro; o seletor de quantidade respeita o número filtrado e some sem resultados; o tema abre escuro por padrão e só grava uma preferência quando a pessoa o alterna; o rodapé identifica a versão 3.0 e aponta para o site indicado. O checkpoint foi inserido como sessão 12 e os passos posteriores foram reenumerados. Foram adicionados testes para navegação, opções de paginação, tema e créditos do rodapé. Verificações: 17 suítes/42 testes aprovados, lint aprovado e build aprovado.
+
+## Sessão 12 — aprovação da versão dev
+
+- A cliente confirmou a aprovação da versão dev publicada na branch `dev` em 06/11/2026.
+- Gate de sprint aprovado; liberado o início das sessões de QA 13–15 conforme o plano.
+
+## Incidente de deploy Vercel — Node.js
+
+- Em 06/11/2026, o deploy Preview falhou porque o projeto tentou usar Node.js `20.x`, runtime descontinuado pela Vercel; a mensagem de falha pede `26.x`.
+- `package.json` e `package-lock.json` declaram `engines.node: 26.x`; `.nvmrc` também seleciona Node 26 para ambientes locais que a respeitam. A Vercel permite que `engines.node` defina a versão acima da configuração do painel.
+- É necessário confirmar a correção na próxima execução do deploy Preview. A validação local atual ocorre em Node.js `22.14.0`, não comprova o build em Node 26.
