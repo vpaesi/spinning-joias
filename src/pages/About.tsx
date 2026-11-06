@@ -34,8 +34,8 @@ function About() {
             <p>
               A Spinning Joias é mais do que uma marca, é uma comunidade de
               pessoas com estilo e <b>apaixonadas por patinação</b>. Estamos
-              aqui para oferecer a melhor experiência de compra e atendimento,
-              sempre com um sorriso no rosto e disposição para ajudar.
+              aqui para oferecer uma experiência atenciosa de consulta ao
+              catálogo e atendimento, sempre com disposição para ajudar.
             </p>
             <br />
             <p>
@@ -50,8 +50,8 @@ function About() {
             <h2 className="text-2xl font-semibold mt-4 mb-2">🎯 Missão</h2>
             <p>
               Encantar nossos clientes com joias de qualidade, design marcante e
-              preço justo, por meio de uma plataforma moderna, segura e pensada
-              para quem valoriza estilo, praticidade e beleza.
+              preço justo, por meio de um catálogo digital acessível e de um
+              atendimento atencioso, pensado para quem valoriza estilo e beleza.
             </p>
             <br />
           </div>
@@ -59,8 +59,8 @@ function About() {
             <h2 className="text-2xl font-semibold mt-4 mb-2">🌟 Visão</h2>
             <p>
               Ser referência nacional em joias que unem elegância e
-              autenticidade, oferecendo uma experiência de compra encantadora e
-              confiável.
+              autenticidade, oferecendo uma experiência de consulta ao catálogo
+              e atendimento encantadora e confiável.
             </p>
             <br />
           </div>
