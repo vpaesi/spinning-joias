@@ -186,10 +186,15 @@ O cliente orientou manter a foto/URL atual do produto #5 (`Colar prata: Patins m
 - A cliente confirmou que a nova execução do deploy Preview foi bem-sucedida após o envio de `d723937` à branch remota `dev`.
 - A validação local foi executada em Node.js `22.14.0`; não comprova o build em Node 26 por si só.
 
-## QA do Preview — bloqueio de acesso
+## Sessões 13–17 — QA do Preview e correções
 
-- Em 06/11/2026, foram consultados `https://spinning-joias-bgiclrvlx-vpaesis-projects.vercel.app/`, `/produto/1`, `/carrinho` e `/produtos.json` por HTTP. Todos responderam com HTML cujo título é “Login – Vercel”, portanto o status HTTP 200 não confirma que o catálogo ou as rotas foram servidos.
-- O alias de branch `https://spinning-joias-git-dev-vpaesis-projects.vercel.app/` foi verificado em seguida nas mesmas rotas; também respondeu com “Login – Vercel”.
-- Em seguida, a cliente forneceu um link compartilhável. A home passou a responder com a página “Spinning Joias” e `/produtos.json` retornou os 53 produtos, confirmando que o site está implantado e acessível por esse link.
-- O acesso direto às rotas `/produto/1` e `/carrinho` retornou `404 NOT_FOUND` mesmo com o link compartilhável. Causa: falta de fallback SPA na Vercel. Foi adicionado `vercel.json` com rewrite para `/index.html` e um teste de regressão `vercelConfig.test.ts`; é necessário validar essas rotas após o próximo Preview.
-- A rodada local atual passou: 18 suítes e 43 testes aprovados, lint aprovado e build aprovado. A máquina ainda usa Node.js `22.14.0`; isso não substitui a validação de build no runtime Node 26 da Vercel. QA visual/responsivo e aceite final continuam pendentes; não houve autorização para produção.
+- O link compartilhável liberou o alias de `dev`. Home e JSON carregam; o JSON contém 53 produtos. O primeiro QA encontrou `404 NOT_FOUND` em acessos diretos a `/produto/1` e `/carrinho`.
+- Corrigido o fallback SPA em `vercel.json`, com rewrite para `/index.html` após a resolução de arquivos existentes. No Preview atualizado, `/produto/1`, `/produto/9`, `/faq` e `/about` carregam a aplicação; `/carrinho` monta a rota antiga, redireciona para `/` e informa que o catálogo não possui carrinho. A regra está coberta por `vercelConfig.test.ts`.
+- Desktop e mobile verificados. Em viewport mobile de 390 px, home e detalhe de produto não apresentaram overflow horizontal; menu e navegação funcionaram. Em desktop, a home também não apresentou overflow. O console não mostrou erros.
+- Busca com resultado (36 produtos) e sem resultado (0) validada; o seletor some sem resultados e limita opções aos totais filtrados (15, 10 e 7 produtos). Ordenação por preço, paginação, URL direta com categoria e retorno à home limpando o filtro passaram.
+- Detalhe do produto #9 exibiu a galeria de 17 fotos e 9 cores; seleção de foto e cor funcionou. As 133 referências locais de imagem responderam HTTP 200. A foto externa aprovada do produto #5 carregou no Preview.
+- FAQ orienta a falar diretamente com a loja; não foram encontrados controles de adicionar/finalizar compra nem links de carrinho na página de produto. O teste de integração de `/carrinho` com dados legados em `localStorage` confirmou o redirecionamento para a home sem ler nem remover esses dados.
+- Tema abriu escuro; alternar para claro e recarregar preservou a escolha. O retorno para escuro também persistiu após recarga.
+- A varredura encontrou textos ambíguos de compra em dois produtos e na página “Sobre”. Eles foram alinhados ao catálogo e à consulta direta com a loja; os novos textos foram confirmados no Preview.
+- Estado local: 20 suítes e 46 testes aprovados; lint e build aprovados. O build local roda em Node.js `22.14.0`; a cliente confirmou que o deploy Vercel com a declaração `26.x` foi bem-sucedido. Branch remota `dev` contém as correções de fallback e textos.
+- **Estado:** sessões 13–17 concluídas. A sessão 18 (aceite final do Preview pela cliente) aguarda decisão; a sessão 19 (produção) continua condicionada a esse aceite. Nenhuma publicação em produção foi feita.
